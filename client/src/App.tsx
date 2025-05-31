@@ -36,9 +36,12 @@ import WhenAskForRaiseOptimalTiming from "@/pages/blog/when-ask-for-raise-optima
 import CommonSalaryNegotiationMistakes from "@/pages/blog/common-salary-negotiation-mistakes";
 import SalaryTransparencyImpact from "@/pages/blog/salary-transparency-impact";
 import AveragePayRaisesDataTrends from "@/pages/guides/average-pay-raises-data-trends";
+import FactorsInfluencingPayRaises from "@/pages/guides/factors-influencing-pay-raises";
 import GenderPayGapCalculator from "@/pages/tools/gender-pay-gap-calculator";
 import OvertimePayCalculator from "@/pages/tools/overtime-pay-calculator";
 import PromotionCalculator from "@/pages/tools/promotion-calculator";
+import RemoteWorkLocationAdjuster from "@/pages/tools/remote-work-location-adjuster";
+import SalaryNegotiationCalculator from "@/pages/tools/salary-negotiation-calculator";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -63,11 +66,14 @@ function Router() {
           <Route path="/tools/gender-pay-gap-calculator" component={GenderPayGapCalculator} />
           <Route path="/tools/overtime-pay-calculator" component={OvertimePayCalculator} />
           <Route path="/tools/promotion-calculator" component={PromotionCalculator} />
+          <Route path="/tools/remote-work-location-adjuster" component={RemoteWorkLocationAdjuster} />
+          <Route path="/tools/salary-negotiation-calculator" component={SalaryNegotiationCalculator} />
           
           {/* Guides Section */}
           <Route path="/guides" component={GuidesIndex} />
           <Route path="/guides/understanding-pay-raises-complete" component={UnderstandingPayRaisesComplete} />
           <Route path="/guides/average-pay-raises-data-trends" component={AveragePayRaisesDataTrends} />
+          <Route path="/guides/factors-influencing-pay-raises" component={FactorsInfluencingPayRaises} />
           <Route path="/guides/negotiating-salary-increase-strategies" component={NegotiatingSalaryIncreaseStrategies} />
           <Route path="/guides/performance-review-raise-preparation" component={PerformanceReviewRaisePreparation} />
           

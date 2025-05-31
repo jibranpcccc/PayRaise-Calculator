@@ -253,7 +253,7 @@ export default function SalaryNegotiationCalculator() {
                         <Checkbox 
                           id="market-research" 
                           checked={marketResearch}
-                          onCheckedChange={setMarketResearch}
+                          onCheckedChange={(checked) => setMarketResearch(checked === true)}
                         />
                         <Label htmlFor="market-research">Completed market salary research</Label>
                       </div>
@@ -261,7 +261,7 @@ export default function SalaryNegotiationCalculator() {
                         <Checkbox 
                           id="recent-achievements" 
                           checked={recentAchievements}
-                          onCheckedChange={setRecentAchievements}
+                          onCheckedChange={(checked) => setRecentAchievements(checked === true)}
                         />
                         <Label htmlFor="recent-achievements">Recent significant achievements</Label>
                       </div>
@@ -269,7 +269,7 @@ export default function SalaryNegotiationCalculator() {
                         <Checkbox 
                           id="additional-responsibilities" 
                           checked={additionalResponsibilities}
-                          onCheckedChange={setAdditionalResponsibilities}
+                          onCheckedChange={(checked) => setAdditionalResponsibilities(checked === true)}
                         />
                         <Label htmlFor="additional-responsibilities">Additional responsibilities taken on</Label>
                       </div>

@@ -136,9 +136,9 @@ export default function Home() {
                 <span className="text-primary"> Calculate Your Exact Salary Increase</span>
               </h1>
               <p className="mt-3 text-base text-gray-500 sm:mt-5 sm:text-xl lg:text-lg xl:text-xl">
-                Instantly calculate your new salary after any raise. See tax impact, inflation 
-                adjustments, and compare against industry benchmarks. Free professional tools 
-                used by 50,000+ employees.
+                Instantly calculate your new salary after any raise with our comprehensive calculator suite. 
+                See real tax impact, inflation adjustments, and compare against 2025 industry benchmarks. 
+                Trusted by over 50,000+ professionals for salary negotiations and career planning.
               </p>
               
               <div className="mt-8 sm:max-w-lg sm:mx-auto sm:text-center lg:text-left lg:mx-0">
