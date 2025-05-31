@@ -94,37 +94,114 @@ export default function BonusImpactCalculator() {
   return (
     <>
       <SEOHead
-        title="Bonus Impact Calculator - Total Compensation Analysis"
-        description="Calculate the impact of bonuses on your total compensation. Analyze annual bonus effects, tax implications, and equivalent salary increases."
+        title="Bonus Impact Calculator 2025: Total Compensation Analysis | Free Tool"
+        description="Calculate the impact of bonuses on your total compensation. Analyze annual bonus effects, tax implications, and equivalent salary increases with detailed projections."
         canonical="/tools/bonus-impact-calculator"
+        keywords="bonus impact calculator, total compensation, bonus tax calculator, performance bonus, annual bonus analysis, salary vs bonus"
         structuredData={structuredData}
       />
 
-      <div className="min-h-screen bg-gray-50">
+      <div className="min-h-screen bg-gradient-to-br from-green-50 via-white to-blue-50">
         {/* Hero Section */}
-        <section className="bg-white py-12">
+        <section className="bg-white py-16">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center">
-              <div className="flex justify-center mb-4">
-                <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center">
-                  <Gift className="h-8 w-8 text-white" />
-                </div>
+              <div className="mb-6">
+                <span className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-green-100 text-green-800 border border-green-200">
+                  <Gift className="w-4 h-4 mr-2" />
+                  Total Compensation Analysis
+                </span>
               </div>
-              <h1 className="text-4xl font-bold text-gray-900 mb-4">
+              <h1 className="text-4xl font-bold text-gray-900 sm:text-5xl lg:text-6xl">
                 Bonus Impact Calculator
               </h1>
-              <p className="text-xl text-gray-600 mb-6">
-                Total Compensation Analysis Tool
+              <p className="mt-6 text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                Analyze how bonuses affect your total compensation. Calculate tax implications, 
+                equivalent salary increases, and long-term value of performance bonuses.
               </p>
-              <div className="flex justify-center space-x-4 mb-6">
-                <Badge className="bg-blue-100 text-blue-800">Compensation Planning</Badge>
-                <Badge variant="outline">Tax Analysis</Badge>
-                <Badge variant="outline">Total Compensation</Badge>
-              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* How to Use Guide */}
+        <section className="py-12 bg-green-50">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-10">
+              <h2 className="text-3xl font-bold text-gray-900 mb-4">
+                How to Calculate Bonus Impact: Step-by-Step Guide
+              </h2>
               <p className="text-lg text-gray-600">
-                Calculate how bonuses impact your total compensation package, including tax implications 
-                and equivalent salary increase comparisons.
+                Understand the true value of your bonus compensation
               </p>
+            </div>
+            
+            <div className="grid md:grid-cols-4 gap-6 mb-8">
+              <div className="bg-white rounded-lg p-6 shadow-lg">
+                <div className="bg-green-600 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+                  <span className="text-white font-bold text-xl">1</span>
+                </div>
+                <h3 className="font-semibold text-gray-900 mb-3">Enter Base Salary</h3>
+                <p className="text-gray-600 text-sm">
+                  Input your current annual base salary excluding any bonuses 
+                  or additional compensation.
+                </p>
+              </div>
+              
+              <div className="bg-white rounded-lg p-6 shadow-lg">
+                <div className="bg-blue-600 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+                  <span className="text-white font-bold text-xl">2</span>
+                </div>
+                <h3 className="font-semibold text-gray-900 mb-3">Bonus Details</h3>
+                <p className="text-gray-600 text-sm">
+                  Enter your bonus amount and select frequency (annual, 
+                  quarterly, monthly).
+                </p>
+              </div>
+              
+              <div className="bg-white rounded-lg p-6 shadow-lg">
+                <div className="bg-purple-600 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+                  <span className="text-white font-bold text-xl">3</span>
+                </div>
+                <h3 className="font-semibold text-gray-900 mb-3">Tax Rate</h3>
+                <p className="text-gray-600 text-sm">
+                  Set your tax rate. Bonuses are often taxed at higher rates 
+                  than regular salary.
+                </p>
+              </div>
+              
+              <div className="bg-white rounded-lg p-6 shadow-lg">
+                <div className="bg-orange-600 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+                  <span className="text-white font-bold text-xl">4</span>
+                </div>
+                <h3 className="font-semibold text-gray-900 mb-3">Analyze Results</h3>
+                <p className="text-gray-600 text-sm">
+                  View total compensation impact and equivalent salary 
+                  increase analysis.
+                </p>
+              </div>
+            </div>
+
+            {/* Bonus Types Guide */}
+            <div className="bg-white rounded-lg p-8 shadow-lg">
+              <h3 className="text-xl font-semibold text-gray-900 mb-6">Understanding Different Bonus Types</h3>
+              <div className="grid md:grid-cols-2 gap-6">
+                <div>
+                  <h4 className="font-medium text-gray-900 mb-3">Performance-Based Bonuses</h4>
+                  <ul className="space-y-2 text-sm text-gray-600">
+                    <li>• <strong>Annual Performance:</strong> 5-15% of salary based on individual performance</li>
+                    <li>• <strong>Company Performance:</strong> 3-10% based on company financial results</li>
+                    <li>• <strong>Sales Commission:</strong> 2-20% of sales revenue (sales roles)</li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 className="font-medium text-gray-900 mb-3">Special Bonuses</h4>
+                  <ul className="space-y-2 text-sm text-gray-600">
+                    <li>• <strong>Sign-On Bonus:</strong> $5K-$50K one-time recruitment incentive</li>
+                    <li>• <strong>Retention Bonus:</strong> 10-25% of salary to retain key employees</li>
+                    <li>• <strong>Referral Bonus:</strong> $1K-$10K for successful employee referrals</li>
+                  </ul>
+                </div>
+              </div>
             </div>
           </div>
         </section>

@@ -81,8 +81,8 @@ export default function PromotionSalaryCalculator() {
   }, [currentSalary, currentLevel, targetLevel, industry, companySize]);
 
   const calculatePromotion = () => {
-    const currentLevelData = promotionData[currentLevel];
-    const targetLevelData = promotionData[targetLevel];
+    const currentLevelData = promotionData[currentLevel as keyof typeof promotionData];
+    const targetLevelData = promotionData[targetLevel as keyof typeof promotionData];
     
     if (!currentLevelData || !targetLevelData) return;
 
@@ -172,17 +172,108 @@ export default function PromotionSalaryCalculator() {
         structuredData={structuredData}
       />
 
-      <div className="min-h-screen bg-gray-50">
+      <div className="min-h-screen bg-gradient-to-br from-purple-50 via-white to-blue-50">
         {/* Hero Section */}
-        <section className="bg-white py-12">
+        <section className="bg-white py-16">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center">
-              <h1 className="text-4xl font-bold text-gray-900 sm:text-5xl">
+              <div className="mb-6">
+                <span className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-purple-100 text-purple-800 border border-purple-200">
+                  <Award className="w-4 h-4 mr-2" />
+                  Career Advancement Planning
+                </span>
+              </div>
+              <h1 className="text-4xl font-bold text-gray-900 sm:text-5xl lg:text-6xl">
                 Promotion Salary Calculator
               </h1>
-              <p className="mt-4 text-xl text-gray-600">
-                Calculate expected salary increases for career advancement and promotions
+              <p className="mt-6 text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                Calculate expected salary increases for promotions and career advancement. Plan your 
+                next career move with industry-specific data and level-based projections.
               </p>
+            </div>
+          </div>
+        </section>
+
+        {/* How to Use Guide */}
+        <section className="py-12 bg-purple-50">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-10">
+              <h2 className="text-3xl font-bold text-gray-900 mb-4">
+                How to Calculate Your Promotion Salary: Complete Guide
+              </h2>
+              <p className="text-lg text-gray-600">
+                Follow these steps to accurately estimate your salary increase potential
+              </p>
+            </div>
+            
+            <div className="grid md:grid-cols-4 gap-6 mb-8">
+              <div className="bg-white rounded-lg p-6 shadow-lg">
+                <div className="bg-purple-600 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+                  <span className="text-white font-bold text-xl">1</span>
+                </div>
+                <h3 className="font-semibold text-gray-900 mb-3">Current Details</h3>
+                <p className="text-gray-600 text-sm">
+                  Enter your current salary and select your current job level. Be accurate 
+                  with your base salary excluding bonuses.
+                </p>
+              </div>
+              
+              <div className="bg-white rounded-lg p-6 shadow-lg">
+                <div className="bg-blue-600 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+                  <span className="text-white font-bold text-xl">2</span>
+                </div>
+                <h3 className="font-semibold text-gray-900 mb-3">Target Level</h3>
+                <p className="text-gray-600 text-sm">
+                  Choose your target promotion level. Each level up typically 
+                  represents specific salary increase ranges.
+                </p>
+              </div>
+              
+              <div className="bg-white rounded-lg p-6 shadow-lg">
+                <div className="bg-green-600 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+                  <span className="text-white font-bold text-xl">3</span>
+                </div>
+                <h3 className="font-semibold text-gray-900 mb-3">Industry & Size</h3>
+                <p className="text-gray-600 text-sm">
+                  Select your industry and company size. These factors significantly 
+                  impact promotion salary ranges.
+                </p>
+              </div>
+              
+              <div className="bg-white rounded-lg p-6 shadow-lg">
+                <div className="bg-orange-600 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+                  <span className="text-white font-bold text-xl">4</span>
+                </div>
+                <h3 className="font-semibold text-gray-900 mb-3">View Projections</h3>
+                <p className="text-gray-600 text-sm">
+                  Get detailed salary projections including minimum, expected, 
+                  and maximum ranges for your promotion.
+                </p>
+              </div>
+            </div>
+
+            {/* Career Level Guide */}
+            <div className="bg-white rounded-lg p-8 shadow-lg">
+              <h3 className="text-xl font-semibold text-gray-900 mb-6">Understanding Career Levels & Salary Increases</h3>
+              <div className="grid md:grid-cols-2 gap-6">
+                <div>
+                  <h4 className="font-medium text-gray-900 mb-3">Individual Contributor Track</h4>
+                  <ul className="space-y-2 text-sm text-gray-600">
+                    <li>• <strong>IC:</strong> Entry to mid-level individual contributor (8-15% increase)</li>
+                    <li>• <strong>Senior IC:</strong> Senior individual contributor (12-20% increase)</li>
+                    <li>• <strong>Lead/Specialist:</strong> Technical lead or specialist (15-25% increase)</li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 className="font-medium text-gray-900 mb-3">Management Track</h4>
+                  <ul className="space-y-2 text-sm text-gray-600">
+                    <li>• <strong>Manager:</strong> First-time management role (10-18% increase)</li>
+                    <li>• <strong>Senior Manager:</strong> Experienced manager (15-25% increase)</li>
+                    <li>• <strong>Director:</strong> Department leadership (12-20% increase)</li>
+                    <li>• <strong>VP+:</strong> Executive level (15-35% increase)</li>
+                  </ul>
+                </div>
+              </div>
             </div>
           </div>
         </section>
