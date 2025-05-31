@@ -229,7 +229,11 @@ export default function ColaCalculator() {
             </div>
           </div>
         </section>
-              </p>
+
+        {/* Hero Section */}
+        <section className="py-12 bg-gradient-to-r from-blue-50 to-indigo-50 border-b">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div className="max-w-3xl mx-auto">
               <div className="flex justify-center space-x-4 mb-6">
                 <Badge className="bg-blue-100 text-blue-800">Location Analysis</Badge>
                 <Badge variant="outline">2025 COLA: 2.5%</Badge>
