@@ -38,9 +38,11 @@ import SalaryTransparencyImpact from "@/pages/blog/salary-transparency-impact";
 import AveragePayRaisesDataTrends from "@/pages/guides/average-pay-raises-data-trends";
 import FactorsInfluencingPayRaises from "@/pages/guides/factors-influencing-pay-raises";
 import MarketValueSalaryResearch from "@/pages/guides/market-value-salary-research";
+import CostLivingAdjustmentGuide from "@/pages/guides/cost-living-adjustment-guide";
 import RaiseNegotiationScriptsTemplates from "@/pages/blog/raise-negotiation-scripts-templates";
 import HourlyVsSalaryRaiseDifferences from "@/pages/blog/hourly-vs-salary-raise-differences";
 import AverageRaiseByIndustry2025 from "@/pages/blog/average-raise-by-industry-2025";
+import InflationRealSalaryImpact from "@/pages/blog/inflation-real-salary-impact";
 import GenderPayGapCalculator from "@/pages/tools/gender-pay-gap-calculator";
 import OvertimePayCalculator from "@/pages/tools/overtime-pay-calculator";
 import PromotionCalculator from "@/pages/tools/promotion-calculator";
@@ -79,6 +81,7 @@ function Router() {
           <Route path="/guides/average-pay-raises-data-trends" component={AveragePayRaisesDataTrends} />
           <Route path="/guides/factors-influencing-pay-raises" component={FactorsInfluencingPayRaises} />
           <Route path="/guides/market-value-salary-research" component={MarketValueSalaryResearch} />
+          <Route path="/guides/cost-living-adjustment-guide" component={CostLivingAdjustmentGuide} />
           <Route path="/guides/negotiating-salary-increase-strategies" component={NegotiatingSalaryIncreaseStrategies} />
           <Route path="/guides/performance-review-raise-preparation" component={PerformanceReviewRaisePreparation} />
           
@@ -89,6 +92,7 @@ function Router() {
           <Route path="/blog/raise-negotiation-scripts-templates" component={RaiseNegotiationScriptsTemplates} />
           <Route path="/blog/hourly-vs-salary-raise-differences" component={HourlyVsSalaryRaiseDifferences} />
           <Route path="/blog/average-raise-by-industry-2025" component={AverageRaiseByIndustry2025} />
+          <Route path="/blog/inflation-real-salary-impact" component={InflationRealSalaryImpact} />
           <Route path="/blog/common-salary-negotiation-mistakes" component={CommonSalaryNegotiationMistakes} />
           <Route path="/blog/salary-transparency-impact" component={SalaryTransparencyImpact} />
           
