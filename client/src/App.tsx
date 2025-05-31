@@ -43,6 +43,7 @@ import RaiseNegotiationScriptsTemplates from "@/pages/blog/raise-negotiation-scr
 import HourlyVsSalaryRaiseDifferences from "@/pages/blog/hourly-vs-salary-raise-differences";
 import AverageRaiseByIndustry2025 from "@/pages/blog/average-raise-by-industry-2025";
 import InflationRealSalaryImpact from "@/pages/blog/inflation-real-salary-impact";
+import RemoteWorkRaiseStrategies from "@/pages/blog/remote-work-raise-strategies";
 import GenderPayGapCalculator from "@/pages/tools/gender-pay-gap-calculator";
 import OvertimePayCalculator from "@/pages/tools/overtime-pay-calculator";
 import PromotionCalculator from "@/pages/tools/promotion-calculator";
@@ -93,6 +94,7 @@ function Router() {
           <Route path="/blog/hourly-vs-salary-raise-differences" component={HourlyVsSalaryRaiseDifferences} />
           <Route path="/blog/average-raise-by-industry-2025" component={AverageRaiseByIndustry2025} />
           <Route path="/blog/inflation-real-salary-impact" component={InflationRealSalaryImpact} />
+          <Route path="/blog/remote-work-raise-strategies" component={RemoteWorkRaiseStrategies} />
           <Route path="/blog/common-salary-negotiation-mistakes" component={CommonSalaryNegotiationMistakes} />
           <Route path="/blog/salary-transparency-impact" component={SalaryTransparencyImpact} />
           

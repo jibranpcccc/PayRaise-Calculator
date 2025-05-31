@@ -354,6 +354,16 @@ export default function Home() {
                         → Plan your salary negotiation strategy
                       </span>
                     </Link>
+                    <Link href="/blog/average-raise-by-industry-2025">
+                      <span className="block text-primary hover:text-blue-700 text-sm">
+                        → See 2025 industry raise data
+                      </span>
+                    </Link>
+                    <Link href="/guides/factors-influencing-pay-raises">
+                      <span className="block text-primary hover:text-blue-700 text-sm">
+                        → Understand raise factors
+                      </span>
+                    </Link>
                   </div>
                 </CardContent>
               </Card>
