@@ -49,6 +49,15 @@ import OvertimePayCalculator from "@/pages/tools/overtime-pay-calculator";
 import PromotionCalculator from "@/pages/tools/promotion-calculator";
 import RemoteWorkLocationAdjuster from "@/pages/tools/remote-work-location-adjuster";
 import SalaryNegotiationCalculator from "@/pages/tools/salary-negotiation-calculator";
+import StateWiseRaiseCalculator from "@/pages/tools/state-wise-raise-calculator";
+import RaiseAfterDeductionsCalculator from "@/pages/tools/raise-after-deductions-calculator";
+import SalaryVsTotalCompensationCalculator from "@/pages/tools/salary-vs-total-compensation-calculator";
+import RaiseCalculatorVsSalaryCalculator from "@/pages/guides/raise-calculator-vs-salary-calculator";
+import WhyYourRaiseFeelsSmallerThisYear from "@/pages/blog/why-your-raise-feels-smaller-this-year";
+import HowMuchRaiseToAskForBasedOnRole from "@/pages/blog/how-much-raise-to-ask-for-based-on-role";
+import BestTimeOfYearToNegotiateRaise from "@/pages/blog/best-time-of-year-to-negotiate-raise";
+import ContactUs from "@/pages/contact-us";
+import AboutUs from "@/pages/about-us";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -75,6 +84,9 @@ function Router() {
           <Route path="/tools/promotion-calculator" component={PromotionCalculator} />
           <Route path="/tools/remote-work-location-adjuster" component={RemoteWorkLocationAdjuster} />
           <Route path="/tools/salary-negotiation-calculator" component={SalaryNegotiationCalculator} />
+          <Route path="/tools/state-wise-raise-calculator" component={StateWiseRaiseCalculator} />
+          <Route path="/tools/raise-after-deductions-calculator" component={RaiseAfterDeductionsCalculator} />
+          <Route path="/tools/salary-vs-total-compensation-calculator" component={SalaryVsTotalCompensationCalculator} />
           
           {/* Guides Section */}
           <Route path="/guides" component={GuidesIndex} />
@@ -85,6 +97,7 @@ function Router() {
           <Route path="/guides/cost-living-adjustment-guide" component={CostLivingAdjustmentGuide} />
           <Route path="/guides/negotiating-salary-increase-strategies" component={NegotiatingSalaryIncreaseStrategies} />
           <Route path="/guides/performance-review-raise-preparation" component={PerformanceReviewRaisePreparation} />
+          <Route path="/guides/raise-calculator-vs-salary-calculator" component={RaiseCalculatorVsSalaryCalculator} />
           
           {/* Blog Section */}
           <Route path="/blog" component={BlogIndex} />
@@ -97,6 +110,9 @@ function Router() {
           <Route path="/blog/remote-work-raise-strategies" component={RemoteWorkRaiseStrategies} />
           <Route path="/blog/common-salary-negotiation-mistakes" component={CommonSalaryNegotiationMistakes} />
           <Route path="/blog/salary-transparency-impact" component={SalaryTransparencyImpact} />
+          <Route path="/blog/why-your-raise-feels-smaller-this-year" component={WhyYourRaiseFeelsSmallerThisYear} />
+          <Route path="/blog/how-much-raise-to-ask-for-based-on-role" component={HowMuchRaiseToAskForBasedOnRole} />
+          <Route path="/blog/best-time-of-year-to-negotiate-raise" component={BestTimeOfYearToNegotiateRaise} />
           
           {/* Core Pages */}
           <Route path="/salary-negotiation-complete-guide" component={SalaryNegotiationCompleteGuide} />
@@ -108,6 +124,10 @@ function Router() {
           <Route path="/calculator-accuracy-methodology" component={CalculatorAccuracyMethodology} />
           <Route path="/raise-vs-inflation-analysis" component={RaiseVsInflationAnalysis} />
           <Route path="/state-pay-raise-laws-compliance" component={StatePayRaiseLawsCompliance} />
+          
+          {/* Additional Pages */}
+          <Route path="/contact-us" component={ContactUs} />
+          <Route path="/about-us" component={AboutUs} />
           
           {/* Fallback to 404 */}
           <Route component={NotFound} />

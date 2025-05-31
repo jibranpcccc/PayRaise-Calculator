@@ -6,7 +6,7 @@ import { InternalLink } from "@/components/seo/internal-link-checker";
 import { Calculator, TrendingUp, DollarSign, CheckCircle, XCircle } from "lucide-react";
 
 export default function RaiseCalculatorVsSalaryCalculator() {
-  const structuredData = SchemaGenerator.guide({
+  const structuredData = SchemaGenerator.learningResource({
     name: "Raise Calculator vs Salary Calculator: Complete Comparison Guide",
     description: "Understand the key differences between raise calculators and salary calculators, when to use each tool, and how they complement your career planning.",
     url: "https://payraisepercentagecalculator.com/guides/raise-calculator-vs-salary-calculator"
