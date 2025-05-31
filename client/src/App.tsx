@@ -33,9 +33,12 @@ import HourlyToSalaryConverter from "@/pages/tools/hourly-to-salary-converter";
 import RaiseVsBonusCalculator from "@/pages/tools/raise-vs-bonus-calculator";
 import ThreeVsFivePercentRaiseLongTermImpact from "@/pages/blog/3-vs-5-percent-raise-long-term-impact";
 import WhenAskForRaiseOptimalTiming from "@/pages/blog/when-ask-for-raise-optimal-timing";
+import CommonSalaryNegotiationMistakes from "@/pages/blog/common-salary-negotiation-mistakes";
+import SalaryTransparencyImpact from "@/pages/blog/salary-transparency-impact";
 import AveragePayRaisesDataTrends from "@/pages/guides/average-pay-raises-data-trends";
 import GenderPayGapCalculator from "@/pages/tools/gender-pay-gap-calculator";
 import OvertimePayCalculator from "@/pages/tools/overtime-pay-calculator";
+import PromotionCalculator from "@/pages/tools/promotion-calculator";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -59,6 +62,7 @@ function Router() {
           <Route path="/tools/raise-vs-bonus-calculator" component={RaiseVsBonusCalculator} />
           <Route path="/tools/gender-pay-gap-calculator" component={GenderPayGapCalculator} />
           <Route path="/tools/overtime-pay-calculator" component={OvertimePayCalculator} />
+          <Route path="/tools/promotion-calculator" component={PromotionCalculator} />
           
           {/* Guides Section */}
           <Route path="/guides" component={GuidesIndex} />
@@ -71,6 +75,8 @@ function Router() {
           <Route path="/blog" component={BlogIndex} />
           <Route path="/blog/3-vs-5-percent-raise-long-term-impact" component={ThreeVsFivePercentRaiseLongTermImpact} />
           <Route path="/blog/when-ask-for-raise-optimal-timing" component={WhenAskForRaiseOptimalTiming} />
+          <Route path="/blog/common-salary-negotiation-mistakes" component={CommonSalaryNegotiationMistakes} />
+          <Route path="/blog/salary-transparency-impact" component={SalaryTransparencyImpact} />
           
           {/* Core Pages */}
           <Route path="/salary-negotiation-complete-guide" component={SalaryNegotiationCompleteGuide} />
