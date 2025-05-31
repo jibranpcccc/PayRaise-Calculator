@@ -1,15 +1,66 @@
 User-agent: *
 Allow: /
 
-# Allow all crawlers
-User-agent: Googlebot
-Allow: /
+# Calculator Tools
+Allow: /tools/
+Allow: /tools/compound-raise-calculator
+Allow: /tools/inflation-adjusted-raise-calculator
+Allow: /tools/promotion-salary-calculator
+Allow: /tools/bonus-impact-calculator
+Allow: /tools/cola-calculator
+Allow: /tools/hourly-to-salary-converter
+Allow: /tools/pay-raise-tax-impact-calculator
+Allow: /tools/gender-pay-gap-calculator
+Allow: /tools/remote-work-location-adjuster
+Allow: /tools/overtime-pay-calculator
+Allow: /tools/raise-vs-bonus-calculator
+Allow: /tools/salary-negotiation-calculator
+Allow: /tools/state-wise-raise-calculator
+Allow: /tools/raise-after-deductions-calculator
+Allow: /tools/salary-vs-total-compensation-calculator
 
-User-agent: Bingbot
-Allow: /
+# Educational Content
+Allow: /guides/
+Allow: /guides/understanding-pay-raises-complete
+Allow: /guides/average-pay-raises-data-trends
+Allow: /guides/negotiating-salary-increase-strategies
+Allow: /guides/factors-influencing-pay-raises
+Allow: /guides/performance-review-raise-preparation
+Allow: /guides/market-value-salary-research
+Allow: /guides/cost-living-adjustment-guide
+Allow: /guides/raise-calculator-vs-salary-calculator
+Allow: /guides/top-raise-mistakes-to-avoid
 
-# Sitemap location
-Sitemap: https://payraisepercentagecalculator.com/sitemap.xml
+# Blog Content
+Allow: /blog/
+Allow: /blog/3-vs-5-percent-raise-long-term-impact
+Allow: /blog/when-ask-for-raise-optimal-timing
+Allow: /blog/hourly-vs-salary-raise-differences
+Allow: /blog/raise-negotiation-scripts-templates
+Allow: /blog/remote-work-raise-strategies
+Allow: /blog/average-raise-by-industry-2025
+Allow: /blog/inflation-real-salary-impact
+Allow: /blog/salary-transparency-impact
+Allow: /blog/why-your-raise-feels-smaller-this-year
+Allow: /blog/how-much-raise-to-ask-for-based-on-role
+Allow: /blog/best-time-of-year-to-negotiate-raise
+Allow: /blog/raise-calculator-updates-2025
+
+# Core Pages
+Allow: /salary-negotiation-complete-guide
+Allow: /industry-raise-benchmarks-2025
+Allow: /how-pay-raise-calculator-works
+Allow: /pay-raise-formulas-guide
+Allow: /tax-impact-salary-increases
+Allow: /faq-pay-raise-calculator
+Allow: /calculator-accuracy-methodology
+Allow: /raise-vs-inflation-analysis
+Allow: /state-pay-raise-laws-compliance
+Allow: /contact-us
+Allow: /about-us
 
 # Crawl-delay for respectful crawling
 Crawl-delay: 1
+
+# Sitemap location
+Sitemap: https://payraisepercentagecalculator.com/sitemap.xml
