@@ -1,29 +1,27 @@
-import { Link } from "wouter";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import { SEOHead } from "@/components/seo/head";
+import { Link } from "wouter";
 import { 
-  Award, 
+  ClipboardCheck, 
   Target, 
-  FileText, 
-  Calendar, 
   TrendingUp,
   CheckCircle,
-  Star,
-  BarChart3,
-  Users,
-  Lightbulb,
   ArrowRight,
-  Clock
+  Calendar,
+  Users,
+  Award,
+  FileText,
+  Star
 } from "lucide-react";
 
 export default function PerformanceReviewRaisePreparation() {
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "Article",
-    "headline": "Performance Review Raise Preparation - Complete Guide",
-    "description": "Essential preparation for annual review discussions and raise requests. Step-by-step guide to documenting achievements and maximizing your review.",
+    "headline": "Performance Review Raise Preparation: Complete Strategy Guide",
+    "description": "Comprehensive guide to preparing for performance reviews and salary discussions. Documentation strategies, goal setting, and negotiation preparation.",
     "author": {
       "@type": "Organization",
       "name": "PayRaise Calculator"
@@ -36,229 +34,443 @@ export default function PerformanceReviewRaisePreparation() {
         "url": "https://payraisepercentagecalculator.com/logo.png"
       }
     },
-    "datePublished": "2025-01-01",
-    "dateModified": "2025-01-01"
+    "datePublished": "2025-01-12",
+    "dateModified": "2025-01-12"
   };
 
   const preparationTimeline = [
     {
-      period: "3 Months Before",
-      icon: <Calendar className="h-6 w-6" />,
-      color: "bg-blue-500",
-      tasks: [
-        "Start documenting achievements and metrics",
-        "Set clear goals aligned with company objectives",
-        "Begin tracking quantifiable impacts",
-        "Schedule regular check-ins with manager"
-      ]
+      phase: "6 Months Before",
+      focus: "Foundation Building",
+      activities: [
+        "Start achievement documentation system",
+        "Set measurable performance goals",
+        "Identify skill development opportunities",
+        "Begin tracking metrics and KPIs"
+      ],
+      outcome: "Systematic tracking in place"
     },
     {
-      period: "1 Month Before",
-      icon: <FileText className="h-6 w-6" />,
-      color: "bg-green-500",
-      tasks: [
-        "Compile comprehensive achievement portfolio",
-        "Research market salary data for your role",
-        "Gather feedback from colleagues and clients",
-        "Prepare specific examples of value creation"
-      ]
+      phase: "3 Months Before",
+      focus: "Evidence Gathering",
+      activities: [
+        "Compile quarterly achievements",
+        "Gather stakeholder feedback",
+        "Research market salary data",
+        "Document process improvements"
+      ],
+      outcome: "Comprehensive evidence portfolio"
     },
     {
-      period: "1 Week Before",
-      icon: <Target className="h-6 w-6" />,
-      color: "bg-yellow-500",
-      tasks: [
-        "Practice your presentation and key talking points",
-        "Prepare questions about career development",
-        "Review company performance and industry trends",
-        "Set realistic expectations and backup plans"
-      ]
+      phase: "1 Month Before",
+      focus: "Presentation Preparation",
+      activities: [
+        "Create performance summary",
+        "Prepare salary increase proposal",
+        "Practice conversation scenarios",
+        "Schedule review meeting"
+      ],
+      outcome: "Polished presentation ready"
     },
     {
-      period: "Day Of",
-      icon: <Star className="h-6 w-6" />,
-      color: "bg-purple-500",
-      tasks: [
-        "Arrive prepared with all documentation",
-        "Present achievements confidently",
-        "Listen actively to feedback",
-        "Discuss future goals and development"
-      ]
+      phase: "Review Week",
+      focus: "Final Preparation",
+      activities: [
+        "Review all documentation",
+        "Confirm meeting logistics",
+        "Prepare questions to ask",
+        "Set mental framework"
+      ],
+      outcome: "Confident and prepared"
     }
   ];
 
-  const achievementCategories = [
+  const documentationCategories = [
     {
-      title: "Revenue Impact",
-      icon: <TrendingUp className="h-6 w-6 text-green-600" />,
+      category: "Quantifiable Achievements",
+      description: "Measurable results and improvements",
       examples: [
-        "Generated $50,000 in new sales through client relationship building",
-        "Reduced customer churn by 15% through improved service processes",
-        "Increased conversion rates by 8% through A/B testing initiatives",
-        "Secured 3 major client renewals worth $200,000 combined"
+        "Increased sales by 23% ($125k additional revenue)",
+        "Reduced processing time from 5 days to 2 days",
+        "Led team that delivered project 2 weeks early",
+        "Improved customer satisfaction score from 7.2 to 8.6"
       ],
-      tip: "Always quantify financial impact when possible"
+      metrics: ["Revenue impact", "Time savings", "Quality improvements", "Cost reductions"]
     },
     {
-      title: "Cost Savings",
-      icon: <BarChart3 className="h-6 w-6 text-blue-600" />,
+      category: "Leadership & Initiative",
+      description: "Proactive contributions and leadership moments",
       examples: [
-        "Streamlined processes saving 10 hours/week team time",
-        "Negotiated vendor contracts reducing costs by $25,000 annually",
-        "Implemented automation reducing manual work by 30%",
-        "Identified and eliminated redundant software licenses"
+        "Mentored 3 junior developers, 2 received promotions",
+        "Initiated cross-department efficiency project",
+        "Volunteered to lead crisis response team",
+        "Created training program adopted company-wide"
       ],
-      tip: "Calculate time saved and convert to dollar value"
-    },
-    {
-      title: "Leadership & Mentoring",
-      icon: <Users className="h-6 w-6 text-purple-600" />,
-      examples: [
-        "Mentored 2 junior employees who received promotions",
-        "Led cross-functional team of 8 on successful project",
-        "Trained 15 staff members on new procedures",
-        "Facilitated knowledge sharing sessions with 95% attendance"
-      ],
-      tip: "Highlight impact on team development and culture"
-    },
-    {
-      title: "Innovation & Improvement",
-      icon: <Lightbulb className="h-6 w-6 text-yellow-600" />,
-      examples: [
-        "Developed new process reducing project timelines by 20%",
-        "Proposed and implemented customer feedback system",
-        "Created training materials improving onboarding efficiency",
-        "Identified market opportunity leading to new product line"
-      ],
-      tip: "Emphasize proactive thinking and problem-solving"
-    }
-  ];
-
-  const selfAssessmentQuestions = [
-    {
-      category: "Performance Goals",
-      questions: [
-        "Which goals did you exceed, meet, or miss?",
-        "What were the measurable outcomes of your work?",
-        "How did your performance compare to previous years?",
-        "What obstacles did you overcome to achieve results?"
-      ]
+      metrics: ["People impacted", "Programs created", "Teams led", "Initiatives launched"]
     },
     {
       category: "Skill Development",
-      questions: [
-        "What new skills have you developed this year?",
-        "How have you applied learning to improve performance?",
-        "What certifications or training have you completed?",
-        "How do your skills compare to role requirements?"
-      ]
+      description: "Professional growth and new capabilities",
+      examples: [
+        "Completed AWS certification (now managing cloud infrastructure)",
+        "Learned Python, automated 15 manual processes",
+        "Attended 3 industry conferences, implemented 5 best practices",
+        "Earned PMP certification, now managing larger projects"
+      ],
+      metrics: ["Certifications earned", "Skills acquired", "Applications implemented", "Training completed"]
     },
     {
-      category: "Team Collaboration",
-      questions: [
-        "How have you contributed to team success?",
-        "What positive feedback have you received?",
-        "How have you helped colleagues grow?",
-        "What role do you play in team dynamics?"
-      ]
+      category: "Problem Solving",
+      description: "Creative solutions and crisis management",
+      examples: [
+        "Resolved critical system outage in 2 hours vs typical 8 hours",
+        "Identified bug saving company $50k in potential losses",
+        "Developed workaround for vendor issue, maintained operations",
+        "Created solution reducing customer complaints by 40%"
+      ],
+      metrics: ["Issues resolved", "Money saved", "Time improved", "Risks mitigated"]
+    }
+  ];
+
+  const reviewMeetingStructure = [
+    {
+      section: "Opening (5 minutes)",
+      purpose: "Set positive tone and context",
+      content: [
+        "Express appreciation for the opportunity",
+        "Acknowledge company investment in your growth",
+        "State your commitment to continued excellence",
+        "Outline what you'll cover in the discussion"
+      ],
+      keyPhrase: "I'm excited to discuss my contributions this year and how we can align my compensation with the value I'm bringing to the team."
     },
     {
-      category: "Future Growth",
-      questions: [
-        "What are your career aspirations?",
-        "How can you add more value to the organization?",
-        "What additional responsibilities interest you?",
-        "How can the company support your development?"
-      ]
+      section: "Achievement Review (15 minutes)",
+      purpose: "Present documented accomplishments",
+      content: [
+        "Walk through major achievements with specific metrics",
+        "Highlight instances of going above and beyond",
+        "Demonstrate growth from previous review period",
+        "Connect achievements to company objectives"
+      ],
+      keyPhrase: "Here are the key results I've delivered this year, with specific impact measurements..."
+    },
+    {
+      section: "Market Context (10 minutes)",
+      purpose: "Provide salary adjustment rationale",
+      content: [
+        "Present industry salary research findings",
+        "Compare current compensation to market rates",
+        "Discuss role evolution and expanded responsibilities",
+        "Reference geographic and skill premiums"
+      ],
+      keyPhrase: "Based on my research and expanded role, I believe a salary adjustment would align with current market standards..."
+    },
+    {
+      section: "Future Commitment (10 minutes)",
+      purpose: "Demonstrate ongoing value proposition",
+      content: [
+        "Outline goals for the upcoming year",
+        "Discuss skill development plans",
+        "Present ideas for additional contributions",
+        "Show enthusiasm for company direction"
+      ],
+      keyPhrase: "Looking forward, here's how I plan to continue driving results and growing with the company..."
+    },
+    {
+      section: "Discussion & Resolution (15 minutes)",
+      purpose: "Collaborate on next steps",
+      content: [
+        "Listen to manager's feedback and perspective",
+        "Address any concerns or questions",
+        "Negotiate specific terms and timeline",
+        "Agree on follow-up actions and expectations"
+      ],
+      keyPhrase: "I'd love to hear your thoughts on this proposal and work together on the best path forward."
+    }
+  ];
+
+  const commonChallenges = [
+    {
+      challenge: "\"Budget constraints this year\"",
+      response: "I understand budget considerations. Could we explore a phased approach or discuss non-monetary benefits that would work within current constraints?",
+      alternatives: ["Flexible schedule", "Additional PTO", "Professional development budget", "Title advancement"]
+    },
+    {
+      challenge: "\"You haven't been here long enough\"",
+      response: "I appreciate that perspective. Let me share the specific value I've created in this time and how it compares to typical expectations for this role.",
+      alternatives: ["Performance-based timeline", "Probationary increase", "Accelerated review schedule", "Merit bonus consideration"]
+    },
+    {
+      challenge: "\"Company policy doesn't allow mid-cycle increases\"",
+      response: "I understand the policy framework. Would it be possible to document this discussion for the next review cycle or explore other recognition options?",
+      alternatives: ["Written commitment", "Expanded responsibilities", "Project bonuses", "Development opportunities"]
+    },
+    {
+      challenge: "\"Your performance is good but not exceptional\"",
+      response: "I appreciate that feedback. Could you help me understand what 'exceptional' looks like so I can work toward that standard?",
+      alternatives: ["Performance improvement plan", "Mentorship opportunities", "Stretch assignments", "Skill development goals"]
     }
   ];
 
   return (
     <>
       <SEOHead
-        title="Performance Review Raise Preparation - Complete Guide"
-        description="Essential preparation for annual review discussions and raise requests. Step-by-step guide to documenting achievements and maximizing your review."
+        title="Performance Review Raise Preparation: Complete Strategy Guide"
+        description="Comprehensive guide to preparing for performance reviews and salary discussions. Documentation strategies, goal setting, and negotiation preparation."
         canonical="/guides/performance-review-raise-preparation"
         structuredData={structuredData}
       />
 
       <div className="min-h-screen bg-gray-50">
-        {/* Header */}
+        {/* Hero Section */}
         <section className="bg-white py-12">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-8">
+            <div className="text-center">
               <div className="flex justify-center mb-4">
                 <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center">
-                  <Award className="h-8 w-8 text-white" />
+                  <ClipboardCheck className="h-8 w-8 text-white" />
                 </div>
               </div>
               <h1 className="text-4xl font-bold text-gray-900 mb-4">
                 Performance Review Raise Preparation
               </h1>
               <div className="flex justify-center space-x-4 mb-6">
-                <Badge className="bg-green-100 text-green-800">Beginner Friendly</Badge>
+                <Badge className="bg-blue-100 text-blue-800">Complete Strategy</Badge>
+                <Badge variant="outline">Documentation Guide</Badge>
                 <Badge variant="outline">10 min read</Badge>
-                <Badge variant="outline">Action-Oriented</Badge>
               </div>
-              <p className="text-xl text-gray-600">
-                Essential preparation for annual review discussions and raise requests. 
-                Maximize your review outcomes with strategic preparation and documentation.
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                Master the art of performance review preparation. Build compelling documentation, 
+                present your achievements effectively, and position yourself for salary success.
               </p>
             </div>
           </div>
         </section>
 
-        {/* Quick Checklist */}
-        <section className="py-8">
+        {/* Preparation Timeline */}
+        <section className="py-12">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <Card className="bg-blue-50 border-blue-200">
-              <CardHeader>
-                <CardTitle className="text-blue-800 flex items-center">
-                  <CheckCircle className="mr-2 h-5 w-5" />
-                  Performance Review Success Checklist
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="grid md:grid-cols-2 gap-6">
+            <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
+              6-Month Preparation Timeline
+            </h2>
+            
+            <div className="space-y-6">
+              {preparationTimeline.map((phase, index) => (
+                <Card key={index} className="calculator-shadow">
+                  <CardHeader>
+                    <div className="flex items-center justify-between">
+                      <CardTitle className="text-xl text-primary">{phase.phase}</CardTitle>
+                      <Badge variant="outline">{phase.focus}</Badge>
+                    </div>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="grid md:grid-cols-3 gap-6">
+                      <div className="md:col-span-2">
+                        <h4 className="font-semibold text-gray-900 mb-3">Key Activities</h4>
+                        <ul className="space-y-2">
+                          {phase.activities.map((activity, actIndex) => (
+                            <li key={actIndex} className="text-sm text-gray-600 flex items-center">
+                              <CheckCircle className="h-3 w-3 text-green-600 mr-2 flex-shrink-0" />
+                              {activity}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-gray-900 mb-2">Expected Outcome</h4>
+                        <div className="bg-green-50 border-l-4 border-green-400 p-3">
+                          <p className="text-sm text-green-800">{phase.outcome}</p>
+                        </div>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Documentation Categories */}
+        <section className="py-12 bg-white">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
+              Achievement Documentation Framework
+            </h2>
+            
+            <div className="grid md:grid-cols-2 gap-6">
+              {documentationCategories.map((category, index) => (
+                <Card key={index} className="calculator-shadow">
+                  <CardHeader>
+                    <CardTitle className="text-lg text-primary flex items-center">
+                      <FileText className="mr-2 h-5 w-5" />
+                      {category.category}
+                    </CardTitle>
+                    <p className="text-sm text-gray-600">{category.description}</p>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="space-y-4">
+                      <div>
+                        <h4 className="font-semibold text-gray-900 mb-2">Examples</h4>
+                        <ul className="space-y-1">
+                          {category.examples.map((example, exIndex) => (
+                            <li key={exIndex} className="text-sm text-gray-600">• {example}</li>
+                          ))}
+                        </ul>
+                      </div>
+                      
+                      <div className="border-t border-gray-200 pt-3">
+                        <h4 className="font-semibold text-gray-900 mb-2">Key Metrics to Track</h4>
+                        <div className="flex flex-wrap gap-2">
+                          {category.metrics.map((metric, metricIndex) => (
+                            <Badge key={metricIndex} variant="outline" className="text-xs">
+                              {metric}
+                            </Badge>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Meeting Structure */}
+        <section className="py-12 bg-gray-50">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
+              Performance Review Meeting Structure
+            </h2>
+            
+            <div className="space-y-6">
+              {reviewMeetingStructure.map((section, index) => (
+                <Card key={index} className="calculator-shadow">
+                  <CardHeader>
+                    <CardTitle className="text-lg text-primary">{section.section}</CardTitle>
+                    <p className="text-sm text-gray-600">{section.purpose}</p>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="space-y-4">
+                      <div>
+                        <h4 className="font-semibold text-gray-900 mb-2">Content to Cover</h4>
+                        <ul className="space-y-1">
+                          {section.content.map((item, itemIndex) => (
+                            <li key={itemIndex} className="text-sm text-gray-600">• {item}</li>
+                          ))}
+                        </ul>
+                      </div>
+                      
+                      <div className="bg-blue-50 border-l-4 border-blue-400 p-3">
+                        <div className="text-sm font-medium text-blue-800 mb-1">Key Phrase:</div>
+                        <div className="text-sm text-blue-700 italic">"{section.keyPhrase}"</div>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Common Challenges */}
+        <section className="py-12 bg-white">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
+              Handling Common Objections
+            </h2>
+            
+            <div className="space-y-6">
+              {commonChallenges.map((challenge, index) => (
+                <Card key={index} className="calculator-shadow">
+                  <CardHeader>
+                    <CardTitle className="text-lg text-red-800 flex items-center">
+                      <Users className="mr-2 h-5 w-5" />
+                      {challenge.challenge}
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="grid md:grid-cols-2 gap-6">
+                      <div>
+                        <h4 className="font-semibold text-gray-900 mb-2">Recommended Response</h4>
+                        <div className="bg-green-50 border-l-4 border-green-400 p-3">
+                          <p className="text-sm text-green-800 italic">"{challenge.response}"</p>
+                        </div>
+                      </div>
+                      
+                      <div>
+                        <h4 className="font-semibold text-gray-900 mb-2">Alternative Solutions</h4>
+                        <ul className="space-y-1">
+                          {challenge.alternatives.map((alt, altIndex) => (
+                            <li key={altIndex} className="text-sm text-gray-600">• {alt}</li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Success Checklist */}
+        <section className="py-12 bg-gray-50">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
+              Pre-Review Success Checklist
+            </h2>
+            
+            <Card className="calculator-shadow">
+              <CardContent className="p-8">
+                <div className="grid md:grid-cols-2 gap-8">
                   <div>
-                    <h4 className="font-semibold text-blue-900 mb-3">Before the Review</h4>
-                    <ul className="space-y-2 text-sm text-blue-800">
+                    <h3 className="font-semibold text-gray-900 mb-4 flex items-center">
+                      <CheckCircle className="mr-2 h-5 w-5 text-green-600" />
+                      Documentation Complete
+                    </h3>
+                    <ul className="space-y-2 text-sm">
                       <li className="flex items-center">
-                        <CheckCircle className="h-4 w-4 mr-2 text-blue-600" />
-                        Document all achievements with metrics
+                        <input type="checkbox" className="mr-2" />
+                        Achievement portfolio compiled
                       </li>
                       <li className="flex items-center">
-                        <CheckCircle className="h-4 w-4 mr-2 text-blue-600" />
-                        Research market salary data
+                        <input type="checkbox" className="mr-2" />
+                        Metrics and KPIs documented
                       </li>
                       <li className="flex items-center">
-                        <CheckCircle className="h-4 w-4 mr-2 text-blue-600" />
-                        Prepare specific examples and stories
+                        <input type="checkbox" className="mr-2" />
+                        Stakeholder feedback gathered
                       </li>
                       <li className="flex items-center">
-                        <CheckCircle className="h-4 w-4 mr-2 text-blue-600" />
-                        Set clear goals for next year
+                        <input type="checkbox" className="mr-2" />
+                        Market research completed
                       </li>
                     </ul>
                   </div>
+                  
                   <div>
-                    <h4 className="font-semibold text-blue-900 mb-3">During the Review</h4>
-                    <ul className="space-y-2 text-sm text-blue-800">
+                    <h3 className="font-semibold text-gray-900 mb-4 flex items-center">
+                      <Target className="mr-2 h-5 w-5 text-blue-600" />
+                      Presentation Ready
+                    </h3>
+                    <ul className="space-y-2 text-sm">
                       <li className="flex items-center">
-                        <CheckCircle className="h-4 w-4 mr-2 text-blue-600" />
-                        Present achievements confidently
+                        <input type="checkbox" className="mr-2" />
+                        Salary proposal prepared
                       </li>
                       <li className="flex items-center">
-                        <CheckCircle className="h-4 w-4 mr-2 text-blue-600" />
-                        Ask for specific feedback
+                        <input type="checkbox" className="mr-2" />
+                        Key talking points outlined
                       </li>
                       <li className="flex items-center">
-                        <CheckCircle className="h-4 w-4 mr-2 text-blue-600" />
-                        Discuss compensation expectations
+                        <input type="checkbox" className="mr-2" />
+                        Objection responses practiced
                       </li>
                       <li className="flex items-center">
-                        <CheckCircle className="h-4 w-4 mr-2 text-blue-600" />
-                        Plan development opportunities
+                        <input type="checkbox" className="mr-2" />
+                        Meeting agenda confirmed
                       </li>
                     </ul>
                   </div>
@@ -268,232 +480,32 @@ export default function PerformanceReviewRaisePreparation() {
           </div>
         </section>
 
-        {/* Preparation Timeline */}
-        <section className="py-12 bg-white">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
-              Preparation Timeline
-            </h2>
-            
-            <div className="space-y-6">
-              {preparationTimeline.map((phase, index) => (
-                <Card key={index} className="calculator-shadow">
-                  <CardContent className="p-6">
-                    <div className="flex items-start space-x-4">
-                      <div className={`w-12 h-12 ${phase.color} rounded-full flex items-center justify-center text-white flex-shrink-0`}>
-                        {phase.icon}
-                      </div>
-                      <div className="flex-1">
-                        <h3 className="text-xl font-semibold text-gray-900 mb-3">{phase.period}</h3>
-                        <div className="grid md:grid-cols-2 gap-4">
-                          {phase.tasks.map((task, taskIndex) => (
-                            <div key={taskIndex} className="flex items-start">
-                              <CheckCircle className="h-4 w-4 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
-                              <span className="text-sm text-gray-700">{task}</span>
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Achievement Documentation */}
-        <section className="py-12 bg-gray-50">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
-              Documenting Your Achievements
-            </h2>
-            
-            <div className="grid gap-6">
-              {achievementCategories.map((category, index) => (
-                <Card key={index} className="calculator-shadow">
-                  <CardHeader>
-                    <CardTitle className="flex items-center space-x-3">
-                      {category.icon}
-                      <span>{category.title}</span>
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="grid md:grid-cols-2 gap-6">
-                      <div>
-                        <h4 className="font-semibold text-gray-900 mb-3">Example Achievements:</h4>
-                        <ul className="space-y-2">
-                          {category.examples.map((example, exampleIndex) => (
-                            <li key={exampleIndex} className="text-sm text-gray-700 pl-4 border-l-2 border-gray-200">
-                              {example}
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                      <div>
-                        <div className="bg-yellow-50 border-yellow-200 border rounded-lg p-4">
-                          <h5 className="font-medium text-yellow-900 mb-2">💡 Pro Tip</h5>
-                          <p className="text-sm text-yellow-800">{category.tip}</p>
-                        </div>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Self-Assessment Framework */}
-        <section className="py-12 bg-white">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
-              Self-Assessment Framework
-            </h2>
-            
-            <div className="grid md:grid-cols-2 gap-6">
-              {selfAssessmentQuestions.map((section, index) => (
-                <Card key={index} className="h-full">
-                  <CardHeader>
-                    <CardTitle className="text-lg text-primary">{section.category}</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <ul className="space-y-3">
-                      {section.questions.map((question, questionIndex) => (
-                        <li key={questionIndex} className="flex items-start">
-                          <span className="text-primary mr-2 font-bold">?</span>
-                          <span className="text-sm text-gray-700">{question}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Salary Discussion Strategy */}
-        <section className="py-12 bg-gray-50">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
-              Salary Discussion Strategy
-            </h2>
-            
-            <div className="grid md:grid-cols-3 gap-6">
-              <Card>
-                <CardHeader>
-                  <CardTitle className="text-green-700 flex items-center">
-                    <FileText className="mr-2 h-5 w-5" />
-                    Before You Ask
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <ul className="space-y-2 text-sm">
-                    <li className="flex items-start">
-                      <CheckCircle className="h-4 w-4 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
-                      Research market rates for your role
-                    </li>
-                    <li className="flex items-start">
-                      <CheckCircle className="h-4 w-4 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
-                      Calculate your value contribution
-                    </li>
-                    <li className="flex items-start">
-                      <CheckCircle className="h-4 w-4 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
-                      Understand company financial health
-                    </li>
-                    <li className="flex items-start">
-                      <CheckCircle className="h-4 w-4 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
-                      Prepare specific percentage or amount
-                    </li>
-                  </ul>
-                </CardContent>
-              </Card>
-
-              <Card>
-                <CardHeader>
-                  <CardTitle className="text-blue-700 flex items-center">
-                    <Target className="mr-2 h-5 w-5" />
-                    Making the Ask
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <ul className="space-y-2 text-sm">
-                    <li className="flex items-start">
-                      <ArrowRight className="h-4 w-4 text-blue-500 mr-2 mt-0.5 flex-shrink-0" />
-                      Lead with your achievements
-                    </li>
-                    <li className="flex items-start">
-                      <ArrowRight className="h-4 w-4 text-blue-500 mr-2 mt-0.5 flex-shrink-0" />
-                      Reference market data
-                    </li>
-                    <li className="flex items-start">
-                      <ArrowRight className="h-4 w-4 text-blue-500 mr-2 mt-0.5 flex-shrink-0" />
-                      Be specific about amount/percentage
-                    </li>
-                    <li className="flex items-start">
-                      <ArrowRight className="h-4 w-4 text-blue-500 mr-2 mt-0.5 flex-shrink-0" />
-                      Remain professional and confident
-                    </li>
-                  </ul>
-                </CardContent>
-              </Card>
-
-              <Card>
-                <CardHeader>
-                  <CardTitle className="text-purple-700 flex items-center">
-                    <Clock className="mr-2 h-5 w-5" />
-                    Follow-Up Actions
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <ul className="space-y-2 text-sm">
-                    <li className="flex items-start">
-                      <Star className="h-4 w-4 text-purple-500 mr-2 mt-0.5 flex-shrink-0" />
-                      Send thank you email summarizing discussion
-                    </li>
-                    <li className="flex items-start">
-                      <Star className="h-4 w-4 text-purple-500 mr-2 mt-0.5 flex-shrink-0" />
-                      Document any promises or timelines
-                    </li>
-                    <li className="flex items-start">
-                      <Star className="h-4 w-4 text-purple-500 mr-2 mt-0.5 flex-shrink-0" />
-                      Schedule follow-up meeting if needed
-                    </li>
-                    <li className="flex items-start">
-                      <Star className="h-4 w-4 text-purple-500 mr-2 mt-0.5 flex-shrink-0" />
-                      Continue documenting achievements
-                    </li>
-                  </ul>
-                </CardContent>
-              </Card>
-            </div>
-          </div>
-        </section>
-
         {/* Call to Action */}
-        <section className="py-12 bg-white">
+        <section className="py-12 bg-blue-50">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="bg-primary text-white rounded-lg p-8 text-center">
-              <h3 className="text-2xl font-bold mb-4">Ready to Prepare for Your Review?</h3>
-              <p className="text-blue-100 mb-6">
-                Use our tools to calculate your target raise and prepare your negotiation strategy
-              </p>
-              <div className="flex flex-col sm:flex-row justify-center gap-4">
-                <Link href="/">
-                  <Button className="bg-white text-primary hover:bg-gray-100">
-                    <Target className="mr-2 h-4 w-4" />
-                    Calculate Target Raise
-                  </Button>
-                </Link>
-                <Link href="/guides/negotiating-salary-increase-strategies">
-                  <Button variant="outline" className="border-white text-white hover:bg-white hover:text-primary">
-                    Negotiation Strategies
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </Button>
-                </Link>
-              </div>
-            </div>
+            <Card className="calculator-shadow">
+              <CardContent className="p-8 text-center">
+                <Award className="h-12 w-12 text-primary mx-auto mb-4" />
+                <h2 className="text-2xl font-bold text-gray-900 mb-4">Transform Your Performance Review</h2>
+                <p className="text-gray-600 mb-6">
+                  Systematic preparation is the key to performance review success. Start documenting 
+                  your achievements today and build a compelling case for your next salary increase.
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                  <Link href="/guides/negotiating-salary-increase-strategies">
+                    <Button className="bg-primary hover:bg-blue-700">
+                      Master Negotiation Strategies
+                      <ArrowRight className="ml-2 h-4 w-4" />
+                    </Button>
+                  </Link>
+                  <Link href="/">
+                    <Button variant="outline">
+                      Calculate Your Target Raise
+                    </Button>
+                  </Link>
+                </div>
+              </CardContent>
+            </Card>
           </div>
         </section>
       </div>
