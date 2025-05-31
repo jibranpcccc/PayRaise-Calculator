@@ -17,15 +17,20 @@ import { useQuery } from "@tanstack/react-query";
 
 interface SalaryTrendData {
   industry: string;
-  currentAverage: number;
-  prediction3Month: number;
-  prediction6Month: number;
-  prediction12Month: number;
-  trendDirection: 'up' | 'down' | 'stable';
-  confidence: number;
-  factors: string[];
+  currentYear: number;
+  data: {
+    averageRaise: number;
+    medianRaise: number;
+    topQuartileRaise: number;
+    trends: string[];
+    marketHealth: string;
+  };
+  economicContext: {
+    inflationRate: number;
+    unemploymentRate: number;
+    gdpGrowth: number;
+  };
   lastUpdated: string;
-  dataSource: string;
 }
 
 interface TrendPredictionWidgetProps {
@@ -66,22 +71,26 @@ export function SalaryTrendPredictionWidget({
     "Consulting"
   ];
 
-  const getTrendIcon = (direction: string) => {
-    switch (direction) {
-      case 'up':
+  const getMarketHealthIcon = (health: string) => {
+    switch (health?.toLowerCase()) {
+      case 'strong':
         return <TrendingUp className="h-4 w-4 text-green-600" />;
-      case 'down':
+      case 'recovering':
+        return <TrendingUp className="h-4 w-4 text-blue-600" />;
+      case 'constrained':
         return <TrendingDown className="h-4 w-4 text-red-600" />;
       default:
         return <Target className="h-4 w-4 text-blue-600" />;
     }
   };
 
-  const getTrendColor = (direction: string) => {
-    switch (direction) {
-      case 'up':
+  const getMarketHealthColor = (health: string) => {
+    switch (health?.toLowerCase()) {
+      case 'strong':
         return 'text-green-600';
-      case 'down':
+      case 'recovering':
+        return 'text-blue-600';
+      case 'constrained':
         return 'text-red-600';
       default:
         return 'text-blue-600';
@@ -191,78 +200,81 @@ export function SalaryTrendPredictionWidget({
           </div>
         ) : trendData ? (
           <div className="space-y-4">
-            {/* Current Status */}
+            {/* Current Market Status */}
             <div className="flex items-center justify-between">
               <div>
-                <div className="text-sm text-gray-600">Current Average</div>
+                <div className="text-sm text-gray-600">Average Raise Rate</div>
                 <div className="text-2xl font-bold text-primary">
-                  {formatCurrency(trendData.currentAverage)}
+                  {trendData.data.averageRaise}%
                 </div>
               </div>
               <div className="text-right">
                 <div className="flex items-center">
-                  {getTrendIcon(trendData.trendDirection)}
-                  <span className={`ml-1 font-medium ${getTrendColor(trendData.trendDirection)}`}>
-                    {trendData.trendDirection.charAt(0).toUpperCase() + trendData.trendDirection.slice(1)}
+                  {getMarketHealthIcon(trendData.data.marketHealth)}
+                  <span className={`ml-1 font-medium ${getMarketHealthColor(trendData.data.marketHealth)}`}>
+                    {trendData.data.marketHealth}
                   </span>
                 </div>
                 <div className="text-xs text-gray-500">
-                  {trendData.confidence}% confidence
+                  Market Health
                 </div>
               </div>
             </div>
 
-            {/* Predictions */}
+            {/* Raise Percentiles */}
             {!compact && (
               <div className="grid grid-cols-3 gap-3 py-3 border-t border-gray-200">
                 <div className="text-center">
-                  <div className="text-xs text-gray-600">3 Month</div>
-                  <div className="font-semibold">{formatCurrency(trendData.prediction3Month)}</div>
-                  <div className={`text-xs ${
-                    parseFloat(calculatePercentageChange(trendData.currentAverage, trendData.prediction3Month)) > 0 
-                      ? 'text-green-600' : 'text-red-600'
-                  }`}>
-                    {parseFloat(calculatePercentageChange(trendData.currentAverage, trendData.prediction3Month)) > 0 ? '+' : ''}
-                    {calculatePercentageChange(trendData.currentAverage, trendData.prediction3Month)}%
-                  </div>
+                  <div className="text-xs text-gray-600">Median</div>
+                  <div className="font-semibold">{trendData.data.medianRaise}%</div>
+                  <div className="text-xs text-blue-600">50th percentile</div>
                 </div>
                 
                 <div className="text-center">
-                  <div className="text-xs text-gray-600">6 Month</div>
-                  <div className="font-semibold">{formatCurrency(trendData.prediction6Month)}</div>
-                  <div className={`text-xs ${
-                    parseFloat(calculatePercentageChange(trendData.currentAverage, trendData.prediction6Month)) > 0 
-                      ? 'text-green-600' : 'text-red-600'
-                  }`}>
-                    {parseFloat(calculatePercentageChange(trendData.currentAverage, trendData.prediction6Month)) > 0 ? '+' : ''}
-                    {calculatePercentageChange(trendData.currentAverage, trendData.prediction6Month)}%
-                  </div>
+                  <div className="text-xs text-gray-600">Average</div>
+                  <div className="font-semibold">{trendData.data.averageRaise}%</div>
+                  <div className="text-xs text-green-600">Market average</div>
                 </div>
                 
                 <div className="text-center">
-                  <div className="text-xs text-gray-600">12 Month</div>
-                  <div className="font-semibold">{formatCurrency(trendData.prediction12Month)}</div>
-                  <div className={`text-xs ${
-                    parseFloat(calculatePercentageChange(trendData.currentAverage, trendData.prediction12Month)) > 0 
-                      ? 'text-green-600' : 'text-red-600'
-                  }`}>
-                    {parseFloat(calculatePercentageChange(trendData.currentAverage, trendData.prediction12Month)) > 0 ? '+' : ''}
-                    {calculatePercentageChange(trendData.currentAverage, trendData.prediction12Month)}%
-                  </div>
+                  <div className="text-xs text-gray-600">Top Quartile</div>
+                  <div className="font-semibold">{trendData.data.topQuartileRaise}%</div>
+                  <div className="text-xs text-orange-600">75th percentile</div>
                 </div>
               </div>
             )}
 
-            {/* Key Factors */}
-            {!compact && trendData.factors && (
+            {/* Key Trends */}
+            {!compact && trendData.data.trends && (
               <div className="pt-3 border-t border-gray-200">
-                <div className="text-xs font-medium text-gray-700 mb-2">Key Trend Factors:</div>
+                <div className="text-xs font-medium text-gray-700 mb-2">Key Industry Trends:</div>
                 <div className="flex flex-wrap gap-1">
-                  {trendData.factors.slice(0, 3).map((factor, index) => (
+                  {trendData.data.trends.slice(0, 3).map((trend, index) => (
                     <Badge key={index} variant="outline" className="text-xs">
-                      {factor}
+                      {trend}
                     </Badge>
                   ))}
+                </div>
+              </div>
+            )}
+
+            {/* Economic Context */}
+            {!compact && (
+              <div className="pt-3 border-t border-gray-200">
+                <div className="text-xs font-medium text-gray-700 mb-2">Economic Context:</div>
+                <div className="grid grid-cols-3 gap-2 text-xs">
+                  <div className="text-center">
+                    <div className="font-medium">{trendData.economicContext.inflationRate}%</div>
+                    <div className="text-gray-500">Inflation</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="font-medium">{trendData.economicContext.unemploymentRate}%</div>
+                    <div className="text-gray-500">Unemployment</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="font-medium">{trendData.economicContext.gdpGrowth}%</div>
+                    <div className="text-gray-500">GDP Growth</div>
+                  </div>
                 </div>
               </div>
             )}
@@ -270,7 +282,7 @@ export function SalaryTrendPredictionWidget({
             {/* Data Source & Last Updated */}
             <div className="flex justify-between items-center text-xs text-gray-500 pt-2 border-t border-gray-100">
               <span>
-                Source: {trendData.dataSource} | 
+                Industry: {trendData.industry} | 
                 Updated: {new Date(trendData.lastUpdated).toLocaleTimeString()}
               </span>
               <Button 
