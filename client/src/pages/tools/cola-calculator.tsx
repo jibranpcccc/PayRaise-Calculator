@@ -127,27 +127,108 @@ export default function ColaCalculator() {
   return (
     <>
       <SEOHead
-        title="COLA Calculator - Cost of Living Adjustment Analysis"
-        description="Calculate cost of living adjustments for salary changes when moving between locations or annual COLA increases."
+        title="COLA Calculator 2025: Cost of Living Adjustment Analysis | Free Tool"
+        description="Calculate cost of living adjustments for salary changes when moving between locations or annual COLA increases. Compare 13 major cities with detailed breakdowns."
         canonical="/tools/cola-calculator"
+        keywords="COLA calculator, cost of living adjustment, salary adjustment, city comparison, relocation salary, geographic pay difference"
         structuredData={structuredData}
       />
 
-      <div className="min-h-screen bg-gray-50">
+      <div className="min-h-screen bg-gradient-to-br from-teal-50 via-white to-cyan-50">
         {/* Hero Section */}
-        <section className="bg-white py-12">
+        <section className="bg-white py-16">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center">
-              <div className="flex justify-center mb-4">
-                <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center">
-                  <MapPin className="h-8 w-8 text-white" />
-                </div>
+              <div className="mb-6">
+                <span className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-teal-100 text-teal-800 border border-teal-200">
+                  <MapPin className="w-4 h-4 mr-2" />
+                  Geographic Salary Analysis
+                </span>
               </div>
-              <h1 className="text-4xl font-bold text-gray-900 mb-4">
+              <h1 className="text-4xl font-bold text-gray-900 sm:text-5xl lg:text-6xl">
                 COLA Calculator
               </h1>
-              <p className="text-xl text-gray-600 mb-6">
-                Cost of Living Adjustment Analysis
+              <p className="mt-6 text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                Calculate cost of living adjustments for relocations and annual increases. 
+                Compare salaries across major cities and understand geographic pay differences.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* How to Use Guide */}
+        <section className="py-12 bg-teal-50">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-10">
+              <h2 className="text-3xl font-bold text-gray-900 mb-4">
+                How to Calculate COLA Adjustments: Complete Guide
+              </h2>
+              <p className="text-lg text-gray-600">
+                Understand cost of living differences and salary adjustments
+              </p>
+            </div>
+            
+            <div className="grid md:grid-cols-3 gap-6 mb-8">
+              <div className="bg-white rounded-lg p-6 shadow-lg">
+                <div className="bg-teal-600 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+                  <span className="text-white font-bold text-xl">1</span>
+                </div>
+                <h3 className="font-semibold text-gray-900 mb-3">Enter Current Info</h3>
+                <p className="text-gray-600 text-sm">
+                  Input your current salary and select your current location from 
+                  our database of major cities.
+                </p>
+              </div>
+              
+              <div className="bg-white rounded-lg p-6 shadow-lg">
+                <div className="bg-cyan-600 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+                  <span className="text-white font-bold text-xl">2</span>
+                </div>
+                <h3 className="font-semibold text-gray-900 mb-3">Choose New Location</h3>
+                <p className="text-gray-600 text-sm">
+                  Select your target city or leave blank for annual COLA 
+                  calculations based on Social Security rates.
+                </p>
+              </div>
+              
+              <div className="bg-white rounded-lg p-6 shadow-lg">
+                <div className="bg-blue-600 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+                  <span className="text-white font-bold text-xl">3</span>
+                </div>
+                <h3 className="font-semibold text-gray-900 mb-3">View Adjustment</h3>
+                <p className="text-gray-600 text-sm">
+                  See your required salary adjustment with detailed breakdown 
+                  by housing, transport, and living costs.
+                </p>
+              </div>
+            </div>
+
+            {/* COLA Types Guide */}
+            <div className="bg-white rounded-lg p-8 shadow-lg">
+              <h3 className="text-xl font-semibold text-gray-900 mb-6">Understanding COLA Types</h3>
+              <div className="grid md:grid-cols-2 gap-6">
+                <div>
+                  <h4 className="font-medium text-gray-900 mb-3">Geographic COLA</h4>
+                  <ul className="space-y-2 text-sm text-gray-600">
+                    <li>• <strong>Housing:</strong> 40-50% of cost difference (rent, utilities, property taxes)</li>
+                    <li>• <strong>Transportation:</strong> 15-20% (gas, transit, parking, insurance)</li>
+                    <li>• <strong>Food & Groceries:</strong> 10-15% (restaurants, groceries, dining)</li>
+                    <li>• <strong>Healthcare:</strong> 8-12% (insurance, medical costs)</li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 className="font-medium text-gray-900 mb-3">Annual COLA</h4>
+                  <ul className="space-y-2 text-sm text-gray-600">
+                    <li>• <strong>2025 Rate:</strong> 2.5% projected (Social Security basis)</li>
+                    <li>• <strong>2024 Rate:</strong> 3.2% actual adjustment</li>
+                    <li>• <strong>Federal Employees:</strong> Often matches Social Security COLA</li>
+                    <li>• <strong>Private Sector:</strong> Varies by company policy</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
               </p>
               <div className="flex justify-center space-x-4 mb-6">
                 <Badge className="bg-blue-100 text-blue-800">Location Analysis</Badge>
