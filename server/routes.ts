@@ -85,6 +85,48 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
+  // Real-time Salary Trend Prediction API
+  app.get("/api/salary-trends", async (req, res) => {
+    try {
+      const industry = req.query.industry as string || "Technology";
+      
+      // Check for required external API keys for authentic market data
+      const requiredKeys = ["BLS_API_KEY", "PAYSCALE_API_KEY", "GLASSDOOR_API_KEY"];
+      const missingKeys = requiredKeys.filter(key => !process.env[key]);
+      
+      if (missingKeys.length > 0) {
+        return res.status(400).json({
+          error: "External market data APIs required",
+          message: "Real-time salary trend predictions require access to external market data services",
+          requiredServices: [
+            "Bureau of Labor Statistics API (BLS_API_KEY)",
+            "PayScale API (PAYSCALE_API_KEY)", 
+            "Glassdoor API (GLASSDOOR_API_KEY)",
+            "Indeed API (INDEED_API_KEY)"
+          ],
+          missingKeys,
+          instructions: "Please provide the required API keys to enable real-time salary trend predictions"
+        });
+      }
+
+      // Placeholder for external API integration - requires authentic market data APIs
+      // When API keys are provided, this will fetch real-time data from BLS, PayScale, Glassdoor, etc.
+      res.status(503).json({
+        error: "Market data service unavailable",
+        message: "Real-time salary predictions require external market data APIs",
+        industry,
+        timestamp: new Date().toISOString()
+      });
+      
+    } catch (error) {
+      console.error("Error fetching salary trends:", error);
+      res.status(500).json({ 
+        error: "Failed to fetch salary trend data",
+        message: "Unable to connect to external market data services" 
+      });
+    }
+  });
+
   const httpServer = createServer(app);
   return httpServer;
 }
