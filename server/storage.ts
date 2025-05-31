@@ -1,4 +1,6 @@
 import { users, calculations, industryBenchmarks, type User, type InsertUser, type Calculation, type InsertCalculation, type IndustryBenchmark, type InsertIndustryBenchmark } from "@shared/schema";
+import { db } from "./db";
+import { eq } from "drizzle-orm";
 
 export interface IStorage {
   getUser(id: number): Promise<User | undefined>;
@@ -115,4 +117,85 @@ export class MemStorage implements IStorage {
   }
 }
 
-export const storage = new MemStorage();
+export class DatabaseStorage implements IStorage {
+  constructor() {
+    this.initializeBenchmarks();
+  }
+
+  async getUser(id: number): Promise<User | undefined> {
+    const [user] = await db.select().from(users).where(eq(users.id, id));
+    return user || undefined;
+  }
+
+  async getUserByUsername(username: string): Promise<User | undefined> {
+    const [user] = await db.select().from(users).where(eq(users.username, username));
+    return user || undefined;
+  }
+
+  async createUser(insertUser: InsertUser): Promise<User> {
+    const [user] = await db
+      .insert(users)
+      .values(insertUser)
+      .returning();
+    return user;
+  }
+
+  async createCalculation(insertCalculation: InsertCalculation): Promise<Calculation> {
+    const [calculation] = await db
+      .insert(calculations)
+      .values(insertCalculation)
+      .returning();
+    return calculation;
+  }
+
+  async getCalculationsBySession(sessionId: string): Promise<Calculation[]> {
+    return await db.select().from(calculations).where(eq(calculations.sessionId, sessionId));
+  }
+
+  async getIndustryBenchmarks(year?: number): Promise<IndustryBenchmark[]> {
+    if (year) {
+      return await db.select().from(industryBenchmarks).where(eq(industryBenchmarks.year, year));
+    }
+    return await db.select().from(industryBenchmarks);
+  }
+
+  async getIndustryBenchmark(industry: string, year = 2025): Promise<IndustryBenchmark | undefined> {
+    const [benchmark] = await db.select().from(industryBenchmarks)
+      .where(eq(industryBenchmarks.industry, industry));
+    return benchmark || undefined;
+  }
+
+  async createIndustryBenchmark(insertBenchmark: InsertIndustryBenchmark): Promise<IndustryBenchmark> {
+    const [benchmark] = await db
+      .insert(industryBenchmarks)
+      .values(insertBenchmark)
+      .returning();
+    return benchmark;
+  }
+
+  private async initializeBenchmarks() {
+    try {
+      const existing = await db.select().from(industryBenchmarks);
+      if (existing.length > 0) return;
+
+      const benchmarks = [
+        { industry: 'Technology', averageRaise: "4.2", medianRaise: "4.0", topQuartileRaise: "6.5", year: 2025 },
+        { industry: 'Healthcare', averageRaise: "3.8", medianRaise: "3.5", topQuartileRaise: "5.2", year: 2025 },
+        { industry: 'Finance', averageRaise: "4.0", medianRaise: "3.8", topQuartileRaise: "5.8", year: 2025 },
+        { industry: 'Manufacturing', averageRaise: "3.5", medianRaise: "3.2", topQuartileRaise: "4.8", year: 2025 },
+        { industry: 'Retail', averageRaise: "3.2", medianRaise: "3.0", topQuartileRaise: "4.2", year: 2025 },
+        { industry: 'Education', averageRaise: "2.8", medianRaise: "2.5", topQuartileRaise: "3.8", year: 2025 },
+        { industry: 'Government', averageRaise: "3.1", medianRaise: "3.0", topQuartileRaise: "4.0", year: 2025 },
+        { industry: 'Non-Profit', averageRaise: "2.5", medianRaise: "2.2", topQuartileRaise: "3.5", year: 2025 },
+      ];
+
+      for (const benchmark of benchmarks) {
+        await db.insert(industryBenchmarks).values(benchmark);
+      }
+    } catch (error) {
+      console.error('Failed to initialize benchmarks:', error);
+    }
+  }
+}
+
+export const storage = new DatabaseStorage();
