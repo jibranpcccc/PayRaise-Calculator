@@ -6,18 +6,20 @@ export function Footer() {
 
   const popularTools = [
     { href: '/', label: 'Pay Raise Calculator', description: 'Calculate your new salary' },
+    { href: '/tools/state-wise-raise-calculator', label: 'State-Wise Calculator', description: 'Location-specific analysis' },
+    { href: '/tools/raise-after-deductions-calculator', label: 'Net Pay Calculator', description: 'Real take-home increase' },
+    { href: '/tools/salary-vs-total-compensation-calculator', label: 'Total Compensation', description: 'Complete package analysis' },
     { href: '/tools/compound-raise-calculator', label: 'Compound Calculator', description: 'Multi-year projections' },
     { href: '/tools/inflation-adjusted-raise-calculator', label: 'Inflation Calculator', description: 'Real purchasing power' },
-    { href: '/tools/pay-raise-tax-impact-calculator', label: 'Tax Impact Calculator', description: 'Net pay calculations' },
-    { href: '/tools/salary-negotiation-calculator', label: 'Negotiation Calculator', description: 'Strategic planning' },
   ];
 
   const essentialGuides = [
     { href: '/salary-negotiation-complete-guide', label: 'Negotiation Guide', description: 'Complete strategies' },
+    { href: '/guides/top-raise-mistakes-to-avoid', label: 'Avoid Mistakes', description: 'Common pitfalls' },
+    { href: '/guides/raise-calculator-vs-salary-calculator', label: 'Tool Comparison', description: 'Which to use when' },
+    { href: '/blog/how-much-raise-to-ask-for-based-on-role', label: 'Role-Based Raises', description: 'Position-specific advice' },
+    { href: '/blog/best-time-of-year-to-negotiate-raise', label: 'Timing Strategy', description: 'Optimal timing guide' },
     { href: '/industry-raise-benchmarks-2025', label: '2025 Benchmarks', description: 'Current market data' },
-    { href: '/guides/understanding-pay-raises-complete', label: 'Pay Raises Guide', description: 'Comprehensive overview' },
-    { href: '/faq-pay-raise-calculator', label: 'Calculator FAQ', description: 'Common questions' },
-    { href: '/blog', label: 'Salary Blog', description: 'Latest insights' },
   ];
 
   const quickStats = [
@@ -154,23 +156,28 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/how-pay-raise-calculator-works">
-                  <span className="hover:text-white transition-colors">Our Methodology</span>
+                <Link href="/blog">
+                  <span className="hover:text-white transition-colors">Salary Insights Blog</span>
+                </Link>
+              </li>
+              <li>
+                <Link href="/about-us">
+                  <span className="hover:text-white transition-colors">About Our Mission</span>
+                </Link>
+              </li>
+              <li>
+                <Link href="/contact-us">
+                  <span className="hover:text-white transition-colors">Get Support</span>
+                </Link>
+              </li>
+              <li>
+                <Link href="/faq-pay-raise-calculator">
+                  <span className="hover:text-white transition-colors">FAQ</span>
                 </Link>
               </li>
               <li>
                 <Link href="/calculator-accuracy-methodology">
-                  <span className="hover:text-white transition-colors">Accuracy Standards</span>
-                </Link>
-              </li>
-              <li>
-                <Link href="/privacy-policy">
-                  <span className="hover:text-white transition-colors">Privacy Policy</span>
-                </Link>
-              </li>
-              <li>
-                <Link href="/terms-of-service">
-                  <span className="hover:text-white transition-colors">Terms of Service</span>
+                  <span className="hover:text-white transition-colors">Our Methodology</span>
                 </Link>
               </li>
             </ul>

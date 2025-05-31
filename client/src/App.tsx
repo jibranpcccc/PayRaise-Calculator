@@ -56,6 +56,8 @@ import RaiseCalculatorVsSalaryCalculator from "@/pages/guides/raise-calculator-v
 import WhyYourRaiseFeelsSmallerThisYear from "@/pages/blog/why-your-raise-feels-smaller-this-year";
 import HowMuchRaiseToAskForBasedOnRole from "@/pages/blog/how-much-raise-to-ask-for-based-on-role";
 import BestTimeOfYearToNegotiateRaise from "@/pages/blog/best-time-of-year-to-negotiate-raise";
+import RaiseCalculatorUpdates2025 from "@/pages/blog/raise-calculator-updates-2025";
+import TopRaiseMistakesToAvoid from "@/pages/guides/top-raise-mistakes-to-avoid";
 import ContactUs from "@/pages/contact-us";
 import AboutUs from "@/pages/about-us";
 import NotFound from "@/pages/not-found";
@@ -98,6 +100,7 @@ function Router() {
           <Route path="/guides/negotiating-salary-increase-strategies" component={NegotiatingSalaryIncreaseStrategies} />
           <Route path="/guides/performance-review-raise-preparation" component={PerformanceReviewRaisePreparation} />
           <Route path="/guides/raise-calculator-vs-salary-calculator" component={RaiseCalculatorVsSalaryCalculator} />
+          <Route path="/guides/top-raise-mistakes-to-avoid" component={TopRaiseMistakesToAvoid} />
           
           {/* Blog Section */}
           <Route path="/blog" component={BlogIndex} />
@@ -113,6 +116,7 @@ function Router() {
           <Route path="/blog/why-your-raise-feels-smaller-this-year" component={WhyYourRaiseFeelsSmallerThisYear} />
           <Route path="/blog/how-much-raise-to-ask-for-based-on-role" component={HowMuchRaiseToAskForBasedOnRole} />
           <Route path="/blog/best-time-of-year-to-negotiate-raise" component={BestTimeOfYearToNegotiateRaise} />
+          <Route path="/blog/raise-calculator-updates-2025" component={RaiseCalculatorUpdates2025} />
           
           {/* Core Pages */}
           <Route path="/salary-negotiation-complete-guide" component={SalaryNegotiationCompleteGuide} />
