@@ -24,6 +24,10 @@ import HowPayRaiseCalculatorWorks from "@/pages/how-pay-raise-calculator-works";
 import PayRaiseFormulasGuide from "@/pages/pay-raise-formulas-guide";
 import TaxImpactSalaryIncreases from "@/pages/tax-impact-salary-increases";
 import FaqPayRaiseCalculator from "@/pages/faq-pay-raise-calculator";
+import CalculatorAccuracyMethodology from "@/pages/calculator-accuracy-methodology";
+import RaiseVsInflationAnalysis from "@/pages/raise-vs-inflation-analysis";
+import StatePayRaiseLawsCompliance from "@/pages/state-pay-raise-laws-compliance";
+import BonusImpactCalculator from "@/pages/tools/bonus-impact-calculator";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -41,6 +45,7 @@ function Router() {
           <Route path="/tools/inflation-adjusted-raise-calculator" component={InflationAdjustedRaiseCalculator} />
           <Route path="/tools/promotion-salary-calculator" component={PromotionSalaryCalculator} />
           <Route path="/tools/pay-raise-tax-impact-calculator" component={PayRaiseTaxImpactCalculator} />
+          <Route path="/tools/bonus-impact-calculator" component={BonusImpactCalculator} />
           
           {/* Guides Section */}
           <Route path="/guides" component={GuidesIndex} />
@@ -58,6 +63,9 @@ function Router() {
           <Route path="/pay-raise-formulas-guide" component={PayRaiseFormulasGuide} />
           <Route path="/tax-impact-salary-increases" component={TaxImpactSalaryIncreases} />
           <Route path="/faq-pay-raise-calculator" component={FaqPayRaiseCalculator} />
+          <Route path="/calculator-accuracy-methodology" component={CalculatorAccuracyMethodology} />
+          <Route path="/raise-vs-inflation-analysis" component={RaiseVsInflationAnalysis} />
+          <Route path="/state-pay-raise-laws-compliance" component={StatePayRaiseLawsCompliance} />
           
           {/* Fallback to 404 */}
           <Route component={NotFound} />
