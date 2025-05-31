@@ -42,15 +42,17 @@ export function SalaryTrendPredictionWidget({
   // Fetch real-time salary trend data from external APIs
   const { data: trendData, isLoading, error, refetch } = useQuery({
     queryKey: ['/api/salary-trends', selectedIndustry],
-    queryFn: async () => {
+    queryFn: async (): Promise<SalaryTrendData> => {
       const response = await fetch(`/api/salary-trends?industry=${selectedIndustry}`);
       if (!response.ok) {
-        throw new Error('Failed to fetch salary trend data');
+        const errorData = await response.json();
+        throw new Error(errorData.message || 'Failed to fetch salary trend data');
       }
-      return response.json() as SalaryTrendData;
+      return response.json();
     },
     refetchInterval: 300000, // Refresh every 5 minutes
     staleTime: 240000, // Consider data stale after 4 minutes
+    retry: false, // Don't retry on API key missing errors
   });
 
   const industries = [
@@ -220,7 +222,7 @@ export function SalaryTrendPredictionWidget({
                     parseFloat(calculatePercentageChange(trendData.currentAverage, trendData.prediction3Month)) > 0 
                       ? 'text-green-600' : 'text-red-600'
                   }`}>
-                    {calculatePercentageChange(trendData.currentAverage, trendData.prediction3Month) > 0 ? '+' : ''}
+                    {parseFloat(calculatePercentageChange(trendData.currentAverage, trendData.prediction3Month)) > 0 ? '+' : ''}
                     {calculatePercentageChange(trendData.currentAverage, trendData.prediction3Month)}%
                   </div>
                 </div>
@@ -232,7 +234,7 @@ export function SalaryTrendPredictionWidget({
                     parseFloat(calculatePercentageChange(trendData.currentAverage, trendData.prediction6Month)) > 0 
                       ? 'text-green-600' : 'text-red-600'
                   }`}>
-                    {calculatePercentageChange(trendData.currentAverage, trendData.prediction6Month) > 0 ? '+' : ''}
+                    {parseFloat(calculatePercentageChange(trendData.currentAverage, trendData.prediction6Month)) > 0 ? '+' : ''}
                     {calculatePercentageChange(trendData.currentAverage, trendData.prediction6Month)}%
                   </div>
                 </div>
@@ -244,7 +246,7 @@ export function SalaryTrendPredictionWidget({
                     parseFloat(calculatePercentageChange(trendData.currentAverage, trendData.prediction12Month)) > 0 
                       ? 'text-green-600' : 'text-red-600'
                   }`}>
-                    {calculatePercentageChange(trendData.currentAverage, trendData.prediction12Month) > 0 ? '+' : ''}
+                    {parseFloat(calculatePercentageChange(trendData.currentAverage, trendData.prediction12Month)) > 0 ? '+' : ''}
                     {calculatePercentageChange(trendData.currentAverage, trendData.prediction12Month)}%
                   </div>
                 </div>

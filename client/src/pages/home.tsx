@@ -4,6 +4,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { PayRaiseCalculatorComponent } from "@/components/calculator/pay-raise-calculator";
 import { IndustryBenchmarks } from "@/components/calculator/industry-benchmarks";
+import { SalaryTrendPredictionWidget } from "@/components/widgets/salary-trend-prediction-widget";
 import { SEOHead } from "@/components/seo/head";
 import { 
   CheckCircle, 
@@ -319,6 +320,11 @@ export default function Home() {
             </div>
             
             <div className="mt-12 lg:mt-0 lg:col-span-4">
+              {/* Real-time Salary Trend Widget */}
+              <div className="mb-6">
+                <SalaryTrendPredictionWidget compact={true} />
+              </div>
+              
               <Card className="bg-gray-50 sticky top-24">
                 <CardContent className="p-6">
                   <h3 className="font-semibold text-gray-900 mb-4">Quick Links</h3>
