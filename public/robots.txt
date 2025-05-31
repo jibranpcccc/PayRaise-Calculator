@@ -1,0 +1,15 @@
+User-agent: *
+Allow: /
+
+# Allow all crawlers
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# Sitemap location
+Sitemap: https://payraisepercentagecalculator.com/sitemap.xml
+
+# Crawl-delay for respectful crawling
+Crawl-delay: 1
