@@ -111,6 +111,13 @@ export default function ToolsIndex() {
       icon: <Building2 className="h-8 w-8" />,
       href: "/tools/salary-negotiation-calculator",
       category: "Strategy"
+    },
+    {
+      title: "Promotion Calculator",
+      description: "Calculate expected salary increases for career advancement and role changes",
+      icon: <Target className="h-8 w-8" />,
+      href: "/tools/promotion-calculator",
+      category: "Specialized"
     }
   ];
 
@@ -145,7 +152,7 @@ export default function ToolsIndex() {
     <>
       <SEOHead
         title="All Calculator Tools - Pay Raise & Salary Calculators"
-        description="Comprehensive collection of 12+ professional salary and pay raise calculators. Free tools for compound raises, inflation adjustments, tax impact, and more."
+        description="Comprehensive collection of 14+ professional salary and pay raise calculators. Free tools for compound raises, inflation adjustments, tax impact, negotiation planning, and more."
         canonical="/tools"
         structuredData={structuredData}
       />
