@@ -62,17 +62,73 @@ export default function CompoundRaiseCalculator() {
         structuredData={structuredData}
       />
 
-      <div className="min-h-screen bg-gray-50">
+      <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-indigo-50">
         {/* Hero Section */}
-        <section className="bg-white py-12">
+        <section className="bg-white py-16">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center">
-              <h1 className="text-4xl font-bold text-gray-900 sm:text-5xl">
+              <div className="mb-6">
+                <span className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-blue-100 text-blue-800 border border-blue-200">
+                  <TrendingUp className="w-4 h-4 mr-2" />
+                  Multi-Year Salary Projections
+                </span>
+              </div>
+              <h1 className="text-4xl font-bold text-gray-900 sm:text-5xl lg:text-6xl">
                 Compound Raise Calculator
               </h1>
-              <p className="mt-4 text-xl text-gray-600">
-                Project your salary growth over multiple years and see the power of compound raises
+              <p className="mt-6 text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                Discover the powerful impact of consistent annual raises over time. Calculate how compound 
+                salary increases can dramatically boost your long-term earning potential and career growth.
               </p>
+            </div>
+          </div>
+        </section>
+
+        {/* How to Use Guide */}
+        <section className="py-12 bg-blue-50">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-10">
+              <h2 className="text-3xl font-bold text-gray-900 mb-4">
+                How to Use This Calculator: Step-by-Step Guide
+              </h2>
+              <p className="text-lg text-gray-600">
+                Follow these simple steps to project your multi-year salary growth
+              </p>
+            </div>
+            
+            <div className="grid md:grid-cols-3 gap-6">
+              <div className="bg-white rounded-lg p-6 shadow-lg">
+                <div className="bg-blue-600 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+                  <span className="text-white font-bold text-xl">1</span>
+                </div>
+                <h3 className="font-semibold text-gray-900 mb-3">Enter Current Salary</h3>
+                <p className="text-gray-600 text-sm">
+                  Input your current annual salary in the first field. This serves as your starting point 
+                  for all projections. Include only base salary, not bonuses or benefits.
+                </p>
+              </div>
+              
+              <div className="bg-white rounded-lg p-6 shadow-lg">
+                <div className="bg-green-600 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+                  <span className="text-white font-bold text-xl">2</span>
+                </div>
+                <h3 className="font-semibold text-gray-900 mb-3">Set Annual Raise %</h3>
+                <p className="text-gray-600 text-sm">
+                  Enter your expected annual raise percentage. Use industry averages (3-5%) or your 
+                  company's historical data. This rate compounds each year.
+                </p>
+              </div>
+              
+              <div className="bg-white rounded-lg p-6 shadow-lg">
+                <div className="bg-purple-600 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+                  <span className="text-white font-bold text-xl">3</span>
+                </div>
+                <h3 className="font-semibold text-gray-900 mb-3">Choose Time Period</h3>
+                <p className="text-gray-600 text-sm">
+                  Select how many years to project (1-10 years recommended). The calculator shows 
+                  year-by-year growth and cumulative increases.
+                </p>
+              </div>
             </div>
           </div>
         </section>
