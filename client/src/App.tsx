@@ -32,6 +32,10 @@ import ColaCalculator from "@/pages/tools/cola-calculator";
 import HourlyToSalaryConverter from "@/pages/tools/hourly-to-salary-converter";
 import RaiseVsBonusCalculator from "@/pages/tools/raise-vs-bonus-calculator";
 import ThreeVsFivePercentRaiseLongTermImpact from "@/pages/blog/3-vs-5-percent-raise-long-term-impact";
+import WhenAskForRaiseOptimalTiming from "@/pages/blog/when-ask-for-raise-optimal-timing";
+import AveragePayRaisesDataTrends from "@/pages/guides/average-pay-raises-data-trends";
+import GenderPayGapCalculator from "@/pages/tools/gender-pay-gap-calculator";
+import OvertimePayCalculator from "@/pages/tools/overtime-pay-calculator";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -53,16 +57,20 @@ function Router() {
           <Route path="/tools/cola-calculator" component={ColaCalculator} />
           <Route path="/tools/hourly-to-salary-converter" component={HourlyToSalaryConverter} />
           <Route path="/tools/raise-vs-bonus-calculator" component={RaiseVsBonusCalculator} />
+          <Route path="/tools/gender-pay-gap-calculator" component={GenderPayGapCalculator} />
+          <Route path="/tools/overtime-pay-calculator" component={OvertimePayCalculator} />
           
           {/* Guides Section */}
           <Route path="/guides" component={GuidesIndex} />
           <Route path="/guides/understanding-pay-raises-complete" component={UnderstandingPayRaisesComplete} />
+          <Route path="/guides/average-pay-raises-data-trends" component={AveragePayRaisesDataTrends} />
           <Route path="/guides/negotiating-salary-increase-strategies" component={NegotiatingSalaryIncreaseStrategies} />
           <Route path="/guides/performance-review-raise-preparation" component={PerformanceReviewRaisePreparation} />
           
           {/* Blog Section */}
           <Route path="/blog" component={BlogIndex} />
           <Route path="/blog/3-vs-5-percent-raise-long-term-impact" component={ThreeVsFivePercentRaiseLongTermImpact} />
+          <Route path="/blog/when-ask-for-raise-optimal-timing" component={WhenAskForRaiseOptimalTiming} />
           
           {/* Core Pages */}
           <Route path="/salary-negotiation-complete-guide" component={SalaryNegotiationCompleteGuide} />
