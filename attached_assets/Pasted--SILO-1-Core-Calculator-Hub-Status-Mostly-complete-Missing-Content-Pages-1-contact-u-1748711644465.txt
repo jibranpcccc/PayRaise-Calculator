@@ -1,0 +1,186 @@
+🟣 SILO 1: Core Calculator Hub (/)
+✅ Status: Mostly complete
+❗️Missing Content Pages:
+
+1. /contact-us/
+Anchor Ideas:
+
+“Need help? Contact us here.”
+
+“Reach out with salary questions.”
+
+2. /about-us/
+Anchor Ideas:
+
+“Learn more about our mission.”
+
+“Who we are and why we built this tool.”
+
+Internal Links Suggestions:
+From Footer, Homepage, and /faq-pay-raise-calculator/
+
+"Still have questions?" → /contact-us/
+
+"Our story" → /about-us/
+
+🔵 SILO 2: Advanced Calculator Suite (/tools/)
+✅ 12 tools listed
+❗️Missing Suggested Add-Ons for Topical Depth + SEO Expansion:
+
+🔹 /tools/state-wise-raise-calculator/
+Purpose: Calculate raise based on your U.S. state tax brackets and cost of living.
+Anchor Examples:
+
+"See raise impact by state"
+
+"Try the state-specific raise calculator"
+
+🔹 /tools/raise-after-deductions-calculator/
+Purpose: Deduct 401k, insurance, etc., for net raise.
+Anchor Examples:
+
+"Check post-deduction raise"
+
+"Estimate your actual take-home pay"
+
+🔹 /tools/salary-vs-total-compensation-calculator/
+Purpose: Add bonuses, benefits, and equity into total comp.
+Anchor Examples:
+
+"Compare salary vs full compensation"
+
+"Understand your true earnings"
+
+Internal Links:
+From /guides/understanding-pay-raises-complete/
+
+From /blog/understanding-total-compensation/
+
+From /tools/pay-raise-tax-impact-calculator/
+
+🟢 SILO 3: Educational Guides (/guides/)
+✅ 10 guides defined
+❗️Add 2 guides for topical completeness + answer long-tail queries:
+
+🔹 /guides/raise-calculator-vs-salary-calculator/
+Purpose: Differentiate raise vs. salary tools
+Anchor Ideas:
+
+"What’s the difference between a raise calculator and a salary calculator?"
+
+🔹 /guides/top-raise-mistakes-to-avoid/
+Purpose: Raise negotiation traps, miscalculations
+Anchor Ideas:
+
+“Common mistakes employees make during raise season”
+
+Internal Links:
+From /blog/when-ask-for-raise-optimal-timing/ → “Avoid these raise mistakes”
+
+From /salary-negotiation-complete-guide/ → “Mistakes to avoid in negotiation”
+
+🟠 SILO 4: Blog Content Cluster (/blog/)
+✅ 8 blog posts listed
+❗️Add 4 missing high-traffic blog topics for long-tail keywords and freshness:
+
+🔹 /blog/why-your-raise-feels-smaller-this-year/
+Intent: Inflation & tax eroding raises
+Anchor Examples:
+
+“Why your 5% raise isn’t really 5%”
+
+“How inflation eats up your salary bump”
+
+Internal Links:
+
+From /tools/inflation-adjusted-raise-calculator/
+
+From /blog/inflation-real-salary-impact/
+
+🔹 /blog/how-much-raise-to-ask-for-based-on-role/
+Intent: Role-specific raise benchmarks
+Anchor Examples:
+
+“Raise expectations for developers, nurses, and managers”
+
+Internal Links:
+
+From /guides/market-value-salary-research/
+
+From /tools/salary-negotiation-calculator/
+
+🔹 /blog/best-time-of-year-to-negotiate-raise/
+Anchor Text:
+
+“Optimal raise request calendar”
+
+“Timing your raise conversation strategically”
+
+Internal Links:
+
+From /guides/salary-increase-timing-guide/
+
+From /blog/when-ask-for-raise-optimal-timing/
+
+🔹 /blog/raise-calculator-updates-2025/
+Purpose: Update log, trust signals
+Anchor Text:
+
+“What’s new in our raise calculator”
+
+“How we’re improving accuracy in 2025”
+
+Internal Links:
+
+From homepage → "See what’s new in the tool"
+
+🔸 GLOBAL SEO ELEMENTS MISSING
+📄 Breadcrumb Schema Markup
+✅ Add on all tools, guides, blog pages
+🔗 Example:
+
+json
+Copy
+Edit
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://payraisepercentagecalculator.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Tools", "item": "https://payraisepercentagecalculator.com/tools/" },
+    { "@type": "ListItem", "position": 3, "name": "Compound Raise Calculator", "item": "https://payraisepercentagecalculator.com/tools/compound-raise-calculator/" }
+  ]
+}
+🧱 Related Content Modules
+Add "You Might Also Like" sections on blog & guide pages.
+
+Example:
+
+On /blog/3-vs-5-percent-raise-long-term-impact/
+→ “Try our Compound Raise Calculator” → /tools/compound-raise-calculator/
+→ “Understand raise formulas” → /pay-raise-formulas-guide/
+
+⚠️ Robots.txt and Sitemap.xml
+Make sure you have these live and submitted to Google Search Console
+
+📊 Analytics Stack Setup
+GA4
+
+Search Console
+
+Event tracking for:
+
+Calculator usage
+
+Button clicks (Export PDF, Recalculate)
+
+Form submissions (if any)
+
+Blog post scroll depth
+
+✅ QUICK CONTENT STATUS TRACKER (Add to Spreadsheet)
+Page Type	Target URL	Status	Anchor Target From	Internal Link Source
+Blog	/blog/why-your-raise-feels-smaller-this-year/	❌ Missing	“Why your 5% raise isn’t really 5%”	/tools/inflation-adjusted-raise-calculator/
+Tool	/tools/state-wise-raise-calculator/	❌ Missing	“See raise impact by state”	/tools/pay-raise-tax-impact-calculator/
+Guide	/guides/raise-calculator-vs-salary-calculator/	❌ Missing	“Compare salary and raise tools”	/guides/understanding-pay-raises-complete/
+Page	/about-us/	❌ Missing	“About our team and purpose”
