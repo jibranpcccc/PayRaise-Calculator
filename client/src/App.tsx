@@ -28,6 +28,10 @@ import CalculatorAccuracyMethodology from "@/pages/calculator-accuracy-methodolo
 import RaiseVsInflationAnalysis from "@/pages/raise-vs-inflation-analysis";
 import StatePayRaiseLawsCompliance from "@/pages/state-pay-raise-laws-compliance";
 import BonusImpactCalculator from "@/pages/tools/bonus-impact-calculator";
+import ColaCalculator from "@/pages/tools/cola-calculator";
+import HourlyToSalaryConverter from "@/pages/tools/hourly-to-salary-converter";
+import RaiseVsBonusCalculator from "@/pages/tools/raise-vs-bonus-calculator";
+import ThreeVsFivePercentRaiseLongTermImpact from "@/pages/blog/3-vs-5-percent-raise-long-term-impact";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -46,6 +50,9 @@ function Router() {
           <Route path="/tools/promotion-salary-calculator" component={PromotionSalaryCalculator} />
           <Route path="/tools/pay-raise-tax-impact-calculator" component={PayRaiseTaxImpactCalculator} />
           <Route path="/tools/bonus-impact-calculator" component={BonusImpactCalculator} />
+          <Route path="/tools/cola-calculator" component={ColaCalculator} />
+          <Route path="/tools/hourly-to-salary-converter" component={HourlyToSalaryConverter} />
+          <Route path="/tools/raise-vs-bonus-calculator" component={RaiseVsBonusCalculator} />
           
           {/* Guides Section */}
           <Route path="/guides" component={GuidesIndex} />
@@ -55,6 +62,7 @@ function Router() {
           
           {/* Blog Section */}
           <Route path="/blog" component={BlogIndex} />
+          <Route path="/blog/3-vs-5-percent-raise-long-term-impact" component={ThreeVsFivePercentRaiseLongTermImpact} />
           
           {/* Core Pages */}
           <Route path="/salary-negotiation-complete-guide" component={SalaryNegotiationCompleteGuide} />
