@@ -30,6 +30,15 @@
     --warning: 47.9 95.8% 53.1%;
   }
 
+  /* Performance optimizations */
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
   .dark {
     --background: 222.2 84% 4.9%;
     --foreground: 210 40% 98%;
@@ -90,6 +99,102 @@
   
   .btn-secondary-gradient {
     @apply bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-white shadow-lg shadow-emerald-500/25 transition-all duration-300;
+  }
+
+  /* Mobile-first responsive optimizations */
+  .mobile-optimized {
+    @apply touch-manipulation;
+  }
+  
+  /* Fast loading animations */
+  .fade-in {
+    animation: fadeIn 0.3s ease-in-out;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  /* Mobile calculator optimizations */
+  .calculator-mobile {
+    @apply grid grid-cols-1 gap-4 lg:grid-cols-2 lg:gap-8;
+  }
+  
+  /* Touch-friendly buttons */
+  .btn-touch {
+    @apply min-h-[44px] min-w-[44px] touch-manipulation;
+  }
+  
+  /* Improved text contrast for mobile */
+  .text-mobile-readable {
+    @apply text-base leading-relaxed;
+  }
+  
+  /* Performance-optimized shadows */
+  .efficient-shadow {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  }
+
+  /* Preload critical resources */
+  .preload-hint {
+    content-visibility: auto;
+    contain-intrinsic-size: 1px 500px;
+  }
+
+  /* Reduce layout shift */
+  .aspect-ratio-container {
+    aspect-ratio: 16 / 9;
+    contain: layout style paint;
+  }
+
+  /* Optimize text rendering */
+  .optimized-text {
+    text-rendering: optimizeSpeed;
+    font-display: swap;
+  }
+
+  /* Smooth scrolling performance */
+  .smooth-scroll {
+    scroll-behavior: smooth;
+    will-change: scroll-position;
+  }
+
+  /* Mobile-specific optimizations */
+  @media (max-width: 768px) {
+    .mobile-stack {
+      @apply flex flex-col space-y-4;
+    }
+    
+    .mobile-padding {
+      @apply px-4 py-6;
+    }
+    
+    .mobile-text {
+      @apply text-sm leading-relaxed;
+    }
+    
+    .mobile-button {
+      @apply w-full min-h-[48px] text-base;
+    }
+    
+    .mobile-card {
+      @apply p-4 shadow-md;
+    }
+  }
+
+  /* Performance critical loading states */
+  .skeleton {
+    @apply animate-pulse bg-gray-200 rounded;
+  }
+
+  .loading-spinner {
+    animation: spin 1s linear infinite;
+  }
+
+  @keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
   }
 }
 

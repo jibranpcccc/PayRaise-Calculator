@@ -75,16 +75,16 @@ export function PayRaiseCalculatorComponent() {
   };
 
   return (
-    <div className="max-w-4xl mx-auto">
-      <Card className="calculator-shadow">
+    <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <Card className="calculator-shadow fade-in mobile-optimized">
         <CardHeader>
-          <CardTitle className="text-xl font-semibold text-gray-900 flex items-center">
+          <CardTitle className="text-xl font-semibold text-gray-900 flex items-center text-mobile-readable">
             <Edit className="mr-2 h-5 w-5 text-primary" />
             Enter Your Information
           </CardTitle>
         </CardHeader>
         <CardContent>
-          <div className="grid lg:grid-cols-2 gap-8">
+          <div className="calculator-mobile">
             {/* Input Section */}
             <div className="space-y-6">
               {/* Current Salary */}

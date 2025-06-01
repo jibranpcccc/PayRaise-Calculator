@@ -489,6 +489,167 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Comprehensive Blog Section for SEO */}
+      <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+              Complete Pay Raise Knowledge Hub
+            </h2>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              Everything you need to know about salary increases, negotiation strategies, and career advancement. 
+              From understanding inflation impact to mastering negotiation techniques.
+            </p>
+          </div>
+
+          <div className="grid lg:grid-cols-3 gap-8 mb-12">
+            {/* Strategic Timing */}
+            <Card className="card-hover efficient-shadow">
+              <CardContent className="p-6">
+                <div className="flex items-center mb-4">
+                  <Target className="h-8 w-8 text-primary mr-3" />
+                  <h3 className="text-xl font-semibold text-gray-900">Strategic Timing</h3>
+                </div>
+                <p className="text-gray-600 mb-4">
+                  Learn when to ask for a raise, how to time your request perfectly, and what factors influence approval rates.
+                </p>
+                <div className="space-y-2 mb-6">
+                  <Link href="/blog/when-ask-for-raise-optimal-timing" className="block text-sm text-primary hover:underline">
+                    → When to Ask for a Raise: Optimal Timing Guide
+                  </Link>
+                  <Link href="/guides/performance-review-raise-preparation" className="block text-sm text-primary hover:underline">
+                    → Performance Review Preparation Strategies
+                  </Link>
+                  <Link href="/blog/raise-negotiation-scripts-templates" className="block text-sm text-primary hover:underline">
+                    → Proven Negotiation Scripts & Templates
+                  </Link>
+                </div>
+                <Link href="/tools/salary-negotiation-calculator">
+                  <Button className="w-full btn-touch">Calculate Negotiation Strategy</Button>
+                </Link>
+              </CardContent>
+            </Card>
+
+            {/* Financial Impact */}
+            <Card className="card-hover efficient-shadow">
+              <CardContent className="p-6">
+                <div className="flex items-center mb-4">
+                  <PiggyBank className="h-8 w-8 text-secondary mr-3" />
+                  <h3 className="text-xl font-semibold text-gray-900">Financial Impact</h3>
+                </div>
+                <p className="text-gray-600 mb-4">
+                  Understand the real value of raises, tax implications, and long-term financial benefits of salary increases.
+                </p>
+                <div className="space-y-2 mb-6">
+                  <Link href="/blog/3-vs-5-percent-raise-long-term-impact" className="block text-sm text-primary hover:underline">
+                    → 3% vs 5% Raise: Long-term Financial Impact
+                  </Link>
+                  <Link href="/tax-impact-salary-increases" className="block text-sm text-primary hover:underline">
+                    → Tax Impact of Salary Increases
+                  </Link>
+                  <Link href="/blog/inflation-real-salary-impact" className="block text-sm text-primary hover:underline">
+                    → Inflation's Impact on Real Salary Value
+                  </Link>
+                </div>
+                <Link href="/tools/pay-raise-tax-impact-calculator">
+                  <Button className="w-full btn-touch">Calculate Tax Impact</Button>
+                </Link>
+              </CardContent>
+            </Card>
+
+            {/* Industry Analysis */}
+            <Card className="card-hover efficient-shadow">
+              <CardContent className="p-6">
+                <div className="flex items-center mb-4">
+                  <Building2 className="h-8 w-8 text-accent mr-3" />
+                  <h3 className="text-xl font-semibold text-gray-900">Industry Analysis</h3>
+                </div>
+                <p className="text-gray-600 mb-4">
+                  Compare your raise against industry standards, understand market trends, and benchmark your compensation.
+                </p>
+                <div className="space-y-2 mb-6">
+                  <Link href="/blog/average-raise-by-industry-2025" className="block text-sm text-primary hover:underline">
+                    → Average Raise by Industry 2025 Data
+                  </Link>
+                  <Link href="/industry-raise-benchmarks-2025" className="block text-sm text-primary hover:underline">
+                    → Comprehensive Industry Benchmarks
+                  </Link>
+                  <Link href="/blog/salary-transparency-impact" className="block text-sm text-primary hover:underline">
+                    → Salary Transparency Laws Impact
+                  </Link>
+                </div>
+                <Link href="/guides/market-value-salary-research">
+                  <Button className="w-full btn-touch">Research Market Value</Button>
+                </Link>
+              </CardContent>
+            </Card>
+          </div>
+
+          {/* Advanced Topics Grid */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+            <Card className="bg-gradient-to-br from-blue-50 to-indigo-50 border-blue-200">
+              <CardContent className="p-4">
+                <h4 className="font-semibold text-gray-900 mb-2">Remote Work Strategies</h4>
+                <p className="text-sm text-gray-600 mb-3">Navigate salary negotiations in remote work environments</p>
+                <Link href="/blog/remote-work-raise-strategies" className="text-sm text-primary hover:underline">
+                  Read Complete Guide →
+                </Link>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-gradient-to-br from-green-50 to-emerald-50 border-green-200">
+              <CardContent className="p-4">
+                <h4 className="font-semibold text-gray-900 mb-2">Hourly vs Salary</h4>
+                <p className="text-sm text-gray-600 mb-3">Understand differences in raise structures and calculations</p>
+                <Link href="/blog/hourly-vs-salary-raise-differences" className="text-sm text-primary hover:underline">
+                  Compare Options →
+                </Link>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-gradient-to-br from-purple-50 to-violet-50 border-purple-200">
+              <CardContent className="p-4">
+                <h4 className="font-semibold text-gray-900 mb-2">Legal Compliance</h4>
+                <p className="text-sm text-gray-600 mb-3">State laws and regulations affecting pay raise policies</p>
+                <Link href="/state-pay-raise-laws-compliance" className="text-sm text-primary hover:underline">
+                  Check Your State →
+                </Link>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-gradient-to-br from-orange-50 to-amber-50 border-orange-200">
+              <CardContent className="p-4">
+                <h4 className="font-semibold text-gray-900 mb-2">Advanced Calculators</h4>
+                <p className="text-sm text-gray-600 mb-3">Specialized tools for complex compensation scenarios</p>
+                <Link href="/tools/compound-raise-calculator" className="text-sm text-primary hover:underline">
+                  Explore Tools →
+                </Link>
+              </CardContent>
+            </Card>
+          </div>
+
+          {/* Call-to-Action Section */}
+          <div className="bg-gradient-to-r from-primary to-secondary rounded-2xl p-8 text-center text-white">
+            <h3 className="text-2xl font-bold mb-4">Ready to Calculate Your Perfect Raise?</h3>
+            <p className="text-lg opacity-90 mb-6 max-w-2xl mx-auto">
+              Use our comprehensive calculator suite to understand your worth, plan your negotiation, and maximize your earning potential.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link href="/tools/compound-raise-calculator">
+                <Button className="bg-white text-primary hover:bg-gray-100 btn-touch">
+                  Multi-Year Projections
+                </Button>
+              </Link>
+              <Link href="/guides/negotiating-salary-increase-strategies">
+                <Button className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-primary btn-touch">
+                  Negotiation Guide
+                </Button>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
     </>
   );
 }
