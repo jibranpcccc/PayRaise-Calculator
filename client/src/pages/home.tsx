@@ -1,11 +1,13 @@
 import { useState } from "react";
 import { Link } from "wouter";
-import { Card, CardContent } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
 import { PayRaiseCalculatorComponent } from "@/components/calculator/pay-raise-calculator";
 import { IndustryBenchmarks } from "@/components/calculator/industry-benchmarks";
 import { IndustryBenchmarksWidget } from "@/components/widgets/industry-benchmarks-widget";
 import { SEOHead } from "@/components/seo/head";
+import { InternalLink } from "@/components/seo/internal-link-checker";
 import { 
   CheckCircle, 
   Calculator, 
@@ -17,7 +19,13 @@ import {
   PiggyBank,
   FileText,
   Target,
-  Building2
+  Building2,
+  ArrowRight,
+  ExternalLink,
+  HelpCircle,
+  Clock,
+  Shield,
+  DollarSign
 } from "lucide-react";
 
 export default function Home() {
@@ -97,42 +105,83 @@ export default function Home() {
     }
   ];
 
-  const structuredData = {
-    "@context": "https://schema.org",
-    "@type": ["WebApplication", "SoftwareApplication"],
-    "name": "Pay Raise Calculator 2025",
-    "description": "Professional pay raise calculator with tax impact analysis, inflation adjustment, and industry benchmarks. Calculate exact salary increases and new pay rates instantly.",
-    "url": "https://payraisepercentagecalculator.com",
-    "applicationCategory": "FinanceApplication",
-    "operatingSystem": "Any",
-    "browserRequirements": "Requires JavaScript",
-    "offers": {
-      "@type": "Offer",
-      "price": "0",
-      "priceCurrency": "USD",
-      "availability": "https://schema.org/InStock"
+  const faqData = [
+    {
+      question: "What's a good raise in 2025?",
+      answer: "A competitive raise in 2025 ranges from 4-7%, with the average being 4.2% according to recent surveys. However, this varies significantly by industry, performance, and economic conditions. Technology and healthcare typically see higher increases (5-8%), while retail and hospitality average 3-5%. To beat inflation (3.1% in 2025), aim for at least 4% minimum."
     },
-    "featureList": [
-      "Multi-format salary calculations (hourly, weekly, monthly, annual)",
-      "Real-time tax impact analysis",
-      "Inflation adjustment calculations",
-      "Industry benchmark comparisons",
-      "Compound raise projections",
-      "PDF export for negotiations"
-    ],
-    "creator": {
-      "@type": "Organization",
-      "name": "PayRaise Calculator",
-      "url": "https://payraisepercentagecalculator.com",
-      "logo": "https://payraisepercentagecalculator.com/logo.png"
+    {
+      question: "How do I calculate a 5% raise?",
+      answer: "To calculate a 5% raise: multiply your current salary by 0.05, then add the result to your current salary. For example: $60,000 × 0.05 = $3,000 raise, making your new salary $63,000. Our calculator handles all pay periods automatically and includes tax impact analysis."
     },
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "4.8",
-      "ratingCount": "2847",
-      "bestRating": "5"
+    {
+      question: "Are raises taxable?",
+      answer: "Yes, salary raises are fully taxable as ordinary income. The additional income may push you into a higher tax bracket, but only the amount above the bracket threshold is taxed at the higher rate. Our tax impact calculator shows exactly how much you'll take home after federal and state taxes."
+    },
+    {
+      question: "How do I negotiate a higher salary?",
+      answer: "Successful salary negotiation requires research, timing, and preparation. Start by researching market rates, documenting your achievements, and choosing the right timing (typically during performance reviews or after major accomplishments). Present data-driven arguments and be prepared to discuss your value contribution."
+    },
+    {
+      question: "How often should I expect a raise?",
+      answer: "Most companies provide annual raises, typically ranging from 2-5% for standard performance. Merit-based increases can occur more frequently, especially after promotions or significant achievements. Cost-of-living adjustments may be separate from performance raises. In high-growth industries, bi-annual reviews are common."
+    },
+    {
+      question: "What if my raise request is denied?",
+      answer: "If your raise request is denied, ask for specific feedback and a timeline for reconsideration. Document the conversation, understand the reasoning, and create an improvement plan. Sometimes alternative compensation like additional benefits, flexible work arrangements, or professional development opportunities may be available."
     }
-  };
+  ];
+
+  const structuredData = [
+    {
+      "@context": "https://schema.org",
+      "@type": ["WebApplication", "SoftwareApplication"],
+      "name": "Pay Raise Calculator 2025",
+      "description": "Professional pay raise calculator with tax impact analysis, inflation adjustment, and industry benchmarks. Calculate exact salary increases and new pay rates instantly.",
+      "url": "https://payraisepercentagecalculator.com",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Any",
+      "browserRequirements": "Requires JavaScript",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock"
+      },
+      "featureList": [
+        "Multi-format salary calculations (hourly, weekly, monthly, annual)",
+        "Real-time tax impact analysis",
+        "Inflation adjustment calculations",
+        "Industry benchmark comparisons",
+        "Compound raise projections",
+        "PDF export for negotiations"
+      ],
+      "creator": {
+        "@type": "Organization",
+        "name": "PayRaise Calculator",
+        "url": "https://payraisepercentagecalculator.com",
+        "logo": "https://payraisepercentagecalculator.com/logo.png"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "ratingCount": "2847",
+        "bestRating": "5"
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": faqData.map(faq => ({
+        "@type": "Question",
+        "name": faq.question,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": faq.answer
+        }
+      }))
+    }
+  ];
 
   return (
     <>
@@ -647,6 +696,212 @@ export default function Home() {
                 </Button>
               </Link>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section with Schema Markup */}
+      <section className="py-16 bg-gray-50">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-gray-900">Frequently Asked Questions</h2>
+            <p className="mt-2 text-lg text-gray-600">Common questions about pay raise calculations and salary negotiations</p>
+          </div>
+
+          <div className="space-y-6">
+            <Card>
+              <CardHeader>
+                <CardTitle className="flex items-center">
+                  <HelpCircle className="h-5 w-5 text-primary mr-2" />
+                  What's a good raise in 2025?
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-gray-700">
+                  A competitive raise in 2025 ranges from 4-7%, with the average being 4.2% according to recent surveys. 
+                  However, this varies significantly by industry, performance, and economic conditions. Technology and healthcare 
+                  typically see higher increases (5-8%), while retail and hospitality average 3-5%. To beat inflation (3.1% in 2025), 
+                  aim for at least 4% minimum.
+                </p>
+                <div className="mt-4">
+                  <InternalLink href="/industry-raise-benchmarks-2025" className="text-primary hover:underline">
+                    View detailed industry benchmarks →
+                  </InternalLink>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardHeader>
+                <CardTitle className="flex items-center">
+                  <Calculator className="h-5 w-5 text-primary mr-2" />
+                  How do I calculate a 5% raise?
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-gray-700">
+                  To calculate a 5% raise: multiply your current salary by 0.05, then add the result to your current salary. 
+                  For example: $60,000 × 0.05 = $3,000 raise, making your new salary $63,000. Our calculator handles all 
+                  pay periods automatically and includes tax impact analysis.
+                </p>
+                <div className="mt-4">
+                  <InternalLink href="/pay-raise-formulas-guide" className="text-primary hover:underline">
+                    Learn all calculation formulas →
+                  </InternalLink>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardHeader>
+                <CardTitle className="flex items-center">
+                  <DollarSign className="h-5 w-5 text-primary mr-2" />
+                  Are raises taxable?
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-gray-700">
+                  Yes, salary raises are fully taxable as ordinary income. The additional income may push you into a higher 
+                  tax bracket, but only the amount above the bracket threshold is taxed at the higher rate. Our tax impact 
+                  calculator shows exactly how much you'll take home after federal and state taxes.
+                </p>
+                <div className="mt-4">
+                  <InternalLink href="/tools/pay-raise-tax-impact-calculator" className="text-primary hover:underline">
+                    Calculate your tax impact →
+                  </InternalLink>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardHeader>
+                <CardTitle className="flex items-center">
+                  <Target className="h-5 w-5 text-primary mr-2" />
+                  How do I negotiate a higher salary?
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-gray-700">
+                  Successful salary negotiation requires research, timing, and preparation. Start by researching market rates, 
+                  documenting your achievements, and choosing the right timing (typically during performance reviews or after 
+                  major accomplishments). Present data-driven arguments and be prepared to discuss your value contribution.
+                </p>
+                <div className="mt-4">
+                  <InternalLink href="/salary-negotiation-complete-guide" className="text-primary hover:underline">
+                    Read complete negotiation guide →
+                  </InternalLink>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardHeader>
+                <CardTitle className="flex items-center">
+                  <TrendingUp className="h-5 w-5 text-primary mr-2" />
+                  How often should I expect a raise?
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-gray-700">
+                  Most companies provide annual raises, typically ranging from 2-5% for standard performance. Merit-based 
+                  increases can occur more frequently, especially after promotions or significant achievements. Cost-of-living 
+                  adjustments may be separate from performance raises. In high-growth industries, bi-annual reviews are common.
+                </p>
+                <div className="mt-4">
+                  <InternalLink href="/blog/when-ask-for-raise-optimal-timing" className="text-primary hover:underline">
+                    Learn optimal timing strategies →
+                  </InternalLink>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardHeader>
+                <CardTitle className="flex items-center">
+                  <Shield className="h-5 w-5 text-primary mr-2" />
+                  What if my raise request is denied?
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-gray-700">
+                  If your raise request is denied, ask for specific feedback and a timeline for reconsideration. Document 
+                  the conversation, understand the reasoning, and create an improvement plan. Sometimes alternative 
+                  compensation like additional benefits, flexible work arrangements, or professional development opportunities 
+                  may be available.
+                </p>
+                <div className="mt-4">
+                  <InternalLink href="/guides/raise-rejection-next-steps" className="text-primary hover:underline">
+                    Handle rejection professionally →
+                  </InternalLink>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Authority Links & Data Sources */}
+      <section className="py-12 bg-white border-t border-gray-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-8">
+            <h2 className="text-2xl font-bold text-gray-900">Trusted Data Sources</h2>
+            <p className="mt-2 text-gray-600">Our calculations are based on authoritative government and industry data</p>
+          </div>
+          
+          <div className="grid md:grid-cols-3 gap-8">
+            <Card className="text-center">
+              <CardContent className="p-6">
+                <ExternalLink className="h-8 w-8 text-blue-600 mx-auto mb-4" />
+                <h3 className="font-semibold text-gray-900 mb-2">Bureau of Labor Statistics</h3>
+                <p className="text-sm text-gray-600 mb-4">
+                  Official wage and employment data from the U.S. Department of Labor
+                </p>
+                <a 
+                  href="https://www.bls.gov/bls/wages.htm" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-blue-600 hover:text-blue-700 text-sm font-medium"
+                >
+                  View Official Data →
+                </a>
+              </CardContent>
+            </Card>
+
+            <Card className="text-center">
+              <CardContent className="p-6">
+                <ExternalLink className="h-8 w-8 text-green-600 mx-auto mb-4" />
+                <h3 className="font-semibold text-gray-900 mb-2">IRS Tax Information</h3>
+                <p className="text-sm text-gray-600 mb-4">
+                  Current tax brackets and withholding calculator for accurate net pay calculations
+                </p>
+                <a 
+                  href="https://apps.irs.gov/app/tax-withholding-estimator" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-green-600 hover:text-green-700 text-sm font-medium"
+                >
+                  IRS Calculator →
+                </a>
+              </CardContent>
+            </Card>
+
+            <Card className="text-center">
+              <CardContent className="p-6">
+                <ExternalLink className="h-8 w-8 text-purple-600 mx-auto mb-4" />
+                <h3 className="font-semibold text-gray-900 mb-2">Social Security COLA</h3>
+                <p className="text-sm text-gray-600 mb-4">
+                  Cost-of-living adjustment data and inflation impact analysis
+                </p>
+                <a 
+                  href="https://www.ssa.gov/cola/" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-purple-600 hover:text-purple-700 text-sm font-medium"
+                >
+                  COLA Reports →
+                </a>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </section>
