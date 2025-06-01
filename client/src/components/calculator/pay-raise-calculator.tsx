@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { PayRaiseCalculator, type CalculationInput, type CalculationResult } from "@/lib/calculator";
 import { CalculatorResults } from "./calculator-results";
-import { Edit, TrendingUp } from "lucide-react";
+import { Edit, TrendingUp, Calculator, Info } from "lucide-react";
 
 export function PayRaiseCalculatorComponent() {
   const [input, setInput] = useState<CalculationInput>({
@@ -252,6 +252,98 @@ export function PayRaiseCalculatorComponent() {
               )}
               
               {result && <CalculatorResults result={result} input={input} />}
+            </div>
+          </div>
+        </CardContent>
+      </Card>
+
+      {/* Formula Section */}
+      <Card className="mt-8">
+        <CardHeader>
+          <CardTitle className="flex items-center text-xl font-semibold">
+            <Calculator className="mr-2 h-5 w-5 text-primary" />
+            Pay Raise Calculation Formulas
+          </CardTitle>
+        </CardHeader>
+        <CardContent>
+          <div className="grid md:grid-cols-2 gap-6">
+            <div className="space-y-4">
+              <div className="bg-blue-50 p-4 rounded-lg">
+                <h4 className="font-semibold text-blue-900 mb-2">Percentage Raise Formula</h4>
+                <div className="font-mono text-sm bg-white p-3 rounded border">
+                  New Salary = Current Salary × (1 + Raise % ÷ 100)
+                </div>
+                <p className="text-sm text-blue-700 mt-2">
+                  Example: $60,000 × (1 + 5 ÷ 100) = $63,000
+                </p>
+              </div>
+
+              <div className="bg-green-50 p-4 rounded-lg">
+                <h4 className="font-semibold text-green-900 mb-2">Dollar Amount Raise</h4>
+                <div className="font-mono text-sm bg-white p-3 rounded border">
+                  New Salary = Current Salary + Raise Amount
+                </div>
+                <p className="text-sm text-green-700 mt-2">
+                  Example: $60,000 + $3,000 = $63,000
+                </p>
+              </div>
+
+              <div className="bg-purple-50 p-4 rounded-lg">
+                <h4 className="font-semibold text-purple-900 mb-2">Target Salary Calculation</h4>
+                <div className="font-mono text-sm bg-white p-3 rounded border">
+                  Raise Amount = Target Salary - Current Salary
+                </div>
+                <p className="text-sm text-purple-700 mt-2">
+                  Example: $63,000 - $60,000 = $3,000 raise
+                </p>
+              </div>
+            </div>
+
+            <div className="space-y-4">
+              <div className="bg-orange-50 p-4 rounded-lg">
+                <h4 className="font-semibold text-orange-900 mb-2">Inflation-Adjusted Raise</h4>
+                <div className="font-mono text-sm bg-white p-3 rounded border">
+                  Real Raise = Nominal Raise - Inflation Rate
+                </div>
+                <p className="text-sm text-orange-700 mt-2">
+                  Example: 5% raise - 3.1% inflation = 1.9% real increase
+                </p>
+              </div>
+
+              <div className="bg-red-50 p-4 rounded-lg">
+                <h4 className="font-semibold text-red-900 mb-2">After-Tax Impact</h4>
+                <div className="font-mono text-sm bg-white p-3 rounded border">
+                  Net Increase = Raise Amount × (1 - Tax Rate)
+                </div>
+                <p className="text-sm text-red-700 mt-2">
+                  Example: $3,000 × (1 - 0.22) = $2,340 net increase
+                </p>
+              </div>
+
+              <div className="bg-indigo-50 p-4 rounded-lg">
+                <h4 className="font-semibold text-indigo-900 mb-2">Hourly Rate Conversion</h4>
+                <div className="font-mono text-sm bg-white p-3 rounded border">
+                  Hourly Rate = Annual Salary ÷ (Hours/Week × 52)
+                </div>
+                <p className="text-sm text-indigo-700 mt-2">
+                  Example: $63,000 ÷ (40 × 52) = $30.29/hour
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-6 p-4 bg-gray-50 rounded-lg">
+            <div className="flex items-start space-x-2">
+              <Info className="h-5 w-5 text-blue-500 mt-0.5 flex-shrink-0" />
+              <div>
+                <h5 className="font-medium text-gray-900 mb-1">How to Use These Formulas</h5>
+                <p className="text-sm text-gray-600">
+                  These formulas help you understand exactly how your pay raise is calculated. Use the percentage formula 
+                  for typical annual reviews, the dollar amount for negotiating specific increases, and always consider 
+                  inflation and taxes for realistic planning. Our calculator applies these formulas automatically based 
+                  on your inputs above.
+                </p>
+              </div>
             </div>
           </div>
         </CardContent>
