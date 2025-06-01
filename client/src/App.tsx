@@ -33,6 +33,8 @@ import HourlyToSalaryConverter from "@/pages/tools/hourly-to-salary-converter";
 import RaiseVsBonusCalculator from "@/pages/tools/raise-vs-bonus-calculator";
 import OfferComparisonCalculator from "@/pages/tools/offer-comparison-calculator";
 import RaiseImpactRetirementSavingsCalculator from "@/pages/tools/raise-impact-retirement-savings-calculator";
+import EffectiveHourlyRateCalculator from "@/pages/tools/effective-hourly-rate-calculator";
+import FreelanceRateIncreaseCalculator from "@/pages/tools/freelance-rate-increase-calculator";
 import ThreeVsFivePercentRaiseLongTermImpact from "@/pages/blog/3-vs-5-percent-raise-long-term-impact";
 import WhenAskForRaiseOptimalTiming from "@/pages/blog/when-ask-for-raise-optimal-timing";
 import CommonSalaryNegotiationMistakes from "@/pages/blog/common-salary-negotiation-mistakes";
@@ -63,6 +65,7 @@ import TopRaiseMistakesToAvoid from "@/pages/guides/top-raise-mistakes-to-avoid"
 import MeritIncreaseVsPromotion from "@/pages/guides/merit-increase-vs-promotion";
 import SalaryIncreaseTimingGuide from "@/pages/guides/salary-increase-timing-guide";
 import RaiseRejectionNextSteps from "@/pages/guides/raise-rejection-next-steps";
+import NegotiatingNonSalaryBenefitsPerks from "@/pages/guides/negotiating-non-salary-benefits-perks";
 import ContactUs from "@/pages/contact-us";
 import AboutUs from "@/pages/about-us";
 import NotFound from "@/pages/not-found";
@@ -96,6 +99,8 @@ function Router() {
           <Route path="/tools/salary-vs-total-compensation-calculator" component={SalaryVsTotalCompensationCalculator} />
           <Route path="/tools/offer-comparison-calculator" component={OfferComparisonCalculator} />
           <Route path="/tools/raise-impact-retirement-savings-calculator" component={RaiseImpactRetirementSavingsCalculator} />
+          <Route path="/tools/effective-hourly-rate-calculator" component={EffectiveHourlyRateCalculator} />
+          <Route path="/tools/freelance-rate-increase-calculator" component={FreelanceRateIncreaseCalculator} />
           
           {/* Guides Section */}
           <Route path="/guides" component={GuidesIndex} />
