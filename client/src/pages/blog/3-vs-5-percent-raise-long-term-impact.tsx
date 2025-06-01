@@ -177,11 +177,17 @@ export default function ThreeVsFivePercentRaiseLongTermImpact() {
                       However, the long-term financial impact of this seemingly small percentage difference can be substantial—
                       potentially costing you over $10,000 in just five years.
                     </p>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                That 2% difference in your annual raise might seem small, but it compounds into 
-                a massive financial impact over your career. Here's the math that will change how 
-                you approach salary negotiations.
-              </p>
+                    
+                    <CalculatorCallout
+                      title="Calculate Your Compound Raise Impact"
+                      description="See exactly how different raise percentages affect your long-term earnings with our advanced calculator."
+                      href="/tools/compound-raise-calculator"
+                      buttonText="Calculate Now"
+                      icon={<PiggyBank className="h-5 w-5 text-blue-600" />}
+                    />
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </section>
@@ -449,17 +455,17 @@ export default function ThreeVsFivePercentRaiseLongTermImpact() {
                   See how different raise percentages will affect your long-term wealth.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <Link href="/tools/compound-raise-calculator">
+                  <InternalLink href="/tools/compound-raise-calculator">
                     <Button className="bg-primary hover:bg-blue-700">
                       Calculate Compound Raises
                       <ArrowRight className="ml-2 h-4 w-4" />
                     </Button>
-                  </Link>
-                  <Link href="/salary-negotiation-complete-guide">
+                  </InternalLink>
+                  <InternalLink href="/salary-negotiation-complete-guide">
                     <Button variant="outline">
                       Learn Negotiation Strategies
                     </Button>
-                  </Link>
+                  </InternalLink>
                 </div>
               </CardContent>
             </Card>

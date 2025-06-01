@@ -1,8 +1,10 @@
-import { Link } from "wouter";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { SEOHead } from "@/components/seo/head";
+import { SchemaGenerator } from "@/components/seo/schema-generator";
+import { InternalLink } from "@/components/seo/internal-link-checker";
+import { FeaturedImage } from "@/components/featured-image";
 import { 
   FileText, 
   TrendingUp, 
@@ -12,7 +14,11 @@ import {
   ArrowRight,
   Search,
   Filter,
-  Tag
+  Tag,
+  BookOpen,
+  Target,
+  PiggyBank,
+  Users
 } from "lucide-react";
 
 export default function BlogIndex() {
@@ -21,11 +27,13 @@ export default function BlogIndex() {
       title: "3% vs 5% Raise: The $10,000+ Difference Over 5 Years",
       excerpt: "Discover how seemingly small percentage differences in raises compound into significant long-term financial impact. Real calculations and investment opportunity analysis.",
       href: "/blog/3-vs-5-percent-raise-long-term-impact",
-      category: "Analysis",
-      readTime: "6 min read",
+      category: "Financial Analysis",
+      readTime: "8 min read",
       publishDate: "2025-01-15",
       featured: true,
-      tags: ["Compound Growth", "Financial Planning", "Career Strategy"]
+      tags: ["Compound Growth", "Financial Planning", "Career Strategy"],
+      icon: <TrendingUp className="h-6 w-6" />,
+      gradient: "bg-gradient-to-br from-green-600 to-blue-600"
     },
     {
       title: "When to Ask for a Raise: Optimal Timing Strategies",

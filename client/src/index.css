@@ -240,6 +240,41 @@
   .lazy-image.loaded {
     opacity: 1;
   }
+
+  /* Critical rendering path optimization */
+  .above-fold {
+    contain: layout style paint;
+  }
+
+  /* Blog performance optimizations */
+  .blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    will-change: contents;
+  }
+
+  .blog-excerpt {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  /* SEO-optimized headings */
+  .seo-heading {
+    scroll-margin-top: 100px;
+    position: relative;
+  }
+
+  .seo-heading:hover::before {
+    content: "#";
+    position: absolute;
+    left: -1.5rem;
+    color: #3b82f6;
+    font-weight: normal;
+  }
 }
 
 :root {
