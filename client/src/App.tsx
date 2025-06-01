@@ -31,6 +31,8 @@ import BonusImpactCalculator from "@/pages/tools/bonus-impact-calculator";
 import ColaCalculator from "@/pages/tools/cola-calculator";
 import HourlyToSalaryConverter from "@/pages/tools/hourly-to-salary-converter";
 import RaiseVsBonusCalculator from "@/pages/tools/raise-vs-bonus-calculator";
+import OfferComparisonCalculator from "@/pages/tools/offer-comparison-calculator";
+import RaiseImpactRetirementSavingsCalculator from "@/pages/tools/raise-impact-retirement-savings-calculator";
 import ThreeVsFivePercentRaiseLongTermImpact from "@/pages/blog/3-vs-5-percent-raise-long-term-impact";
 import WhenAskForRaiseOptimalTiming from "@/pages/blog/when-ask-for-raise-optimal-timing";
 import CommonSalaryNegotiationMistakes from "@/pages/blog/common-salary-negotiation-mistakes";
@@ -92,6 +94,8 @@ function Router() {
           <Route path="/tools/state-wise-raise-calculator" component={StateWiseRaiseCalculator} />
           <Route path="/tools/raise-after-deductions-calculator" component={RaiseAfterDeductionsCalculator} />
           <Route path="/tools/salary-vs-total-compensation-calculator" component={SalaryVsTotalCompensationCalculator} />
+          <Route path="/tools/offer-comparison-calculator" component={OfferComparisonCalculator} />
+          <Route path="/tools/raise-impact-retirement-savings-calculator" component={RaiseImpactRetirementSavingsCalculator} />
           
           {/* Guides Section */}
           <Route path="/guides" component={GuidesIndex} />
