@@ -58,6 +58,9 @@ import HowMuchRaiseToAskForBasedOnRole from "@/pages/blog/how-much-raise-to-ask-
 import BestTimeOfYearToNegotiateRaise from "@/pages/blog/best-time-of-year-to-negotiate-raise";
 import RaiseCalculatorUpdates2025 from "@/pages/blog/raise-calculator-updates-2025";
 import TopRaiseMistakesToAvoid from "@/pages/guides/top-raise-mistakes-to-avoid";
+import MeritIncreaseVsPromotion from "@/pages/guides/merit-increase-vs-promotion";
+import SalaryIncreaseTimingGuide from "@/pages/guides/salary-increase-timing-guide";
+import RaiseRejectionNextSteps from "@/pages/guides/raise-rejection-next-steps";
 import ContactUs from "@/pages/contact-us";
 import AboutUs from "@/pages/about-us";
 import NotFound from "@/pages/not-found";
@@ -101,6 +104,9 @@ function Router() {
           <Route path="/guides/performance-review-raise-preparation" component={PerformanceReviewRaisePreparation} />
           <Route path="/guides/raise-calculator-vs-salary-calculator" component={RaiseCalculatorVsSalaryCalculator} />
           <Route path="/guides/top-raise-mistakes-to-avoid" component={TopRaiseMistakesToAvoid} />
+          <Route path="/guides/merit-increase-vs-promotion" component={MeritIncreaseVsPromotion} />
+          <Route path="/guides/salary-increase-timing-guide" component={SalaryIncreaseTimingGuide} />
+          <Route path="/guides/raise-rejection-next-steps" component={RaiseRejectionNextSteps} />
           
           {/* Blog Section */}
           <Route path="/blog" component={BlogIndex} />
