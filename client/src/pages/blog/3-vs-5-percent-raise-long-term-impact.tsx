@@ -2,7 +2,9 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { SEOHead } from "@/components/seo/head";
-import { Link } from "wouter";
+import { FeaturedImage } from "@/components/featured-image";
+import { BlogPostMeta, RelatedPosts, TableOfContents, CalculatorCallout } from "@/components/blog-optimization";
+import { InternalLink } from "@/components/seo/internal-link-checker";
 import { 
   TrendingUp, 
   Calculator, 
@@ -11,10 +13,37 @@ import {
   BarChart3,
   ArrowRight,
   Lightbulb,
-  AlertTriangle
+  AlertTriangle,
+  PiggyBank
 } from "lucide-react";
 
 export default function ThreeVsFivePercentRaiseLongTermImpact() {
+  const tableOfContents = [
+    { id: "overview", title: "Overview: Small Percentages, Big Impact", level: 1 },
+    { id: "calculations", title: "Real-World Calculations", level: 1 },
+    { id: "compound-effect", title: "The Compound Effect Explained", level: 1 },
+    { id: "investment-opportunity", title: "Investment Opportunity Cost", level: 1 },
+    { id: "strategies", title: "Strategies for Higher Raises", level: 1 },
+    { id: "career-impact", title: "Long-term Career Impact", level: 1 }
+  ];
+
+  const relatedPosts = [
+    {
+      title: "When to Ask for a Raise: Optimal Timing Guide",
+      href: "/blog/when-ask-for-raise-optimal-timing",
+      category: "Strategy",
+      readTime: "8 min",
+      description: "Master the timing of your salary increase requests for maximum success rates."
+    },
+    {
+      title: "Negotiation Scripts That Actually Work",
+      href: "/blog/raise-negotiation-scripts-templates",
+      category: "Templates",
+      readTime: "6 min",
+      description: "Proven conversation starters and response templates for salary discussions."
+    }
+  ];
+
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
@@ -33,7 +62,14 @@ export default function ThreeVsFivePercentRaiseLongTermImpact() {
       }
     },
     "datePublished": "2025-01-15",
-    "dateModified": "2025-01-15"
+    "dateModified": "2025-01-15",
+    "image": "https://payraisepercentagecalculator.com/featured/3-vs-5-percent-raise.jpg",
+    "wordCount": 2500,
+    "keywords": ["salary raise comparison", "compound interest raises", "career earnings", "salary negotiation"],
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://payraisepercentagecalculator.com/blog/3-vs-5-percent-raise-long-term-impact"
+    }
   };
 
   const comparisonData = {
@@ -105,23 +141,42 @@ export default function ThreeVsFivePercentRaiseLongTermImpact() {
       />
 
       <div className="min-h-screen bg-gray-50">
-        {/* Hero Section */}
-        <section className="bg-white py-12">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center">
-              <div className="flex justify-center mb-4">
-                <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center">
-                  <TrendingUp className="h-8 w-8 text-white" />
+        {/* Featured Image Section */}
+        <section className="bg-white">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <FeaturedImage
+              title="3% vs 5% Raise: The $10,000+ Difference"
+              category="Financial Analysis"
+              gradient="bg-gradient-to-br from-green-600 to-blue-600"
+              icon={<TrendingUp className="h-8 w-8 text-white" />}
+              className="mb-8"
+            />
+            
+            <div className="max-w-4xl mx-auto">
+              <BlogPostMeta
+                readTime="8 min"
+                publishDate="Jan 15, 2025"
+                lastUpdated="Jan 15, 2025"
+                category="Financial Analysis"
+                tags={["Salary Comparison", "Compound Growth", "Career Planning"]}
+              />
+              
+              <div className="lg:grid lg:grid-cols-4 lg:gap-8">
+                <div className="lg:col-span-1">
+                  <TableOfContents sections={tableOfContents} />
                 </div>
-              </div>
-              <h1 className="text-4xl font-bold text-gray-900 mb-4">
-                3% vs 5% Raise: The $10,000+ Difference Over 5 Years
-              </h1>
-              <div className="flex justify-center space-x-4 mb-6">
-                <Badge className="bg-blue-100 text-blue-800">Financial Analysis</Badge>
-                <Badge variant="outline">Long-term Impact</Badge>
-                <Badge variant="outline">6 min read</Badge>
-              </div>
+                
+                <div className="lg:col-span-3">
+                  <div className="prose prose-lg max-w-none">
+                    <h1 id="overview" className="text-4xl font-bold text-gray-900 mb-4">
+                      3% vs 5% Raise: The $10,000+ Difference Over 5 Years
+                    </h1>
+                    
+                    <p className="text-xl text-gray-600 mb-8">
+                      When considering a salary increase, the difference between a 3% and 5% raise might seem minimal. 
+                      However, the long-term financial impact of this seemingly small percentage difference can be substantial—
+                      potentially costing you over $10,000 in just five years.
+                    </p>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
                 That 2% difference in your annual raise might seem small, but it compounds into 
                 a massive financial impact over your career. Here's the math that will change how 

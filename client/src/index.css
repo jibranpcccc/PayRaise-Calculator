@@ -196,6 +196,50 @@
     from { transform: rotate(0deg); }
     to { transform: rotate(360deg); }
   }
+
+  /* Blog-specific optimizations */
+  .blog-featured-image {
+    @apply relative w-full h-64 rounded-lg overflow-hidden;
+    background-size: cover;
+    background-position: center;
+    will-change: transform;
+  }
+
+  .blog-card-hover {
+    @apply transition-all duration-200 hover:shadow-lg hover:-translate-y-1;
+    will-change: transform, box-shadow;
+  }
+
+  .blog-content {
+    @apply leading-relaxed text-gray-700;
+    font-feature-settings: "liga" 1, "calt" 1;
+  }
+
+  /* Optimize typography for reading */
+  .prose-optimized {
+    line-height: 1.7;
+    font-size: 1.125rem;
+  }
+
+  .prose-optimized h2 {
+    @apply text-2xl font-bold text-gray-900 mt-8 mb-4;
+    scroll-margin-top: 2rem;
+  }
+
+  .prose-optimized h3 {
+    @apply text-xl font-semibold text-gray-900 mt-6 mb-3;
+    scroll-margin-top: 2rem;
+  }
+
+  /* Image lazy loading optimization */
+  .lazy-image {
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .lazy-image.loaded {
+    opacity: 1;
+  }
 }
 
 :root {
