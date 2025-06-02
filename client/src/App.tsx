@@ -5,6 +5,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
+import { FloatingCalculatorButton } from "@/components/floating-calculator-button";
 
 // Page imports
 import Home from "@/pages/home";
@@ -154,6 +155,7 @@ function Router() {
         </Switch>
       </main>
       <Footer />
+      <FloatingCalculatorButton />
     </div>
   );
 }

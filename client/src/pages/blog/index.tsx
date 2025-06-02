@@ -291,45 +291,60 @@ export default function BlogIndex() {
         {/* Articles Grid */}
         <section className="pb-12">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {filteredPosts.filter(post => !post.featured).map((post) => (
-                <Card key={post.href} className="hover:shadow-lg transition-shadow h-full flex flex-col">
-                  <CardHeader>
+            <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {filteredPosts.filter(post => !post.featured).map((post, index) => (
+                <Card key={post.href} className="group hover:shadow-2xl transition-all duration-300 h-full flex flex-col bg-white hover:bg-gradient-to-br hover:from-white hover:to-blue-50 border-gray-200 hover:border-blue-300 transform hover:-translate-y-2">
+                  {/* Card Image/Icon Header */}
+                  <div className="bg-gradient-to-br from-blue-600 to-purple-600 p-6 rounded-t-lg">
+                    <div className="flex items-center justify-between">
+                      <div className="bg-white/20 backdrop-blur-sm p-3 rounded-xl">
+                        {post.icon || <FileText className="h-6 w-6 text-white" />}
+                      </div>
+                      <div className="text-right">
+                        <div className="text-white/80 text-xs">Article #{String(index + 2).padStart(2, '0')}</div>
+                        <div className="text-white text-sm font-medium">{post.category}</div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <CardHeader className="pb-3">
                     <div className="flex flex-wrap gap-2 mb-3">
-                      <Badge variant="outline">{post.category}</Badge>
-                      <Badge variant="outline" className="text-xs">
+                      <Badge className="bg-blue-100 text-blue-800 border-blue-300">{post.category}</Badge>
+                      <Badge variant="outline" className="text-xs border-gray-300">
                         <Clock className="h-3 w-3 mr-1" />
                         {post.readTime}
                       </Badge>
                     </div>
-                    <CardTitle className="text-lg line-clamp-2">{post.title}</CardTitle>
+                    <CardTitle className="text-xl line-clamp-2 group-hover:text-blue-900 transition-colors leading-tight">{post.title}</CardTitle>
                   </CardHeader>
-                  <CardContent className="flex-1 flex flex-col">
-                    <p className="text-gray-600 mb-4 flex-1">{post.excerpt}</p>
+                  
+                  <CardContent className="flex-1 flex flex-col pt-0">
+                    <p className="text-gray-600 mb-6 flex-1 leading-relaxed">{post.excerpt}</p>
                     
                     <div className="space-y-4">
-                      <div className="flex flex-wrap gap-1">
-                        {post.tags.slice(0, 3).map((tag) => (
-                          <span key={tag} className="inline-block bg-gray-100 text-gray-600 px-2 py-1 rounded text-xs">
+                      <div className="flex flex-wrap gap-2">
+                        {post.tags.slice(0, 2).map((tag) => (
+                          <span key={tag} className="inline-flex items-center bg-gradient-to-r from-gray-100 to-blue-100 text-gray-700 px-3 py-1 rounded-full text-xs font-medium">
+                            <Tag className="h-3 w-3 mr-1" />
                             {tag}
                           </span>
                         ))}
-                        {post.tags.length > 3 && (
-                          <span className="inline-block bg-gray-100 text-gray-600 px-2 py-1 rounded text-xs">
-                            +{post.tags.length - 3}
+                        {post.tags.length > 2 && (
+                          <span className="inline-flex items-center bg-gray-100 text-gray-600 px-3 py-1 rounded-full text-xs">
+                            +{post.tags.length - 2} more
                           </span>
                         )}
                       </div>
                       
-                      <div className="flex items-center justify-between">
+                      <div className="flex items-center justify-between pt-4 border-t border-gray-100">
                         <div className="flex items-center text-xs text-gray-500">
                           <Calendar className="h-3 w-3 mr-1" />
                           {new Date(post.publishDate).toLocaleDateString()}
                         </div>
                         <Link href={post.href}>
-                          <Button variant="outline" size="sm">
-                            Read More
-                            <ArrowRight className="ml-2 h-4 w-4" />
+                          <Button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white group-hover:shadow-lg transition-all duration-200">
+                            Read Article
+                            <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                           </Button>
                         </Link>
                       </div>
@@ -337,6 +352,34 @@ export default function BlogIndex() {
                   </CardContent>
                 </Card>
               ))}
+            </div>
+
+            {/* Quick Calculator CTA */}
+            <div className="mt-16 text-center">
+              <div className="bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-700 rounded-2xl p-8 md:p-12 text-white">
+                <div className="max-w-3xl mx-auto">
+                  <h3 className="text-3xl font-bold mb-4">Ready to Calculate Your Perfect Raise?</h3>
+                  <p className="text-xl text-blue-100 mb-8 leading-relaxed">
+                    Use our advanced calculator to get instant results with tax impact analysis and industry benchmarks
+                  </p>
+                  <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                    <Link href="/">
+                      <Button className="bg-gradient-to-r from-yellow-400 to-orange-500 hover:from-yellow-500 hover:to-orange-600 text-black font-bold px-8 py-4 text-lg rounded-xl shadow-lg transform hover:scale-105 transition-all duration-200">
+                        <Calculator className="h-5 w-5 mr-2" />
+                        Start Calculating Now
+                      </Button>
+                    </Link>
+                    <Link href="/tools">
+                      <Button variant="outline" className="border-white text-white hover:bg-white hover:text-blue-600 px-6 py-4 rounded-xl">
+                        View All Tools
+                      </Button>
+                    </Link>
+                  </div>
+                  <div className="mt-6 text-sm text-blue-200">
+                    Free • Instant Results • No Sign-up Required • Privacy Protected
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </section>

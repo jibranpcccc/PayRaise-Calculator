@@ -3,316 +3,323 @@
   <!-- Homepage -->
   <url>
     <loc>https://payraisepercentagecalculator.com/</loc>
-    <lastmod>2025-01-31</lastmod>
-    <changefreq>weekly</changefreq>
+    <changefreq>daily</changefreq>
     <priority>1.0</priority>
-  </url>
-  
-  <!-- Calculator Tools -->
-  <url>
-    <loc>https://payraisepercentagecalculator.com/tools/</loc>
-    <lastmod>2025-01-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://payraisepercentagecalculator.com/tools/compound-raise-calculator</loc>
-    <lastmod>2025-01-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://payraisepercentagecalculator.com/tools/inflation-adjusted-raise-calculator</loc>
-    <lastmod>2025-01-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://payraisepercentagecalculator.com/tools/state-wise-raise-calculator</loc>
-    <lastmod>2025-01-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://payraisepercentagecalculator.com/tools/raise-after-deductions-calculator</loc>
-    <lastmod>2025-01-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://payraisepercentagecalculator.com/tools/salary-vs-total-compensation-calculator</loc>
-    <lastmod>2025-01-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://payraisepercentagecalculator.com/tools/promotion-salary-calculator</loc>
-    <lastmod>2025-01-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://payraisepercentagecalculator.com/tools/bonus-impact-calculator</loc>
-    <lastmod>2025-01-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://payraisepercentagecalculator.com/tools/cola-calculator</loc>
-    <lastmod>2025-01-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://payraisepercentagecalculator.com/tools/hourly-to-salary-converter</loc>
-    <lastmod>2025-01-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://payraisepercentagecalculator.com/tools/pay-raise-tax-impact-calculator</loc>
-    <lastmod>2025-01-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://payraisepercentagecalculator.com/tools/gender-pay-gap-calculator</loc>
-    <lastmod>2025-01-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://payraisepercentagecalculator.com/tools/remote-work-location-adjuster</loc>
-    <lastmod>2025-01-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://payraisepercentagecalculator.com/tools/overtime-pay-calculator</loc>
-    <lastmod>2025-01-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://payraisepercentagecalculator.com/tools/raise-vs-bonus-calculator</loc>
-    <lastmod>2025-01-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://payraisepercentagecalculator.com/tools/salary-negotiation-calculator</loc>
-    <lastmod>2025-01-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  
-  <!-- Educational Guides -->
-  <url>
-    <loc>https://payraisepercentagecalculator.com/guides/</loc>
-    <lastmod>2025-01-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://payraisepercentagecalculator.com/guides/understanding-pay-raises-complete</loc>
-    <lastmod>2025-01-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://payraisepercentagecalculator.com/guides/top-raise-mistakes-to-avoid</loc>
-    <lastmod>2025-01-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://payraisepercentagecalculator.com/guides/raise-calculator-vs-salary-calculator</loc>
-    <lastmod>2025-01-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://payraisepercentagecalculator.com/guides/average-pay-raises-data-trends</loc>
-    <lastmod>2025-01-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://payraisepercentagecalculator.com/guides/negotiating-salary-increase-strategies</loc>
-    <lastmod>2025-01-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://payraisepercentagecalculator.com/guides/factors-influencing-pay-raises</loc>
-    <lastmod>2025-01-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://payraisepercentagecalculator.com/guides/performance-review-raise-preparation</loc>
-    <lastmod>2025-01-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://payraisepercentagecalculator.com/guides/market-value-salary-research</loc>
-    <lastmod>2025-01-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://payraisepercentagecalculator.com/guides/cost-living-adjustment-guide</loc>
-    <lastmod>2025-01-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  
-  <!-- Blog Content -->
-  <url>
-    <loc>https://payraisepercentagecalculator.com/blog/</loc>
-    <lastmod>2025-01-31</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://payraisepercentagecalculator.com/blog/why-your-raise-feels-smaller-this-year</loc>
-    <lastmod>2025-01-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://payraisepercentagecalculator.com/blog/how-much-raise-to-ask-for-based-on-role</loc>
-    <lastmod>2025-01-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://payraisepercentagecalculator.com/blog/best-time-of-year-to-negotiate-raise</loc>
-    <lastmod>2025-01-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://payraisepercentagecalculator.com/blog/raise-calculator-updates-2025</loc>
-    <lastmod>2025-01-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://payraisepercentagecalculator.com/blog/3-vs-5-percent-raise-long-term-impact</loc>
-    <lastmod>2025-01-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://payraisepercentagecalculator.com/blog/when-ask-for-raise-optimal-timing</loc>
-    <lastmod>2025-01-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://payraisepercentagecalculator.com/blog/hourly-vs-salary-raise-differences</loc>
-    <lastmod>2025-01-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://payraisepercentagecalculator.com/blog/raise-negotiation-scripts-templates</loc>
-    <lastmod>2025-01-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://payraisepercentagecalculator.com/blog/remote-work-raise-strategies</loc>
-    <lastmod>2025-01-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://payraisepercentagecalculator.com/blog/average-raise-by-industry-2025</loc>
-    <lastmod>2025-01-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://payraisepercentagecalculator.com/blog/inflation-real-salary-impact</loc>
-    <lastmod>2025-01-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://payraisepercentagecalculator.com/blog/salary-transparency-impact</loc>
-    <lastmod>2025-01-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
   </url>
   
   <!-- Core Pages -->
   <url>
     <loc>https://payraisepercentagecalculator.com/salary-negotiation-complete-guide</loc>
-    <lastmod>2025-01-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://payraisepercentagecalculator.com/industry-raise-benchmarks-2025</loc>
-    <lastmod>2025-01-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://payraisepercentagecalculator.com/how-pay-raise-calculator-works</loc>
-    <lastmod>2025-01-31</lastmod>
+    <loc>https://payraisepercentagecalculator.com/industry-raise-benchmarks-2025</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://payraisepercentagecalculator.com/how-pay-raise-calculator-works</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://payraisepercentagecalculator.com/pay-raise-formulas-guide</loc>
-    <lastmod>2025-01-31</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://payraisepercentagecalculator.com/tax-impact-salary-increases</loc>
-    <lastmod>2025-01-31</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://payraisepercentagecalculator.com/faq-pay-raise-calculator</loc>
-    <lastmod>2025-01-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://payraisepercentagecalculator.com/calculator-accuracy-methodology</loc>
-    <lastmod>2025-01-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://payraisepercentagecalculator.com/raise-vs-inflation-analysis</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://payraisepercentagecalculator.com/raise-vs-inflation-analysis</loc>
-    <lastmod>2025-01-31</lastmod>
+    <loc>https://payraisepercentagecalculator.com/state-pay-raise-laws-compliance</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- Tools Index -->
+  <url>
+    <loc>https://payraisepercentagecalculator.com/tools</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <!-- Calculator Tools -->
+  <url>
+    <loc>https://payraisepercentagecalculator.com/tools/compound-raise-calculator</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://payraisepercentagecalculator.com/state-pay-raise-laws-compliance</loc>
-    <lastmod>2025-01-31</lastmod>
+    <loc>https://payraisepercentagecalculator.com/tools/inflation-adjusted-raise-calculator</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://payraisepercentagecalculator.com/tools/promotion-salary-calculator</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://payraisepercentagecalculator.com/tools/pay-raise-tax-impact-calculator</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://payraisepercentagecalculator.com/tools/bonus-impact-calculator</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://payraisepercentagecalculator.com/contact-us</loc>
-    <lastmod>2025-01-31</lastmod>
+    <loc>https://payraisepercentagecalculator.com/tools/cola-calculator</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://payraisepercentagecalculator.com/tools/hourly-to-salary-converter</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://payraisepercentagecalculator.com/tools/raise-vs-bonus-calculator</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://payraisepercentagecalculator.com/tools/gender-pay-gap-calculator</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://payraisepercentagecalculator.com/tools/overtime-pay-calculator</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://payraisepercentagecalculator.com/tools/promotion-calculator</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://payraisepercentagecalculator.com/tools/remote-work-location-adjuster</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://payraisepercentagecalculator.com/tools/salary-negotiation-calculator</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://payraisepercentagecalculator.com/tools/state-wise-raise-calculator</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://payraisepercentagecalculator.com/tools/raise-after-deductions-calculator</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://payraisepercentagecalculator.com/tools/salary-vs-total-compensation-calculator</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://payraisepercentagecalculator.com/tools/offer-comparison-calculator</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://payraisepercentagecalculator.com/tools/raise-impact-retirement-savings-calculator</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://payraisepercentagecalculator.com/tools/effective-hourly-rate-calculator</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://payraisepercentagecalculator.com/tools/freelance-rate-increase-calculator</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Guides Index -->
+  <url>
+    <loc>https://payraisepercentagecalculator.com/guides</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <!-- Guide Pages -->
+  <url>
+    <loc>https://payraisepercentagecalculator.com/guides/understanding-pay-raises-complete</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://payraisepercentagecalculator.com/guides/average-pay-raises-data-trends</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://payraisepercentagecalculator.com/guides/factors-influencing-pay-raises</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://payraisepercentagecalculator.com/guides/market-value-salary-research</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://payraisepercentagecalculator.com/guides/cost-living-adjustment-guide</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://payraisepercentagecalculator.com/guides/negotiating-salary-increase-strategies</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://payraisepercentagecalculator.com/guides/performance-review-raise-preparation</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://payraisepercentagecalculator.com/guides/raise-calculator-vs-salary-calculator</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://payraisepercentagecalculator.com/about-us</loc>
-    <lastmod>2025-01-31</lastmod>
+    <loc>https://payraisepercentagecalculator.com/guides/top-raise-mistakes-to-avoid</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://payraisepercentagecalculator.com/guides/merit-increase-vs-promotion</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://payraisepercentagecalculator.com/guides/salary-increase-timing-guide</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://payraisepercentagecalculator.com/guides/raise-rejection-next-steps</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://payraisepercentagecalculator.com/guides/negotiating-non-salary-benefits-perks</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Blog Index -->
+  <url>
+    <loc>https://payraisepercentagecalculator.com/blog</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- Blog Posts -->
+  <url>
+    <loc>https://payraisepercentagecalculator.com/blog/3-vs-5-percent-raise-long-term-impact</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://payraisepercentagecalculator.com/blog/when-ask-for-raise-optimal-timing</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://payraisepercentagecalculator.com/blog/raise-negotiation-scripts-templates</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://payraisepercentagecalculator.com/blog/hourly-vs-salary-raise-differences</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://payraisepercentagecalculator.com/blog/average-raise-by-industry-2025</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://payraisepercentagecalculator.com/blog/inflation-real-salary-impact</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://payraisepercentagecalculator.com/blog/remote-work-raise-strategies</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://payraisepercentagecalculator.com/blog/common-salary-negotiation-mistakes</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://payraisepercentagecalculator.com/blog/salary-transparency-impact</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://payraisepercentagecalculator.com/blog/why-your-raise-feels-smaller-this-year</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://payraisepercentagecalculator.com/blog/how-much-raise-to-ask-for-based-on-role</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://payraisepercentagecalculator.com/blog/best-time-of-year-to-negotiate-raise</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://payraisepercentagecalculator.com/blog/raise-calculator-updates-2025</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- Additional Pages -->
+  <url>
+    <loc>https://payraisepercentagecalculator.com/about-us</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://payraisepercentagecalculator.com/contact-us</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
   </url>
 </urlset>
