@@ -29,6 +29,11 @@ export const getQueryFn: <T>(options: {
 }) => QueryFunction<T> =
   ({ on401: unauthorizedBehavior }) =>
   async ({ queryKey }) => {
+    // For static builds, return empty data to avoid API calls
+    if (import.meta.env.VITE_STATIC_BUILD === 'true') {
+      return null;
+    }
+
     const res = await fetch(queryKey[0] as string, {
       credentials: "include",
     });

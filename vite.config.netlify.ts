@@ -7,7 +7,7 @@ export default defineConfig({
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "client", "src"),
-      "@shared": path.resolve(__dirname, "shared"),
+      "@shared": path.resolve(__dirname, "client", "src", "types"),
       "@assets": path.resolve(__dirname, "attached_assets"),
     },
   },
@@ -15,5 +15,12 @@ export default defineConfig({
   build: {
     outDir: "../dist",
     emptyOutDir: true,
+    rollupOptions: {
+      external: ['@neondatabase/serverless', 'drizzle-orm/neon-serverless', 'ws', 'express'],
+    },
+  },
+  define: {
+    'process.env.NODE_ENV': JSON.stringify('production'),
+    'process.env.VITE_STATIC_BUILD': JSON.stringify('true'),
   },
 });
