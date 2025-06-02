@@ -12,6 +12,7 @@ export default defineConfig({
     },
   },
   root: "client",
+  publicDir: "../public",
   build: {
     outDir: "../dist",
     emptyOutDir: true,
@@ -25,6 +26,7 @@ export default defineConfig({
       }
     },
     rollupOptions: {
+      input: path.resolve(__dirname, "client", "index.html"),
       output: {
         manualChunks: (id) => {
           if (id.includes('node_modules')) {
