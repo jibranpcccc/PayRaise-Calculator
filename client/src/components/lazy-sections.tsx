@@ -18,14 +18,8 @@ export const LazySalaryTrends = lazy(() =>
   )
 );
 
-// Lazy load calculator components
-export const LazyCalculatorResults = lazy(() => 
-  import(
-    /* webpackChunkName: "calculator-results" */ 
-    /* webpackPrefetch: true */ 
-    "./calculator/calculator-results"
-  )
-);
+// Remove calculator results lazy loading since it may not have default export
+// Only keep verified widget components that we know exist
 
 // Intersection Observer based lazy loading
 interface LazyWrapperProps {

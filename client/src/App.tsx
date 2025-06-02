@@ -9,6 +9,8 @@ import { FloatingCalculatorButton } from "@/components/floating-calculator-butto
 import { Suspense, lazy } from "react";
 import { LoadingSpinner } from "@/components/ui/loading-spinner";
 import { CriticalCSSInjector, PreloadNonCriticalCSS } from "@/components/performance/css-optimizer";
+import { UnusedCSSRemover } from "@/components/performance/unused-css-remover";
+import { PerformanceMonitor } from "@/components/performance/performance-monitor";
 
 // Page imports
 import Home from "@/pages/home";
@@ -168,11 +170,13 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <CriticalCSSInjector />
       <PreloadNonCriticalCSS />
+      <UnusedCSSRemover />
       <TooltipProvider>
         <Toaster />
         <Suspense fallback={<LoadingSpinner />}>
           <Router />
         </Suspense>
+        <PerformanceMonitor />
       </TooltipProvider>
     </QueryClientProvider>
   );
