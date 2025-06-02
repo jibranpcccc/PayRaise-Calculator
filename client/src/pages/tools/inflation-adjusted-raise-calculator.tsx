@@ -94,6 +94,52 @@ export default function InflationAdjustedRaiseCalculator() {
           </div>
         </section>
 
+        {/* Step-by-Step Guide */}
+        <section className="py-12 bg-gray-50">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 className="text-2xl font-bold text-gray-900 text-center mb-8">
+              How to Calculate Inflation-Adjusted Raises
+            </h2>
+            <div className="grid md:grid-cols-3 gap-6">
+              <Card className="text-center">
+                <CardHeader>
+                  <div className="mx-auto w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+                    <span className="text-2xl font-bold text-blue-600">1</span>
+                  </div>
+                  <CardTitle className="text-lg">Enter Your Details</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-gray-600">Input your current salary and expected raise percentage. The calculator uses the current inflation rate of 3.1%.</p>
+                </CardContent>
+              </Card>
+              
+              <Card className="text-center">
+                <CardHeader>
+                  <div className="mx-auto w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
+                    <span className="text-2xl font-bold text-green-600">2</span>
+                  </div>
+                  <CardTitle className="text-lg">View Real Impact</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-gray-600">See your nominal raise vs real purchasing power. A 5% raise with 3.1% inflation equals 1.9% real increase.</p>
+                </CardContent>
+              </Card>
+              
+              <Card className="text-center">
+                <CardHeader>
+                  <div className="mx-auto w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
+                    <span className="text-2xl font-bold text-purple-600">3</span>
+                  </div>
+                  <CardTitle className="text-lg">Plan Your Strategy</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-gray-600">Use the insights to negotiate raises that maintain or improve your purchasing power in the current economy.</p>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+        </section>
+
         {/* Calculator Section */}
         <section className="py-12">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">

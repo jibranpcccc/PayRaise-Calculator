@@ -97,6 +97,251 @@ export default function ColaCalculator() {
 
   const results = calculateCOLA();
 
+  return (
+    <>
+      <SEOHead
+        title="COLA Calculator - Cost of Living Adjustment Calculator 2025"
+        description="Calculate cost of living adjustments for salary changes when moving between locations or annual COLA increases. Compare real costs across major US cities."
+        canonical="/tools/cola-calculator"
+        structuredData={structuredData}
+      />
+
+      <div className="min-h-screen bg-gray-50">
+        {/* Hero Section */}
+        <section className="bg-white py-12">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center">
+              <h1 className="text-4xl font-bold text-gray-900 sm:text-5xl">
+                Cost of Living Adjustment Calculator
+              </h1>
+              <p className="mt-4 text-xl text-gray-600">
+                Calculate salary adjustments for location changes and annual COLA increases
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* Step-by-Step Guide */}
+        <section className="py-12 bg-gray-50">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 className="text-2xl font-bold text-gray-900 text-center mb-8">
+              How to Use the COLA Calculator
+            </h2>
+            <div className="grid md:grid-cols-3 gap-6">
+              <Card className="text-center">
+                <CardHeader>
+                  <div className="mx-auto w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+                    <MapPin className="h-6 w-6 text-blue-600" />
+                  </div>
+                  <CardTitle className="text-lg">Choose Locations</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-gray-600">Select your current and new location to compare cost of living differences across major US cities.</p>
+                </CardContent>
+              </Card>
+              
+              <Card className="text-center">
+                <CardHeader>
+                  <div className="mx-auto w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
+                    <Calculator className="h-6 w-6 text-green-600" />
+                  </div>
+                  <CardTitle className="text-lg">Enter Salary</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-gray-600">Input your current salary to see the required adjustment for maintaining purchasing power.</p>
+                </CardContent>
+              </Card>
+              
+              <Card className="text-center">
+                <CardHeader>
+                  <div className="mx-auto w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
+                    <Target className="h-6 w-6 text-purple-600" />
+                  </div>
+                  <CardTitle className="text-lg">Review Results</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-gray-600">See your adjusted salary requirement and breakdown by housing, transportation, and food costs.</p>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+        </section>
+
+        {/* Calculator Section */}
+        <section className="py-12">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid lg:grid-cols-2 gap-8">
+              {/* Input Form */}
+              <Card>
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-2">
+                    <Calculator className="h-5 w-5" />
+                    COLA Calculator
+                  </CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-6">
+                  <div>
+                    <Label htmlFor="current-salary">Current Annual Salary</Label>
+                    <Input
+                      id="current-salary"
+                      type="number"
+                      placeholder="60000"
+                      value={currentSalary}
+                      onChange={(e) => setCurrentSalary(e.target.value)}
+                      className="mt-1"
+                    />
+                  </div>
+
+                  <div>
+                    <Label htmlFor="current-location">Current Location</Label>
+                    <Select value={currentLocation} onValueChange={setCurrentLocation}>
+                      <SelectTrigger className="mt-1">
+                        <SelectValue placeholder="Select current location" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        {Object.keys(locationData).map((location) => (
+                          <SelectItem key={location} value={location}>
+                            {location}
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                  </div>
+
+                  <div>
+                    <Label htmlFor="new-location">New Location (Optional)</Label>
+                    <Select value={newLocation} onValueChange={setNewLocation}>
+                      <SelectTrigger className="mt-1">
+                        <SelectValue placeholder="Select new location for comparison" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        {Object.keys(locationData).map((location) => (
+                          <SelectItem key={location} value={location}>
+                            {location}
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                  </div>
+
+                  <div className="bg-blue-50 p-4 rounded-lg">
+                    <h4 className="font-medium text-blue-900 mb-2">2025 Social Security COLA</h4>
+                    <p className="text-sm text-blue-700">
+                      The projected Social Security Cost of Living Adjustment for 2025 is 2.5%, 
+                      reflecting current economic conditions and inflation trends.
+                    </p>
+                  </div>
+                </CardContent>
+              </Card>
+
+              {/* Results */}
+              {results && (
+                <Card>
+                  <CardHeader>
+                    <CardTitle className="flex items-center gap-2">
+                      <BarChart3 className="h-5 w-5" />
+                      COLA Analysis Results
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent className="space-y-6">
+                    <div className="grid grid-cols-2 gap-4">
+                      <div className="text-center p-4 bg-green-50 rounded-lg">
+                        <div className="text-2xl font-bold text-green-600">
+                          ${results.adjustedSalary.toLocaleString()}
+                        </div>
+                        <div className="text-sm text-green-700">Adjusted Salary</div>
+                      </div>
+                      
+                      <div className="text-center p-4 bg-blue-50 rounded-lg">
+                        <div className="text-2xl font-bold text-blue-600">
+                          {results.colaPercentage > 0 ? '+' : ''}{results.colaPercentage.toFixed(1)}%
+                        </div>
+                        <div className="text-sm text-blue-700">COLA Adjustment</div>
+                      </div>
+                    </div>
+
+                    <div className="space-y-3">
+                      <div className="flex justify-between">
+                        <span className="text-gray-600">Current Salary:</span>
+                        <span className="font-medium">${parseFloat(currentSalary || '0').toLocaleString()}</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span className="text-gray-600">COLA Amount:</span>
+                        <span className="font-medium text-green-600">
+                          ${Math.abs(results.colaAmount).toLocaleString()}
+                        </span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span className="text-gray-600">Monthly Impact:</span>
+                        <span className="font-medium">
+                          ${(results.colaAmount / 12).toLocaleString()}
+                        </span>
+                      </div>
+                    </div>
+
+                    {results.type === 'location' && results.currentCost && results.newCost && (
+                      <div className="mt-6 p-4 bg-gray-50 rounded-lg">
+                        <h4 className="font-medium text-gray-900 mb-3">Cost Comparison</h4>
+                        <div className="space-y-2">
+                          <div className="flex justify-between">
+                            <span className="text-sm text-gray-600">Overall Cost Index:</span>
+                            <span className="text-sm">{results.currentCost.index} → {results.newCost.index}</span>
+                          </div>
+                          <div className="flex justify-between">
+                            <span className="text-sm text-gray-600">Housing Costs:</span>
+                            <span className="text-sm">{results.currentCost.housing} → {results.newCost.housing}</span>
+                          </div>
+                          <div className="flex justify-between">
+                            <span className="text-sm text-gray-600">Transportation:</span>
+                            <span className="text-sm">{results.currentCost.transport} → {results.newCost.transport}</span>
+                          </div>
+                        </div>
+                      </div>
+                    )}
+                  </CardContent>
+                </Card>
+              )}
+            </div>
+          </div>
+        </section>
+
+        {/* Educational Content */}
+        <section className="py-12 bg-white">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 className="text-2xl font-bold text-gray-900 mb-8">Understanding Cost of Living Adjustments</h2>
+            <div className="grid md:grid-cols-2 gap-8">
+              <div>
+                <h3 className="text-lg font-semibold text-gray-900 mb-4">Location-Based COLA</h3>
+                <p className="text-gray-600 mb-4">
+                  When relocating for work, your salary should adjust to maintain the same standard of living. 
+                  This calculator compares cost indices across major US cities for housing, transportation, and food.
+                </p>
+                <ul className="text-sm text-gray-600 space-y-1">
+                  <li>• Housing typically represents 60-70% of cost differences</li>
+                  <li>• Transportation costs vary significantly by city infrastructure</li>
+                  <li>• Food costs are generally more stable across locations</li>
+                </ul>
+              </div>
+              
+              <div>
+                <h3 className="text-lg font-semibold text-gray-900 mb-4">Annual COLA Increases</h3>
+                <p className="text-gray-600 mb-4">
+                  Many employers provide annual cost of living adjustments based on inflation rates. 
+                  These help maintain purchasing power as prices rise over time.
+                </p>
+                <ul className="text-sm text-gray-600 space-y-1">
+                  <li>• Based on Consumer Price Index (CPI) data</li>
+                  <li>• Typically range from 2-4% annually</li>
+                  <li>• May be automatic or require negotiation</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </>
+  );
+
   const costCategories = [
     {
       category: "Housing",
@@ -357,7 +602,7 @@ export default function ColaCalculator() {
                         <div className="flex justify-between">
                           <span className="text-sm text-gray-600">COLA Amount:</span>
                           <span className="font-semibold text-green-600">
-                            ${results.colaAmount.toFixed(0).toLocaleString()}
+                            ${Math.abs(results.colaAmount).toFixed(0).toLocaleString()}
                           </span>
                         </div>
                         <div className="border-t border-gray-300 pt-2">
@@ -368,9 +613,9 @@ export default function ColaCalculator() {
                             </span>
                           </div>
                         </div>
-                        {results.type === "location" && (
+                        {results.type === "location" && results.adjustmentRatio && (
                           <div className="text-xs text-gray-600 mt-2">
-                            Cost index ratio: {results.adjustmentRatio?.toFixed(2)}
+                            Cost index ratio: {results.adjustmentRatio.toFixed(2)}
                           </div>
                         )}
                       </div>

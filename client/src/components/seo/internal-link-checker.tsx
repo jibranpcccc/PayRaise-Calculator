@@ -13,16 +13,15 @@ export function InternalLink({ href, children, className, title, anchor }: Inter
   const fullHref = anchor ? `${href}#${anchor}` : href;
   
   return (
-    <Link href={fullHref}>
-      <a 
-        className={className} 
-        title={title}
-        // Add tracking for internal link analytics
-        data-internal-link="true"
-        data-link-category="navigation"
-      >
-        {children}
-      </a>
+    <Link 
+      href={fullHref}
+      className={className} 
+      title={title}
+      // Add tracking for internal link analytics
+      data-internal-link="true"
+      data-link-category="navigation"
+    >
+      {children}
     </Link>
   );
 }

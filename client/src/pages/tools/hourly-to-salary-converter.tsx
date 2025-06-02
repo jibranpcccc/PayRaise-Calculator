@@ -77,6 +77,270 @@ export default function HourlyToSalaryConverter() {
 
   const results = calculateConversion();
 
+  return (
+    <>
+      <SEOHead
+        title="Hourly to Salary Converter - Calculate Annual Salary from Hourly Rate 2025"
+        description="Convert hourly wages to annual salary and vice versa. Calculate exact pay conversions with customizable work schedules, overtime, and benefits."
+        canonical="/tools/hourly-to-salary-converter"
+        structuredData={structuredData}
+      />
+
+      <div className="min-h-screen bg-gray-50">
+        {/* Hero Section */}
+        <section className="bg-white py-12">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center">
+              <h1 className="text-4xl font-bold text-gray-900 sm:text-5xl">
+                Hourly to Salary Converter
+              </h1>
+              <p className="mt-4 text-xl text-gray-600">
+                Convert between hourly and salary compensation with precision
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* Step-by-Step Guide */}
+        <section className="py-12 bg-gray-50">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 className="text-2xl font-bold text-gray-900 text-center mb-8">
+              How to Convert Hourly to Salary
+            </h2>
+            <div className="grid md:grid-cols-3 gap-6">
+              <Card className="text-center">
+                <CardHeader>
+                  <div className="mx-auto w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+                    <Clock className="h-6 w-6 text-blue-600" />
+                  </div>
+                  <CardTitle className="text-lg">Choose Conversion Type</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-gray-600">Select whether you want to convert from hourly to salary or salary to hourly rate.</p>
+                </CardContent>
+              </Card>
+              
+              <Card className="text-center">
+                <CardHeader>
+                  <div className="mx-auto w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
+                    <Calculator className="h-6 w-6 text-green-600" />
+                  </div>
+                  <CardTitle className="text-lg">Enter Work Details</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-gray-600">Input your hourly rate or salary amount, plus hours per week and weeks per year worked.</p>
+                </CardContent>
+              </Card>
+              
+              <Card className="text-center">
+                <CardHeader>
+                  <div className="mx-auto w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
+                    <BarChart3 className="h-6 w-6 text-purple-600" />
+                  </div>
+                  <CardTitle className="text-lg">View All Formats</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-gray-600">See your compensation in annual, monthly, weekly, and biweekly formats for complete clarity.</p>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+        </section>
+
+        {/* Calculator Section */}
+        <section className="py-12">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid lg:grid-cols-2 gap-8">
+              {/* Input Form */}
+              <Card>
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-2">
+                    <Calculator className="h-5 w-5" />
+                    Conversion Calculator
+                  </CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-6">
+                  <div>
+                    <Label htmlFor="conversion-type">Conversion Type</Label>
+                    <Select value={conversionType} onValueChange={setConversionType}>
+                      <SelectTrigger className="mt-1">
+                        <SelectValue />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="hourly-to-salary">Hourly Rate → Annual Salary</SelectItem>
+                        <SelectItem value="salary-to-hourly">Annual Salary → Hourly Rate</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </div>
+
+                  {conversionType === "hourly-to-salary" ? (
+                    <div>
+                      <Label htmlFor="hourly-rate">Hourly Rate ($)</Label>
+                      <Input
+                        id="hourly-rate"
+                        type="number"
+                        step="0.01"
+                        placeholder="25.00"
+                        value={hourlyRate}
+                        onChange={(e) => setHourlyRate(e.target.value)}
+                        className="mt-1"
+                      />
+                    </div>
+                  ) : (
+                    <div>
+                      <Label htmlFor="salary-amount">Annual Salary ($)</Label>
+                      <Input
+                        id="salary-amount"
+                        type="number"
+                        placeholder="50000"
+                        value={salaryAmount}
+                        onChange={(e) => setSalaryAmount(e.target.value)}
+                        className="mt-1"
+                      />
+                    </div>
+                  )}
+
+                  <div>
+                    <Label htmlFor="hours-per-week">Hours per Week</Label>
+                    <Select value={hoursPerWeek} onValueChange={setHoursPerWeek}>
+                      <SelectTrigger className="mt-1">
+                        <SelectValue />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="20">20 hours (Part-time)</SelectItem>
+                        <SelectItem value="30">30 hours</SelectItem>
+                        <SelectItem value="40">40 hours (Full-time)</SelectItem>
+                        <SelectItem value="50">50 hours</SelectItem>
+                        <SelectItem value="60">60 hours</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </div>
+
+                  <div>
+                    <Label htmlFor="weeks-per-year">Weeks per Year</Label>
+                    <Select value={weeksPerYear} onValueChange={setWeeksPerYear}>
+                      <SelectTrigger className="mt-1">
+                        <SelectValue />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="50">50 weeks (2 weeks vacation)</SelectItem>
+                        <SelectItem value="51">51 weeks (1 week vacation)</SelectItem>
+                        <SelectItem value="52">52 weeks (No vacation)</SelectItem>
+                        <SelectItem value="48">48 weeks (4 weeks vacation)</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </div>
+                </CardContent>
+              </Card>
+
+              {/* Results */}
+              {results && (
+                <Card>
+                  <CardHeader>
+                    <CardTitle className="flex items-center gap-2">
+                      <DollarSign className="h-5 w-5" />
+                      Conversion Results
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent className="space-y-6">
+                    {results.type === "hourly-to-salary" ? (
+                      <div className="text-center p-6 bg-green-50 rounded-lg">
+                        <div className="text-3xl font-bold text-green-600 mb-2">
+                          ${results.annualSalary.toLocaleString()}
+                        </div>
+                        <div className="text-green-700">Annual Salary Equivalent</div>
+                      </div>
+                    ) : (
+                      <div className="text-center p-6 bg-blue-50 rounded-lg">
+                        <div className="text-3xl font-bold text-blue-600 mb-2">
+                          ${results.equivalentHourly.toFixed(2)}/hour
+                        </div>
+                        <div className="text-blue-700">Hourly Rate Equivalent</div>
+                      </div>
+                    )}
+
+                    <div className="grid grid-cols-2 gap-4">
+                      <div className="text-center p-4 bg-gray-50 rounded-lg">
+                        <div className="text-xl font-bold text-gray-900">
+                          ${(results.type === "hourly-to-salary" ? results.monthlySalary : results.monthlyAmount).toLocaleString()}
+                        </div>
+                        <div className="text-sm text-gray-600">Monthly</div>
+                      </div>
+                      
+                      <div className="text-center p-4 bg-gray-50 rounded-lg">
+                        <div className="text-xl font-bold text-gray-900">
+                          ${(results.type === "hourly-to-salary" ? results.weeklySalary : results.weeklyAmount).toLocaleString()}
+                        </div>
+                        <div className="text-sm text-gray-600">Weekly</div>
+                      </div>
+                    </div>
+
+                    <div className="space-y-3 border-t pt-4">
+                      <div className="flex justify-between">
+                        <span className="text-gray-600">Total Annual Hours:</span>
+                        <span className="font-medium">{results.totalHours.toLocaleString()}</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span className="text-gray-600">Biweekly Pay:</span>
+                        <span className="font-medium">
+                          ${(results.type === "hourly-to-salary" ? results.biweeklySalary : results.biweeklyAmount).toLocaleString()}
+                        </span>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              )}
+            </div>
+          </div>
+        </section>
+
+        {/* Educational Content */}
+        <section className="py-12 bg-white">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 className="text-2xl font-bold text-gray-900 mb-8">Understanding Hourly vs Salary Compensation</h2>
+            <div className="grid md:grid-cols-2 gap-8">
+              <div>
+                <h3 className="text-lg font-semibold text-gray-900 mb-4">Key Differences</h3>
+                <ul className="space-y-3 text-gray-600">
+                  <li className="flex items-start">
+                    <div className="w-2 h-2 bg-blue-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                    <span><strong>Hourly:</strong> Paid for exact hours worked, eligible for overtime</span>
+                  </li>
+                  <li className="flex items-start">
+                    <div className="w-2 h-2 bg-green-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                    <span><strong>Salary:</strong> Fixed annual amount, typically no overtime pay</span>
+                  </li>
+                  <li className="flex items-start">
+                    <div className="w-2 h-2 bg-purple-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                    <span><strong>Benefits:</strong> Salaried positions often include better benefits</span>
+                  </li>
+                </ul>
+              </div>
+              
+              <div>
+                <h3 className="text-lg font-semibold text-gray-900 mb-4">When to Convert</h3>
+                <ul className="space-y-3 text-gray-600">
+                  <li className="flex items-start">
+                    <div className="w-2 h-2 bg-yellow-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                    <span>Comparing job offers between hourly and salary positions</span>
+                  </li>
+                  <li className="flex items-start">
+                    <div className="w-2 h-2 bg-red-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                    <span>Negotiating pay raises or position changes</span>
+                  </li>
+                  <li className="flex items-start">
+                    <div className="w-2 h-2 bg-indigo-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                    <span>Planning budget and financial goals</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </>
+  );
+
   const workScheduleOptions = [
     { hours: 40, description: "Full-time standard", weeks: 52 },
     { hours: 35, description: "Full-time reduced", weeks: 52 },
