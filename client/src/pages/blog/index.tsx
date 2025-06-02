@@ -370,7 +370,7 @@ export default function BlogIndex() {
                       </Button>
                     </Link>
                     <Link href="/tools">
-                      <Button variant="outline" className="border-white text-white hover:bg-white hover:text-blue-600 px-6 py-4 rounded-xl">
+                      <Button variant="outline" className="border-white text-white hover:bg-white hover:text-blue-600 px-6 py-4 rounded-xl bg-[#3c445c]">
                         View All Tools
                       </Button>
                     </Link>
