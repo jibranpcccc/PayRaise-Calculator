@@ -116,6 +116,7 @@ function Router() {
           <Route path="/guides/merit-increase-vs-promotion" component={MeritIncreaseVsPromotion} />
           <Route path="/guides/salary-increase-timing-guide" component={SalaryIncreaseTimingGuide} />
           <Route path="/guides/raise-rejection-next-steps" component={RaiseRejectionNextSteps} />
+          <Route path="/guides/negotiating-non-salary-benefits-perks" component={NegotiatingNonSalaryBenefitsPerks} />
           
           {/* Blog Section */}
           <Route path="/blog" component={BlogIndex} />
