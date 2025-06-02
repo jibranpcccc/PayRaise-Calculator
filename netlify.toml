@@ -1,6 +1,6 @@
 [build]
   publish = "dist"
-  command = "npm install && node static-build.js"
+  command = "npm install && NODE_ENV=production npx vite build --config vite.config.netlify.ts"
 
 [build.environment]
   NODE_VERSION = "20"
