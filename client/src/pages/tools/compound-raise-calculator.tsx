@@ -341,6 +341,160 @@ export default function CompoundRaiseCalculator() {
             </div>
           </div>
         </section>
+
+        {/* Related Tools Section */}
+        <section className="py-12 bg-gradient-to-br from-blue-50 to-indigo-50">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-10">
+              <h2 className="text-3xl font-bold text-gray-900 mb-4">Related Calculators & Resources</h2>
+              <p className="text-lg text-gray-600">Explore these tools to get a complete picture of your salary growth</p>
+            </div>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <Link href="/tools/inflation-adjusted-raise-calculator">
+                <Card className="cursor-pointer card-hover">
+                  <CardContent className="p-6">
+                    <div className="flex items-center mb-4">
+                      <TrendingUp className="w-8 h-8 text-orange-600 mr-3" />
+                      <h3 className="font-semibold text-gray-900">Inflation-Adjusted Calculator</h3>
+                    </div>
+                    <p className="text-gray-600 text-sm mb-4">
+                      See how inflation affects your real purchasing power over time with compound raises.
+                    </p>
+                    <Badge variant="secondary" className="text-xs">Real Value Analysis</Badge>
+                  </CardContent>
+                </Card>
+              </Link>
+
+              <Link href="/tools/pay-raise-tax-impact-calculator">
+                <Card className="cursor-pointer card-hover">
+                  <CardContent className="p-6">
+                    <div className="flex items-center mb-4">
+                      <Calculator className="w-8 h-8 text-green-600 mr-3" />
+                      <h3 className="font-semibold text-gray-900">Tax Impact Calculator</h3>
+                    </div>
+                    <p className="text-gray-600 text-sm mb-4">
+                      Calculate after-tax value of your compound raises and understand net take-home growth.
+                    </p>
+                    <Badge variant="secondary" className="text-xs">Net Income Focus</Badge>
+                  </CardContent>
+                </Card>
+              </Link>
+
+              <Link href="/tools/raise-impact-retirement-savings-calculator">
+                <Card className="cursor-pointer card-hover">
+                  <CardContent className="p-6">
+                    <div className="flex items-center mb-4">
+                      <PiggyBank className="w-8 h-8 text-purple-600 mr-3" />
+                      <h3 className="font-semibold text-gray-900">Retirement Impact Calculator</h3>
+                    </div>
+                    <p className="text-gray-600 text-sm mb-4">
+                      See how compound raises boost your 401(k) contributions and retirement savings.
+                    </p>
+                    <Badge variant="secondary" className="text-xs">Long-term Planning</Badge>
+                  </CardContent>
+                </Card>
+              </Link>
+            </div>
+
+            <div className="mt-8 text-center">
+              <Link href="/tools">
+                <Button className="btn-primary-gradient">
+                  View All Calculators
+                  <ArrowRight className="ml-2 w-4 h-4" />
+                </Button>
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        {/* Educational Content */}
+        <section className="py-12 bg-white">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
+              Compound Raise Strategy Guide
+            </h2>
+
+            <div className="grid md:grid-cols-2 gap-8">
+              <div>
+                <h3 className="text-xl font-semibold text-gray-900 mb-4 flex items-center">
+                  <Target className="mr-2 h-5 w-5 text-primary" />
+                  Maximizing Your Compound Growth
+                </h3>
+                <ul className="space-y-3 text-gray-600">
+                  <li className="flex items-start">
+                    <span className="text-primary mr-2">•</span>
+                    <div>
+                      <strong>Negotiate Early:</strong> Small raises compound over decades - fight for every percentage point early in your career
+                    </div>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-primary mr-2">•</span>
+                    <div>
+                      <strong>Annual Reviews:</strong> Don't skip yearly performance reviews - they're your compound growth opportunities
+                    </div>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-primary mr-2">•</span>
+                    <div>
+                      <strong>Industry Research:</strong> Know your market rate to ensure raises keep pace with industry standards
+                    </div>
+                  </li>
+                </ul>
+
+                <div className="mt-6">
+                  <Link href="/guides/negotiating-salary-increase-strategies">
+                    <Button variant="outline" className="w-full">
+                      <ExternalLink className="mr-2 w-4 h-4" />
+                      Read Negotiation Strategies Guide
+                    </Button>
+                  </Link>
+                </div>
+              </div>
+
+              <div>
+                <h3 className="text-xl font-semibold text-gray-900 mb-4 flex items-center">
+                  <Clock className="mr-2 h-5 w-5 text-success" />
+                  When to Use This Calculator
+                </h3>
+                <ul className="space-y-3 text-gray-600">
+                  <li className="flex items-start">
+                    <span className="text-success mr-2">•</span>
+                    <div>
+                      <strong>Career Planning:</strong> Project long-term earning potential when choosing between jobs or career paths
+                    </div>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-success mr-2">•</span>
+                    <div>
+                      <strong>Retirement Planning:</strong> Understand how consistent raises impact your lifetime earnings
+                    </div>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-success mr-2">•</span>
+                    <div>
+                      <strong>Goal Setting:</strong> Visualize the impact of maintaining regular salary growth
+                    </div>
+                  </li>
+                </ul>
+
+                <div className="mt-6">
+                  <a 
+                    href="https://www.bls.gov/news.release/realer.nr0.htm" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="block"
+                  >
+                    <Button variant="outline" className="w-full">
+                      <ExternalLink className="mr-2 w-4 h-4" />
+                      View BLS Earnings Data
+                    </Button>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
       </div>
     </>
   );
