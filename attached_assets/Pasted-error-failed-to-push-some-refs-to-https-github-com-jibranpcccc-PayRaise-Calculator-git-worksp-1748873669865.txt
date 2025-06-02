@@ -1,0 +1,43 @@
+error: failed to push some refs to 'https://github.com/jibranpcccc/PayRaise-Calculator.git'
+~/workspace$ ^C
+~/workspace$ git add .
+git commit -m "Remove files with sensitive tokens"
+git push -f origin main
+On branch main
+nothing to commit, working tree clean
+Enumerating objects: 747, done.
+Counting objects: 100% (747/747), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (739/739), done.
+Writing objects: 100% (747/747), 603.00 KiB | 7.26 MiB/s, done.
+Total 747 (delta 399), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (399/399), done.
+remote: error: GH013: Repository rule violations found for refs/heads/main.
+remote: 
+remote: - GITHUB PUSH PROTECTION
+remote:   —————————————————————————————————————————
+remote:     Resolve the following violations before pushing again
+remote: 
+remote:     - Push cannot contain secrets
+remote: 
+remote:     
+remote:      (?) Learn how to resolve a blocked push
+remote:      https://docs.github.com/code-security/secret-scanning/working-with-secret-scanning-and-push-protection/working-with-push-protection-from-the-command-line#resolving-a-blocked-push
+remote:     
+remote:     
+remote:       —— GitHub Personal Access Token ——————————————————————
+remote:        locations:
+remote:          - commit: d8f75e3d08474d839fa62b3bba8d64196edfb8b7
+remote:            path: FIX_GITHUB_SYNC.md:24
+remote:          - commit: f6422c5a12ddfe69022c70632123cb4fb133747f
+remote:            path: setup-github.sh:23
+remote:     
+remote:        (?) To push, remove secret from commit(s) or follow this URL to allow the secret.
+remote:        https://github.com/jibranpcccc/PayRaise-Calculator/security/secret-scanning/unblock-secret/2xxIjbJjxNlOB6y35nZ8bqQZmod
+remote:     
+remote: 
+remote: 
+To https://github.com/jibranpcccc/PayRaise-Calculator.git
+ ! [remote rejected] main -> main (push declined due to repository rule violations)
+error: failed to push some refs to 'https://github.com/jibranpcccc/PayRaise-Calculator.git'
+~/workspace$ 
