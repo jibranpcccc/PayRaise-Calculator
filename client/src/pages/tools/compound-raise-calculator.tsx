@@ -3,9 +3,12 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
 import { SEOHead } from "@/components/seo/head";
 import { PayRaiseCalculator } from "@/lib/calculator";
-import { TrendingUp, Calculator, BarChart3 } from "lucide-react";
+import { CompoundGrowthChart } from "@/components/calculator-svgs/compound-growth-chart";
+import { Link } from "wouter";
+import { TrendingUp, Calculator, BarChart3, ExternalLink, ArrowRight, DollarSign, Target, PiggyBank, Clock } from "lucide-react";
 
 export default function CompoundRaiseCalculator() {
   const [currentSalary, setCurrentSalary] = useState(60000);
@@ -223,33 +226,44 @@ export default function CompoundRaiseCalculator() {
                 <CardHeader>
                   <CardTitle className="flex items-center">
                     <TrendingUp className="mr-2 h-5 w-5 text-success" />
-                    Year-by-Year Projections
+                    Growth Visualization & Projections
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <div className="space-y-3 max-h-96 overflow-y-auto">
-                    {projections.map((projection) => (
-                      <div 
-                        key={projection.year}
-                        className="flex justify-between items-center p-3 bg-gray-50 rounded-lg"
-                      >
-                        <div>
-                          <div className="font-semibold text-gray-900">Year {projection.year}</div>
-                          <div className="text-sm text-gray-600">
-                            +{PayRaiseCalculator.formatCurrency(projection.yearlyIncrease)} this year
+                  {projections.length > 0 && (
+                    <div className="space-y-6">
+                      {/* Interactive Growth Chart */}
+                      <CompoundGrowthChart 
+                        projections={projections}
+                        currentSalary={currentSalary}
+                      />
+                      
+                      {/* Year-by-Year Breakdown */}
+                      <div className="space-y-3 max-h-80 overflow-y-auto">
+                        {projections.map((projection) => (
+                          <div 
+                            key={projection.year}
+                            className="flex justify-between items-center p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors"
+                          >
+                            <div>
+                              <div className="font-semibold text-gray-900">Year {projection.year}</div>
+                              <div className="text-sm text-gray-600">
+                                +{PayRaiseCalculator.formatCurrency(projection.yearlyIncrease)} this year
+                              </div>
+                            </div>
+                            <div className="text-right">
+                              <div className="font-bold text-gray-900">
+                                {PayRaiseCalculator.formatCurrency(projection.salary)}
+                              </div>
+                              <div className="text-sm text-success">
+                                +{PayRaiseCalculator.formatPercentage(projection.cumulativePercent)} total
+                              </div>
+                            </div>
                           </div>
-                        </div>
-                        <div className="text-right">
-                          <div className="font-bold text-gray-900">
-                            {PayRaiseCalculator.formatCurrency(projection.salary)}
-                          </div>
-                          <div className="text-sm text-success">
-                            +{PayRaiseCalculator.formatPercentage(projection.cumulativePercent)} total
-                          </div>
-                        </div>
+                        ))}
                       </div>
-                    ))}
-                  </div>
+                    </div>
+                  )}
                 </CardContent>
               </Card>
             </div>
