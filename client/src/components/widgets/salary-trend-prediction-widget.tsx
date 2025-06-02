@@ -314,3 +314,5 @@ export function SalaryTrendPredictionWidget({
     </Card>
   );
 }
+
+export default SalaryTrendPredictionWidget;

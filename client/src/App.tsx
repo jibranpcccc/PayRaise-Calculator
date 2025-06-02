@@ -8,6 +8,7 @@ import { Footer } from "@/components/layout/footer";
 import { FloatingCalculatorButton } from "@/components/floating-calculator-button";
 import { Suspense, lazy } from "react";
 import { LoadingSpinner } from "@/components/ui/loading-spinner";
+import { CriticalCSSInjector, PreloadNonCriticalCSS } from "@/components/performance/css-optimizer";
 
 // Page imports
 import Home from "@/pages/home";
@@ -165,6 +166,8 @@ function Router() {
 function App() {
   return (
     <QueryClientProvider client={queryClient}>
+      <CriticalCSSInjector />
+      <PreloadNonCriticalCSS />
       <TooltipProvider>
         <Toaster />
         <Suspense fallback={<LoadingSpinner />}>

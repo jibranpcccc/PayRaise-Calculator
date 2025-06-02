@@ -1,36 +1,29 @@
 import { lazy, Suspense } from "react";
 import { ComponentSkeleton } from "./ui/loading-spinner";
 
-// Lazy load heavy sections with preload hints
-export const LazyBlogSection = lazy(() => 
-  import(
-    /* webpackChunkName: "blog-section" */ 
-    /* webpackPreload: true */ 
-    "./widgets/featured-blog-section"
-  )
-);
-
-export const LazyToolsGrid = lazy(() => 
-  import(
-    /* webpackChunkName: "tools-grid" */ 
-    /* webpackPrefetch: true */ 
-    "./widgets/calculator-tools-grid"
-  )
-);
-
-export const LazyTestimonialsSection = lazy(() => 
-  import(
-    /* webpackChunkName: "testimonials" */ 
-    /* webpackPrefetch: true */ 
-    "./widgets/testimonials-section"
-  )
-);
-
+// Only lazy load components that actually exist
 export const LazyIndustryBenchmarks = lazy(() => 
   import(
     /* webpackChunkName: "benchmarks" */ 
     /* webpackPrefetch: true */ 
     "./widgets/industry-benchmarks-widget"
+  )
+);
+
+export const LazySalaryTrends = lazy(() => 
+  import(
+    /* webpackChunkName: "salary-trends" */ 
+    /* webpackPrefetch: true */ 
+    "./widgets/salary-trend-prediction-widget"
+  )
+);
+
+// Lazy load calculator components
+export const LazyCalculatorResults = lazy(() => 
+  import(
+    /* webpackChunkName: "calculator-results" */ 
+    /* webpackPrefetch: true */ 
+    "./calculator/calculator-results"
   )
 );
 

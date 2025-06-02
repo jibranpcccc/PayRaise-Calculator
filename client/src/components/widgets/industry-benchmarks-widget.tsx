@@ -204,3 +204,5 @@ export function IndustryBenchmarksWidget({
     </Card>
   );
 }
+
+export default IndustryBenchmarksWidget;
