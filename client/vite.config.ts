@@ -31,6 +31,7 @@ export default defineConfig({
       }
     }
   },
+  publicDir: "../public",
   optimizeDeps: {
     include: ['react', 'react-dom', 'wouter', '@tanstack/react-query']
   }
