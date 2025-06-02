@@ -4,9 +4,13 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Checkbox } from "@/components/ui/checkbox";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
 import { SEOHead } from "@/components/seo/head";
 import { PayRaiseCalculator } from "@/lib/calculator";
-import { FileText, Calculator, DollarSign, AlertCircle } from "lucide-react";
+import { TaxImpactChart } from "@/components/calculator-svgs/tax-impact-chart";
+import { Link } from "wouter";
+import { FileText, Calculator, DollarSign, AlertCircle, TrendingUp, ExternalLink, ArrowRight, Target, PiggyBank, Shield } from "lucide-react";
 
 export default function PayRaiseTaxImpactCalculator() {
   const [currentSalary, setCurrentSalary] = useState(75000);
@@ -17,7 +21,7 @@ export default function PayRaiseTaxImpactCalculator() {
   const [results, setResults] = useState<any>(null);
 
   // Federal tax brackets for 2025 (simplified)
-  const federalTaxBrackets = {
+  const federalTaxBrackets: Record<string, Array<{min: number, max: number, rate: number}>> = {
     single: [
       { min: 0, max: 11000, rate: 10 },
       { min: 11001, max: 44725, rate: 12 },
@@ -38,7 +42,7 @@ export default function PayRaiseTaxImpactCalculator() {
     ]
   };
 
-  const stateTaxRates = {
+  const stateTaxRates: Record<string, {name: string, rate: number}> = {
     "no-state-tax": { name: "No State Tax", rate: 0 },
     "california": { name: "California", rate: 9.3 },
     "new-york": { name: "New York", rate: 6.85 },
@@ -85,7 +89,6 @@ export default function PayRaiseTaxImpactCalculator() {
     // FICA taxes (Social Security + Medicare)
     const socialSecurityRate = 6.2;
     const medicareRate = 1.45;
-    const ficaRate = socialSecurityRate + medicareRate;
     
     // Social Security tax caps at $160,200 in 2025
     const ssWageBase = 160200;
@@ -237,7 +240,7 @@ export default function PayRaiseTaxImpactCalculator() {
                     <Checkbox
                       id="includeStateLocal"
                       checked={includeStateLocal}
-                      onCheckedChange={setIncludeStateLocal}
+                      onCheckedChange={(checked) => setIncludeStateLocal(checked === true)}
                     />
                     <Label htmlFor="includeStateLocal" className="text-sm">
                       Include state and local taxes
@@ -272,6 +275,14 @@ export default function PayRaiseTaxImpactCalculator() {
                 <CardContent>
                   {results && (
                     <div className="space-y-6">
+                      {/* Interactive Tax Visualization */}
+                      <TaxImpactChart 
+                        grossRaise={results.raiseAmount}
+                        netRaise={results.netRaiseAmount}
+                        taxAmount={results.totalTaxIncrease}
+                        effectiveTaxRate={results.effectiveTaxRate}
+                      />
+
                       {/* Main Result */}
                       <Card className="gradient-secondary text-white result-glow">
                         <CardContent className="p-6 text-center">
@@ -284,99 +295,6 @@ export default function PayRaiseTaxImpactCalculator() {
                           </div>
                         </CardContent>
                       </Card>
-
-                      {/* Tax Breakdown */}
-                      <div>
-                        <h4 className="font-semibold text-gray-900 mb-3 flex items-center">
-                          <FileText className="mr-2 h-4 w-4" />
-                          Tax Breakdown
-                        </h4>
-                        <div className="space-y-3">
-                          <div className="bg-gray-50 rounded-lg p-4">
-                            <div className="flex justify-between items-center mb-2">
-                              <span className="font-medium text-gray-900">Gross Raise</span>
-                              <span className="font-bold text-green-600">
-                                {PayRaiseCalculator.formatCurrency(results.raiseAmount)}
-                              </span>
-                            </div>
-                            <div className="space-y-1 text-sm">
-                              <div className="flex justify-between">
-                                <span className="text-gray-600">Federal income tax:</span>
-                                <span className="text-red-600">
-                                  -{PayRaiseCalculator.formatCurrency(results.federalTaxIncrease)}
-                                </span>
-                              </div>
-                              <div className="flex justify-between">
-                                <span className="text-gray-600">FICA taxes (SS + Medicare):</span>
-                                <span className="text-red-600">
-                                  -{PayRaiseCalculator.formatCurrency(results.ficaTaxIncrease)}
-                                </span>
-                              </div>
-                              {results.stateTaxIncrease > 0 && (
-                                <div className="flex justify-between">
-                                  <span className="text-gray-600">State income tax:</span>
-                                  <span className="text-red-600">
-                                    -{PayRaiseCalculator.formatCurrency(results.stateTaxIncrease)}
-                                  </span>
-                                </div>
-                              )}
-                              <hr className="border-gray-300" />
-                              <div className="flex justify-between font-semibold">
-                                <span>Total taxes:</span>
-                                <span className="text-red-600">
-                                  -{PayRaiseCalculator.formatCurrency(results.totalTaxIncrease)}
-                                </span>
-                              </div>
-                              <div className="flex justify-between font-bold text-lg">
-                                <span>Net increase:</span>
-                                <span className="text-green-600">
-                                  {PayRaiseCalculator.formatCurrency(results.netRaiseAmount)}
-                                </span>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-
-                      {/* Monthly Impact */}
-                      <Card className="bg-blue-50 border-blue-200">
-                        <CardContent className="p-4">
-                          <h5 className="font-medium text-blue-900 mb-2">Monthly Impact</h5>
-                          <div className="space-y-1 text-sm text-blue-800">
-                            <div className="flex justify-between">
-                              <span>Gross monthly increase:</span>
-                              <span className="font-medium">
-                                {PayRaiseCalculator.formatCurrency(results.monthlyGrossIncrease)}
-                              </span>
-                            </div>
-                            <div className="flex justify-between">
-                              <span>Monthly taxes:</span>
-                              <span className="font-medium text-red-600">
-                                -{PayRaiseCalculator.formatCurrency(results.monthlyTaxIncrease)}
-                              </span>
-                            </div>
-                            <div className="flex justify-between font-semibold">
-                              <span>Net monthly increase:</span>
-                              <span className="text-green-600">
-                                {PayRaiseCalculator.formatCurrency(results.monthlyNetIncrease)}
-                              </span>
-                            </div>
-                          </div>
-                        </CardContent>
-                      </Card>
-
-                      {/* Effective Tax Rate */}
-                      <Card className="bg-yellow-50 border-yellow-200">
-                        <CardContent className="p-4 text-center">
-                          <h5 className="font-medium text-yellow-900 mb-2">Effective Tax Rate on Raise</h5>
-                          <div className="text-3xl font-bold text-yellow-800">
-                            {PayRaiseCalculator.formatPercentage(results.effectiveTaxRate)}
-                          </div>
-                          <p className="text-sm text-yellow-700 mt-1">
-                            This is the percentage of your raise that goes to taxes
-                          </p>
-                        </CardContent>
-                      </Card>
                     </div>
                   )}
                 </CardContent>
@@ -385,76 +303,69 @@ export default function PayRaiseTaxImpactCalculator() {
           </div>
         </section>
 
-        {/* Educational Content */}
-        <section className="py-12 bg-white">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
-              Understanding Tax Impact on Raises
-            </h2>
-            
-            <div className="grid md:grid-cols-2 gap-8">
-              <Card>
-                <CardHeader>
-                  <CardTitle>Why Taxes Matter</CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-4">
-                  <div className="space-y-3 text-gray-600 text-sm">
-                    <p>
-                      When you receive a raise, you don't keep 100% of the increase. 
-                      Various taxes are deducted from your additional income.
-                    </p>
-                    <p>
-                      <strong>Marginal Tax Rate:</strong> Your raise is taxed at your highest tax bracket, 
-                      not your average rate. This is why the tax impact can seem high.
-                    </p>
-                    <p>
-                      <strong>FICA Taxes:</strong> Social Security and Medicare taxes are flat rates 
-                      applied to your additional income (with Social Security capping at $160,200).
-                    </p>
-                  </div>
-                </CardContent>
-              </Card>
-
-              <Card>
-                <CardHeader>
-                  <CardTitle>Planning Considerations</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <ul className="space-y-3 text-gray-600 text-sm">
-                    <li className="flex items-start">
-                      <DollarSign className="h-4 w-4 text-primary mr-2 mt-0.5 flex-shrink-0" />
-                      <span>Factor tax impact when negotiating salary increases</span>
-                    </li>
-                    <li className="flex items-start">
-                      <DollarSign className="h-4 w-4 text-primary mr-2 mt-0.5 flex-shrink-0" />
-                      <span>Consider maximizing 401(k) contributions to reduce taxable income</span>
-                    </li>
-                    <li className="flex items-start">
-                      <DollarSign className="h-4 w-4 text-primary mr-2 mt-0.5 flex-shrink-0" />
-                      <span>Explore other pre-tax benefits like health savings accounts</span>
-                    </li>
-                    <li className="flex items-start">
-                      <DollarSign className="h-4 w-4 text-primary mr-2 mt-0.5 flex-shrink-0" />
-                      <span>State taxes vary significantly - consider this for remote work</span>
-                    </li>
-                  </ul>
-                </CardContent>
-              </Card>
+        {/* Related Tools Section */}
+        <section className="py-12 bg-gradient-to-br from-green-50 to-blue-50">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-10">
+              <h2 className="text-3xl font-bold text-gray-900 mb-4">Related Tax & Financial Calculators</h2>
+              <p className="text-lg text-gray-600">Maximize your financial planning with these essential tools</p>
             </div>
 
-            <Card className="mt-8 bg-red-50 border-red-200">
-              <CardContent className="p-4">
-                <h4 className="font-medium text-red-900 mb-2 flex items-center">
-                  <AlertCircle className="mr-2 h-4 w-4" />
-                  Important Disclaimer
-                </h4>
-                <p className="text-sm text-red-800">
-                  This calculator provides estimates based on 2025 tax brackets and standard deductions. 
-                  Actual tax liability may vary based on deductions, credits, and other factors. 
-                  Consult a tax professional for personalized advice.
-                </p>
-              </CardContent>
-            </Card>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <Link href="/tools/raise-after-deductions-calculator">
+                <Card className="cursor-pointer card-hover">
+                  <CardContent className="p-6">
+                    <div className="flex items-center mb-4">
+                      <Shield className="w-8 h-8 text-blue-600 mr-3" />
+                      <h3 className="font-semibold text-gray-900">After Deductions Calculator</h3>
+                    </div>
+                    <p className="text-gray-600 text-sm mb-4">
+                      See your net raise after taxes, 401(k), health insurance, and other deductions.
+                    </p>
+                    <Badge variant="secondary" className="text-xs">Complete Take-Home</Badge>
+                  </CardContent>
+                </Card>
+              </Link>
+
+              <Link href="/tools/raise-impact-retirement-savings-calculator">
+                <Card className="cursor-pointer card-hover">
+                  <CardContent className="p-6">
+                    <div className="flex items-center mb-4">
+                      <PiggyBank className="w-8 h-8 text-purple-600 mr-3" />
+                      <h3 className="font-semibold text-gray-900">Retirement Impact Calculator</h3>
+                    </div>
+                    <p className="text-gray-600 text-sm mb-4">
+                      Calculate how your raise affects 401(k) contributions and long-term retirement savings.
+                    </p>
+                    <Badge variant="secondary" className="text-xs">Future Planning</Badge>
+                  </CardContent>
+                </Card>
+              </Link>
+
+              <Link href="/tools/state-wise-raise-calculator">
+                <Card className="cursor-pointer card-hover">
+                  <CardContent className="p-6">
+                    <div className="flex items-center mb-4">
+                      <Target className="w-8 h-8 text-green-600 mr-3" />
+                      <h3 className="font-semibold text-gray-900">State-Wise Calculator</h3>
+                    </div>
+                    <p className="text-gray-600 text-sm mb-4">
+                      Compare take-home pay across different states considering local tax variations.
+                    </p>
+                    <Badge variant="secondary" className="text-xs">Location Analysis</Badge>
+                  </CardContent>
+                </Card>
+              </Link>
+            </div>
+
+            <div className="mt-8 text-center">
+              <Link href="/tools">
+                <Button className="btn-primary-gradient">
+                  View All Financial Calculators
+                  <ArrowRight className="ml-2 w-4 h-4" />
+                </Button>
+              </Link>
+            </div>
           </div>
         </section>
       </div>
