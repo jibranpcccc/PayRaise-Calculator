@@ -1,0 +1,111 @@
+Initializing
+Complete
+3:49:57 PM: Waiting for other deploys from your team to complete. Check the queue: https://app.netlify.com/teams/jibranpcccc/builds
+3:50:07 PM: build-image version: 0e04ecb664f5f97dc8ac7f3de278d0e6f81cd9c2 (noble)
+3:50:07 PM: buildbot version: 0adda441a46f5fcbd50adabc3d352011c7a84c94
+3:50:08 PM: Fetching cached dependencies
+3:50:08 PM: Failed to fetch cache, continuing with build
+3:50:08 PM: Starting to prepare the repo for build
+3:50:08 PM: No cached dependencies found. Cloning fresh repo
+3:50:08 PM: git clone --filter=blob:none https://github.com/jibranpcccc/PayRaise-Calculator
+3:50:08 PM: Preparing Git Reference refs/heads/main
+3:50:09 PM: Custom build command detected. Proceeding with the specified command: 'npm install && npx vite build --config vite.config.netlify.ts'
+3:50:10 PM: Starting to install dependencies
+3:50:10 PM: Python version set to 3.13.3
+3:50:10 PM: Ruby version set to 3.4.3
+3:50:10 PM: Go version set to 1.24.3
+3:50:10 PM: Using PHP version 8.3
+3:50:11 PM: Downloading and installing node v20.19.2...
+3:50:11 PM: Downloading https://nodejs.org/dist/v20.19.2/node-v20.19.2-linux-x64.tar.xz...
+3:50:12 PM: Computing checksum with sha256sum
+3:50:12 PM: Checksums matched!
+3:50:14 PM: Now using node v20.19.2 (npm v10.8.2)
+3:50:14 PM: Enabling Node.js Corepack
+3:50:14 PM: Started restoring cached build plugins
+3:50:14 PM: Finished restoring cached build plugins
+3:50:14 PM: WARNING: The environment variable 'NODE_ENV' is set to 'production'. Any 'devDependencies' in package.json will not be installed
+3:50:14 PM: Started restoring cached corepack dependencies
+3:50:14 PM: Finished restoring cached corepack dependencies
+3:50:14 PM: No npm workspaces detected
+3:50:14 PM: Started restoring cached node modules
+3:50:14 PM: Finished restoring cached node modules
+3:50:14 PM: Installing npm packages using npm version 10.8.2
+3:50:20 PM: added 372 packages in 5s
+3:50:20 PM: npm packages installed
+3:50:20 PM: Successfully installed dependencies
+3:50:20 PM: Starting build script
+3:50:21 PM: Detected 1 framework(s)
+3:50:21 PM: "vite" at version "5.4.14"
+3:50:21 PM: Section completed: initializing
+Building
+Failed
+3:50:23 PM: Netlify Build                                                 
+3:50:23 PM: ────────────────────────────────────────────────────────────────
+3:50:23 PM: ​
+3:50:23 PM: ❯ Version
+3:50:23 PM:   @netlify/build 33.4.0
+3:50:23 PM: ​
+3:50:23 PM: ❯ Flags
+3:50:23 PM:   accountId: 6829ebab4e15d2f11c454ddc
+3:50:23 PM:   baseRelDir: true
+3:50:23 PM:   buildId: 683d81d583b95a0008e7eba0
+3:50:23 PM:   deployId: 683d81d583b95a0008e7eba2
+3:50:23 PM: ​
+3:50:23 PM: ❯ Current directory
+3:50:23 PM:   /opt/build/repo
+3:50:23 PM: ​
+3:50:23 PM: ❯ Config file
+3:50:23 PM:   /opt/build/repo/netlify.toml
+3:50:23 PM: ​
+3:50:23 PM: ❯ Context
+3:50:23 PM:   production
+3:50:23 PM: ​
+3:50:23 PM: build.command from netlify.toml                               
+3:50:23 PM: ────────────────────────────────────────────────────────────────
+3:50:23 PM: ​
+3:50:23 PM: $ npm install && npx vite build --config vite.config.netlify.ts
+3:50:24 PM: up to date, audited 373 packages in 696ms
+3:50:24 PM: 52 packages are looking for funding
+3:50:24 PM:   run `npm fund` for details
+3:50:24 PM: found 0 vulnerabilities
+3:50:24 PM: npm warn exec The following package was not found and will be installed: vite@6.3.5
+3:50:27 PM: failed to load config from /opt/build/repo/vite.config.netlify.ts
+3:50:27 PM: error during build:
+3:50:27 PM: Error [ERR_MODULE_NOT_FOUND]: Cannot find package 'vite' imported from /opt/build/repo/node_modules/.vite-temp/vite.config.netlify.ts.timestamp-1748861427711-fd35ecd147453.mjs
+3:50:27 PM:     at packageResolve (node:internal/modules/esm/resolve:873:9)
+3:50:27 PM:     at moduleResolve (node:internal/modules/esm/resolve:946:18)
+3:50:27 PM:     at defaultResolve (node:internal/modules/esm/resolve:1188:11)
+3:50:27 PM:     at ModuleLoader.defaultResolve (node:internal/modules/esm/loader:642:12)
+3:50:27 PM:     at #cachedDefaultResolve (node:internal/modules/esm/loader:591:25)
+3:50:27 PM:     at ModuleLoader.resolve (node:internal/modules/esm/loader:574:38)
+3:50:27 PM:     at ModuleLoader.getModuleJobForImport (node:internal/modules/esm/loader:236:38)
+3:50:27 PM:     at ModuleJob._link (node:internal/modules/esm/module_job:130:49)
+3:50:27 PM: ​
+3:50:27 PM: "build.command" failed                                        
+3:50:27 PM: ────────────────────────────────────────────────────────────────
+3:50:27 PM: ​
+3:50:27 PM:   Error message
+3:50:27 PM:   Command failed with exit code 1: npm install && npx vite build --config vite.config.netlify.ts
+3:50:27 PM: ​
+3:50:27 PM:   Error location
+3:50:27 PM:   In build.command from netlify.toml:
+3:50:27 PM:   npm install && npx vite build --config vite.config.netlify.ts
+3:50:27 PM: ​
+3:50:27 PM:   Resolved config
+3:50:27 PM:   build:
+3:50:27 PM:     command: npm install && npx vite build --config vite.config.netlify.ts
+3:50:27 PM:     commandOrigin: config
+3:50:27 PM:     environment:
+3:50:27 PM:       - NODE_VERSION
+3:50:27 PM:       - NODE_ENV
+3:50:27 PM:     publish: /opt/build/repo/dist
+3:50:27 PM:     publishOrigin: config
+3:50:27 PM:   redirects:
+3:50:28 PM:     - from: /*
+      status: 200
+      to: /index.html
+  redirectsOrigin: config
+3:50:28 PM: Build failed due to a user error: Build script returned non-zero exit code: 2
+3:50:28 PM: Failing build: Failed to build site
+3:50:28 PM: Finished processing build request in 20.474s
+3:50:28 PM: Failed during stage 'building site': Build script returned non-zero exit code: 2

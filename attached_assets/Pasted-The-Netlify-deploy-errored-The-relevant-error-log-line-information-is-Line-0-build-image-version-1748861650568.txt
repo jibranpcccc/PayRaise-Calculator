@@ -1,0 +1,76 @@
+The Netlify deploy errored. The relevant error log line information is:
+
+Line 0: build-image version: 0e04ecb664f5f97dc8ac7f3de278d0e6f81cd9c2 (noble)
+Line 1: buildbot version: 0adda441a46f5fcbd50adabc3d352011c7a84c94
+Line 2: Fetching cached dependencies
+Line 3: Failed to fetch cache, continuing with build
+Line 4: Starting to prepare the repo for build
+Line 5: No cached dependencies found. Cloning fresh repo
+Line 6: git clone --filter=blob:none https://github.com/jibranpcccc/PayRaise-Calculator
+Line 7: Preparing Git Reference refs/heads/main
+Line 8: Starting to install dependencies
+Line 9: Python version set to 3.13.3
+Line 10: Ruby version set to 3.4.3
+Line 11: Go version set to 1.24.3
+Line 12: Using PHP version 8.3
+Line 13: Downloading and installing node v20.19.2...
+Line 61: [36m$ npm install && NODE_ENV=production npx vite build[39m
+Line 62: up to date, audited 482 packages in 2s
+Line 63: 64 packages are looking for funding
+Line 64:   run `npm fund` for details
+Line 65: 7 moderate severity vulnerabilities
+Line 66: To address issues that do not require attention, run:
+Line 67:   npm audit fix
+Line 68: To address all issues (including breaking changes), run:
+Line 69:   npm audit fix --force
+Line 70: Run `npm audit` for details.
+Line 71: Failed during stage 'building site': Build script returned non-zero exit code: 2
+Line 72: [36mvite v5.4.14 [32mbuilding for production...[36m[39m
+Line 73: [32m✓[39m 0 modules transformed.
+Line 74: [31mx[39m Build failed in 8ms
+Line 75: [31merror during build:
+Line 76: [31mCould not resolve entry module "client/index.html".[31m
+Line 77:     at getRollupError (file:///opt/build/repo/node_modules/rollup/dist/es/shared/parseAst.js:396:41)
+Line 78:     at error (file:///opt/build/repo/node_modules/rollup/dist/es/shared/parseAst.js:392:42)
+Line 79:     at ModuleLoader.loadEntryModule (file:///opt/build/repo/node_modules/rollup/dist/es/shared/node-entry.js:20086:20)
+Line 80:     at async Promise.all (index 0)[39m
+Line 81: [91m[1m​[22m[39m
+Line 82: [91m[1m"build.command" failed                                        [22m[39m
+Line 83: [91m[1m────────────────────────────────────────────────────────────────[22m[39m
+Line 84: ​
+Line 85:   [31m[1mError message[22m[39m
+Line 86:   Command failed with exit code 1: npm install && NODE_ENV=production npx vite build
+Line 87: ​
+Line 88:   [31m[1mError location[22m[39m
+Line 89:   In build.command from netlify.toml:
+Line 90:   npm install && NODE_ENV=production npx vite build
+Line 91: ​
+Line 92:   [31m[1mResolved config[22m[39m
+Line 93:   build:
+Line 94:     command: npm install && NODE_ENV=production npx vite build
+Line 95:     commandOrigin: config
+Line 96:     environment:
+Line 97:       - NODE_VERSION
+Line 98:     publish: /opt/build/repo/dist
+Line 99:     publishOrigin: config
+Line 100:   redirects:
+Line 101:     - from: /*
+      status: 200
+      to: /index.html
+  redirectsOrigin: config
+Line 102: Build failed due to a user error: Build script returned non-zero exit code: 2
+Line 103: Failing build: Failed to build site
+Line 104: Finished processing build request in 20.627s
+
+Netlify has analyzed the error and provided the following guidance:
+
+### Diagnosis
+The build failed with the following error:
+- Line 76: `Could not resolve entry module "client/index.html".`
+
+### Solution
+1. The error indicates that the build couldn't find the entry module `client/index.html`.
+2. Ensure that the entry module path is correctly configured in the Vite configuration.
+3. Verify that the `client/index.html` file is present in the correct location and has been committed to the repository.
+4. Update the Vite configuration to point to the correct path for the entry module.
+5. After verifying the file path and making necessary adjustments, trigger a new build to check if the issue has been resolved.
