@@ -1,0 +1,68 @@
+The Netlify deploy errored. The relevant error log line information is:
+
+Line 82:   npm audit fix
+Line 83: To address all issues (including breaking changes), run:
+Line 84:   npm audit fix --force
+Line 85: Run `npm audit` for details.
+Line 86: [36mvite v5.4.14 [32mbuilding for production...[36m[39m
+Line 87: transforming...
+Line 88: Browserslist: browsers data (caniuse-lite) is 8 months old. Please run:
+Line 89:   npx update-browserslist-db@latest
+Line 90:   Why you should do it regularly: https://github.com/browserslist/update-db#readme
+Line 91: [32m✓[39m 1803 modules transformed.
+Line 92: [31mx[39m Build failed in 4.94s
+Line 93: [31merror during build:
+Line 94: [31m[vite:terser] terser not found. Since Vite v3, terser has become an optional dependency. You need to install it.[31m
+Line 95:     at loadTerserPath (file:///opt/build/repo/node_modules/vite/dist/node/chunks/dep-CHZK6zbr.js:19705:13)
+Line 96:     at Object.renderChunk (file:///opt/build/repo/node_modules/vite/dist/node/chunks/dep-CHZK6zbr.js:19740:27)
+Line 97:     at file:///opt/build/repo/node_modules/rollup/dist/es/shared/node-entry.js:20789:40
+Line 98:     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)[39m
+Line 99: [91m[1m​[22m[39m
+Line 100: [91m[1m"build.command" failed                                        [22m[39m
+Line 101: [91m[1m────────────────────────────────────────────────────────────────[22m[39m
+Line 102: ​
+Line 103:   [31m[1mError message[22m[39m
+Line 104:   Command failed with exit code 1: npm install && NODE_ENV=production npx vite build --config vite.config.netlify.ts
+Line 105: ​
+Line 106:   [31m[1mError location[22m[39m
+Line 107:   In build.command from netlify.toml:
+Line 108:   npm install && NODE_ENV=production npx vite build --config vite.config.netlify.ts
+Line 109: ​
+Line 110:   [31m[1mResolved config[22m[39m
+Line 111:   build:
+Line 112:     command: npm install && NODE_ENV=production npx vite build --config vite.config.netlify.ts
+Line 113:     commandOrigin: config
+Line 114:     environment:
+Line 115:       - NODE_VERSION
+Line 116:       - NPM_FLAGS
+Line 121:     - from: /sitemap.xml
+Line 122:       headers:
+Line 123:         Content-Type: application/xml
+Line 124:       status: 200
+Line 125:       to: /sitemap.xml
+Line 126:     - from: /robots.txt
+Line 127:       headers:
+Line 128:         Content-Type: text/plain
+Line 129:       status: 200
+Line 130:       to: /robots.txt
+Line 131: Failed during stage 'building site': Build script returned non-zero exit code: 2
+Line 132:     - from: /*
+      status: 200
+      to: /index.html
+  redirectsOrigin: config
+Line 133: Build failed due to a user error: Build script returned non-zero exit code: 2
+Line 134: Failing build: Failed to build site
+Line 135: Finished processing build request in 23.995s
+
+Netlify has analyzed the error and provided the following guidance:
+
+**Diagnosis:**
+The build failed due to the absence of the `terser` package, which has become an optional dependency since Vite v3.
+
+**Solution:**
+1. Verify that the `terser` package is listed in the `package.json` file or that it was committed to the repository.
+2. Install the `terser` package by running the following command:
+   ```bash
+   npm install terser
+   ```
+3. Retry the build after ensuring the `terser` package is installed.
