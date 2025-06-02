@@ -17,20 +17,42 @@ export default defineConfig({
     rollupOptions: {
       output: {
         manualChunks: (id) => {
-          if (id.includes('node_modules')) {
-            if (id.includes('react') || id.includes('react-dom')) {
-              return 'vendor-react';
-            }
-            if (id.includes('lucide') || id.includes('framer-motion')) {
-              return 'vendor-ui';
-            }
-            return 'vendor-utils';
+          // Core dependencies
+          if (id.includes('react') || id.includes('react-dom')) {
+            return 'react-vendor';
           }
+          if (id.includes('@tanstack/react-query')) {
+            return 'query-vendor';
+          }
+          if (id.includes('wouter')) {
+            return 'router-vendor';
+          }
+          
+          // UI Libraries - split for better caching
+          if (id.includes('lucide-react')) {
+            return 'icons-vendor';
+          }
+          if (id.includes('framer-motion')) {
+            return 'animation-vendor';
+          }
+          if (id.includes('@radix-ui')) {
+            return 'ui-vendor';
+          }
+          
+          // Heavy components that should be split
           if (id.includes('/pages/')) {
-            return 'pages';
+            const pageName = id.split('/pages/')[1]?.split('.')[0];
+            return `page-${pageName}`;
           }
-          if (id.includes('/components/')) {
-            return 'components';
+          
+          // Calculator components
+          if (id.includes('/calculator/')) {
+            return 'calculator-components';
+          }
+          
+          // Other vendor dependencies
+          if (id.includes('node_modules')) {
+            return 'vendor-utils';
           }
         }
       }
@@ -42,14 +64,21 @@ export default defineConfig({
         drop_debugger: true,
         pure_funcs: ['console.log', 'console.info', 'console.warn'],
         unused: true,
-        dead_code: true
+        dead_code: true,
+        sequences: true,
+        conditionals: true,
+        booleans: true,
+        if_return: true,
+        join_vars: true
       },
       mangle: {
-        safari10: true
+        safari10: true,
+        toplevel: true
       }
     },
-    target: 'es2015',
-    chunkSizeWarningLimit: 1000
+    target: 'es2020',
+    chunkSizeWarningLimit: 500,
+    sourcemap: false
   },
   publicDir: "../public",
   optimizeDeps: {
