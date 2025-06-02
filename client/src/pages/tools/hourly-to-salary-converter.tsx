@@ -25,11 +25,23 @@ export default function HourlyToSalaryConverter() {
 
   const structuredData = {
     "@context": "https://schema.org",
-    "@type": "WebApplication",
-    "name": "Hourly to Salary Converter",
-    "description": "Convert between hourly and salary compensation. Calculate annual, monthly, weekly wages with customizable work schedules.",
+    "@type": ["WebApplication", "Calculator"],
+    "name": "Hourly to Salary Converter 2025 - Wage Conversion Calculator",
+    "description": "Convert between hourly and salary compensation accurately. Calculate annual, monthly, weekly, and biweekly wages with customizable work schedules and vacation time.",
     "url": "https://payraisepercentagecalculator.com/tools/hourly-to-salary-converter",
-    "applicationCategory": "FinanceApplication"
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "Any",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "featureList": [
+      "Bidirectional wage conversion",
+      "Customizable work schedules",
+      "Multiple pay period calculations",
+      "Part-time and full-time support"
+    ]
   };
 
   const calculateConversion = () => {

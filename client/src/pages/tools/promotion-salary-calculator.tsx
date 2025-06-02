@@ -16,6 +16,27 @@ export default function PromotionSalaryCalculator() {
   const [companySize, setCompanySize] = useState("medium");
   const [results, setResults] = useState<any>(null);
 
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": ["WebApplication", "Calculator"],
+    "name": "Promotion Salary Calculator 2025 - Career Advancement Pay",
+    "description": "Calculate expected salary increases for job promotions and role changes. Get industry-specific promotion pay data and multi-level career advancement projections.",
+    "url": "https://payraisepercentagecalculator.com/tools/promotion-salary-calculator",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "Any",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "featureList": [
+      "Multi-level promotion calculations",
+      "Industry-specific adjustments",
+      "Company size multipliers",
+      "Career advancement timelines"
+    ]
+  };
+
   const promotionData = {
     "individual-contributor": {
       name: "Individual Contributor",
@@ -154,21 +175,15 @@ export default function PromotionSalaryCalculator() {
     return "bg-gray-500";
   };
 
-  const structuredData = {
-    "@context": "https://schema.org",
-    "@type": "WebApplication",
-    "name": "Promotion Salary Calculator",
-    "description": "Calculate expected salary increases for job promotions and career advancement. Industry and company size adjusted.",
-    "url": "https://payraisepercentagecalculator.com/tools/promotion-salary-calculator",
-    "applicationCategory": "FinanceApplication"
-  };
+
 
   return (
     <>
       <SEOHead
-        title="Promotion Salary Calculator - Career Advancement Salary Planning"
-        description="Calculate expected salary increases for promotions and career advancement. Get industry-specific projections based on role progression and company size."
+        title="Promotion Salary Calculator 2025 - Career Advancement Pay Planning"
+        description="Calculate expected salary increases for job promotions and role changes. Get industry-specific promotion pay data and multi-level career advancement projections."
         canonical="/tools/promotion-salary-calculator"
+        keywords="promotion salary calculator, career advancement pay, job promotion increase, role change salary, promotion pay raise"
         structuredData={structuredData}
       />
 
