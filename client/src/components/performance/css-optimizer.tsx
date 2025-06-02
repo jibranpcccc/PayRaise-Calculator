@@ -78,10 +78,10 @@ export const criticalCSS = `
 }
 `;
 
-// Component to inject critical CSS
+// Component to inject critical CSS - Fixed for production
 export function CriticalCSSInjector() {
   useEffect(() => {
-    // Only inject if not already present
+    // Only inject critical CSS, don't interfere with main CSS
     if (!document.querySelector('#critical-css')) {
       const style = document.createElement('style');
       style.id = 'critical-css';
@@ -93,18 +93,21 @@ export function CriticalCSSInjector() {
   return null;
 }
 
-// Preload non-critical CSS
+// Preload non-critical CSS - Fixed for production
 export function PreloadNonCriticalCSS() {
   useEffect(() => {
-    // Preload the main stylesheet after critical rendering
-    const link = document.createElement('link');
-    link.rel = 'preload';
-    link.as = 'style';
-    link.href = '/assets/index.css';
-    link.onload = () => {
-      link.rel = 'stylesheet';
-    };
-    document.head.appendChild(link);
+    // Only run in production build
+    if (import.meta.env.VITE_STATIC_BUILD) {
+      // Find the actual CSS file in production
+      const existingStylesheets = document.querySelectorAll('link[rel="stylesheet"]');
+      if (existingStylesheets.length === 0) {
+        // If no stylesheets found, ensure main CSS loads
+        const link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.href = '/assets/index.css';
+        document.head.appendChild(link);
+      }
+    }
   }, []);
 
   return null;
