@@ -16,31 +16,19 @@ export default defineConfig({
   build: {
     outDir: "../dist",
     emptyOutDir: true,
-    minify: 'terser',
-    terserOptions: {
-      compress: {
-        drop_console: true,
-        drop_debugger: true,
-        pure_funcs: ['console.log'],
-        unused: true
-      }
-    },
+    minify: true,
     rollupOptions: {
       input: path.resolve(__dirname, "client", "index.html"),
       output: {
-        manualChunks: (id) => {
-          if (id.includes('node_modules')) {
-            if (id.includes('react')) return 'vendor-react';
-            if (id.includes('lucide')) return 'vendor-icons';
-            return 'vendor-other';
-          }
+        manualChunks: {
+          vendor: ['react', 'react-dom'],
+          ui: ['lucide-react', '@radix-ui/react-slot']
         }
       }
     },
-    chunkSizeWarningLimit: 500
+    chunkSizeWarningLimit: 1000
   },
   define: {
     'process.env.NODE_ENV': JSON.stringify('production'),
-    'process.env.VITE_STATIC_BUILD': JSON.stringify('true'),
   },
 });
