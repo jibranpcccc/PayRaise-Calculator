@@ -24,11 +24,23 @@ export default function GenderPayGapCalculator() {
 
   const structuredData = {
     "@context": "https://schema.org",
-    "@type": "WebApplication",
-    "name": "Gender Pay Gap Calculator",
-    "description": "Calculate and analyze gender pay gaps by industry, position, and experience level. Understand compensation disparities and market standards.",
+    "@type": ["WebApplication", "Calculator"],
+    "name": "Gender Pay Gap Calculator 2025",
+    "description": "Calculate gender pay gap percentages by industry with current market data. Analyze compensation disparities and understand equal pay statistics for informed salary negotiations.",
     "url": "https://payraisepercentagecalculator.com/tools/gender-pay-gap-calculator",
-    "applicationCategory": "FinanceApplication"
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "Any",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "featureList": [
+      "Industry-specific pay gap analysis",
+      "Lifetime earning impact calculations",
+      "Market comparison benchmarks",
+      "Equal pay advocacy tools"
+    ]
   };
 
   const industryGaps = {
@@ -101,9 +113,10 @@ export default function GenderPayGapCalculator() {
   return (
     <>
       <SEOHead
-        title="Gender Pay Gap Calculator - Analyze Compensation Disparities"
-        description="Calculate and analyze gender pay gaps by industry, position, and experience level. Understand compensation disparities and market standards."
+        title="Gender Pay Gap Calculator 2025 - Industry Salary Disparity Analysis"
+        description="Calculate gender pay gap percentages with current 2025 data. Analyze salary disparities by industry, lifetime earning impacts, and market standards for equal pay advocacy."
         canonical="/tools/gender-pay-gap-calculator"
+        keywords="gender pay gap calculator, salary disparity analysis, equal pay calculator, industry pay gap 2025, wage gap statistics"
         structuredData={structuredData}
       />
 

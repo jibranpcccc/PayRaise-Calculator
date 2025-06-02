@@ -14,6 +14,27 @@ export default function RemoteWorkLocationAdjuster() {
   const [workArrangement, setWorkArrangement] = useState<string>("");
   const [result, setResult] = useState<any>(null);
 
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": ["WebApplication", "Calculator"],
+    "name": "Remote Work Location Salary Adjuster 2025",
+    "description": "Calculate salary adjustments for remote work and location changes. Get precise compensation recommendations based on cost of living and work arrangements.",
+    "url": "https://payraisepercentagecalculator.com/tools/remote-work-location-adjuster",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "Any",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "featureList": [
+      "Cost of living salary adjustments",
+      "Remote work compensation analysis",
+      "Hybrid work arrangement calculations",
+      "Geographic salary comparisons"
+    ]
+  };
+
   const locations = [
     { value: "san-francisco", label: "San Francisco, CA", adjustment: 1.0 },
     { value: "new-york", label: "New York, NY", adjustment: 0.95 },
@@ -91,27 +112,15 @@ export default function RemoteWorkLocationAdjuster() {
     }
   ];
 
-  const structuredData = {
-    "@context": "https://schema.org",
-    "@type": "WebApplication",
-    "name": "Remote Work Location Adjuster",
-    "description": "Calculate salary adjustments for remote work and location changes with cost of living analysis.",
-    "url": "https://payraisepercentagecalculator.com/tools/remote-work-location-adjuster",
-    "applicationCategory": "FinanceApplication",
-    "operatingSystem": "Any",
-    "offers": {
-      "@type": "Offer",
-      "price": "0",
-      "priceCurrency": "USD"
-    }
-  };
+
 
   return (
     <>
       <SEOHead
-        title="Remote Work Location Adjuster - Calculate Salary for Location Changes"
-        description="Calculate salary adjustments for remote work and relocation. Analyze cost of living differences and work arrangement impacts on compensation."
+        title="Remote Work Location Salary Adjuster 2025 - Calculate Compensation Changes"
+        description="Calculate salary adjustments for remote work and relocation. Analyze cost of living differences, work arrangements, and geographic compensation impacts."
         canonical="/tools/remote-work-location-adjuster"
+        keywords="remote work salary calculator, location salary adjustment, cost of living calculator, work from home pay, relocation salary"
         structuredData={structuredData}
       />
 
