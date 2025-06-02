@@ -6,6 +6,8 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { FloatingCalculatorButton } from "@/components/floating-calculator-button";
+import { Suspense, lazy } from "react";
+import { LoadingSpinner } from "@/components/ui/loading-spinner";
 
 // Page imports
 import Home from "@/pages/home";
@@ -73,9 +75,9 @@ import NotFound from "@/pages/not-found";
 
 function Router() {
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col above-fold">
       <Header />
-      <main className="flex-1">
+      <main className="flex-1" role="main">
         <Switch>
           {/* Homepage */}
           <Route path="/" component={Home} />
@@ -165,7 +167,9 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
         <Toaster />
-        <Router />
+        <Suspense fallback={<LoadingSpinner />}>
+          <Router />
+        </Suspense>
       </TooltipProvider>
     </QueryClientProvider>
   );

@@ -1,0 +1,377 @@
+Diagnose performance issues
+78
+Performance
+78
+Accessibility
+100
+Best Practices
+92
+SEO
+78 FCP+3LCP+15TBT+29CLS+25
+SI+6 Performance
+Values are estimated and may vary. The performance score is calculated directly from these metrics.See calculator.
+0–49 50–89 90–100
+Final Screenshot
+Metrics
+Expand view
+First Contentful Paint
+3.5 s
+Largest Contentful Paint
+3.7 s
+Total Blocking Time
+130 ms
+Cumulative Layout Shift
+0
+Speed Index
+5.0 s
+
+    Captured at Jun 2, 2025, 7:33 PM GMT+5
+    Emulated Moto G Power with Lighthouse 12.6.0
+    Single page session
+    Initial page load
+    Slow 4G throttling
+    Using HeadlessChromium 136.0.7103.92 with lr
+
+Screenshot
+Screenshot
+Screenshot
+Screenshot
+Screenshot
+Screenshot
+Screenshot
+Screenshot
+Later this year, insights will replace performance audits. Learn more and provide feedback here.
+Show audits relevant to:
+All
+FCP
+LCP
+TBT
+Diagnostics
+Eliminate render-blocking resources Est savings of 1,380 ms
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+Largest Contentful Paint element 3,660 ms
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+Reduce unused JavaScript Est savings of 203 KiB
+	
+	
+	
+	
+	
+	
+Reduce unused CSS Est savings of 13 KiB
+	
+	
+	
+	
+	
+	
+Avoid an excessive DOM size 955 elements
+	
+	
+		
+	
+	
+	
+	
+Avoid long main-thread tasks 3 long tasks found
+	
+	
+		
+	
+	
+	
+	
+		
+
+	
+	
+Avoid chaining critical requests 3 chains found
+Minimize third-party usage Third-party code blocked the main thread for 0 ms
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+More information about the performance of your application. These numbers don't directly affect the Performance score.
+Passed audits (28)
+Show
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+78
+Accessibility
+These checks highlight opportunities to improve the accessibility of your web app. Automatic detection can only detect a subset of issues and does not guarantee the accessibility of your web app, so manual testing is also encouraged.
+Names and labels
+Buttons do not have an accessible name
+When a button doesn't have an accessible name, screen readers announce it as "button", making it unusable for users who rely on screen readers. Learn how to make buttons more accessible.
+Failing Elements
+div.max-w-7xl > div.flex > div.lg:hidden > button.inline-flex
+<button class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md…" type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="radix-:r0:" data-state="closed">
+Annual
+<button type="button" role="combobox" aria-controls="radix-:r3:" aria-expanded="false" aria-autocomplete="none" dir="ltr" data-state="closed" class="flex h-10 w-full items-center justify-between rounded-md border border-inp…">
+Choose your industry
+<button type="button" role="combobox" aria-controls="radix-:rc:" aria-expanded="false" aria-autocomplete="none" dir="ltr" data-state="closed" data-placeholder="" class="flex h-10 w-full items-center justify-between rounded-md border border-inp…">
+Links do not have a discernible name
+These are opportunities to improve the semantics of the controls in your application. This may enhance the experience for users of assistive technology, like a screen reader.
+Best practices
+[user-scalable="no"] is used in the <meta name="viewport"> element or the [maximum-scale] attribute is less than 5.
+Disabling zooming is problematic for users with low vision who rely on screen magnification to properly see the contents of a web page. Learn more about the viewport meta tag.
+Failing Elements
+head > meta
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+div#root > div.min-h-screen > main.flex-1 > meta
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+Touch targets do not have sufficient size or spacing.
+Touch targets with sufficient size and spacing help users who may have difficulty targeting small controls to activate the targets. Learn more about touch targets.
+Failing Elements
+→ Learn how our calculator methodology works
+<a href="/how-pay-raise-calculator-works">
+→ Understand the formulas behind your calculations
+<a href="/pay-raise-formulas-guide">
+→ See how taxes affect your raise
+<a href="/tax-impact-salary-increases">
+→ Understand the formulas behind your calculations
+<a href="/pay-raise-formulas-guide">
+→ Calculate compound raises over time
+<a href="/tools/compound-raise-calculator">
+→ Calculate compound raises over time
+<a href="/tools/compound-raise-calculator">
+→ See how taxes affect your raise
+<a href="/tax-impact-salary-increases">
+→ Plan your salary negotiation strategy
+<a href="/salary-negotiation-complete-guide">
+→ Plan your salary negotiation strategy
+<a href="/salary-negotiation-complete-guide">
+→ Calculate compound raises over time
+<a href="/tools/compound-raise-calculator">
+→ See 2025 industry raise data
+<a href="/blog/average-raise-by-industry-2025">
+→ See 2025 industry raise data
+<a href="/blog/average-raise-by-industry-2025">
+→ Plan your salary negotiation strategy
+<a href="/salary-negotiation-complete-guide">
+→ Understand raise factors
+<a href="/guides/factors-influencing-pay-raises">
+→ Understand raise factors
+<a href="/guides/factors-influencing-pay-raises">
+→ See 2025 industry raise data
+<a href="/blog/average-raise-by-industry-2025">
+These items highlight common accessibility best practices.
+Contrast
+Background and foreground colors do not have a sufficient contrast ratio.
+Low-contrast text is difficult or impossible for many users to read. Learn how to provide sufficient color contrast.
+Failing Elements
+Flat Amount
+<button type="button" role="tab" aria-selected="false" aria-controls="radix-:r4:-content-amount" data-state="inactive" id="radix-:r4:-trigger-amount" class="inline-flex items-center justify-center whitespace-nowrap rounded-sm px-3 …" tabindex="-1" data-orientation="horizontal" data-radix-collection-item="">
+Percentage Flat Amount Target Salary
+<div role="tablist" aria-orientation="horizontal" class="h-10 items-center justify-center rounded-md bg-muted p-1 text-muted-foregr…" tabindex="0" data-orientation="horizontal" style="outline: none;">
+Target Salary
+<button type="button" role="tab" aria-selected="false" aria-controls="radix-:r4:-content-target" data-state="inactive" id="radix-:r4:-trigger-target" class="inline-flex items-center justify-center whitespace-nowrap rounded-sm px-3 …" tabindex="-1" data-orientation="horizontal" data-radix-collection-item="">
+Percentage Flat Amount Target Salary
+<div role="tablist" aria-orientation="horizontal" class="h-10 items-center justify-center rounded-md bg-muted p-1 text-muted-foregr…" tabindex="0" data-orientation="horizontal" style="outline: none;">
+Export PDF Report
+<button class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md…">
+→ Learn how our calculator methodology works
+<span class="block text-primary hover:text-blue-700 text-sm">
+Quick Links → Learn how our calculator methodology works → Understand the formu…
+<div class="rounded-lg border text-card-foreground shadow-sm bg-gray-50 sticky top-24">
+→ Understand the formulas behind your calculations
+<span class="block text-primary hover:text-blue-700 text-sm">
+Quick Links → Learn how our calculator methodology works → Understand the formu…
+<div class="rounded-lg border text-card-foreground shadow-sm bg-gray-50 sticky top-24">
+→ See how taxes affect your raise
+<span class="block text-primary hover:text-blue-700 text-sm">
+Quick Links → Learn how our calculator methodology works → Understand the formu…
+<div class="rounded-lg border text-card-foreground shadow-sm bg-gray-50 sticky top-24">
+→ Calculate compound raises over time
+<span class="block text-primary hover:text-blue-700 text-sm">
+Quick Links → Learn how our calculator methodology works → Understand the formu…
+<div class="rounded-lg border text-card-foreground shadow-sm bg-gray-50 sticky top-24">
+→ Plan your salary negotiation strategy
+<span class="block text-primary hover:text-blue-700 text-sm">
+Quick Links → Learn how our calculator methodology works → Understand the formu…
+<div class="rounded-lg border text-card-foreground shadow-sm bg-gray-50 sticky top-24">
+→ See 2025 industry raise data
+<span class="block text-primary hover:text-blue-700 text-sm">
+Quick Links → Learn how our calculator methodology works → Understand the formu…
+<div class="rounded-lg border text-card-foreground shadow-sm bg-gray-50 sticky top-24">
+→ Understand raise factors
+<span class="block text-primary hover:text-blue-700 text-sm">
+Quick Links → Learn how our calculator methodology works → Understand the formu…
+<div class="rounded-lg border text-card-foreground shadow-sm bg-gray-50 sticky top-24">
+Choose your industry
+<span style="pointer-events: none;">
+Choose your industry
+<button type="button" role="combobox" aria-controls="radix-:rc:" aria-expanded="false" aria-autocomplete="none" dir="ltr" data-state="closed" data-placeholder="" class="flex h-10 w-full items-center justify-between rounded-md border border-inp…">
+Try Tool →
+<span class="text-primary hover:text-blue-700 text-sm font-medium">
+Inflation Adjustment Toggle Real-time CPI data integration showing purchasing …
+<div class="rounded-lg border bg-card text-card-foreground shadow-sm hover:shadow-lg t…">
+Try Tool →
+<span class="text-primary hover:text-blue-700 text-sm font-medium">
+Tax Impact Calculator Net pay calculations with federal/state tax consideratio…
+<div class="rounded-lg border bg-card text-card-foreground shadow-sm hover:shadow-lg t…">
+Try Tool →
+<span class="text-primary hover:text-blue-700 text-sm font-medium">
+Industry Benchmarking Compare against current market averages for your field …
+<div class="rounded-lg border bg-card text-card-foreground shadow-sm hover:shadow-lg t…">
+Try Tool →
+<span class="text-primary hover:text-blue-700 text-sm font-medium">
+PDF Export Professional reports for salary negotiations and planning Try Tool…
+<div class="rounded-lg border bg-card text-card-foreground shadow-sm hover:shadow-lg t…">
+Read Complete Guide
+<button class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md…">
+View Benchmarks
+<button class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md…">
+Get Prepared
+<button class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md…">
+→ When to Ask for a Raise: Optimal Timing Guide
+<a href="/blog/when-ask-for-raise-optimal-timing" class="block text-sm text-primary hover:underline">
+Strategic Timing Learn when to ask for a raise, how to time your request perfe…
+<div class="rounded-lg border bg-card text-card-foreground shadow-sm card-hover effici…">
+→ Performance Review Preparation Strategies
+<a href="/guides/performance-review-raise-preparation" class="block text-sm text-primary hover:underline">
+Strategic Timing Learn when to ask for a raise, how to time your request perfe…
+<div class="rounded-lg border bg-card text-card-foreground shadow-sm card-hover effici…">
+→ Proven Negotiation Scripts & Templates
+<a href="/blog/raise-negotiation-scripts-templates" class="block text-sm text-primary hover:underline">
+Strategic Timing Learn when to ask for a raise, how to time your request perfe…
+<div class="rounded-lg border bg-card text-card-foreground shadow-sm card-hover effici…">
+Calculate Negotiation Strategy
+<button class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md…">
+→ 3% vs 5% Raise: Long-term Financial Impact
+<a href="/blog/3-vs-5-percent-raise-long-term-impact" class="block text-sm text-primary hover:underline">
+Financial Impact Understand the real value of raises, tax implications, and lo…
+<div class="rounded-lg border bg-card text-card-foreground shadow-sm card-hover effici…">
+→ Tax Impact of Salary Increases
+<a href="/tax-impact-salary-increases" class="block text-sm text-primary hover:underline">
+Financial Impact Understand the real value of raises, tax implications, and lo…
+<div class="rounded-lg border bg-card text-card-foreground shadow-sm card-hover effici…">
+→ Inflation's Impact on Real Salary Value
+<a href="/blog/inflation-real-salary-impact" class="block text-sm text-primary hover:underline">
+Financial Impact Understand the real value of raises, tax implications, and lo…
+<div class="rounded-lg border bg-card text-card-foreground shadow-sm card-hover effici…">
+Calculate Tax Impact
+<button class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md…">
+→ Average Raise by Industry 2025 Data
+<a href="/blog/average-raise-by-industry-2025" class="block text-sm text-primary hover:underline">
+Industry Analysis Compare your raise against industry standards, understand ma…
+<div class="rounded-lg border bg-card text-card-foreground shadow-sm card-hover effici…">
+→ Comprehensive Industry Benchmarks
+<a href="/industry-raise-benchmarks-2025" class="block text-sm text-primary hover:underline">
+Industry Analysis Compare your raise against industry standards, understand ma…
+<div class="rounded-lg border bg-card text-card-foreground shadow-sm card-hover effici…">
+→ Salary Transparency Laws Impact
+<a href="/blog/salary-transparency-impact" class="block text-sm text-primary hover:underline">
+Industry Analysis Compare your raise against industry standards, understand ma…
+<div class="rounded-lg border bg-card text-card-foreground shadow-sm card-hover effici…">
+Research Market Value
+<button class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md…">
+Multi-Year Projections
+<button class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md…">
+View detailed industry benchmarks →
+<a data-internal-link="true" data-link-category="navigation" href="/industry-raise-benchmarks-2025" class="text-primary hover:underline">
+What's a good raise in 2025? A competitive raise in 2025 ranges from 4-7%, wit…
+<div class="rounded-lg border bg-card text-card-foreground shadow-sm">
+Learn all calculation formulas →
+<a data-internal-link="true" data-link-category="navigation" href="/pay-raise-formulas-guide" class="text-primary hover:underline">
+How do I calculate a 5% raise? To calculate a 5% raise: multiply your current …
+<div class="rounded-lg border bg-card text-card-foreground shadow-sm">
+Calculate your tax impact →
+<a data-internal-link="true" data-link-category="navigation" href="/tools/pay-raise-tax-impact-calculator" class="text-primary hover:underline">
+Are raises taxable? Yes, salary raises are fully taxable as ordinary income. T…
+<div class="rounded-lg border bg-card text-card-foreground shadow-sm">
+Read complete negotiation guide →
+<a data-internal-link="true" data-link-category="navigation" href="/salary-negotiation-complete-guide" class="text-primary hover:underline">
+How do I negotiate a higher salary? Successful salary negotiation requires res…
+<div class="rounded-lg border bg-card text-card-foreground shadow-sm">
+Learn optimal timing strategies →
+<a data-internal-link="true" data-link-category="navigation" href="/blog/when-ask-for-raise-optimal-timing" class="text-primary hover:underline">
+How often should I expect a raise? Most companies provide annual raises, typic…
+<div class="rounded-lg border bg-card text-card-foreground shadow-sm">
+Handle rejection professionally →
+<a data-internal-link="true" data-link-category="navigation" href="/guides/raise-rejection-next-steps" class="text-primary hover:underline">
+What if my raise request is denied? If your raise request is denied, ask for s…
+<div class="rounded-lg border bg-card text-card-foreground shadow-sm">
+IRS Calculator →
+<a href="https://apps.irs.gov/app/tax-withholding-estimator" target="_blank" rel="noopener noreferrer" class="text-green-600 hover:text-green-700 text-sm font-medium">
+IRS Tax Information Current tax brackets and withholding calculator for accura…
+<div class="rounded-lg border bg-card text-card-foreground shadow-sm text-center">
+These are opportunities to improve the legibility of your content.
+Navigation
+Heading elements are not in a sequentially-descending order
+Properly ordered headings that do not skip levels convey the semantic structure of the page, making it easier to navigate and understand when using assistive technologies. Learn more about heading order.
+Failing Elements
+Quick Calculation Preview
+<h3 class="text-lg font-semibold text-gray-900 mb-4">
+Advanced Features
+<h4 class="text-lg font-medium text-gray-900 mb-3">
+These are opportunities to improve keyboard navigation in your application.
+Additional items to manually check (10)
