@@ -14,5 +14,24 @@ export default defineConfig({
   build: {
     outDir: "dist",
     emptyOutDir: true,
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          vendor: ['react', 'react-dom'],
+          utils: ['wouter', '@tanstack/react-query'],
+          ui: ['lucide-react', 'framer-motion']
+        }
+      }
+    },
+    minify: 'terser',
+    terserOptions: {
+      compress: {
+        drop_console: true,
+        drop_debugger: true
+      }
+    }
   },
+  optimizeDeps: {
+    include: ['react', 'react-dom', 'wouter', '@tanstack/react-query']
+  }
 });
