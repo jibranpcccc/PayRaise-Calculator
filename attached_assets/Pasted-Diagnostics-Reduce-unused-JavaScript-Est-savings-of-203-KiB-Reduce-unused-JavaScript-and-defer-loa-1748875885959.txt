@@ -1,0 +1,136 @@
+Diagnostics
+Reduce unused JavaScript Est savings of 203 KiB
+Reduce unused JavaScript and defer loading scripts until they are required to decrease bytes consumed by network activity. Learn how to reduce unused JavaScript.LCPFCP
+URL
+	
+Transfer Size
+	
+Est Savings
+netlify.app
+1st party
+	263.5 KiB
+	202.5 KiB
+/assets/index-DTg6BXLz.js(payraise-calcula.netlify.app)
+	
+263.5 KiB
+	
+202.5 KiB
+Eliminate render-blocking resources Est savings of 290 ms
+Resources are blocking the first paint of your page. Consider delivering critical JS/CSS inline and deferring all non-critical JS/styles. Learn how to eliminate render-blocking resources.LCPFCP
+URL
+	
+Transfer Size
+	
+Est Savings
+netlify.app
+1st party
+	16.7 KiB
+	460 ms
+/assets/index-CgppnCZs.css(payraise-calcula.netlify.app)
+	
+16.7 KiB
+	
+460 ms
+replit.com
+	2.6 KiB
+	760 ms
+…js/replit-dev-banner.js(replit.com)
+	
+2.6 KiB
+	
+760 ms
+Largest Contentful Paint element 3,470 ms
+This is the largest contentful element painted within the viewport. Learn more about the Largest Contentful Paint elementLCP
+Element
+Instantly calculate your new salary after any raise with our comprehensive calc…
+<p class="mt-6 text-lg text-gray-600 sm:text-xl leading-relaxed">
+Phase
+	
+% of LCP
+	
+Timing
+TTFB
+	
+17%
+	
+600 ms
+Load Delay
+	
+0%
+	
+0 ms
+Load Time
+	
+0%
+	
+0 ms
+Render Delay
+	
+83%
+	
+2,870 ms
+Reduce unused CSS Est savings of 13 KiB
+Reduce unused rules from stylesheets and defer CSS not used for above-the-fold content to decrease bytes consumed by network activity. Learn how to reduce unused CSS.LCPFCP
+URL
+	
+Transfer Size
+	
+Est Savings
+netlify.app
+1st party
+	16.1 KiB
+	12.8 KiB
+/assets/index-CgppnCZs.css(payraise-calcula.netlify.app)
+	
+16.1 KiB
+	
+12.8 KiB
+Avoid an excessive DOM size 955 elements
+A large DOM will increase memory usage, cause longer style calculations, and produce costly layout reflows. Learn how to avoid an excessive DOM size.TBT
+Statistic
+	
+Element
+	
+Value
+Total DOM Elements
+		
+955
+Maximum DOM Depth
+	
+$63,000
+<div class="font-medium">
+	
+18
+Maximum Child Elements
+	
+2025 Updated Data • Free Professional Tool Pay Raise Calculator: Calculate Your…
+<main class="flex-1" role="main">
+	
+36
+Avoid long main-thread tasks 3 long tasks found
+	
+	
+		
+	
+	
+	
+	
+		
+
+	
+	
+Avoid chaining critical requests 3 chains found
+Minimize third-party usage Third-party code blocked the main thread for 0 ms
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+More information about the performance of your application. These numbers don't directly affect the Performance score.

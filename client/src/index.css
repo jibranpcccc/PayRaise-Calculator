@@ -28,14 +28,12 @@
     --warning: 47.9 95.8% 53.1%;
   }
 
-  /* Performance optimizations */
-  * {
-    box-sizing: border-box;
-  }
-
-  html {
-    scroll-behavior: smooth;
-  }
+  /* Critical performance optimizations */
+  *,*::before,*::after{box-sizing:border-box}
+  html{scroll-behavior:smooth;text-rendering:optimizeSpeed}
+  body{line-height:1.5;-webkit-font-smoothing:antialiased}
+  img,picture,video,canvas,svg{display:block;max-width:100%}
+  input,button,textarea,select{font:inherit}
 
   .dark {
     --background: 222.2 84% 4.9%;
@@ -63,216 +61,28 @@
 }
 
 @layer components {
-  .gradient-primary {
-    @apply bg-gradient-to-r from-blue-600 via-blue-700 to-indigo-700;
-  }
-  
-  .gradient-secondary {
-    @apply bg-gradient-to-r from-emerald-500 via-teal-600 to-cyan-600;
-  }
-  
-  .gradient-accent {
-    @apply bg-gradient-to-r from-orange-500 via-amber-500 to-yellow-500;
-  }
-  
-  .calculator-shadow {
-    @apply shadow-xl shadow-blue-500/10 border-0;
-  }
-  
-  .card-hover {
-    @apply transition-all duration-300 hover:shadow-2xl hover:shadow-blue-500/20 hover:-translate-y-1;
-  }
-  
-  .text-gradient-primary {
-    @apply bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent;
-  }
-  
-  .text-gradient-secondary {
-    @apply bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent;
-  }
-  
-  .btn-primary-gradient {
-    @apply bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white shadow-lg shadow-blue-500/25 transition-all duration-300;
-  }
-  
-  .btn-secondary-gradient {
-    @apply bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-white shadow-lg shadow-emerald-500/25 transition-all duration-300;
-  }
+  .gradient-primary{background:linear-gradient(90deg,#2563eb,#4f46e5)}
+  .calculator-shadow{box-shadow:0 10px 25px -3px rgba(59,130,246,0.1)}
+  .card-hover{transition:all 0.2s ease;will-change:transform}
+  .card-hover:hover{transform:translateY(-2px);box-shadow:0 20px 40px -4px rgba(59,130,246,0.15)}
+  .text-gradient-primary{background:linear-gradient(90deg,#2563eb,#4f46e5);-webkit-background-clip:text;color:transparent}
+  .btn-primary-gradient{background:linear-gradient(90deg,#2563eb,#4f46e5);color:white;transition:all 0.2s}
+  .btn-primary-gradient:hover{background:linear-gradient(90deg,#1d4ed8,#4338ca)}
 
-  /* Mobile-first responsive optimizations */
-  .mobile-optimized {
-    @apply touch-manipulation;
-  }
-  
-  /* Fast loading animations */
-  .fade-in {
-    animation: fadeIn 0.3s ease-in-out;
-  }
-  
-  @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-  
-  /* Mobile calculator optimizations */
-  .calculator-mobile {
-    @apply grid grid-cols-1 gap-4 lg:grid-cols-2 lg:gap-8;
-  }
-  
-  /* Touch-friendly buttons */
-  .btn-touch {
-    @apply min-h-[44px] min-w-[44px] touch-manipulation;
-  }
-  
-  /* Improved text contrast for mobile */
-  .text-mobile-readable {
-    @apply text-base leading-relaxed;
-  }
-  
-  /* Performance-optimized shadows */
-  .efficient-shadow {
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  }
+  /* Essential optimizations only */
+  .btn-touch{min-height:44px;min-width:44px;touch-action:manipulation}
+  .preload-hint{content-visibility:auto;contain-intrinsic-size:1px 300px}
+  .reduce-dom{contain:layout style paint}
 
-  /* Preload critical resources */
-  .preload-hint {
-    content-visibility: auto;
-    contain-intrinsic-size: 1px 500px;
-  }
-
-  /* Reduce layout shift */
-  .aspect-ratio-container {
-    aspect-ratio: 16 / 9;
-    contain: layout style paint;
-  }
-
-  /* Optimize text rendering */
-  .optimized-text {
-    text-rendering: optimizeSpeed;
-    font-display: swap;
-  }
-
-  /* Smooth scrolling performance */
-  .smooth-scroll {
-    scroll-behavior: smooth;
-    will-change: scroll-position;
-  }
-
-  /* Mobile-specific optimizations */
+  /* Minimal mobile styles */
   @media (max-width: 768px) {
-    .mobile-stack {
-      @apply flex flex-col space-y-4;
-    }
-    
-    .mobile-padding {
-      @apply px-4 py-6;
-    }
-    
-    .mobile-text {
-      @apply text-sm leading-relaxed;
-    }
-    
-    .mobile-button {
-      @apply w-full min-h-[48px] text-base;
-    }
-    
-    .mobile-card {
-      @apply p-4 shadow-md;
-    }
+    .mobile-stack{display:flex;flex-direction:column;gap:1rem}
+    .mobile-button{width:100%;min-height:48px}
   }
-
-  /* Performance critical loading states */
-  .skeleton {
-    @apply animate-pulse bg-gray-200 rounded;
-  }
-
-  .loading-spinner {
-    animation: spin 1s linear infinite;
-  }
-
-  @keyframes spin {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
-  }
-
-  /* Blog-specific optimizations */
-  .blog-featured-image {
-    @apply relative w-full h-64 rounded-lg overflow-hidden;
-    background-size: cover;
-    background-position: center;
-    will-change: transform;
-  }
-
-  .blog-card-hover {
-    @apply transition-all duration-200 hover:shadow-lg hover:-translate-y-1;
-    will-change: transform, box-shadow;
-  }
-
-  .blog-content {
-    @apply leading-relaxed text-gray-700;
-    font-feature-settings: "liga" 1, "calt" 1;
-  }
-
-  /* Optimize typography for reading */
-  .prose-optimized {
-    line-height: 1.7;
-    font-size: 1.125rem;
-  }
-
-  .prose-optimized h2 {
-    @apply text-2xl font-bold text-gray-900 mt-8 mb-4;
-    scroll-margin-top: 2rem;
-  }
-
-  .prose-optimized h3 {
-    @apply text-xl font-semibold text-gray-900 mt-6 mb-3;
-    scroll-margin-top: 2rem;
-  }
-
-  /* Image lazy loading optimization */
-  .lazy-image {
-    opacity: 0;
-    transition: opacity 0.3s;
-  }
-
-  .lazy-image.loaded {
-    opacity: 1;
-  }
-
-  /* Critical rendering path optimization */
-  .above-fold {
-    contain: layout style paint;
-  }
-
-  /* Blog performance optimizations */
-  .blog-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 2rem;
-    will-change: contents;
-  }
-
-  .blog-excerpt {
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-
-  /* SEO-optimized headings */
-  .seo-heading {
-    scroll-margin-top: 100px;
-    position: relative;
-  }
-
-  .seo-heading:hover::before {
-    content: "#";
-    position: absolute;
-    left: -1.5rem;
-    color: #3b82f6;
-    font-weight: normal;
-  }
+  
+  /* Essential animations only */
+  .skeleton{animation:pulse 2s cubic-bezier(0.4,0,0.6,1) infinite}
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.5}}
 }
 
 :root {
