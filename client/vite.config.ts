@@ -53,6 +53,11 @@ export default defineConfig({
   },
   publicDir: "../public",
   optimizeDeps: {
-    include: ['react', 'react-dom', 'wouter', '@tanstack/react-query']
+    include: ['react', 'react-dom', 'wouter', '@tanstack/react-query'],
+    exclude: ['@types/node']
+  },
+  esbuild: {
+    drop: ['console', 'debugger'],
+    treeShaking: true
   }
 });
