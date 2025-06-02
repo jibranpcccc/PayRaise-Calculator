@@ -119,7 +119,9 @@ export class MemStorage implements IStorage {
 
 export class DatabaseStorage implements IStorage {
   constructor() {
-    this.initializeBenchmarks();
+    if (db) {
+      this.initializeBenchmarks();
+    }
   }
 
   async getUser(id: number): Promise<User | undefined> {
@@ -149,10 +151,12 @@ export class DatabaseStorage implements IStorage {
   }
 
   async getCalculationsBySession(sessionId: string): Promise<Calculation[]> {
+    if (!db) return [];
     return await db.select().from(calculations).where(eq(calculations.sessionId, sessionId));
   }
 
   async getIndustryBenchmarks(year?: number): Promise<IndustryBenchmark[]> {
+    if (!db) return [];
     if (year) {
       return await db.select().from(industryBenchmarks).where(eq(industryBenchmarks.year, year));
     }
@@ -198,4 +202,4 @@ export class DatabaseStorage implements IStorage {
   }
 }
 
-export const storage = new DatabaseStorage();
+export const storage = db ? new DatabaseStorage() : new MemStorage();
