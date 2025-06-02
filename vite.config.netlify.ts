@@ -25,7 +25,6 @@ export default defineConfig({
       }
     },
     rollupOptions: {
-      external: ['@neondatabase/serverless', 'drizzle-orm/neon-serverless', 'ws', 'express'],
       output: {
         manualChunks: (id) => {
           if (id.includes('node_modules')) {
