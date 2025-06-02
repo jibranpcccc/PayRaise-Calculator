@@ -57,19 +57,32 @@ export default function InflationAdjustedRaiseCalculator() {
 
   const structuredData = {
     "@context": "https://schema.org",
-    "@type": "WebApplication",
-    "name": "Inflation-Adjusted Raise Calculator",
-    "description": "Calculate your real purchasing power after accounting for inflation. See how inflation affects your salary increase.",
+    "@type": ["WebApplication", "Calculator"],
+    "name": "Inflation-Adjusted Raise Calculator 2025 - Real Purchasing Power",
+    "description": "Calculate real purchasing power after inflation. See how current 3.1% inflation rate affects your salary increase and determine your true financial gain.",
     "url": "https://payraisepercentagecalculator.com/tools/inflation-adjusted-raise-calculator",
-    "applicationCategory": "FinanceApplication"
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "Any",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "featureList": [
+      "Real purchasing power calculations",
+      "Current inflation rate integration",
+      "Inflation impact analysis",
+      "Net real increase calculations"
+    ]
   };
 
   return (
     <>
       <SEOHead
-        title="Inflation-Adjusted Raise Calculator - Real Purchasing Power Analysis"
-        description="Calculate your real purchasing power after accounting for inflation. See how current inflation rates affect your salary increase and what you truly gain."
+        title="Inflation-Adjusted Raise Calculator 2025 - Real Purchasing Power Analysis"
+        description="Calculate real purchasing power after inflation. See how current 3.1% inflation rate affects your salary increase and determine your true financial gain."
         canonical="/tools/inflation-adjusted-raise-calculator"
+        keywords="inflation adjusted raise calculator, real purchasing power, inflation impact salary, cost of living adjustment, real wage growth"
         structuredData={structuredData}
       />
 

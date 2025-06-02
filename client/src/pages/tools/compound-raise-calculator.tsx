@@ -46,19 +46,32 @@ export default function CompoundRaiseCalculator() {
 
   const structuredData = {
     "@context": "https://schema.org",
-    "@type": "WebApplication",
-    "name": "Compound Raise Calculator",
-    "description": "Calculate compound salary growth over multiple years. See how annual raises compound over time.",
+    "@type": ["WebApplication", "Calculator"],
+    "name": "Compound Raise Calculator 2025 - Multi-Year Salary Growth",
+    "description": "Calculate compound salary growth over multiple years. See how annual percentage raises compound over time with detailed year-by-year projections.",
     "url": "https://payraisepercentagecalculator.com/tools/compound-raise-calculator",
-    "applicationCategory": "FinanceApplication"
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "Any",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "featureList": [
+      "Multi-year salary projections",
+      "Compound growth calculations",
+      "Year-by-year breakdowns",
+      "Total career growth analysis"
+    ]
   };
 
   return (
     <>
       <SEOHead
-        title="Compound Raise Calculator - Multi-Year Salary Growth Projections"
-        description="Calculate how annual raises compound over time. Project your salary growth over 5-10 years with our compound raise calculator. Free and accurate."
+        title="Compound Raise Calculator 2025 - Multi-Year Salary Growth Projections"
+        description="Calculate compound salary growth over multiple years. See how annual percentage raises compound over time with detailed year-by-year projections and career growth analysis."
         canonical="/tools/compound-raise-calculator"
+        keywords="compound raise calculator, multi year salary growth, annual raise projections, salary compound interest, career growth calculator"
         structuredData={structuredData}
       />
 

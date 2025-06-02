@@ -25,11 +25,24 @@ export default function OvertimePayCalculator() {
 
   const structuredData = {
     "@context": "https://schema.org",
-    "@type": "WebApplication",
-    "name": "Overtime Pay Calculator",
-    "description": "Calculate overtime pay based on federal and state regulations. Includes time-and-a-half, double-time, and various overtime scenarios.",
+    "@type": ["WebApplication", "Calculator"],
+    "name": "Overtime Pay Calculator 2025 - FLSA Compliant",
+    "description": "Calculate overtime pay with federal and state regulations. Includes time-and-a-half, double-time calculations, and FLSA compliance analysis for accurate payroll.",
     "url": "https://payraisepercentagecalculator.com/tools/overtime-pay-calculator",
-    "applicationCategory": "FinanceApplication"
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "Any",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "featureList": [
+      "FLSA compliant overtime calculations",
+      "State-specific overtime rules",
+      "Time-and-a-half calculations",
+      "Double-time pay scenarios",
+      "Effective hourly rate analysis"
+    ]
   };
 
   const calculateOvertime = () => {

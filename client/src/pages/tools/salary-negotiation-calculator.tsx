@@ -19,6 +19,27 @@ export default function SalaryNegotiationCalculator() {
   const [additionalResponsibilities, setAdditionalResponsibilities] = useState<boolean>(false);
   const [result, setResult] = useState<any>(null);
 
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": ["WebApplication", "Calculator"],
+    "name": "Salary Negotiation Calculator 2025 - Success Probability Analysis",
+    "description": "Calculate salary negotiation success probability with performance factors, market research, and strategic positioning. Get data-driven negotiation recommendations.",
+    "url": "https://payraisepercentagecalculator.com/tools/salary-negotiation-calculator",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "Any",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "featureList": [
+      "Success probability calculations",
+      "Performance factor analysis",
+      "Strategic positioning recommendations",
+      "Market-based salary targets"
+    ]
+  };
+
   const performanceRatings = [
     { value: "exceeds", label: "Exceeds Expectations", multiplier: 1.3 },
     { value: "meets", label: "Meets Expectations", multiplier: 1.0 },
@@ -124,27 +145,15 @@ export default function SalaryNegotiationCalculator() {
     }
   ];
 
-  const structuredData = {
-    "@context": "https://schema.org",
-    "@type": "WebApplication",
-    "name": "Salary Negotiation Calculator",
-    "description": "Calculate your salary negotiation strategy with success probability analysis and preparation guidance.",
-    "url": "https://payraisepercentagecalculator.com/tools/salary-negotiation-calculator",
-    "applicationCategory": "FinanceApplication",
-    "operatingSystem": "Any",
-    "offers": {
-      "@type": "Offer",
-      "price": "0",
-      "priceCurrency": "USD"
-    }
-  };
+
 
   return (
     <>
       <SEOHead
-        title="Salary Negotiation Calculator - Plan Your Raise Strategy & Success Rate"
-        description="Calculate your salary negotiation strategy with success probability analysis. Get personalized recommendations for raise requests and negotiation preparation."
+        title="Salary Negotiation Calculator 2025 - Success Probability & Strategy Analysis"
+        description="Calculate salary negotiation success probability with performance factors, market research, and strategic positioning. Get data-driven negotiation recommendations."
         canonical="/tools/salary-negotiation-calculator"
+        keywords="salary negotiation calculator, raise success probability, negotiation strategy, performance review preparation, salary increase planning"
         structuredData={structuredData}
       />
 

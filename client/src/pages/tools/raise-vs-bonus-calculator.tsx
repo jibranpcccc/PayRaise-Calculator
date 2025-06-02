@@ -27,11 +27,23 @@ export default function RaiseVsBonusCalculator() {
 
   const structuredData = {
     "@context": "https://schema.org",
-    "@type": "WebApplication",
-    "name": "Raise vs Bonus Calculator",
-    "description": "Compare the long-term financial impact of salary raises versus one-time bonuses. Calculate compound growth and total value over time.",
+    "@type": ["WebApplication", "Calculator"],
+    "name": "Raise vs Bonus Calculator 2025 - Long-term Value Analysis",
+    "description": "Compare long-term financial impact of salary raises versus bonuses. Calculate compound growth, investment returns, and total compensation value over time.",
     "url": "https://payraisepercentagecalculator.com/tools/raise-vs-bonus-calculator",
-    "applicationCategory": "FinanceApplication"
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "Any",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "featureList": [
+      "Compound salary growth analysis",
+      "Bonus investment projections",
+      "Tax impact comparisons",
+      "Multi-year value calculations"
+    ]
   };
 
   const calculateComparison = () => {
