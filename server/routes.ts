@@ -3,8 +3,20 @@ import { createServer, type Server } from "http";
 import { storage } from "./storage";
 import { insertCalculationSchema, insertIndustryBenchmarkSchema } from "@shared/schema";
 import { z } from "zod";
+import path from "path";
 
 export async function registerRoutes(app: Express): Promise<Server> {
+  // Serve sitemap.xml
+  app.get("/sitemap.xml", (req, res) => {
+    res.type('application/xml');
+    res.sendFile(path.resolve("public/sitemap.xml"));
+  });
+
+  // Serve robots.txt
+  app.get("/robots.txt", (req, res) => {
+    res.type('text/plain');
+    res.sendFile(path.resolve("public/robots.txt"));
+  });
   // Calculation endpoints
   app.post("/api/calculations", async (req, res) => {
     try {
