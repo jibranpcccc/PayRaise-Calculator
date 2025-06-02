@@ -19,7 +19,8 @@ import {
   BookOpen,
   Target,
   PiggyBank,
-  Users
+  Users,
+  Calculator
 } from "lucide-react";
 
 export default function BlogIndex() {
@@ -134,74 +135,123 @@ export default function BlogIndex() {
         structuredData={structuredData}
       />
 
-      <div className="min-h-screen bg-gray-50">
+      <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50">
         {/* Hero Section */}
-        <section className="bg-white py-12">
+        <section className="bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-700 text-white py-16 md:py-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center">
-              <h1 className="text-4xl font-bold text-gray-900 sm:text-5xl">
-                Pay Raise Insights & Strategies
+              <div className="inline-flex items-center bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 mb-6">
+                <BookOpen className="h-4 w-4 mr-2" />
+                <span className="text-sm font-medium">Expert Salary Insights</span>
+              </div>
+              <h1 className="text-4xl font-bold sm:text-6xl lg:text-7xl mb-6">
+                Pay Raise <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 to-orange-300">Insights</span>
               </h1>
-              <p className="mt-4 text-xl text-gray-600 max-w-3xl mx-auto">
+              <p className="mt-4 text-xl text-blue-100 max-w-3xl mx-auto leading-relaxed">
                 Expert insights on salary increases, negotiation strategies, and career advancement. 
                 Data-driven analysis and actionable advice for maximizing your income.
               </p>
-              <div className="mt-8 flex justify-center space-x-6">
-                <div className="flex items-center text-sm text-gray-600">
-                  <FileText className="h-4 w-4 text-primary mr-2" />
-                  Weekly insights
+              
+              {/* Quick Calculator Button */}
+              <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <Link href="/">
+                  <Button className="bg-gradient-to-r from-yellow-400 to-orange-500 hover:from-yellow-500 hover:to-orange-600 text-black font-semibold px-8 py-4 text-lg rounded-xl shadow-lg transform hover:scale-105 transition-all duration-200">
+                    <Calculator className="h-5 w-5 mr-2" />
+                    Calculate Your Raise Now
+                  </Button>
+                </Link>
+                <div className="text-sm text-blue-200">
+                  Free • Instant Results • No Registration
                 </div>
-                <div className="flex items-center text-sm text-gray-600">
-                  <TrendingUp className="h-4 w-4 text-success mr-2" />
-                  Data-driven analysis
+              </div>
+              
+              <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+                <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 text-center">
+                  <FileText className="h-8 w-8 text-yellow-300 mx-auto mb-3" />
+                  <div className="text-sm font-medium">Weekly Insights</div>
+                  <div className="text-xs text-blue-200 mt-1">Fresh content every week</div>
                 </div>
-                <div className="flex items-center text-sm text-gray-600">
-                  <User className="h-4 w-4 text-secondary mr-2" />
-                  Expert advice
+                <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 text-center">
+                  <TrendingUp className="h-8 w-8 text-green-300 mx-auto mb-3" />
+                  <div className="text-sm font-medium">Data-Driven Analysis</div>
+                  <div className="text-xs text-blue-200 mt-1">Real market data & trends</div>
                 </div>
+                <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 text-center">
+                  <Target className="h-8 w-8 text-orange-300 mx-auto mb-3" />
+                  <div className="text-sm font-medium">Actionable Strategies</div>
+                  <div className="text-xs text-blue-200 mt-1">Proven negotiation tactics</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          {/* Floating Stats */}
+          <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 hidden lg:block">
+            <div className="flex space-x-8 text-center">
+              <div className="text-white/80">
+                <div className="text-2xl font-bold">25,000+</div>
+                <div className="text-xs">Monthly Readers</div>
+              </div>
+              <div className="text-white/80">
+                <div className="text-2xl font-bold">15+</div>
+                <div className="text-xs">Expert Articles</div>
+              </div>
+              <div className="text-white/80">
+                <div className="text-2xl font-bold">4.8★</div>
+                <div className="text-xs">Reader Rating</div>
               </div>
             </div>
           </div>
         </section>
 
         {/* Featured Post */}
-        <section className="py-12">
+        <section className="py-12 -mt-8 relative z-10">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="mb-8">
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">Featured Article</h2>
+              <div className="text-center mb-8">
+                <h2 className="text-3xl font-bold text-gray-900 mb-2">✨ Featured Article</h2>
+                <p className="text-gray-600">Don't miss our most popular salary insights</p>
+              </div>
               {blogPosts.filter(post => post.featured).map((post) => (
-                <Card key={post.href} className="calculator-shadow border-2 border-primary">
-                  <CardContent className="p-8">
-                    <div className="grid lg:grid-cols-12 gap-6">
-                      <div className="lg:col-span-10">
-                        <div className="flex flex-wrap gap-2 mb-4">
-                          <Badge className="bg-primary text-white">Featured</Badge>
-                          <Badge variant="outline">{post.category}</Badge>
-                          <Badge variant="outline">
+                <Card key={post.href} className="bg-gradient-to-br from-white to-blue-50 border-2 border-blue-200 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
+                  <CardContent className="p-8 md:p-12">
+                    <div className="grid lg:grid-cols-12 gap-8">
+                      <div className="lg:col-span-8">
+                        <div className="flex flex-wrap gap-3 mb-6">
+                          <Badge className="bg-gradient-to-r from-yellow-400 to-orange-500 text-black font-semibold px-3 py-1">
+                            🌟 Featured
+                          </Badge>
+                          <Badge className="bg-blue-100 text-blue-800 font-medium">{post.category}</Badge>
+                          <Badge variant="outline" className="border-blue-300">
                             <Clock className="h-3 w-3 mr-1" />
                             {post.readTime}
                           </Badge>
-                          <Badge variant="outline">
+                          <Badge variant="outline" className="border-blue-300">
                             <Calendar className="h-3 w-3 mr-1" />
                             {new Date(post.publishDate).toLocaleDateString()}
                           </Badge>
                         </div>
-                        <h3 className="text-3xl font-bold text-gray-900 mb-4">{post.title}</h3>
-                        <p className="text-gray-600 mb-4 text-lg">{post.excerpt}</p>
-                        <div className="flex flex-wrap gap-2 mb-4">
+                        <h3 className="text-4xl font-bold text-gray-900 mb-6 leading-tight">{post.title}</h3>
+                        <p className="text-gray-700 mb-6 text-xl leading-relaxed">{post.excerpt}</p>
+                        <div className="flex flex-wrap gap-2 mb-6">
                           {post.tags.map((tag) => (
-                            <span key={tag} className="inline-flex items-center bg-gray-100 text-gray-700 px-2 py-1 rounded text-sm">
+                            <span key={tag} className="inline-flex items-center bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium">
                               <Tag className="h-3 w-3 mr-1" />
                               {tag}
                             </span>
                           ))}
                         </div>
                       </div>
-                      <div className="lg:col-span-2 flex items-center justify-center lg:justify-end">
+                      <div className="lg:col-span-4 flex flex-col items-center justify-center space-y-4">
+                        <div className="bg-gradient-to-br from-blue-600 to-purple-600 p-8 rounded-2xl text-white text-center">
+                          <TrendingUp className="h-12 w-12 mx-auto mb-4" />
+                          <div className="text-sm mb-2">This Week's Most Read</div>
+                          <div className="text-2xl font-bold">12,847 views</div>
+                        </div>
                         <Link href={post.href}>
-                          <Button className="bg-primary hover:bg-blue-700">
-                            Read Article
-                            <ArrowRight className="ml-2 h-4 w-4" />
+                          <Button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold px-8 py-4 text-lg rounded-xl shadow-lg transform hover:scale-105 transition-all duration-200">
+                            Read Full Article
+                            <ArrowRight className="ml-2 h-5 w-5" />
                           </Button>
                         </Link>
                       </div>
