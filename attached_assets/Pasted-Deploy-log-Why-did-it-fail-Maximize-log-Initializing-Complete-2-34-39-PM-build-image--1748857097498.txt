@@ -1,0 +1,107 @@
+Deploy log
+Why did it fail?
+
+
+
+
+Maximize log
+Initializing
+Complete
+2:34:39 PM: build-image version: 0e04ecb664f5f97dc8ac7f3de278d0e6f81cd9c2 (noble)
+2:34:39 PM: buildbot version: 0adda441a46f5fcbd50adabc3d352011c7a84c94
+2:34:39 PM: Fetching cached dependencies
+2:34:39 PM: Failed to fetch cache, continuing with build
+2:34:39 PM: Starting to prepare the repo for build
+2:34:40 PM: No cached dependencies found. Cloning fresh repo
+2:34:40 PM: git clone --filter=blob:none https://github.com/jibranpcccc/PayRaise-Calculator
+2:34:40 PM: Preparing Git Reference refs/heads/main
+2:34:41 PM: Starting to install dependencies
+2:34:41 PM: Python version set to 3.13.3
+2:34:41 PM: Ruby version set to 3.4.3
+2:34:42 PM: Go version set to 1.24.3
+2:34:42 PM: Using PHP version 8.3
+2:34:43 PM: v22.16.0 is already installed.
+2:34:43 PM: Now using node v22.16.0 (npm v10.9.2)
+2:34:43 PM: Enabling Node.js Corepack
+2:34:43 PM: Started restoring cached build plugins
+2:34:43 PM: Finished restoring cached build plugins
+2:34:43 PM: Started restoring cached corepack dependencies
+2:34:43 PM: Finished restoring cached corepack dependencies
+2:34:43 PM: No npm workspaces detected
+2:34:43 PM: Started restoring cached node modules
+2:34:43 PM: Finished restoring cached node modules
+2:34:43 PM: Installing npm packages using npm version 10.9.2
+2:34:46 PM: npm warn deprecated @esbuild-kit/esm-loader@2.6.5: Merged into tsx: https://tsx.is
+2:34:46 PM: npm warn deprecated @esbuild-kit/core-utils@3.3.2: Merged into tsx: https://tsx.is
+2:34:49 PM: added 481 packages in 6s
+2:34:49 PM: npm packages installed
+2:34:50 PM: Successfully installed dependencies
+2:34:50 PM: Starting build script
+2:34:50 PM: Detected 1 framework(s)
+2:34:50 PM: "vite" at version "5.4.14"
+2:34:50 PM: Section completed: initializing
+Building
+Failed
+2:34:52 PM: Netlify Build                                                 
+2:34:52 PM: ────────────────────────────────────────────────────────────────
+2:34:52 PM: ​
+2:34:52 PM: ❯ Version
+2:34:52 PM:   @netlify/build 33.4.0
+2:34:52 PM: ​
+2:34:52 PM: ❯ Flags
+2:34:52 PM:   accountId: 6829ebab4e15d2f11c454ddc
+2:34:52 PM:   baseRelDir: true
+2:34:52 PM:   buildId: 683d70293cb4ecf9c8c93356
+2:34:52 PM:   deployId: 683d70293cb4ecf9c8c93358
+2:34:52 PM: ​
+2:34:52 PM: ❯ Current directory
+2:34:52 PM:   /opt/build/repo
+2:34:52 PM: ​
+2:34:52 PM: ❯ Config file
+2:34:52 PM:   No config file was defined: using default values.
+2:34:52 PM: ​
+2:34:52 PM: ❯ Context
+2:34:52 PM:   production
+2:34:52 PM: ​
+2:34:52 PM: Build command from Netlify app                                
+2:34:52 PM: ────────────────────────────────────────────────────────────────
+2:34:52 PM: ​
+2:34:52 PM: $ npm run build
+2:34:52 PM: > rest-express@1.0.0 build
+2:34:52 PM: > vite build && esbuild server/index.ts --platform=node --packages=external --bundle --format=esm --outdir=dist
+2:34:52 PM: vite v5.4.14 building for production...
+2:34:52 PM: ✓ 0 modules transformed.
+2:34:52 PM: x Build failed in 7ms
+2:34:52 PM: error during build:
+2:34:52 PM: Could not resolve entry module "client/index.html".
+2:34:52 PM:     at getRollupError (file:///opt/build/repo/node_modules/rollup/dist/es/shared/parseAst.js:396:41)
+2:34:52 PM:     at error (file:///opt/build/repo/node_modules/rollup/dist/es/shared/parseAst.js:392:42)
+2:34:52 PM:     at ModuleLoader.loadEntryModule (file:///opt/build/repo/node_modules/rollup/dist/es/shared/node-entry.js:20086:20)
+2:34:52 PM:     at async Promise.all (index 0)
+2:34:52 PM: ​
+2:34:52 PM: "build.command" failed                                        
+2:34:52 PM: ────────────────────────────────────────────────────────────────
+2:34:52 PM: ​
+2:34:52 PM:   Error message
+2:34:52 PM:   Command failed with exit code 1: npm run build (https://ntl.fyi/exit-code-1)
+2:34:52 PM: ​
+2:34:52 PM:   Error location
+2:34:52 PM:   In Build command from Netlify app:
+2:34:52 PM:   npm run build
+2:34:52 PM: ​
+2:34:52 PM:   Resolved config
+2:34:52 PM:   build:
+2:34:52 PM:     command: npm run build
+2:34:52 PM:     commandOrigin: ui
+2:34:52 PM:     publish: /opt/build/repo/dist
+2:34:52 PM:     publishOrigin: ui
+2:34:53 PM: Failed during stage 'building site': Build script returned non-zero exit code: 2 (https://ntl.fyi/exit-code-2)
+2:34:53 PM: Build failed due to a user error: Build script returned non-zero exit code: 2
+2:34:53 PM: Failing build: Failed to build site
+2:34:53 PM: Finished processing build request in 13.798s
+Deploying
+Skipped
+Cleanup
+Skipped
+Post-processing
+Skipped
