@@ -1,9 +1,10 @@
 [build]
   publish = "dist"
-  command = "npm install && NODE_ENV=production npx vite build"
+  command = "npm install && npx vite build --config vite.config.netlify.ts"
 
 [build.environment]
   NODE_VERSION = "20"
+  NODE_ENV = "production"
 
 [[redirects]]
   from = "/*"
