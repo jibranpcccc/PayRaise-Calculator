@@ -4,10 +4,13 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import { SEOHead } from "@/components/seo/head";
 import { PayRaiseCalculator } from "@/lib/calculator";
 import { getInflationAdjustedAnalysis } from "@/lib/industry-data";
-import { TrendingUp, TrendingDown, AlertTriangle, PiggyBank } from "lucide-react";
+import { InflationImpactChart } from "@/components/calculator-svgs/inflation-impact-chart";
+import { Link } from "wouter";
+import { TrendingUp, TrendingDown, AlertTriangle, PiggyBank, Calculator, Target, ExternalLink, ArrowRight, DollarSign } from "lucide-react";
 
 export default function InflationAdjustedRaiseCalculator() {
   const [currentSalary, setCurrentSalary] = useState(60000);
