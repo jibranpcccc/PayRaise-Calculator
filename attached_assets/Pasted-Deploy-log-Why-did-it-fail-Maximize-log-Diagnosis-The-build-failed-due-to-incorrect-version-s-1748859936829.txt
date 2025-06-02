@@ -1,0 +1,71 @@
+Deploy log
+Why did it fail?
+
+
+
+
+Maximize log
+
+Diagnosis: The build failed due to incorrect version specifications for Python, Ruby, and Go.
+
+Solution: The versions specified are invalid. Update the version to the correct ones in the build settings. If needed, refer to the documentation for changing Node versions.
+
+
+Copy analysis for use in AI tools
+Need more help? Go to Ask Netlify
+
+Retry diagnostics
+Netlify uses AI to analyze and generate solutions to fix deploy failures. It may not always understand the full context or produce a reliable, accurate answer. To learn more, please refer to our docs.
+
+Did you find this helpful? Your feedback helps improve this feature.
+
+
+
+Initializing
+Complete
+3:19:10 PM: build-image version: 0e04ecb664f5f97dc8ac7f3de278d0e6f81cd9c2 (noble)
+3:19:10 PM: buildbot version: 0adda441a46f5fcbd50adabc3d352011c7a84c94
+3:19:10 PM: Fetching cached dependencies
+3:19:10 PM: Failed to fetch cache, continuing with build
+3:19:10 PM: Starting to prepare the repo for build
+3:19:10 PM: No cached dependencies found. Cloning fresh repo
+3:19:10 PM: git clone --filter=blob:none https://github.com/jibranpcccc/PayRaise-Calculator
+3:19:11 PM: Preparing Git Reference refs/heads/main
+3:19:12 PM: Custom publish path detected. Proceeding with the specified path: 'client/dist'
+3:19:12 PM: Custom build command detected. Proceeding with the specified command: 'cd client && npm run build'
+3:19:12 PM: Starting to install dependencies
+3:19:12 PM: Python version set to 3.13.3
+3:19:12 PM: Ruby version set to 3.4.3
+3:19:13 PM: Go version set to 1.24.3
+3:19:13 PM: Using PHP version 8.3
+3:19:14 PM: Downloading and installing node v20.19.2...
+3:19:14 PM: Downloading https://nodejs.org/dist/v20.19.2/node-v20.19.2-linux-x64.tar.xz...
+3:19:14 PM: Computing checksum with sha256sum
+3:19:14 PM: Checksums matched!
+3:19:16 PM: Now using node v20.19.2 (npm v10.8.2)
+3:19:16 PM: Enabling Node.js Corepack
+3:19:16 PM: Started restoring cached build plugins
+3:19:16 PM: Finished restoring cached build plugins
+3:19:16 PM: Started restoring cached corepack dependencies
+3:19:16 PM: Finished restoring cached corepack dependencies
+3:19:16 PM: No npm workspaces detected
+3:19:16 PM: Started restoring cached node modules
+3:19:16 PM: Finished restoring cached node modules
+3:19:16 PM: Installing npm packages using npm version 10.8.2
+3:19:19 PM: npm warn deprecated @esbuild-kit/esm-loader@2.6.5: Merged into tsx: https://tsx.is
+3:19:19 PM: npm warn deprecated @esbuild-kit/core-utils@3.3.2: Merged into tsx: https://tsx.is
+3:19:22 PM: added 481 packages in 6s
+3:19:22 PM: npm packages installed
+3:19:22 PM: Successfully installed dependencies
+3:19:22 PM: Starting build script
+3:19:23 PM: Detected 1 framework(s)
+3:19:23 PM: "vite" at version "5.4.14"
+3:19:23 PM: Section completed: initializing
+Building
+Failed
+Deploying
+Skipped
+Cleanup
+Skipped
+Post-processing
+Skipped
