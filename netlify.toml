@@ -1,15 +1,32 @@
 [build]
+<<<<<<< HEAD
   publish = "dist"
   command = "npm install && NODE_ENV=production npx vite build --config vite.config.netlify.ts"
 
 [build.environment]
   NODE_VERSION = "20"
   NPM_FLAGS = "--legacy-peer-deps"
+=======
+  publish = "client/dist"
+  command = "cd client && npm run build"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/server/:splat"
+  status = 200
+>>>>>>> 7920243b3924f34dad97d9b7d59a610350c685e8
 
 [[redirects]]
   from = "/*"
   to = "/index.html"
+<<<<<<< HEAD
   status = 200
 
 [functions]
   directory = "netlify/functions"
+=======
+  status = 200
+>>>>>>> 7920243b3924f34dad97d9b7d59a610350c685e8
