@@ -34,19 +34,9 @@ import StatePayRaiseLawsCompliance from "@/pages/state-pay-raise-laws-compliance
 import BonusImpactCalculator from "@/pages/tools/bonus-impact-calculator";
 import ColaCalculator from "@/pages/tools/cola-calculator";
 import HourlyToSalaryConverter from "@/pages/tools/hourly-to-salary-converter";
-import RaiseVsBonusCalculator from "@/pages/tools/raise-vs-bonus-calculator";
-import OfferComparisonCalculator from "@/pages/tools/offer-comparison-calculator";
-import RaiseImpactRetirementSavingsCalculator from "@/pages/tools/raise-impact-retirement-savings-calculator";
-import EffectiveHourlyRateCalculator from "@/pages/tools/effective-hourly-rate-calculator";
-import FreelanceRateIncreaseCalculator from "@/pages/tools/freelance-rate-increase-calculator";
+import IsThreePercentRaiseGood from "@/pages/blog/is-a-3-percent-raise-good";
 import ThreeVsFivePercentRaiseLongTermImpact from "@/pages/blog/3-vs-5-percent-raise-long-term-impact";
 import WhenAskForRaiseOptimalTiming from "@/pages/blog/when-ask-for-raise-optimal-timing";
-import CommonSalaryNegotiationMistakes from "@/pages/blog/common-salary-negotiation-mistakes";
-import SalaryTransparencyImpact from "@/pages/blog/salary-transparency-impact";
-import AveragePayRaisesDataTrends from "@/pages/guides/average-pay-raises-data-trends";
-import FactorsInfluencingPayRaises from "@/pages/guides/factors-influencing-pay-raises";
-import MarketValueSalaryResearch from "@/pages/guides/market-value-salary-research";
-import CostLivingAdjustmentGuide from "@/pages/guides/cost-living-adjustment-guide";
 import RaiseNegotiationScriptsTemplates from "@/pages/blog/raise-negotiation-scripts-templates";
 import HourlyVsSalaryRaiseDifferences from "@/pages/blog/hourly-vs-salary-raise-differences";
 import AverageRaiseByIndustry2025 from "@/pages/blog/average-raise-by-industry-2025";
@@ -82,7 +72,7 @@ function Router() {
         <Switch>
           {/* Homepage */}
           <Route path="/" component={Home} />
-          
+
           {/* Tools Section */}
           <Route path="/tools" component={ToolsIndex} />
           <Route path="/tools/compound-raise-calculator" component={CompoundRaiseCalculator} />
@@ -105,7 +95,7 @@ function Router() {
           <Route path="/tools/raise-impact-retirement-savings-calculator" component={RaiseImpactRetirementSavingsCalculator} />
           <Route path="/tools/effective-hourly-rate-calculator" component={EffectiveHourlyRateCalculator} />
           <Route path="/tools/freelance-rate-increase-calculator" component={FreelanceRateIncreaseCalculator} />
-          
+
           {/* Guides Section */}
           <Route path="/guides" component={GuidesIndex} />
           <Route path="/guides/understanding-pay-raises-complete" component={UnderstandingPayRaisesComplete} />
@@ -121,9 +111,10 @@ function Router() {
           <Route path="/guides/salary-increase-timing-guide" component={SalaryIncreaseTimingGuide} />
           <Route path="/guides/raise-rejection-next-steps" component={RaiseRejectionNextSteps} />
           <Route path="/guides/negotiating-non-salary-benefits-perks" component={NegotiatingNonSalaryBenefitsPerks} />
-          
+
           {/* Blog Section */}
           <Route path="/blog" component={BlogIndex} />
+          <Route path="/blog/is-a-3-percent-raise-good" component={IsThreePercentRaiseGood} />
           <Route path="/blog/3-vs-5-percent-raise-long-term-impact" component={ThreeVsFivePercentRaiseLongTermImpact} />
           <Route path="/blog/when-ask-for-raise-optimal-timing" component={WhenAskForRaiseOptimalTiming} />
           <Route path="/blog/raise-negotiation-scripts-templates" component={RaiseNegotiationScriptsTemplates} />
@@ -137,7 +128,7 @@ function Router() {
           <Route path="/blog/how-much-raise-to-ask-for-based-on-role" component={HowMuchRaiseToAskForBasedOnRole} />
           <Route path="/blog/best-time-of-year-to-negotiate-raise" component={BestTimeOfYearToNegotiateRaise} />
           <Route path="/blog/raise-calculator-updates-2025" component={RaiseCalculatorUpdates2025} />
-          
+
           {/* Core Pages */}
           <Route path="/salary-negotiation-complete-guide" component={SalaryNegotiationCompleteGuide} />
           <Route path="/industry-raise-benchmarks-2025" component={IndustryRaiseBenchmarks2025} />
@@ -148,11 +139,11 @@ function Router() {
           <Route path="/calculator-accuracy-methodology" component={CalculatorAccuracyMethodology} />
           <Route path="/raise-vs-inflation-analysis" component={RaiseVsInflationAnalysis} />
           <Route path="/state-pay-raise-laws-compliance" component={StatePayRaiseLawsCompliance} />
-          
+
           {/* Additional Pages */}
           <Route path="/contact-us" component={ContactUs} />
           <Route path="/about-us" component={AboutUs} />
-          
+
           {/* Fallback to 404 */}
           <Route component={NotFound} />
         </Switch>

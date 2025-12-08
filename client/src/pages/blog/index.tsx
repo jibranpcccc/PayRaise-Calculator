@@ -26,6 +26,19 @@ import {
 export default function BlogIndex() {
   const blogPosts = [
     {
+      title: "Is a 3% Raise Good in 2025? (Inflation Reality Check)",
+      excerpt: "Don't accept a pay cut in disguise. We analyze 2025 inflation data vs average salary budgets to see if your 3% raise is actually enough.",
+      href: "/blog/is-a-3-percent-raise-good",
+      image: "/images/calculators/inflation-adjusted-raise-calculator.jpg",
+      category: "Market Analysis",
+      readTime: "6 min read",
+      publishDate: "2025-01-20",
+      featured: true,
+      tags: ["Raise 2025", "Inflation", "Salary Trend"],
+      icon: <TrendingUp className="h-6 w-6" />,
+      gradient: "bg-gradient-to-br from-red-600 to-orange-600"
+    },
+    {
       title: "3% vs 5% Raise: The $10,000+ Difference Over 5 Years",
       excerpt: "Discover how seemingly small percentage differences in raises compound into significant long-term financial impact. Real calculations and investment opportunity analysis.",
       href: "/blog/3-vs-5-percent-raise-long-term-impact",
