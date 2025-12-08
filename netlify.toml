@@ -6,17 +6,41 @@
   NODE_VERSION = "20"
   NPM_FLAGS = "--legacy-peer-deps"
 
+# Enable Netlify's built-in prerendering for SEO
+# This renders JavaScript for search engine bots
+[build.processing]
+  skip_processing = false
+
+[[plugins]]
+  package = "@netlify/plugin-lighthouse"
+
+# Headers for SEO and caching
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
+
+[[headers]]
+  for = "/sitemap.xml"
+  [headers.values]
+    Content-Type = "application/xml"
+
+[[headers]]
+  for = "/robots.txt"
+  [headers.values]
+    Content-Type = "text/plain"
+
 [[redirects]]
   from = "/sitemap.xml"
   to = "/sitemap.xml"
   status = 200
-  headers = {Content-Type = "application/xml"}
 
 [[redirects]]
   from = "/robots.txt"
   to = "/robots.txt"
   status = 200
-  headers = {Content-Type = "text/plain"}
 
 [[redirects]]
   from = "/*"
