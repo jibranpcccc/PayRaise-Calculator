@@ -3,14 +3,14 @@ import { Link } from "wouter";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { SEOHead } from "@/components/seo/head";
-import { 
-  Calculator, 
-  TrendingUp, 
-  PiggyBank, 
-  Target, 
-  DollarSign, 
-  Clock, 
-  FileText, 
+import {
+  Calculator,
+  TrendingUp,
+  PiggyBank,
+  Target,
+  DollarSign,
+  Clock,
+  FileText,
   Users,
   MapPin,
   BarChart3,
@@ -25,6 +25,7 @@ export default function ToolsIndex() {
       description: "Calculate your new salary with percentage, flat amount, or target salary inputs",
       icon: <Calculator className="h-8 w-8" />,
       href: "/",
+      image: "/images/calculators/pay-raise-calculator.jpg",
       featured: true,
       category: "Core"
     },
@@ -33,6 +34,7 @@ export default function ToolsIndex() {
       description: "Project salary growth over multiple years with compound percentage increases",
       icon: <TrendingUp className="h-8 w-8" />,
       href: "/tools/compound-raise-calculator",
+      image: "/images/calculators/compound-raise-calculator.jpg",
       category: "Advanced"
     },
     {
@@ -40,6 +42,7 @@ export default function ToolsIndex() {
       description: "See your real purchasing power after accounting for inflation",
       icon: <PiggyBank className="h-8 w-8" />,
       href: "/tools/inflation-adjusted-raise-calculator",
+      image: "/images/calculators/inflation-adjusted-raise-calculator.jpg",
       category: "Advanced"
     },
     {
@@ -124,8 +127,8 @@ export default function ToolsIndex() {
   const categories = ["All", "Core", "Advanced", "Specialized", "Analysis", "Conversion", "Modern", "Comparison", "Strategy"];
   const [selectedCategory, setSelectedCategory] = useState("All");
 
-  const filteredTools = selectedCategory === "All" 
-    ? calculatorTools 
+  const filteredTools = selectedCategory === "All"
+    ? calculatorTools
     : calculatorTools.filter(tool => tool.category === selectedCategory);
 
   const structuredData = {
@@ -166,7 +169,7 @@ export default function ToolsIndex() {
                 Professional Calculator Tools
               </h1>
               <p className="mt-4 text-xl text-gray-600 max-w-3xl mx-auto">
-                Comprehensive suite of salary and pay raise calculators designed for accurate 
+                Comprehensive suite of salary and pay raise calculators designed for accurate
                 financial planning and negotiation preparation. All tools are free and require no registration.
               </p>
             </div>
@@ -197,32 +200,43 @@ export default function ToolsIndex() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {filteredTools.map((tool, index) => (
-                <Card 
-                  key={index} 
+                <Card
+                  key={index}
                   className={`hover:shadow-lg transition-shadow ${tool.featured ? 'ring-2 ring-primary' : ''}`}
                 >
-                  <CardHeader>
-                    <div className="flex items-center space-x-3">
-                      <div className={`p-2 rounded-lg ${tool.featured ? 'bg-primary text-white' : 'bg-gray-100 text-gray-600'}`}>
-                        {tool.icon}
+                  <div className="relative">
+                    {tool.image && (
+                      <div className="h-40 w-full overflow-hidden rounded-t-xl">
+                        <img
+                          src={tool.image}
+                          alt={tool.title}
+                          className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                        />
                       </div>
-                      <div className="flex-1">
-                        <CardTitle className="text-lg font-semibold text-gray-900">
-                          {tool.title}
-                          {tool.featured && (
-                            <span className="ml-2 text-xs bg-primary text-white px-2 py-1 rounded-full">
-                              Featured
-                            </span>
-                          )}
-                        </CardTitle>
-                        <div className="text-sm text-gray-500">{tool.category}</div>
+                    )}
+                    <CardHeader>
+                      <div className="flex items-center space-x-3">
+                        <div className={`p-2 rounded-lg ${tool.featured ? 'bg-primary text-white' : 'bg-gray-100 text-gray-600'}`}>
+                          {tool.icon}
+                        </div>
+                        <div className="flex-1">
+                          <CardTitle className="text-lg font-semibold text-gray-900">
+                            {tool.title}
+                            {tool.featured && (
+                              <span className="ml-2 text-xs bg-primary text-white px-2 py-1 rounded-full">
+                                Featured
+                              </span>
+                            )}
+                          </CardTitle>
+                          <div className="text-sm text-gray-500">{tool.category}</div>
+                        </div>
                       </div>
-                    </div>
-                  </CardHeader>
+                    </CardHeader>
+                  </div>
                   <CardContent>
                     <p className="text-gray-600 mb-4">{tool.description}</p>
                     <Link href={tool.href}>
-                      <Button 
+                      <Button
                         className={`w-full ${tool.featured ? 'bg-primary hover:bg-blue-700' : ''}`}
                         variant={tool.featured ? "default" : "outline"}
                       >
@@ -245,7 +259,7 @@ export default function ToolsIndex() {
                 Explore our comprehensive guides and resources
               </p>
             </div>
-            
+
             <div className="grid md:grid-cols-3 gap-6">
               <Card>
                 <CardContent className="p-6 text-center">
@@ -261,7 +275,7 @@ export default function ToolsIndex() {
                   </Link>
                 </CardContent>
               </Card>
-              
+
               <Card>
                 <CardContent className="p-6 text-center">
                   <FileText className="h-12 w-12 text-secondary mx-auto mb-4" />
@@ -276,7 +290,7 @@ export default function ToolsIndex() {
                   </Link>
                 </CardContent>
               </Card>
-              
+
               <Card>
                 <CardContent className="p-6 text-center">
                   <Target className="h-12 w-12 text-accent mx-auto mb-4" />

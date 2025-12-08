@@ -6,10 +6,10 @@ import { SEOHead } from "@/components/seo/head";
 import { SchemaGenerator } from "@/components/seo/schema-generator";
 import { InternalLink } from "@/components/seo/internal-link-checker";
 import { FeaturedImage } from "@/components/featured-image";
-import { 
-  FileText, 
-  TrendingUp, 
-  Clock, 
+import {
+  FileText,
+  TrendingUp,
+  Clock,
   Calendar,
   User,
   ArrowRight,
@@ -29,6 +29,7 @@ export default function BlogIndex() {
       title: "3% vs 5% Raise: The $10,000+ Difference Over 5 Years",
       excerpt: "Discover how seemingly small percentage differences in raises compound into significant long-term financial impact. Real calculations and investment opportunity analysis.",
       href: "/blog/3-vs-5-percent-raise-long-term-impact",
+      image: "/images/blog/3-vs-5-percent-raise.jpg",
       category: "Financial Analysis",
       readTime: "8 min read",
       publishDate: "2025-01-15",
@@ -41,6 +42,7 @@ export default function BlogIndex() {
       title: "When to Ask for a Raise: Optimal Timing Strategies",
       excerpt: "Master the art of timing your raise request. Learn about performance review cycles, company financial calendars, and personal achievement milestones.",
       href: "/blog/when-ask-for-raise-optimal-timing",
+      image: "/images/blog/when-ask-for-raise-optimal-timing.jpg",
       category: "Strategy",
       readTime: "5 min read",
       publishDate: "2025-01-12",
@@ -59,6 +61,7 @@ export default function BlogIndex() {
       title: "Raise Negotiation Scripts and Templates That Work",
       excerpt: "Professional scripts and email templates for requesting raises. Proven language that gets results, with examples for different scenarios.",
       href: "/blog/raise-negotiation-scripts-templates",
+      image: "/images/blog/raise-negotiation-scripts-templates.jpg",
       category: "Templates",
       readTime: "8 min read",
       publishDate: "2025-01-08",
@@ -148,10 +151,10 @@ export default function BlogIndex() {
                 Pay Raise <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 to-orange-300">Insights</span>
               </h1>
               <p className="mt-4 text-xl text-blue-100 max-w-3xl mx-auto leading-relaxed">
-                Expert insights on salary increases, negotiation strategies, and career advancement. 
+                Expert insights on salary increases, negotiation strategies, and career advancement.
                 Data-driven analysis and actionable advice for maximizing your income.
               </p>
-              
+
               {/* Quick Calculator Button */}
               <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center items-center">
                 <Link href="/">
@@ -164,7 +167,7 @@ export default function BlogIndex() {
                   Free • Instant Results • No Registration
                 </div>
               </div>
-              
+
               <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
                 <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 text-center">
                   <FileText className="h-8 w-8 text-yellow-300 mx-auto mb-3" />
@@ -184,7 +187,7 @@ export default function BlogIndex() {
               </div>
             </div>
           </div>
-          
+
           {/* Floating Stats */}
           <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 hidden lg:block">
             <div className="flex space-x-8 text-center">
@@ -295,16 +298,29 @@ export default function BlogIndex() {
               {filteredPosts.filter(post => !post.featured).map((post, index) => (
                 <Card key={post.href} className="group hover:shadow-2xl transition-all duration-300 h-full flex flex-col bg-white hover:bg-gradient-to-br hover:from-white hover:to-blue-50 border-gray-200 hover:border-blue-300 transform hover:-translate-y-2">
                   {/* Card Image/Icon Header */}
-                  <div className="bg-gradient-to-br from-blue-600 to-purple-600 p-6 rounded-t-lg">
-                    <div className="flex items-center justify-between">
-                      <div className="bg-white/20 backdrop-blur-sm p-3 rounded-xl">
-                        {post.icon || <FileText className="h-6 w-6 text-white" />}
+                  <div className="relative h-48 w-full overflow-hidden rounded-t-lg">
+                    {post.image ? (
+                      <img
+                        src={post.image}
+                        alt={post.title}
+                        className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
+                      />
+                    ) : (
+                      <div className="w-full h-full bg-gradient-to-br from-blue-600 to-purple-600 p-6 flex items-center justify-between">
+                        <div className="bg-white/20 backdrop-blur-sm p-3 rounded-xl">
+                          {post.icon || <FileText className="h-6 w-6 text-white" />}
+                        </div>
+                        <div className="text-right">
+                          <div className="text-white/80 text-xs">Article #{String(index + 2).padStart(2, '0')}</div>
+                          <div className="text-white text-sm font-medium">{post.category}</div>
+                        </div>
                       </div>
-                      <div className="text-right">
-                        <div className="text-white/80 text-xs">Article #{String(index + 2).padStart(2, '0')}</div>
-                        <div className="text-white text-sm font-medium">{post.category}</div>
+                    )}
+                    {post.image && (
+                      <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-semibold text-blue-900 shadow-sm">
+                        {post.category}
                       </div>
-                    </div>
+                    )}
                   </div>
 
                   <CardHeader className="pb-3">
@@ -317,10 +333,10 @@ export default function BlogIndex() {
                     </div>
                     <CardTitle className="text-xl line-clamp-2 group-hover:text-blue-900 transition-colors leading-tight">{post.title}</CardTitle>
                   </CardHeader>
-                  
+
                   <CardContent className="flex-1 flex flex-col pt-0">
                     <p className="text-gray-600 mb-6 flex-1 leading-relaxed">{post.excerpt}</p>
-                    
+
                     <div className="space-y-4">
                       <div className="flex flex-wrap gap-2">
                         {post.tags.slice(0, 2).map((tag) => (
@@ -335,7 +351,7 @@ export default function BlogIndex() {
                           </span>
                         )}
                       </div>
-                      
+
                       <div className="flex items-center justify-between pt-4 border-t border-gray-100">
                         <div className="flex items-center text-xs text-gray-500">
                           <Calendar className="h-3 w-3 mr-1" />
@@ -420,7 +436,7 @@ export default function BlogIndex() {
                 Beyond blog posts - comprehensive tools and guides
               </p>
             </div>
-            
+
             <div className="grid md:grid-cols-3 gap-6">
               <Card>
                 <CardContent className="p-6 text-center">
@@ -436,7 +452,7 @@ export default function BlogIndex() {
                   </Link>
                 </CardContent>
               </Card>
-              
+
               <Card>
                 <CardContent className="p-6 text-center">
                   <FileText className="h-12 w-12 text-secondary mx-auto mb-4" />
@@ -451,7 +467,7 @@ export default function BlogIndex() {
                   </Link>
                 </CardContent>
               </Card>
-              
+
               <Card>
                 <CardContent className="p-6 text-center">
                   <Search className="h-12 w-12 text-accent mx-auto mb-4" />
