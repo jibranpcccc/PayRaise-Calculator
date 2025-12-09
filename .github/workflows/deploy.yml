@@ -1,4 +1,4 @@
-name: Deploy PayRaise Calculator
+name: Build and Test PayRaise Calculator
 
 on:
   push:
@@ -7,7 +7,7 @@ on:
     branches: [ main ]
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
 
     steps:
@@ -26,11 +26,5 @@ jobs:
     - name: Build application
       run: npm run build
 
-    - name: Deploy to Vercel
-      uses: amondnet/vercel-action@v25
-      with:
-        vercel-token: ${{ secrets.VERCEL_TOKEN }}
-        github-token: ${{ secrets.GITHUB_TOKEN }}
-        vercel-args: '--prod'
-        vercel-org-id: ${{ secrets.ORG_ID }}
-        vercel-project-id: ${{ secrets.PROJECT_ID }}
+    # Netlify handles deployment automatically when connected to this repo
+    # No additional deployment step needed - Netlify monitors the main branch
