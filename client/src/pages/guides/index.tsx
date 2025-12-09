@@ -3,12 +3,12 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { SEOHead } from "@/components/seo/head";
-import { 
-  BookOpen, 
-  Target, 
-  TrendingUp, 
-  Users, 
-  Clock, 
+import {
+  BookOpen,
+  Target,
+  TrendingUp,
+  Users,
+  Clock,
   FileText,
   Award,
   Building2,
@@ -90,6 +90,60 @@ export default function GuidesIndex() {
       readTime: "6 min read",
       difficulty: "Beginner",
       topics: ["Timing Strategy", "Company Cycles", "Performance Reviews", "Market Timing"]
+    },
+    {
+      title: "Average Pay Raises: Data & Trends",
+      description: "Explore comprehensive data and statistics on salary increases across industries and roles",
+      href: "/guides/average-pay-raises-data-trends",
+      icon: <TrendingUp className="h-8 w-8" />,
+      readTime: "10 min read",
+      difficulty: "Intermediate",
+      topics: ["Salary Data", "Industry Trends", "Statistics", "Benchmarking"]
+    },
+    {
+      title: "Remote Work Salary Considerations",
+      description: "Navigate salary negotiations and adjustments for remote work arrangements",
+      href: "/guides/remote-work-salary-considerations",
+      icon: <Building2 className="h-8 w-8" />,
+      readTime: "11 min read",
+      difficulty: "Intermediate",
+      topics: ["Remote Work", "Location Adjustments", "Cost of Living", "Negotiations"]
+    },
+    {
+      title: "Raise Rejection: Next Steps",
+      description: "What to do when your raise request is denied and how to move forward strategically",
+      href: "/guides/raise-rejection-next-steps",
+      icon: <Target className="h-8 w-8" />,
+      readTime: "9 min read",
+      difficulty: "Intermediate",
+      topics: ["Rejection Handling", "Career Strategy", "Alternative Options", "Timing"]
+    },
+    {
+      title: "Raise Calculator vs Salary Calculator",
+      description: "Understanding the differences between raise and salary calculators and when to use each",
+      href: "/guides/raise-calculator-vs-salary-calculator",
+      icon: <FileText className="h-8 w-8" />,
+      readTime: "8 min read",
+      difficulty: "Beginner",
+      topics: ["Calculator Tools", "Salary Analysis", "Raise Calculations", "Comparisons"]
+    },
+    {
+      title: "Top Raise Mistakes to Avoid",
+      description: "Common pitfalls in salary negotiations and how to steer clear of them",
+      href: "/guides/top-raise-mistakes-to-avoid",
+      icon: <CheckCircle className="h-8 w-8" />,
+      readTime: "10 min read",
+      difficulty: "Beginner",
+      topics: ["Common Mistakes", "Negotiation Tips", "Best Practices", "Preparation"]
+    },
+    {
+      title: "Negotiating Non-Salary Benefits & Perks",
+      description: "How to negotiate and maximize benefits beyond base salary",
+      href: "/guides/negotiating-non-salary-benefits-perks",
+      icon: <Award className="h-8 w-8" />,
+      readTime: "12 min read",
+      difficulty: "Intermediate",
+      topics: ["Benefits", "Perks", "Total Compensation", "Negotiation"]
     }
   ];
 
@@ -139,7 +193,7 @@ export default function GuidesIndex() {
                 Salary & Pay Raise Guides
               </h1>
               <p className="mt-4 text-xl text-gray-600 max-w-3xl mx-auto">
-                Comprehensive guides on understanding, negotiating, and maximizing pay raises. 
+                Comprehensive guides on understanding, negotiating, and maximizing pay raises.
                 Expert advice to help you advance your career and increase your income.
               </p>
               <div className="mt-8 flex justify-center space-x-4">
@@ -277,7 +331,7 @@ export default function GuidesIndex() {
                 Use our professional tools to put these strategies into practice
               </p>
             </div>
-            
+
             <div className="grid md:grid-cols-3 gap-6">
               <Card>
                 <CardContent className="p-6 text-center">
@@ -293,7 +347,7 @@ export default function GuidesIndex() {
                   </Link>
                 </CardContent>
               </Card>
-              
+
               <Card>
                 <CardContent className="p-6 text-center">
                   <Building2 className="h-12 w-12 text-secondary mx-auto mb-4" />
@@ -308,7 +362,7 @@ export default function GuidesIndex() {
                   </Link>
                 </CardContent>
               </Card>
-              
+
               <Card>
                 <CardContent className="p-6 text-center">
                   <FileText className="h-12 w-12 text-accent mx-auto mb-4" />

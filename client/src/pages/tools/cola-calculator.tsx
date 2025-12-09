@@ -6,16 +6,19 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { SEOHead } from "@/components/seo/head";
-import { 
-  TrendingUp, 
-  MapPin, 
-  Calculator, 
+import {
+  TrendingUp,
+  MapPin,
+  Calculator,
   DollarSign,
   Target,
   BarChart3,
   Home,
-  ShoppingCart
+  ShoppingCart,
+  BookOpen
 } from "lucide-react";
+import { BreadcrumbNavigation } from "@/components/seo/breadcrumb-navigation";
+import { CostOfLivingComparisonChart } from "@/components/infographics/cost-of-living-chart";
 
 export default function ColaCalculator() {
   const [currentSalary, setCurrentSalary] = useState<string>("");
@@ -56,19 +59,19 @@ export default function ColaCalculator() {
 
   const calculateCOLA = () => {
     const salary = parseFloat(currentSalary) || 0;
-    
+
     if (salary === 0) return null;
-    
+
     if (currentLocation && newLocation && currentLocation !== newLocation) {
       const currentCost = locationData[currentLocation as keyof typeof locationData];
       const newCost = locationData[newLocation as keyof typeof locationData];
-      
+
       if (currentCost && newCost) {
         const adjustmentRatio = newCost.index / currentCost.index;
         const adjustedSalary = salary * adjustmentRatio;
         const colaAmount = adjustedSalary - salary;
         const colaPercentage = ((adjustedSalary - salary) / salary) * 100;
-        
+
         return {
           type: "location",
           adjustedSalary,
@@ -80,12 +83,12 @@ export default function ColaCalculator() {
         };
       }
     }
-    
+
     // Annual COLA calculation
     const annualCOLA = socialSecurityCOLA[2025];
     const colaAmount = salary * (annualCOLA / 100);
     const adjustedSalary = salary + colaAmount;
-    
+
     return {
       type: "annual",
       adjustedSalary,
@@ -107,6 +110,12 @@ export default function ColaCalculator() {
       />
 
       <div className="min-h-screen bg-gray-50">
+        <BreadcrumbNavigation
+          items={[
+            { name: "Tools", url: "/tools" },
+            { name: "COLA Calculator", url: "/tools/cola-calculator" }
+          ]}
+        />
         {/* Hero Section */}
         <section className="bg-white py-12">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -139,7 +148,7 @@ export default function ColaCalculator() {
                   <p className="text-gray-600">Select your current and new location to compare cost of living differences across major US cities.</p>
                 </CardContent>
               </Card>
-              
+
               <Card className="text-center">
                 <CardHeader>
                   <div className="mx-auto w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
@@ -151,7 +160,7 @@ export default function ColaCalculator() {
                   <p className="text-gray-600">Input your current salary to see the required adjustment for maintaining purchasing power.</p>
                 </CardContent>
               </Card>
-              
+
               <Card className="text-center">
                 <CardHeader>
                   <div className="mx-auto w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
@@ -163,6 +172,23 @@ export default function ColaCalculator() {
                   <p className="text-gray-600">See your adjusted salary requirement and breakdown by housing, transportation, and food costs.</p>
                 </CardContent>
               </Card>
+            </div>
+          </div>
+        </section>
+
+        {/* Methodology Section */}
+        <section className="py-8 bg-white border-y border-gray-100">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="bg-teal-50 rounded-lg p-6 flex flex-col md:flex-row items-start gap-4">
+              <BookOpen className="w-8 h-8 text-teal-600 flex-shrink-0 mt-1" />
+              <div>
+                <h3 className="text-lg font-semibold text-teal-900 mb-2">How We Calculate Cost of Living Differences</h3>
+                <p className="text-teal-800 text-sm leading-relaxed">
+                  Our calculations are based on the <strong>Council for Community and Economic Research (C2ER) Cost of Living Index</strong>.
+                  We compare the weighted average of housing, transportation, and grocery costs between the selected cities
+                  to determine the exact salary multiplier needed to maintain your current standard of living.
+                </p>
+              </div>
             </div>
           </div>
         </section>
@@ -227,7 +253,7 @@ export default function ColaCalculator() {
                   <div className="bg-blue-50 p-4 rounded-lg">
                     <h4 className="font-medium text-blue-900 mb-2">2025 Social Security COLA</h4>
                     <p className="text-sm text-blue-700">
-                      The projected Social Security Cost of Living Adjustment for 2025 is 2.5%, 
+                      The projected Social Security Cost of Living Adjustment for 2025 is 2.5%,
                       reflecting current economic conditions and inflation trends.
                     </p>
                   </div>
@@ -251,7 +277,7 @@ export default function ColaCalculator() {
                         </div>
                         <div className="text-sm text-green-700">Adjusted Salary</div>
                       </div>
-                      
+
                       <div className="text-center p-4 bg-blue-50 rounded-lg">
                         <div className="text-2xl font-bold text-blue-600">
                           {results.colaPercentage > 0 ? '+' : ''}{results.colaPercentage.toFixed(1)}%
@@ -313,7 +339,7 @@ export default function ColaCalculator() {
               <div>
                 <h3 className="text-lg font-semibold text-gray-900 mb-4">Location-Based COLA</h3>
                 <p className="text-gray-600 mb-4">
-                  When relocating for work, your salary should adjust to maintain the same standard of living. 
+                  When relocating for work, your salary should adjust to maintain the same standard of living.
                   This calculator compares cost indices across major US cities for housing, transportation, and food.
                 </p>
                 <ul className="text-sm text-gray-600 space-y-1">
@@ -322,11 +348,11 @@ export default function ColaCalculator() {
                   <li>• Food costs are generally more stable across locations</li>
                 </ul>
               </div>
-              
+
               <div>
                 <h3 className="text-lg font-semibold text-gray-900 mb-4">Annual COLA Increases</h3>
                 <p className="text-gray-600 mb-4">
-                  Many employers provide annual cost of living adjustments based on inflation rates. 
+                  Many employers provide annual cost of living adjustments based on inflation rates.
                   These help maintain purchasing power as prices rise over time.
                 </p>
                 <ul className="text-sm text-gray-600 space-y-1">
@@ -390,11 +416,11 @@ export default function ColaCalculator() {
                   Geographic Salary Analysis
                 </span>
               </div>
-              <h1 className="text-4xl font-bold text-gray-900 sm:text-5xl lg:text-6xl">
+              <h2 className="text-4xl font-bold text-gray-900 sm:text-5xl lg:text-6xl">
                 COLA Calculator
-              </h1>
+              </h2>
               <p className="mt-6 text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-                Calculate cost of living adjustments for relocations and annual increases. 
+                Calculate cost of living adjustments for relocations and annual increases.
                 Compare salaries across major cities and understand geographic pay differences.
               </p>
             </div>
@@ -412,7 +438,7 @@ export default function ColaCalculator() {
                 Understand cost of living differences and salary adjustments
               </p>
             </div>
-            
+
             <div className="grid md:grid-cols-3 gap-6 mb-8">
               <div className="bg-white rounded-lg p-6 shadow-lg">
                 <div className="bg-teal-600 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
@@ -420,29 +446,29 @@ export default function ColaCalculator() {
                 </div>
                 <h3 className="font-semibold text-gray-900 mb-3">Enter Current Info</h3>
                 <p className="text-gray-600 text-sm">
-                  Input your current salary and select your current location from 
+                  Input your current salary and select your current location from
                   our database of major cities.
                 </p>
               </div>
-              
+
               <div className="bg-white rounded-lg p-6 shadow-lg">
                 <div className="bg-cyan-600 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
                   <span className="text-white font-bold text-xl">2</span>
                 </div>
                 <h3 className="font-semibold text-gray-900 mb-3">Choose New Location</h3>
                 <p className="text-gray-600 text-sm">
-                  Select your target city or leave blank for annual COLA 
+                  Select your target city or leave blank for annual COLA
                   calculations based on Social Security rates.
                 </p>
               </div>
-              
+
               <div className="bg-white rounded-lg p-6 shadow-lg">
                 <div className="bg-blue-600 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
                   <span className="text-white font-bold text-xl">3</span>
                 </div>
                 <h3 className="font-semibold text-gray-900 mb-3">View Adjustment</h3>
                 <p className="text-gray-600 text-sm">
-                  See your required salary adjustment with detailed breakdown 
+                  See your required salary adjustment with detailed breakdown
                   by housing, transport, and living costs.
                 </p>
               </div>
@@ -485,7 +511,7 @@ export default function ColaCalculator() {
                 <Badge variant="outline">Salary Planning</Badge>
               </div>
               <p className="text-lg text-gray-600">
-                Calculate salary adjustments needed for relocations or understand annual 
+                Calculate salary adjustments needed for relocations or understand annual
                 cost of living increases for maintaining purchasing power.
               </p>
             </div>
@@ -576,12 +602,12 @@ export default function ColaCalculator() {
                     </div>
                     <div className="bg-blue-50 p-4 rounded-lg">
                       <div className="text-sm text-blue-800">
-                        <strong>Note:</strong> Leave locations blank to calculate annual COLA based on 
+                        <strong>Note:</strong> Leave locations blank to calculate annual COLA based on
                         2025 Social Security adjustment of 2.5%.
                       </div>
                     </div>
                   </div>
-                  
+
                   {results && (
                     <div className="bg-blue-50 p-6 rounded-lg">
                       <h3 className="font-semibold text-gray-900 mb-4 flex items-center">
@@ -631,9 +657,16 @@ export default function ColaCalculator() {
         <section className="py-12 bg-white">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
+              National Cost of Living Comparison
+            </h2>
+            <div className="mb-12">
+              <CostOfLivingComparisonChart />
+            </div>
+
+            <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
               Cost of Living Factors
             </h2>
-            
+
             <div className="grid md:grid-cols-2 gap-6">
               {costCategories.map((category, index) => (
                 <Card key={index} className="calculator-shadow">
@@ -667,7 +700,7 @@ export default function ColaCalculator() {
             <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
               Historical COLA Adjustments
             </h2>
-            
+
             <Card className="calculator-shadow">
               <CardContent className="p-6">
                 <div className="grid md:grid-cols-2 gap-8">
@@ -707,7 +740,7 @@ export default function ColaCalculator() {
                 <Calculator className="h-12 w-12 text-primary mx-auto mb-4" />
                 <h2 className="text-2xl font-bold text-gray-900 mb-4">COLA Planning Strategy</h2>
                 <p className="text-gray-600 mb-6">
-                  Understanding cost of living adjustments helps in salary negotiations, 
+                  Understanding cost of living adjustments helps in salary negotiations,
                   relocation decisions, and long-term financial planning.
                 </p>
                 <div className="grid md:grid-cols-3 gap-6 text-sm">

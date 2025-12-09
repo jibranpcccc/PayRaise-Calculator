@@ -9,8 +9,11 @@ import { SEOHead } from "@/components/seo/head";
 import { PayRaiseCalculator } from "@/lib/calculator";
 import { getInflationAdjustedAnalysis } from "@/lib/industry-data";
 import { InflationImpactChart } from "@/components/calculator-svgs/inflation-impact-chart";
+import { InflationImpactChart as HistoricalInflationChart } from "@/components/infographics/inflation-impact-chart";
+
 import { Link } from "wouter";
-import { TrendingUp, TrendingDown, AlertTriangle, PiggyBank, Calculator, Target, ExternalLink, ArrowRight, DollarSign } from "lucide-react";
+import { TrendingUp, TrendingDown, AlertTriangle, PiggyBank, Calculator, Target, ExternalLink, ArrowRight, DollarSign, BookOpen } from "lucide-react";
+import { BreadcrumbNavigation } from "@/components/seo/breadcrumb-navigation";
 
 export default function InflationAdjustedRaiseCalculator() {
   const [currentSalary, setCurrentSalary] = useState(60000);
@@ -90,6 +93,12 @@ export default function InflationAdjustedRaiseCalculator() {
       />
 
       <div className="min-h-screen bg-gray-50">
+        <BreadcrumbNavigation
+          items={[
+            { name: "Tools", url: "/tools" },
+            { name: "Inflation Calculator", url: "/tools/inflation-adjusted-raise-calculator" }
+          ]}
+        />
         {/* Hero Section */}
         <section className="bg-white py-12">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -128,7 +137,7 @@ export default function InflationAdjustedRaiseCalculator() {
                   <p className="text-gray-600">Input your current salary and expected raise percentage. The calculator uses the current inflation rate of 3.1%.</p>
                 </CardContent>
               </Card>
-              
+
               <Card className="text-center">
                 <CardHeader>
                   <div className="mx-auto w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
@@ -140,7 +149,7 @@ export default function InflationAdjustedRaiseCalculator() {
                   <p className="text-gray-600">See your nominal raise vs real purchasing power. A 5% raise with 3.1% inflation equals 1.9% real increase.</p>
                 </CardContent>
               </Card>
-              
+
               <Card className="text-center">
                 <CardHeader>
                   <div className="mx-auto w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
@@ -152,6 +161,23 @@ export default function InflationAdjustedRaiseCalculator() {
                   <p className="text-gray-600">Use the insights to negotiate raises that maintain or improve your purchasing power in the current economy.</p>
                 </CardContent>
               </Card>
+            </div>
+          </div>
+        </section>
+
+        {/* Methodology Section */}
+        <section className="py-8 bg-white border-y border-gray-100">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="bg-blue-50 rounded-lg p-6 flex flex-col md:flex-row items-start gap-4">
+              <BookOpen className="w-8 h-8 text-blue-600 flex-shrink-0 mt-1" />
+              <div>
+                <h3 className="text-lg font-semibold text-blue-900 mb-2">Calculation Methodology</h3>
+                <p className="text-blue-800 text-sm leading-relaxed">
+                  We use the <strong>Real Wage Formula</strong>: <code>Real Wage = Nominal Wage / (1 + Inflation Rate)</code>.
+                  This provides a precise calculation of your purchasing power changes, rather than simply subtracting inflation from your raise percentage.
+                  Data sources include the latest Bureau of Labor Statistics CPI reports.
+                </p>
+              </div>
             </div>
           </div>
         </section>
@@ -200,8 +226,8 @@ export default function InflationAdjustedRaiseCalculator() {
 
                   <div>
                     <Label htmlFor="inflationRate">Inflation Rate</Label>
-                    <Select 
-                      value={customInflation ? "custom" : "current"} 
+                    <Select
+                      value={customInflation ? "custom" : "current"}
                       onValueChange={(value) => {
                         setCustomInflation(value === "custom");
                         if (value === "current") setInflationRate(3.1);
@@ -215,7 +241,7 @@ export default function InflationAdjustedRaiseCalculator() {
                         <SelectItem value="custom">Custom Rate</SelectItem>
                       </SelectContent>
                     </Select>
-                    
+
                     {customInflation && (
                       <div className="relative mt-2">
                         <Input
@@ -265,8 +291,8 @@ export default function InflationAdjustedRaiseCalculator() {
                           <div className={`text-3xl font-bold ${getRealRaiseColor()}`}>
                             {PayRaiseCalculator.formatPercentage(results.realRaise)}
                           </div>
-                          <Badge variant={results.analysis.status === 'positive' ? 'default' : 
-                                        results.analysis.status === 'neutral' ? 'secondary' : 'destructive'}>
+                          <Badge variant={results.analysis.status === 'positive' ? 'default' :
+                            results.analysis.status === 'neutral' ? 'secondary' : 'destructive'}>
                             {results.analysis.message}
                           </Badge>
                         </CardContent>
@@ -275,7 +301,7 @@ export default function InflationAdjustedRaiseCalculator() {
                       {/* Breakdown */}
                       <div className="space-y-4">
                         <h4 className="font-semibold text-gray-900">Detailed Breakdown</h4>
-                        
+
                         <div className="grid grid-cols-2 gap-4">
                           <div className="bg-gray-50 rounded-lg p-3">
                             <div className="text-sm text-gray-600">Nominal Raise</div>
@@ -286,7 +312,7 @@ export default function InflationAdjustedRaiseCalculator() {
                               {PayRaiseCalculator.formatCurrency(results.raiseAmount)}
                             </div>
                           </div>
-                          
+
                           <div className="bg-gray-50 rounded-lg p-3">
                             <div className="text-sm text-gray-600">Inflation Impact</div>
                             <div className="text-lg font-bold text-red-600">
@@ -364,7 +390,7 @@ export default function InflationAdjustedRaiseCalculator() {
             <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
               Understanding Inflation's Impact on Your Raise
             </h2>
-            
+
             <div className="grid md:grid-cols-2 gap-8">
               <Card>
                 <CardHeader>
@@ -374,14 +400,14 @@ export default function InflationAdjustedRaiseCalculator() {
                   <div>
                     <h4 className="font-medium text-gray-900 mb-2">Nominal Raise</h4>
                     <p className="text-gray-600 text-sm">
-                      The actual percentage or dollar amount increase in your salary. 
+                      The actual percentage or dollar amount increase in your salary.
                       This is what you see on your paycheck.
                     </p>
                   </div>
                   <div>
                     <h4 className="font-medium text-gray-900 mb-2">Real Raise</h4>
                     <p className="text-gray-600 text-sm">
-                      Your purchasing power increase after accounting for inflation. 
+                      Your purchasing power increase after accounting for inflation.
                       This is what your raise can actually buy.
                     </p>
                   </div>
@@ -418,6 +444,11 @@ export default function InflationAdjustedRaiseCalculator() {
                   </ul>
                 </CardContent>
               </Card>
+            </div>
+
+            <div className="mt-12">
+              <HistoricalInflationChart />
+              <p className="text-center text-sm text-gray-500 mt-2">Historical inflation vs average salary growth trends.</p>
             </div>
           </div>
         </section>

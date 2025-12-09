@@ -5,16 +5,18 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { SEOHead } from "@/components/seo/head";
-import { 
-  Clock, 
-  Calculator, 
+import {
+  Clock,
+  Calculator,
   DollarSign,
   Calendar,
   BarChart3,
   AlertTriangle,
   CheckCircle,
-  TrendingUp
+  TrendingUp,
+  BookOpen
 } from "lucide-react";
+import { BreadcrumbNavigation } from "@/components/seo/breadcrumb-navigation";
 
 export default function OvertimePayCalculator() {
   const [hourlyRate, setHourlyRate] = useState<string>("");
@@ -50,19 +52,19 @@ export default function OvertimePayCalculator() {
     const regular = parseFloat(regularHours) || 40;
     const overtime = parseFloat(overtimeHours) || 0;
     const multiplier = parseFloat(overtimeRate) || 1.5;
-    
+
     if (rate === 0) return null;
-    
+
     const regularPay = regular * rate;
     const overtimePay = overtime * rate * multiplier;
     const totalPay = regularPay + overtimePay;
     const totalHours = regular + overtime;
     const effectiveHourlyRate = totalPay / totalHours;
-    
+
     const periodMultiplier = payPeriod === "weekly" ? 1 : payPeriod === "biweekly" ? 2 : 4;
     const periodicTotalPay = totalPay * periodMultiplier;
     const periodicOvertimePay = overtimePay * periodMultiplier;
-    
+
     return {
       regularPay,
       overtimePay,
@@ -156,9 +158,62 @@ export default function OvertimePayCalculator() {
                 <Badge variant="outline">Multiple Scenarios</Badge>
               </div>
               <p className="text-lg text-gray-600">
-                Calculate overtime pay based on federal and state regulations. 
+                Calculate overtime pay based on federal and state regulations.
                 Understand your rights and ensure proper compensation for extra hours worked.
               </p>
+            </div>
+          </div>
+        </section>
+
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mt-4">
+          <BreadcrumbNavigation
+            items={[
+              { name: "Tools", url: "/tools" },
+              { name: "Overtime Calculator", url: "/tools/overtime-pay-calculator" }
+            ]}
+          />
+        </div>
+
+        {/* Step-by-Step Guide */}
+        <section className="py-12 bg-gray-50">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 className="text-2xl font-bold text-gray-900 text-center mb-8">
+              How to Calculate Overtime Pay
+            </h2>
+            <div className="grid md:grid-cols-3 gap-6">
+              <Card className="text-center">
+                <CardHeader>
+                  <div className="mx-auto w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+                    <DollarSign className="h-6 w-6 text-blue-600" />
+                  </div>
+                  <CardTitle className="text-lg">Hourly Rate</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-gray-600">Enter your regular hourly wage. If you have a salary, convert it to hourly first.</p>
+                </CardContent>
+              </Card>
+              <Card className="text-center">
+                <CardHeader>
+                  <div className="mx-auto w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
+                    <Clock className="h-6 w-6 text-green-600" />
+                  </div>
+                  <CardTitle className="text-lg">Hours Worked</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-gray-600">Input your regular hours (usually 40) and the number of overtime hours worked.</p>
+                </CardContent>
+              </Card>
+              <Card className="text-center">
+                <CardHeader>
+                  <div className="mx-auto w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
+                    <Calculator className="h-6 w-6 text-purple-600" />
+                  </div>
+                  <CardTitle className="text-lg">Multiplier</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-gray-600">Select 1.5x for standard overtime or 2.0x for double time/holidays.</p>
+                </CardContent>
+              </Card>
             </div>
           </div>
         </section>
@@ -263,7 +318,7 @@ export default function OvertimePayCalculator() {
                       </Select>
                     </div>
                   </div>
-                  
+
                   {results && (
                     <div className="bg-green-50 p-6 rounded-lg">
                       <h3 className="font-semibold text-gray-900 mb-4 flex items-center">
@@ -312,7 +367,7 @@ export default function OvertimePayCalculator() {
             <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
               Overtime Pay Rules and Regulations
             </h2>
-            
+
             <div className="grid md:grid-cols-2 gap-6">
               {overtimeRules.map((rule, index) => (
                 <Card key={index} className="calculator-shadow">
@@ -347,7 +402,7 @@ export default function OvertimePayCalculator() {
             <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
               Common Overtime Scenarios
             </h2>
-            
+
             <div className="space-y-6">
               {scenarios.map((scenario, index) => (
                 <Card key={index} className="calculator-shadow">
@@ -385,7 +440,7 @@ export default function OvertimePayCalculator() {
             <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
               Your Overtime Rights
             </h2>
-            
+
             <div className="grid md:grid-cols-2 gap-8">
               <Card className="calculator-shadow">
                 <CardHeader>
@@ -434,7 +489,7 @@ export default function OvertimePayCalculator() {
                 <Calendar className="h-12 w-12 text-primary mx-auto mb-4" />
                 <h2 className="text-2xl font-bold text-gray-900 mb-4">Know Your Overtime Rights</h2>
                 <p className="text-gray-600 mb-6">
-                  Understanding overtime pay protects your earnings and ensures fair compensation 
+                  Understanding overtime pay protects your earnings and ensures fair compensation
                   for the extra hours you work. Use this calculator to verify your pay.
                 </p>
                 <div className="grid md:grid-cols-3 gap-6 text-sm">

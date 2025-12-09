@@ -107,15 +107,7 @@ export default function BlogIndex() {
       publishDate: "2025-01-01",
       tags: ["Inflation", "Economics", "Real Income", "Financial Planning"]
     },
-    {
-      title: "Understanding Total Compensation Beyond Base Salary",
-      excerpt: "Comprehensive guide to evaluating and negotiating total compensation packages. Benefits, equity, perks, and hidden value analysis.",
-      href: "/blog/understanding-total-compensation",
-      category: "Compensation",
-      readTime: "10 min read",
-      publishDate: "2024-12-28",
-      tags: ["Total Compensation", "Benefits", "Equity", "Package Evaluation"]
-    }
+
   ];
 
   const categories = ["All", "Analysis", "Strategy", "Education", "Templates", "Modern Work", "Data", "Economics", "Compensation"];
@@ -317,6 +309,7 @@ export default function BlogIndex() {
                         src={post.image}
                         alt={post.title}
                         className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
+                        loading="lazy"
                       />
                     ) : (
                       <div className="w-full h-full bg-gradient-to-br from-blue-600 to-purple-600 p-6 flex items-center justify-between">

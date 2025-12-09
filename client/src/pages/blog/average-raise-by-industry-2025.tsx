@@ -5,19 +5,21 @@ import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { SEOHead } from "@/components/seo/head";
 import { Link } from "wouter";
-import { 
-  TrendingUp, 
-  Building2, 
-  BarChart3, 
-  Target, 
-  Users, 
-  MapPin, 
+import {
+  TrendingUp,
+  Building2,
+  BarChart3,
+  Target,
+  Users,
+  MapPin,
   DollarSign,
   Clock,
   CheckCircle,
   AlertCircle,
   Zap
 } from "lucide-react";
+import { IndustryComparisonChart } from "@/components/infographics/industry-comparison-chart";
+import { IndustryBenchmarksGrid } from "@/components/infographics/industry-benchmarks-grid";
 
 export default function AverageRaiseByIndustry2025() {
   const [selectedIndustry, setSelectedIndustry] = useState("technology");
@@ -259,6 +261,7 @@ export default function AverageRaiseByIndustry2025() {
     },
     "datePublished": "2025-01-31",
     "dateModified": "2025-01-31",
+    "image": "https://payraisepercentagecalculator.com/images/blog/average-raise-by-industry-2025-hero.png",
     "url": "https://payraisepercentagecalculator.com/blog/average-raise-by-industry-2025"
   };
 
@@ -278,10 +281,25 @@ export default function AverageRaiseByIndustry2025() {
             <h1 className="text-4xl font-bold text-gray-900 mb-4">
               Average Raise by Industry 2025: Complete Salary Increase Data & Trends
             </h1>
-            <p className="text-xl text-gray-600 max-w-4xl mx-auto">
-              Comprehensive analysis of salary increase patterns across major industries. 
+            <p className="text-xl text-gray-600 max-w-4xl mx-auto mb-8">
+              Comprehensive analysis of salary increase patterns across major industries.
               Real data from 2025 surveys, regional variations, and role-specific breakdowns for informed negotiations.
             </p>
+
+            <div className="relative h-64 md:h-96 w-full rounded-xl overflow-hidden shadow-xl mb-12">
+              <img
+                src="/images/blog/average-raise-by-industry-2025-hero.png"
+                alt="Graph showing average salary raises across industries in 2025"
+                className="w-full h-full object-cover"
+                loading="lazy"
+                onError={(e) => {
+                  const target = e.target as HTMLImageElement;
+                  target.style.display = 'none';
+                  target.parentElement!.className += ' bg-gradient-to-r from-blue-100 to-indigo-100 flex items-center justify-center';
+                  target.parentElement!.innerHTML += '<span class="text-blue-500 font-medium">Image Loading...</span>';
+                }}
+              />
+            </div>
           </div>
 
           {/* Industry Overview Cards */}
@@ -289,11 +307,10 @@ export default function AverageRaiseByIndustry2025() {
             <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">Industry Raise Overview</h2>
             <div className="grid lg:grid-cols-3 gap-6">
               {industryData.map((industry) => (
-                <Card 
+                <Card
                   key={industry.slug}
-                  className={`cursor-pointer transition-all ${
-                    selectedIndustry === industry.slug ? 'ring-2 ring-primary shadow-lg' : 'hover:shadow-md'
-                  }`}
+                  className={`cursor-pointer transition-all ${selectedIndustry === industry.slug ? 'ring-2 ring-primary shadow-lg' : 'hover:shadow-md'
+                    }`}
                   onClick={() => setSelectedIndustry(industry.slug)}
                 >
                   <CardContent className="p-6">
@@ -304,9 +321,9 @@ export default function AverageRaiseByIndustry2025() {
                         </div>
                         <h3 className="text-lg font-semibold text-gray-900">{industry.industry}</h3>
                       </div>
-                      <Badge 
-                        variant={industry.growthTrend === 'Strong' ? 'default' : 
-                                industry.growthTrend === 'Moderate' ? 'secondary' : 'outline'}
+                      <Badge
+                        variant={industry.growthTrend === 'Strong' ? 'default' :
+                          industry.growthTrend === 'Moderate' ? 'secondary' : 'outline'}
                       >
                         {industry.growthTrend}
                       </Badge>
@@ -328,6 +345,15 @@ export default function AverageRaiseByIndustry2025() {
                   </CardContent>
                 </Card>
               ))}
+            </div>
+          </section>
+
+          {/* Visual Comparison Charts */}
+          <section className="mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">Visual Comparisons</h2>
+            <div className="grid md:grid-cols-2 gap-8">
+              <IndustryComparisonChart />
+              <IndustryBenchmarksGrid />
             </div>
           </section>
 
@@ -353,7 +379,7 @@ export default function AverageRaiseByIndustry2025() {
                     <TabsTrigger value="factors">Market Factors</TabsTrigger>
                     <TabsTrigger value="outlook">2025 Outlook</TabsTrigger>
                   </TabsList>
-                  
+
                   <TabsContent value="roles" className="space-y-4">
                     <h3 className="text-lg font-semibold text-gray-900 mb-4">Average Raises by Role</h3>
                     <div className="space-y-3">
@@ -371,7 +397,7 @@ export default function AverageRaiseByIndustry2025() {
                       ))}
                     </div>
                   </TabsContent>
-                  
+
                   <TabsContent value="factors" className="space-y-4">
                     <h3 className="text-lg font-semibold text-gray-900 mb-4">Key Market Factors</h3>
                     <div className="space-y-3">
@@ -383,7 +409,7 @@ export default function AverageRaiseByIndustry2025() {
                       ))}
                     </div>
                   </TabsContent>
-                  
+
                   <TabsContent value="outlook" className="space-y-4">
                     <h3 className="text-lg font-semibold text-gray-900 mb-4">2025 Market Outlook</h3>
                     <div className="bg-blue-50 p-4 rounded-lg border-l-4 border-blue-400">
@@ -408,7 +434,7 @@ export default function AverageRaiseByIndustry2025() {
                     <div key={index} className="border-l-4 border-primary pl-6">
                       <div className="flex items-center justify-between mb-2">
                         <h3 className="text-lg font-semibold text-gray-900">{region.region}</h3>
-                        <Badge 
+                        <Badge
                           variant={region.adjustment.includes('+') ? 'default' : 'secondary'}
                           className="text-lg px-3 py-1"
                         >
@@ -448,10 +474,9 @@ export default function AverageRaiseByIndustry2025() {
                             <p className="text-sm text-gray-600">{company.employees} employees</p>
                           </div>
                           <div className="text-center">
-                            <div className={`text-2xl font-bold ${
-                              company.raiseBonus.includes('+') ? 'text-green-600' : 
+                            <div className={`text-2xl font-bold ${company.raiseBonus.includes('+') ? 'text-green-600' :
                               company.raiseBonus.includes('-') ? 'text-red-600' : 'text-gray-600'
-                            }`}>
+                              }`}>
                               {company.raiseBonus}
                             </div>
                             <div className="text-xs text-gray-500">vs. Baseline</div>
@@ -464,6 +489,24 @@ export default function AverageRaiseByIndustry2025() {
                     </Card>
                   ))}
                 </div>
+              </CardContent>
+            </Card>
+          </section>
+
+          {/* Data Sources Section */}
+          <section className="mb-12">
+            <Card>
+              <CardContent className="p-8">
+                <h2 className="text-xl font-bold mb-4 text-gray-800">Data Sources & Methodology</h2>
+                <p className="text-gray-600 mb-4">
+                  Our industry raise data is compiled from multiple authoritative sources, including:
+                </p>
+                <ul className="space-y-2 text-gray-700">
+                  <li>• <a href="https://www.bls.gov/eci/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">Bureau of Labor Statistics Employment Cost Index</a> - Official government wage data</li>
+                  <li>• <a href="https://www.shrm.org/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">SHRM (Society for Human Resource Management)</a> - HR compensation surveys</li>
+                  <li>• <a href="https://www.glassdoor.com/research/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">Glassdoor Economic Research</a> - Employee-reported salary data</li>
+                  <li>• <a href="https://www.payscale.com/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">PayScale Compensation Research</a> - Industry benchmarking data</li>
+                </ul>
               </CardContent>
             </Card>
           </section>

@@ -5,18 +5,21 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { SEOHead } from "@/components/seo/head";
-import { 
-  TrendingUp, 
-  Gift, 
-  Calculator, 
+import {
+  TrendingUp,
+  Gift,
+  Calculator,
   DollarSign,
   Target,
   BarChart3,
   PieChart,
   Calendar,
   CheckCircle,
-  AlertTriangle
+  AlertTriangle,
+  BookOpen
 } from "lucide-react";
+import { BreadcrumbNavigation } from "@/components/seo/breadcrumb-navigation";
+import { RaiseVsBonusChart } from "@/components/infographics/raise-vs-bonus-chart";
 
 export default function RaiseVsBonusCalculator() {
   const [currentSalary, setCurrentSalary] = useState<string>("");
@@ -52,15 +55,15 @@ export default function RaiseVsBonusCalculator() {
     const bonus = parseFloat(bonusAmount) || 0;
     const years = parseFloat(timeframe) || 5;
     const tax = parseFloat(taxRate) || 25;
-    
+
     if (salary === 0 || (raise === 0 && bonus === 0)) return null;
-    
+
     // Raise scenario calculations
     const newSalary = salary * (1 + raise / 100);
     const annualRaiseAmount = newSalary - salary;
     let raiseCumulativeValue = 0;
     let raiseYearlyBreakdown = [];
-    
+
     for (let year = 1; year <= years; year++) {
       const yearSalary = salary * Math.pow(1 + raise / 100, year);
       const yearIncrease = yearSalary - salary;
@@ -72,14 +75,14 @@ export default function RaiseVsBonusCalculator() {
         cumulativeIncrease: raiseCumulativeValue
       });
     }
-    
+
     // Bonus scenario calculations
     const bonusTax = bonus * (tax / 100);
     const netBonus = bonus - bonusTax;
     const bonusInvestmentReturn = 0.07; // 7% annual return assumption
     let bonusInvestedValue = netBonus;
     let bonusYearlyBreakdown = [];
-    
+
     for (let year = 1; year <= years; year++) {
       bonusInvestedValue *= (1 + bonusInvestmentReturn);
       bonusYearlyBreakdown.push({
@@ -88,12 +91,12 @@ export default function RaiseVsBonusCalculator() {
         totalGrowth: bonusInvestedValue - netBonus
       });
     }
-    
+
     const finalBonusValue = bonusInvestedValue;
     const finalRaiseValue = raiseCumulativeValue;
     const advantage = finalRaiseValue > finalBonusValue ? "raise" : "bonus";
     const advantageAmount = Math.abs(finalRaiseValue - finalBonusValue);
-    
+
     return {
       raise: {
         annualAmount: annualRaiseAmount,
@@ -177,9 +180,62 @@ export default function RaiseVsBonusCalculator() {
                 <Badge variant="outline">Strategic Planning</Badge>
               </div>
               <p className="text-lg text-gray-600">
-                Compare the long-term financial impact of salary raises versus one-time bonuses. 
+                Compare the long-term financial impact of salary raises versus one-time bonuses.
                 Understand which option builds more wealth over time.
               </p>
+            </div>
+          </div>
+        </section>
+
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mt-4">
+          <BreadcrumbNavigation
+            items={[
+              { name: "Tools", url: "/tools" },
+              { name: "Raise vs Bonus", url: "/tools/raise-vs-bonus-calculator" }
+            ]}
+          />
+        </div>
+
+        {/* Step-by-Step Guide */}
+        <section className="py-12 bg-gray-50">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 className="text-2xl font-bold text-gray-900 text-center mb-8">
+              How to Compare Raises and Bonuses
+            </h2>
+            <div className="grid md:grid-cols-3 gap-6">
+              <Card className="text-center">
+                <CardHeader>
+                  <div className="mx-auto w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+                    <DollarSign className="h-6 w-6 text-blue-600" />
+                  </div>
+                  <CardTitle className="text-lg">Current Salary</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-gray-600">Enter your current annual base salary to establish the baseline for calculations.</p>
+                </CardContent>
+              </Card>
+              <Card className="text-center">
+                <CardHeader>
+                  <div className="mx-auto w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
+                    <TrendingUp className="h-6 w-6 text-green-600" />
+                  </div>
+                  <CardTitle className="text-lg">Offer Details</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-gray-600">Input the percentage of the raise offer and the lump sum amount of the bonus offer.</p>
+                </CardContent>
+              </Card>
+              <Card className="text-center">
+                <CardHeader>
+                  <div className="mx-auto w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
+                    <BarChart3 className="h-6 w-6 text-purple-600" />
+                  </div>
+                  <CardTitle className="text-lg">Compare Value</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-gray-600">Select a timeframe to see how the compound effect of a raise compares to a bonus investment.</p>
+                </CardContent>
+              </Card>
             </div>
           </div>
         </section>
@@ -255,7 +311,7 @@ export default function RaiseVsBonusCalculator() {
                       />
                     </div>
                   </div>
-                  
+
                   {results && (
                     <div className="space-y-4">
                       {/* Raise Results */}
@@ -295,11 +351,10 @@ export default function RaiseVsBonusCalculator() {
                       </div>
 
                       {/* Winner */}
-                      <div className={`p-4 rounded-lg border-2 ${
-                        results.comparison.raiseWins 
-                          ? 'bg-blue-50 border-blue-300' 
-                          : 'bg-green-50 border-green-300'
-                      }`}>
+                      <div className={`p-4 rounded-lg border-2 ${results.comparison.raiseWins
+                        ? 'bg-blue-50 border-blue-300'
+                        : 'bg-green-50 border-green-300'
+                        }`}>
                         <h3 className="font-semibold text-gray-900 mb-2 flex items-center">
                           <Target className="mr-2 h-5 w-5" />
                           Better Choice: {results.comparison.advantage === 'raise' ? 'Salary Raise' : 'Bonus + Investment'}
@@ -317,13 +372,22 @@ export default function RaiseVsBonusCalculator() {
           </div>
         </section>
 
+        <section className="py-12 bg-white">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
+              Raise vs Bonus: 5-Year Value Comparison
+            </h2>
+            <RaiseVsBonusChart />
+          </div>
+        </section>
+
         {/* Scenario Analysis */}
         <section className="py-12 bg-white">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
               Scenario-Based Analysis
             </h2>
-            
+
             <div className="grid md:grid-cols-2 gap-6">
               {scenarios.map((scenario, index) => (
                 <Card key={index} className="calculator-shadow">
@@ -365,7 +429,7 @@ export default function RaiseVsBonusCalculator() {
             <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
               Key Factors to Consider
             </h2>
-            
+
             <div className="grid md:grid-cols-2 gap-8">
               <Card className="calculator-shadow">
                 <CardHeader>
@@ -414,7 +478,7 @@ export default function RaiseVsBonusCalculator() {
             <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
               Investment Assumptions & Methodology
             </h2>
-            
+
             <Card className="calculator-shadow">
               <CardContent className="p-8">
                 <div className="grid md:grid-cols-2 gap-8">
@@ -452,7 +516,7 @@ export default function RaiseVsBonusCalculator() {
                 <PieChart className="h-12 w-12 text-primary mx-auto mb-4" />
                 <h2 className="text-2xl font-bold text-gray-900 mb-4">Strategic Decision Framework</h2>
                 <p className="text-gray-600 mb-6">
-                  The choice between raises and bonuses depends on your financial goals, career stage, 
+                  The choice between raises and bonuses depends on your financial goals, career stage,
                   and personal circumstances. Consider both immediate needs and long-term wealth building.
                 </p>
                 <div className="grid md:grid-cols-3 gap-6 text-sm">

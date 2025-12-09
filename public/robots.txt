@@ -37,6 +37,9 @@ Allow: /blog/3-vs-5-percent-raise-long-term-impact
 Allow: /blog/when-ask-for-raise-optimal-timing
 Allow: /blog/hourly-vs-salary-raise-differences
 Allow: /blog/raise-negotiation-scripts-templates
+Allow: /blog/how-to-calculate-raise-percentage
+Allow: /blog/typical-annual-raise-percentage
+Allow: /blog/counter-offer-salary-examples
 Allow: /blog/remote-work-raise-strategies
 Allow: /blog/average-raise-by-industry-2025
 Allow: /blog/inflation-real-salary-impact

@@ -10,7 +10,10 @@ import { SEOHead } from "@/components/seo/head";
 import { PayRaiseCalculator } from "@/lib/calculator";
 import { TaxImpactChart } from "@/components/calculator-svgs/tax-impact-chart";
 import { Link } from "wouter";
-import { FileText, Calculator, DollarSign, AlertCircle, TrendingUp, ExternalLink, ArrowRight, Target, PiggyBank, Shield } from "lucide-react";
+import { FileText, Calculator, DollarSign, AlertCircle, TrendingUp, ExternalLink, ArrowRight, Target, PiggyBank, Shield, CheckCircle2, BookOpen } from "lucide-react";
+
+import { BreadcrumbNavigation } from "@/components/seo/breadcrumb-navigation";
+import { TaxBracketChart } from "@/components/infographics/tax-bracket-chart";
 
 export default function PayRaiseTaxImpactCalculator() {
   const [currentSalary, setCurrentSalary] = useState(75000);
@@ -21,7 +24,7 @@ export default function PayRaiseTaxImpactCalculator() {
   const [results, setResults] = useState<any>(null);
 
   // Federal tax brackets for 2025 (simplified)
-  const federalTaxBrackets: Record<string, Array<{min: number, max: number, rate: number}>> = {
+  const federalTaxBrackets: Record<string, Array<{ min: number, max: number, rate: number }>> = {
     single: [
       { min: 0, max: 11000, rate: 10 },
       { min: 11001, max: 44725, rate: 12 },
@@ -42,7 +45,7 @@ export default function PayRaiseTaxImpactCalculator() {
     ]
   };
 
-  const stateTaxRates: Record<string, {name: string, rate: number}> = {
+  const stateTaxRates: Record<string, { name: string, rate: number }> = {
     "no-state-tax": { name: "No State Tax", rate: 0 },
     "california": { name: "California", rate: 9.3 },
     "new-york": { name: "New York", rate: 6.85 },
@@ -62,14 +65,14 @@ export default function PayRaiseTaxImpactCalculator() {
   const calculateFederalTax = (income: number, status: string) => {
     const brackets = federalTaxBrackets[status] || federalTaxBrackets.single;
     let tax = 0;
-    
+
     for (const bracket of brackets) {
       if (income > bracket.min) {
         const taxableInThisBracket = Math.min(income, bracket.max) - bracket.min + 1;
         tax += taxableInThisBracket * (bracket.rate / 100);
       }
     }
-    
+
     return tax;
   };
 
@@ -89,13 +92,13 @@ export default function PayRaiseTaxImpactCalculator() {
     // FICA taxes (Social Security + Medicare)
     const socialSecurityRate = 6.2;
     const medicareRate = 1.45;
-    
+
     // Social Security tax caps at $160,200 in 2025
     const ssWageBase = 160200;
     const currentSSTax = Math.min(currentSalary, ssWageBase) * (socialSecurityRate / 100);
     const newSSTax = Math.min(newSalary, ssWageBase) * (socialSecurityRate / 100);
     const ssTaxIncrease = newSSTax - currentSSTax;
-    
+
     const medicareTaxIncrease = raiseAmount * (medicareRate / 100);
     const ficaTaxIncrease = ssTaxIncrease + medicareTaxIncrease;
 
@@ -145,6 +148,12 @@ export default function PayRaiseTaxImpactCalculator() {
       />
 
       <div className="min-h-screen bg-gray-50">
+        <BreadcrumbNavigation
+          items={[
+            { name: "Tools", url: "/tools" },
+            { name: "Tax Impact Calculator", url: "/tools/pay-raise-tax-impact-calculator" }
+          ]}
+        />
         {/* Hero Section */}
         <section className="bg-white py-12">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -161,6 +170,87 @@ export default function PayRaiseTaxImpactCalculator() {
                   Based on 2025 tax brackets and rates
                 </span>
               </div>
+
+              <div className="mt-10 relative">
+                <div className="absolute inset-0 bg-blue-200 blur-3xl opacity-20 transform rotate-3 rounded-full"></div>
+                <img
+                  src="/images/calculators/tax-impact-hero.png"
+                  alt="Tax forms and calculator showing gross vs net salary comparison"
+                  className="relative rounded-xl shadow-2xl border-4 border-white mx-auto w-full max-w-2xl transform hover:scale-[1.02] transition-transform duration-500"
+                  loading="lazy"
+                  onError={(e) => {
+                    const target = e.target as HTMLImageElement;
+                    target.style.display = 'none';
+                  }}
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Step-by-Step Guide */}
+        <section className="py-12 bg-gray-50">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 className="text-2xl font-bold text-gray-900 text-center mb-8">
+              How to Calculate Your Net Pay Increase
+            </h2>
+            <div className="grid md:grid-cols-3 gap-6">
+              <Card className="text-center">
+                <CardHeader>
+                  <div className="mx-auto w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+                    <DollarSign className="h-6 w-6 text-blue-600" />
+                  </div>
+                  <CardTitle className="text-lg">Input Salary Details</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-gray-600">Enter your current annual salary and the percentage increase of your raise or promotion.</p>
+                </CardContent>
+              </Card>
+
+              <Card className="text-center">
+                <CardHeader>
+                  <div className="mx-auto w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
+                    <FileText className="h-6 w-6 text-green-600" />
+                  </div>
+                  <CardTitle className="text-lg">Select Tax Status</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-gray-600">Choose your filing status and state to apply the correct 2025 tax brackets and rates.</p>
+                </CardContent>
+              </Card>
+
+              <Card className="text-center">
+                <CardHeader>
+                  <div className="mx-auto w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
+                    <Calculator className="h-6 w-6 text-purple-600" />
+                  </div>
+                  <CardTitle className="text-lg">View Net Impact</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-gray-600">See exactly how much of your raise you keep after Federal, State, and FICA taxes are deducted.</p>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+        </section>
+
+        {/* Methodology Section */}
+        <section className="py-8 bg-white border-y border-gray-100">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="bg-yellow-50 rounded-lg p-6 flex flex-col md:flex-row items-start gap-4">
+              <BookOpen className="w-8 h-8 text-yellow-600 flex-shrink-0 mt-1" />
+              <div>
+                <h3 className="text-lg font-semibold text-yellow-900 mb-2">Tax Calculation Methodology</h3>
+                <p className="text-yellow-800 text-sm leading-relaxed">
+                  We calculate tax liability based on the <strong>2025 Federal Tax Brackets</strong> and current state income tax rates.
+                  FICA taxes are calculated at 6.2% for Social Security (up to the wage base limit of $160,200) and 1.45% for Medicare (with no limit).
+                  Calculations assume the standard deduction for the selected filing status.
+                </p>
+              </div>
+            </div>
+
+            <div className="mt-8">
+              <TaxBracketChart />
             </div>
           </div>
         </section>
@@ -276,7 +366,7 @@ export default function PayRaiseTaxImpactCalculator() {
                   {results && (
                     <div className="space-y-6">
                       {/* Interactive Tax Visualization */}
-                      <TaxImpactChart 
+                      <TaxImpactChart
                         grossRaise={results.raiseAmount}
                         netRaise={results.netRaiseAmount}
                         taxAmount={results.totalTaxIncrease}

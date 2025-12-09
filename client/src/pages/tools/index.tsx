@@ -25,7 +25,7 @@ export default function ToolsIndex() {
       description: "Calculate your new salary with percentage, flat amount, or target salary inputs",
       icon: <Calculator className="h-8 w-8" />,
       href: "/",
-      image: "/images/calculators/pay-raise-calculator.jpg",
+      image: "/images/calculators/pay-raise-calculator.png",
       featured: true,
       category: "Core"
     },
@@ -34,7 +34,7 @@ export default function ToolsIndex() {
       description: "Project salary growth over multiple years with compound percentage increases",
       icon: <TrendingUp className="h-8 w-8" />,
       href: "/tools/compound-raise-calculator",
-      image: "/images/calculators/compound-raise-calculator.jpg",
+      image: "/images/calculators/compound-raise-calculator.png",
       category: "Advanced"
     },
     {
@@ -42,7 +42,7 @@ export default function ToolsIndex() {
       description: "See your real purchasing power after accounting for inflation",
       icon: <PiggyBank className="h-8 w-8" />,
       href: "/tools/inflation-adjusted-raise-calculator",
-      image: "/images/calculators/inflation-adjusted-raise-calculator.jpg",
+      image: "/images/calculators/inflation-adjusted-raise-calculator.png",
       category: "Advanced"
     },
     {
@@ -211,6 +211,7 @@ export default function ToolsIndex() {
                           src={tool.image}
                           alt={tool.title}
                           className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                          loading="lazy"
                         />
                       </div>
                     )}

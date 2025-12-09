@@ -8,10 +8,10 @@ import { Badge } from "@/components/ui/badge";
 import { SEOHead } from "@/components/seo/head";
 import { BreadcrumbNavigation, BreadcrumbPatterns } from "@/components/seo/breadcrumb-navigation";
 import { InternalLink } from "@/components/seo/internal-link-checker";
-import { 
-  Calculator, 
-  ArrowLeftRight, 
-  DollarSign, 
+import {
+  Calculator,
+  ArrowLeftRight,
+  DollarSign,
   TrendingUp,
   Building,
   Car,
@@ -65,9 +65,9 @@ export default function OfferComparisonCalculator() {
   });
 
   const calculateTotalValue = (offer: OfferData) => {
-    return offer.baseSalary + offer.signingBonus + offer.annualBonus + 
-           offer.stockValue + offer.retirementMatch + offer.healthInsuranceCost + 
-           offer.ptoValue + offer.commuteCosts + offer.otherBenefits;
+    return offer.baseSalary + offer.signingBonus + offer.annualBonus +
+      offer.stockValue + offer.retirementMatch + offer.healthInsuranceCost +
+      offer.ptoValue + offer.commuteCosts + offer.otherBenefits;
   };
 
   const offer1Total = calculateTotalValue(offer1);
@@ -78,7 +78,7 @@ export default function OfferComparisonCalculator() {
   const updateOffer = (offerNumber: 1 | 2, field: keyof OfferData, value: string | number) => {
     const setter = offerNumber === 1 ? setOffer1 : setOffer2;
     const currentOffer = offerNumber === 1 ? offer1 : offer2;
-    
+
     setter({
       ...currentOffer,
       [field]: typeof value === 'string' ? value : Number(value) || 0
@@ -120,8 +120,8 @@ export default function OfferComparisonCalculator() {
 
       <div className="min-h-screen bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-          
-          <BreadcrumbNavigation 
+
+          <BreadcrumbNavigation
             items={BreadcrumbPatterns.tool("Offer Comparison Calculator")}
             className="mb-6"
           />
@@ -134,7 +134,7 @@ export default function OfferComparisonCalculator() {
               </h1>
             </div>
             <p className="text-xl text-gray-600 max-w-3xl">
-              Evaluate your options like a pro by comparing the complete compensation packages of multiple job offers. 
+              Evaluate your options like a pro by comparing the complete compensation packages of multiple job offers.
               Look beyond base salary to make the best career decision.
             </p>
           </div>
@@ -165,7 +165,7 @@ export default function OfferComparisonCalculator() {
                     placeholder="75000"
                   />
                 </div>
-                
+
                 <div>
                   <Label htmlFor="offer1-signing">Signing Bonus</Label>
                   <Input
@@ -176,7 +176,7 @@ export default function OfferComparisonCalculator() {
                     placeholder="0"
                   />
                 </div>
-                
+
                 <div>
                   <Label htmlFor="offer1-bonus">Annual Bonus (Target %)</Label>
                   <Input
@@ -187,7 +187,7 @@ export default function OfferComparisonCalculator() {
                     placeholder="3750"
                   />
                 </div>
-                
+
                 <div>
                   <Label htmlFor="offer1-stock">Stock Options/RSUs (Annual Value)</Label>
                   <Input
@@ -198,7 +198,7 @@ export default function OfferComparisonCalculator() {
                     placeholder="0"
                   />
                 </div>
-                
+
                 <div>
                   <Label htmlFor="offer1-retirement">401k Match Value</Label>
                   <Input
@@ -209,7 +209,7 @@ export default function OfferComparisonCalculator() {
                     placeholder="2250"
                   />
                 </div>
-                
+
                 <div>
                   <Label htmlFor="offer1-health">Health Insurance Cost (Annual)</Label>
                   <Input
@@ -220,7 +220,7 @@ export default function OfferComparisonCalculator() {
                     placeholder="2400"
                   />
                 </div>
-                
+
                 <div>
                   <Label htmlFor="offer1-pto">PTO Value (Annual)</Label>
                   <Input
@@ -231,7 +231,7 @@ export default function OfferComparisonCalculator() {
                     placeholder="2885"
                   />
                 </div>
-                
+
                 <div>
                   <Label htmlFor="offer1-commute">Commute Costs (Annual)</Label>
                   <Input
@@ -242,7 +242,7 @@ export default function OfferComparisonCalculator() {
                     placeholder="3600"
                   />
                 </div>
-                
+
                 <div>
                   <Label htmlFor="offer1-other">Other Benefits Value</Label>
                   <Input
@@ -280,7 +280,7 @@ export default function OfferComparisonCalculator() {
                     placeholder="85000"
                   />
                 </div>
-                
+
                 <div>
                   <Label htmlFor="offer2-signing">Signing Bonus</Label>
                   <Input
@@ -291,7 +291,7 @@ export default function OfferComparisonCalculator() {
                     placeholder="10000"
                   />
                 </div>
-                
+
                 <div>
                   <Label htmlFor="offer2-bonus">Annual Bonus (Target %)</Label>
                   <Input
@@ -302,7 +302,7 @@ export default function OfferComparisonCalculator() {
                     placeholder="8500"
                   />
                 </div>
-                
+
                 <div>
                   <Label htmlFor="offer2-stock">Stock Options/RSUs (Annual Value)</Label>
                   <Input
@@ -313,7 +313,7 @@ export default function OfferComparisonCalculator() {
                     placeholder="15000"
                   />
                 </div>
-                
+
                 <div>
                   <Label htmlFor="offer2-retirement">401k Match Value</Label>
                   <Input
@@ -324,7 +324,7 @@ export default function OfferComparisonCalculator() {
                     placeholder="2550"
                   />
                 </div>
-                
+
                 <div>
                   <Label htmlFor="offer2-health">Health Insurance Cost (Annual)</Label>
                   <Input
@@ -335,7 +335,7 @@ export default function OfferComparisonCalculator() {
                     placeholder="1800"
                   />
                 </div>
-                
+
                 <div>
                   <Label htmlFor="offer2-pto">PTO Value (Annual)</Label>
                   <Input
@@ -346,7 +346,7 @@ export default function OfferComparisonCalculator() {
                     placeholder="3269"
                   />
                 </div>
-                
+
                 <div>
                   <Label htmlFor="offer2-commute">Commute Costs (Annual)</Label>
                   <Input
@@ -357,7 +357,7 @@ export default function OfferComparisonCalculator() {
                     placeholder="1200"
                   />
                 </div>
-                
+
                 <div>
                   <Label htmlFor="offer2-other">Other Benefits Value</Label>
                   <Input
@@ -476,20 +476,7 @@ export default function OfferComparisonCalculator() {
                   <div>
                     <h4 className="font-semibold text-gray-900 mb-2">Valuing Stock Options and RSUs</h4>
                     <p className="text-sm text-gray-600">
-                      For RSUs, use current share price × number of shares vesting annually. 
-                      For options, calculate potential gain based on current valuation and strike price.
-                    </p>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-gray-900 mb-2">Estimating Bonus Payouts</h4>
-                    <p className="text-sm text-gray-600">
-                      Use target bonus percentage × base salary. Consider company's historical payout rates and your confidence in achieving targets.
-                    </p>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-gray-900 mb-2">PTO and Health Benefits</h4>
-                    <p className="text-sm text-gray-600">
-                      Calculate PTO value as (days × daily rate). Compare health insurance costs including premiums, deductibles, and coverage differences.
+                      For RSUs, use current share price × number of shares vesting annually.
                     </p>
                   </div>
                 </div>
@@ -518,7 +505,7 @@ export default function OfferComparisonCalculator() {
                   </div>
                   <div className="bg-blue-50 p-4 rounded-lg">
                     <p className="text-sm text-blue-800">
-                      <strong>Pro Tip:</strong> Use these quantitative results as a starting point, 
+                      <strong>Pro Tip:</strong> Use these quantitative results as a starting point,
                       but don't ignore the qualitative factors that impact your daily satisfaction and long-term career success.
                     </p>
                   </div>

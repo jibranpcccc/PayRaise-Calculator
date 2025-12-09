@@ -5,16 +5,18 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { SEOHead } from "@/components/seo/head";
-import { 
-  Clock, 
-  Calculator, 
+import {
+  Clock,
+  Calculator,
   DollarSign,
   Calendar,
   BarChart3,
   TrendingUp,
   Target,
-  ArrowRight
+  ArrowRight,
+  BookOpen
 } from "lucide-react";
+import { BreadcrumbNavigation } from "@/components/seo/breadcrumb-navigation";
 
 export default function HourlyToSalaryConverter() {
   const [hourlyRate, setHourlyRate] = useState<string>("");
@@ -47,16 +49,16 @@ export default function HourlyToSalaryConverter() {
   const calculateConversion = () => {
     const hours = parseFloat(hoursPerWeek) || 40;
     const weeks = parseFloat(weeksPerYear) || 52;
-    
+
     if (conversionType === "hourly-to-salary") {
       const rate = parseFloat(hourlyRate) || 0;
       if (rate === 0) return null;
-      
+
       const annualSalary = rate * hours * weeks;
       const monthlySalary = annualSalary / 12;
       const weeklySalary = rate * hours;
       const biweeklySalary = weeklySalary * 2;
-      
+
       return {
         type: "hourly-to-salary",
         hourlyRate: rate,
@@ -69,12 +71,12 @@ export default function HourlyToSalaryConverter() {
     } else {
       const salary = parseFloat(salaryAmount) || 0;
       if (salary === 0) return null;
-      
+
       const equivalentHourly = salary / (hours * weeks);
       const monthlyAmount = salary / 12;
       const weeklyAmount = salary / weeks;
       const biweeklyAmount = weeklyAmount * 2;
-      
+
       return {
         type: "salary-to-hourly",
         annualSalary: salary,
@@ -131,7 +133,7 @@ export default function HourlyToSalaryConverter() {
                   <p className="text-gray-600">Select whether you want to convert from hourly to salary or salary to hourly rate.</p>
                 </CardContent>
               </Card>
-              
+
               <Card className="text-center">
                 <CardHeader>
                   <div className="mx-auto w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
@@ -143,7 +145,7 @@ export default function HourlyToSalaryConverter() {
                   <p className="text-gray-600">Input your hourly rate or salary amount, plus hours per week and weeks per year worked.</p>
                 </CardContent>
               </Card>
-              
+
               <Card className="text-center">
                 <CardHeader>
                   <div className="mx-auto w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
@@ -278,7 +280,7 @@ export default function HourlyToSalaryConverter() {
                         </div>
                         <div className="text-sm text-gray-600">Monthly</div>
                       </div>
-                      
+
                       <div className="text-center p-4 bg-gray-50 rounded-lg">
                         <div className="text-xl font-bold text-gray-900">
                           ${(results.type === "hourly-to-salary" ? results.weeklySalary : results.weeklyAmount).toLocaleString()}
@@ -328,7 +330,7 @@ export default function HourlyToSalaryConverter() {
                   </li>
                 </ul>
               </div>
-              
+
               <div>
                 <h3 className="text-lg font-semibold text-gray-900 mb-4">When to Convert</h3>
                 <ul className="space-y-3 text-gray-600">
@@ -409,9 +411,9 @@ export default function HourlyToSalaryConverter() {
                   <Clock className="h-8 w-8 text-white" />
                 </div>
               </div>
-              <h1 className="text-4xl font-bold text-gray-900 mb-4">
+              <h2 className="text-4xl font-bold text-gray-900 mb-4">
                 Hourly to Salary Converter
-              </h1>
+              </h2>
               <p className="text-xl text-gray-600 mb-6">
                 Professional Wage Calculation Tool
               </p>
@@ -421,7 +423,7 @@ export default function HourlyToSalaryConverter() {
                 <Badge variant="outline">Benefits Analysis</Badge>
               </div>
               <p className="text-lg text-gray-600">
-                Convert between hourly wages and annual salaries with customizable work schedules. 
+                Convert between hourly wages and annual salaries with customizable work schedules.
                 Compare compensation structures and understand total employment value.
               </p>
             </div>
@@ -475,7 +477,7 @@ export default function HourlyToSalaryConverter() {
                         />
                       </div>
                     )}
-                    
+
                     <div>
                       <Label htmlFor="hoursPerWeek">Hours per Week</Label>
                       <Input
@@ -496,14 +498,14 @@ export default function HourlyToSalaryConverter() {
                         onChange={(e) => setWeeksPerYear(e.target.value)}
                       />
                     </div>
-                    
+
                     <div className="bg-blue-50 p-4 rounded-lg">
                       <div className="text-sm text-blue-800">
                         <strong>Total Work Hours:</strong> {((parseFloat(hoursPerWeek) || 40) * (parseFloat(weeksPerYear) || 52)).toLocaleString()} hours/year
                       </div>
                     </div>
                   </div>
-                  
+
                   {results && (
                     <div className="bg-green-50 p-6 rounded-lg">
                       <h3 className="font-semibold text-gray-900 mb-4 flex items-center">
@@ -577,14 +579,14 @@ export default function HourlyToSalaryConverter() {
             <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
               Common Work Schedule Templates
             </h2>
-            
+
             <div className="grid md:grid-cols-3 gap-6">
               {workScheduleOptions.map((schedule, index) => (
                 <Card key={index} className="calculator-shadow hover:shadow-lg transition-shadow cursor-pointer"
-                      onClick={() => {
-                        setHoursPerWeek(schedule.hours.toString());
-                        setWeeksPerYear(schedule.weeks.toString());
-                      }}>
+                  onClick={() => {
+                    setHoursPerWeek(schedule.hours.toString());
+                    setWeeksPerYear(schedule.weeks.toString());
+                  }}>
                   <CardContent className="p-6 text-center">
                     <Calendar className="h-8 w-8 text-primary mx-auto mb-3" />
                     <h3 className="font-semibold text-gray-900 mb-2">{schedule.description}</h3>
@@ -608,7 +610,7 @@ export default function HourlyToSalaryConverter() {
             <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
               Hourly vs Salary: Beyond the Numbers
             </h2>
-            
+
             <Card className="calculator-shadow">
               <CardContent className="p-6">
                 <div className="overflow-x-auto">
@@ -642,7 +644,7 @@ export default function HourlyToSalaryConverter() {
             <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
               Making the Right Choice
             </h2>
-            
+
             <div className="grid md:grid-cols-2 gap-8">
               <Card className="calculator-shadow">
                 <CardHeader>
@@ -691,7 +693,7 @@ export default function HourlyToSalaryConverter() {
                 <Target className="h-12 w-12 text-primary mx-auto mb-4" />
                 <h2 className="text-2xl font-bold text-gray-900 mb-4">Conversion Best Practices</h2>
                 <p className="text-gray-600 mb-6">
-                  When converting between hourly and salary positions, consider total compensation 
+                  When converting between hourly and salary positions, consider total compensation
                   including benefits, work-life balance, and career growth opportunities.
                 </p>
                 <div className="grid md:grid-cols-3 gap-6 text-sm">

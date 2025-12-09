@@ -42,6 +42,9 @@ import HourlyVsSalaryRaiseDifferences from "@/pages/blog/hourly-vs-salary-raise-
 import AverageRaiseByIndustry2025 from "@/pages/blog/average-raise-by-industry-2025";
 import InflationRealSalaryImpact from "@/pages/blog/inflation-real-salary-impact";
 import RemoteWorkRaiseStrategies from "@/pages/blog/remote-work-raise-strategies";
+import HowToCalculateRaisePercentage from "@/pages/blog/how-to-calculate-raise-percentage";
+import TypicalAnnualRaisePercentage from "@/pages/blog/typical-annual-raise-percentage";
+import CounterOfferSalaryExamples from "@/pages/blog/counter-offer-salary-examples";
 import GenderPayGapCalculator from "@/pages/tools/gender-pay-gap-calculator";
 import OvertimePayCalculator from "@/pages/tools/overtime-pay-calculator";
 import PromotionCalculator from "@/pages/tools/promotion-calculator";
@@ -52,6 +55,17 @@ import RaiseAfterDeductionsCalculator from "@/pages/tools/raise-after-deductions
 import SalaryVsTotalCompensationCalculator from "@/pages/tools/salary-vs-total-compensation-calculator";
 import RaiseCalculatorVsSalaryCalculator from "@/pages/guides/raise-calculator-vs-salary-calculator";
 import WhyYourRaiseFeelsSmallerThisYear from "@/pages/blog/why-your-raise-feels-smaller-this-year";
+import RaiseVsBonusCalculator from "@/pages/tools/raise-vs-bonus-calculator";
+import OfferComparisonCalculator from "@/pages/tools/offer-comparison-calculator";
+import RaiseImpactRetirementSavingsCalculator from "@/pages/tools/raise-impact-retirement-savings-calculator";
+import EffectiveHourlyRateCalculator from "@/pages/tools/effective-hourly-rate-calculator";
+import FreelanceRateIncreaseCalculator from "@/pages/tools/freelance-rate-increase-calculator";
+import AveragePayRaisesDataTrends from "@/pages/guides/average-pay-raises-data-trends";
+import FactorsInfluencingPayRaises from "@/pages/guides/factors-influencing-pay-raises";
+import MarketValueSalaryResearch from "@/pages/guides/market-value-salary-research";
+import CostLivingAdjustmentGuide from "@/pages/guides/cost-living-adjustment-guide";
+import CommonSalaryNegotiationMistakes from "@/pages/blog/common-salary-negotiation-mistakes";
+import SalaryTransparencyImpact from "@/pages/blog/salary-transparency-impact";
 import HowMuchRaiseToAskForBasedOnRole from "@/pages/blog/how-much-raise-to-ask-for-based-on-role";
 import BestTimeOfYearToNegotiateRaise from "@/pages/blog/best-time-of-year-to-negotiate-raise";
 import RaiseCalculatorUpdates2025 from "@/pages/blog/raise-calculator-updates-2025";
@@ -128,6 +142,9 @@ function Router() {
           <Route path="/blog/how-much-raise-to-ask-for-based-on-role" component={HowMuchRaiseToAskForBasedOnRole} />
           <Route path="/blog/best-time-of-year-to-negotiate-raise" component={BestTimeOfYearToNegotiateRaise} />
           <Route path="/blog/raise-calculator-updates-2025" component={RaiseCalculatorUpdates2025} />
+          <Route path="/blog/how-to-calculate-raise-percentage" component={HowToCalculateRaisePercentage} />
+          <Route path="/blog/typical-annual-raise-percentage" component={TypicalAnnualRaisePercentage} />
+          <Route path="/blog/counter-offer-salary-examples" component={CounterOfferSalaryExamples} />
 
           {/* Core Pages */}
           <Route path="/salary-negotiation-complete-guide" component={SalaryNegotiationCompleteGuide} />
@@ -154,17 +171,21 @@ function Router() {
   );
 }
 
+import { HelmetProvider } from "react-helmet-async";
+
 function App() {
   return (
-    <QueryClientProvider client={queryClient}>
-      <TooltipProvider>
-        <Toaster />
-        <Suspense fallback={<LoadingSpinner />}>
-          <Router />
-        </Suspense>
-        <PerformanceMonitor />
-      </TooltipProvider>
-    </QueryClientProvider>
+    <HelmetProvider>
+      <QueryClientProvider client={queryClient}>
+        <TooltipProvider>
+          <Toaster />
+          <Suspense fallback={<LoadingSpinner />}>
+            <Router />
+          </Suspense>
+          <PerformanceMonitor />
+        </TooltipProvider>
+      </QueryClientProvider>
+    </HelmetProvider>
   );
 }
 

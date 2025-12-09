@@ -55,53 +55,53 @@ export default function SalaryNegotiationCalculator() {
 
   const calculateNegotiationPosition = () => {
     if (!currentSalary || !targetIncrease || !performanceRating || !yearsAtCompany || !industryGrowth) return;
-    
+
     const salary = parseFloat(currentSalary);
     const targetPercent = parseFloat(targetIncrease) / 100;
     const years = parseInt(yearsAtCompany);
-    
+
     const performanceMultiplier = performanceRatings.find(r => r.value === performanceRating)?.multiplier || 1.0;
     const industryBonus = industryGrowthRates.find(g => g.value === industryGrowth)?.bonus || 0;
-    
+
     // Base success probability calculation
     let successProbability = 0.5; // Base 50%
-    
+
     // Adjust for performance
     if (performanceRating === "exceeds") successProbability += 0.25;
     if (performanceRating === "below") successProbability -= 0.3;
-    
+
     // Adjust for tenure
     if (years >= 3) successProbability += 0.15;
     if (years >= 5) successProbability += 0.1;
     if (years < 1) successProbability -= 0.2;
-    
+
     // Adjust for supporting factors
     if (marketResearch) successProbability += 0.15;
     if (recentAchievements) successProbability += 0.2;
     if (additionalResponsibilities) successProbability += 0.15;
-    
+
     // Adjust for industry growth
     successProbability += industryBonus * 10; // Convert to percentage points
-    
+
     // Cap between 10% and 95%
     successProbability = Math.max(0.1, Math.min(0.95, successProbability));
-    
+
     const targetSalary = salary * (1 + targetPercent);
     const recommendedAsk = targetSalary * 1.1; // Ask 10% higher than target
     const fallbackPosition = salary * (1 + targetPercent * 0.7); // 70% of target as fallback
-    
+
     const strengthFactors = [];
     if (performanceRating === "exceeds") strengthFactors.push("Strong performance record");
     if (years >= 3) strengthFactors.push("Established tenure");
     if (marketResearch) strengthFactors.push("Market research completed");
     if (recentAchievements) strengthFactors.push("Recent significant achievements");
     if (additionalResponsibilities) strengthFactors.push("Expanded responsibilities");
-    
+
     const weaknessFactors = [];
     if (performanceRating === "below") weaknessFactors.push("Performance concerns");
     if (years < 1) weaknessFactors.push("Limited tenure");
     if (!marketResearch) weaknessFactors.push("Lack of market data");
-    
+
     setResult({
       currentSalary: salary,
       targetSalary,
@@ -170,9 +170,23 @@ export default function SalaryNegotiationCalculator() {
               Salary Negotiation Calculator
             </h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Plan your salary negotiation strategy with data-driven insights. Calculate success probability 
+              Plan your salary negotiation strategy with data-driven insights. Calculate success probability
               and get personalized recommendations for your raise request.
             </p>
+
+            <div className="mt-10 relative">
+              <div className="absolute inset-0 bg-blue-200 blur-3xl opacity-20 transform -rotate-2 rounded-full"></div>
+              <img
+                src="/images/calculators/salary-negotiation-hero.png"
+                alt="Professional handshake representing successful negotiation"
+                className="relative rounded-xl shadow-2xl border-4 border-white mx-auto w-full max-w-2xl transform hover:scale-[1.02] transition-transform duration-500"
+                loading="lazy"
+                onError={(e) => {
+                  const target = e.target as HTMLImageElement;
+                  target.style.display = 'none';
+                }}
+              />
+            </div>
           </div>
 
           <div className="grid lg:grid-cols-3 gap-8">
@@ -197,7 +211,7 @@ export default function SalaryNegotiationCalculator() {
                         onChange={(e) => setCurrentSalary(e.target.value)}
                       />
                     </div>
-                    
+
                     <div>
                       <Label htmlFor="target-increase">Target Raise (%)</Label>
                       <Input
@@ -226,7 +240,7 @@ export default function SalaryNegotiationCalculator() {
                         </SelectContent>
                       </Select>
                     </div>
-                    
+
                     <div>
                       <Label htmlFor="years-company">Years at Company</Label>
                       <Input
@@ -259,24 +273,24 @@ export default function SalaryNegotiationCalculator() {
                     <Label>Negotiation Strengths (Check all that apply)</Label>
                     <div className="space-y-3">
                       <div className="flex items-center space-x-2">
-                        <Checkbox 
-                          id="market-research" 
+                        <Checkbox
+                          id="market-research"
                           checked={marketResearch}
                           onCheckedChange={(checked) => setMarketResearch(checked === true)}
                         />
                         <Label htmlFor="market-research">Completed market salary research</Label>
                       </div>
                       <div className="flex items-center space-x-2">
-                        <Checkbox 
-                          id="recent-achievements" 
+                        <Checkbox
+                          id="recent-achievements"
                           checked={recentAchievements}
                           onCheckedChange={(checked) => setRecentAchievements(checked === true)}
                         />
                         <Label htmlFor="recent-achievements">Recent significant achievements</Label>
                       </div>
                       <div className="flex items-center space-x-2">
-                        <Checkbox 
-                          id="additional-responsibilities" 
+                        <Checkbox
+                          id="additional-responsibilities"
                           checked={additionalResponsibilities}
                           onCheckedChange={(checked) => setAdditionalResponsibilities(checked === true)}
                         />
@@ -285,8 +299,8 @@ export default function SalaryNegotiationCalculator() {
                     </div>
                   </div>
 
-                  <Button 
-                    onClick={calculateNegotiationPosition} 
+                  <Button
+                    onClick={calculateNegotiationPosition}
                     className="w-full"
                     disabled={!currentSalary || !targetIncrease || !performanceRating || !yearsAtCompany || !industryGrowth}
                   >
@@ -422,8 +436,8 @@ export default function SalaryNegotiationCalculator() {
               </CardContent>
             </Card>
           </div>
-        </div>
-      </div>
+        </div >
+      </div >
     </>
   );
 }

@@ -6,10 +6,10 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { SEOHead } from "@/components/seo/head";
-import { 
-  Gift, 
-  TrendingUp, 
-  Calculator, 
+import {
+  Gift,
+  TrendingUp,
+  Calculator,
   DollarSign,
   Target,
   BarChart3,
@@ -36,12 +36,12 @@ export default function BonusImpactCalculator() {
     const salary = parseFloat(currentSalary) || 0;
     const bonus = parseFloat(bonusAmount) || 0;
     const tax = parseFloat(taxRate) || 0;
-    
+
     if (salary === 0 || bonus === 0) return null;
-    
-    const grossBonus = bonusType === "quarterly" ? bonus * 4 : 
-                     bonusType === "monthly" ? bonus * 12 : bonus;
-    
+
+    const grossBonus = bonusType === "quarterly" ? bonus * 4 :
+      bonusType === "monthly" ? bonus * 12 : bonus;
+
     const bonusTax = grossBonus * (tax / 100);
     const netBonus = grossBonus - bonusTax;
     const totalCompensation = salary + grossBonus;
@@ -49,7 +49,7 @@ export default function BonusImpactCalculator() {
     const compensationIncrease = ((totalCompensation - salary) / salary) * 100;
     const netCompensationIncrease = ((netTotalCompensation - salary) / salary) * 100;
     const equivalentRaise = (grossBonus / salary) * 100;
-    
+
     return {
       grossBonus,
       netBonus,
@@ -116,9 +116,23 @@ export default function BonusImpactCalculator() {
                 Bonus Impact Calculator
               </h1>
               <p className="mt-6 text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-                Analyze how bonuses affect your total compensation. Calculate tax implications, 
+                Analyze how bonuses affect your total compensation. Calculate tax implications,
                 equivalent salary increases, and long-term value of performance bonuses.
               </p>
+
+              <div className="mt-10 relative">
+                <div className="absolute inset-0 bg-green-200 blur-3xl opacity-20 transform -rotate-3 rounded-full"></div>
+                <img
+                  src="/images/calculators/bonus-impact-hero.png"
+                  alt="Bonus check and golden coins representing financial rewards"
+                  className="relative rounded-xl shadow-2xl border-4 border-white mx-auto w-full max-w-2xl transform hover:scale-[1.02] transition-transform duration-500"
+                  loading="lazy"
+                  onError={(e) => {
+                    const target = e.target as HTMLImageElement;
+                    target.style.display = 'none';
+                  }}
+                />
+              </div>
             </div>
           </div>
         </section>
@@ -134,7 +148,7 @@ export default function BonusImpactCalculator() {
                 Understand the true value of your bonus compensation
               </p>
             </div>
-            
+
             <div className="grid md:grid-cols-4 gap-6 mb-8">
               <div className="bg-white rounded-lg p-6 shadow-lg">
                 <div className="bg-green-600 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
@@ -142,40 +156,40 @@ export default function BonusImpactCalculator() {
                 </div>
                 <h3 className="font-semibold text-gray-900 mb-3">Enter Base Salary</h3>
                 <p className="text-gray-600 text-sm">
-                  Input your current annual base salary excluding any bonuses 
+                  Input your current annual base salary excluding any bonuses
                   or additional compensation.
                 </p>
               </div>
-              
+
               <div className="bg-white rounded-lg p-6 shadow-lg">
                 <div className="bg-blue-600 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
                   <span className="text-white font-bold text-xl">2</span>
                 </div>
                 <h3 className="font-semibold text-gray-900 mb-3">Bonus Details</h3>
                 <p className="text-gray-600 text-sm">
-                  Enter your bonus amount and select frequency (annual, 
+                  Enter your bonus amount and select frequency (annual,
                   quarterly, monthly).
                 </p>
               </div>
-              
+
               <div className="bg-white rounded-lg p-6 shadow-lg">
                 <div className="bg-purple-600 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
                   <span className="text-white font-bold text-xl">3</span>
                 </div>
                 <h3 className="font-semibold text-gray-900 mb-3">Tax Rate</h3>
                 <p className="text-gray-600 text-sm">
-                  Set your tax rate. Bonuses are often taxed at higher rates 
+                  Set your tax rate. Bonuses are often taxed at higher rates
                   than regular salary.
                 </p>
               </div>
-              
+
               <div className="bg-white rounded-lg p-6 shadow-lg">
                 <div className="bg-orange-600 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
                   <span className="text-white font-bold text-xl">4</span>
                 </div>
                 <h3 className="font-semibold text-gray-900 mb-3">Analyze Results</h3>
                 <p className="text-gray-600 text-sm">
-                  View total compensation impact and equivalent salary 
+                  View total compensation impact and equivalent salary
                   increase analysis.
                 </p>
               </div>
@@ -265,7 +279,7 @@ export default function BonusImpactCalculator() {
                       />
                     </div>
                   </div>
-                  
+
                   {results && (
                     <div className="bg-blue-50 p-6 rounded-lg">
                       <h3 className="font-semibold text-gray-900 mb-4 flex items-center">
@@ -314,7 +328,7 @@ export default function BonusImpactCalculator() {
             <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
               Common Bonus Scenarios
             </h2>
-            
+
             <div className="grid md:grid-cols-2 gap-6">
               {bonusScenarios.map((scenario, index) => (
                 <Card key={index} className="calculator-shadow">
@@ -352,7 +366,7 @@ export default function BonusImpactCalculator() {
             <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
               Comprehensive Bonus Analysis
             </h2>
-            
+
             <div className="grid md:grid-cols-3 gap-6">
               <Card className="calculator-shadow text-center">
                 <CardContent className="p-6">
@@ -363,7 +377,7 @@ export default function BonusImpactCalculator() {
                   </p>
                 </CardContent>
               </Card>
-              
+
               <Card className="calculator-shadow text-center">
                 <CardContent className="p-6">
                   <PieChart className="h-12 w-12 text-secondary mx-auto mb-4" />
@@ -373,7 +387,7 @@ export default function BonusImpactCalculator() {
                   </p>
                 </CardContent>
               </Card>
-              
+
               <Card className="calculator-shadow text-center">
                 <CardContent className="p-6">
                   <Calendar className="h-12 w-12 text-success mx-auto mb-4" />
@@ -393,7 +407,7 @@ export default function BonusImpactCalculator() {
             <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
               Bonus vs Salary Raise: Key Differences
             </h2>
-            
+
             <Card className="calculator-shadow">
               <CardContent className="p-8">
                 <div className="grid md:grid-cols-2 gap-8">
@@ -437,7 +451,7 @@ export default function BonusImpactCalculator() {
                 <Calculator className="h-12 w-12 text-primary mx-auto mb-4" />
                 <h2 className="text-2xl font-bold text-gray-900 mb-4">Strategic Bonus Planning</h2>
                 <p className="text-gray-600 mb-6">
-                  Understanding bonus structures helps in negotiating total compensation packages 
+                  Understanding bonus structures helps in negotiating total compensation packages
                   and making informed career decisions about base salary versus variable pay.
                 </p>
                 <div className="grid md:grid-cols-3 gap-6 text-sm">

@@ -7,6 +7,7 @@ import { Badge } from "@/components/ui/badge";
 import { SEOHead } from "@/components/seo/head";
 import { PayRaiseCalculator } from "@/lib/calculator";
 import { Target, TrendingUp, Award, Building2 } from "lucide-react";
+import { BreadcrumbNavigation } from "@/components/seo/breadcrumb-navigation";
 
 export default function PromotionSalaryCalculator() {
   const [currentSalary, setCurrentSalary] = useState(75000);
@@ -80,7 +81,7 @@ export default function PromotionSalaryCalculator() {
     }
   };
 
-  const industryMultipliers = {
+  const industryMultipliers: Record<string, number> = {
     "Technology": 1.2,
     "Finance": 1.1,
     "Healthcare": 1.0,
@@ -89,7 +90,7 @@ export default function PromotionSalaryCalculator() {
     "Education": 0.7
   };
 
-  const companySizeMultipliers = {
+  const companySizeMultipliers: Record<string, number> = {
     "startup": 0.8,
     "small": 0.9,
     "medium": 1.0,
@@ -104,14 +105,14 @@ export default function PromotionSalaryCalculator() {
   const calculatePromotion = () => {
     const currentLevelData = promotionData[currentLevel as keyof typeof promotionData];
     const targetLevelData = promotionData[targetLevel as keyof typeof promotionData];
-    
+
     if (!currentLevelData || !targetLevelData) return;
 
     // Calculate levels between current and target
     const levels = Object.keys(promotionData);
     const currentIndex = levels.indexOf(currentLevel);
     const targetIndex = levels.indexOf(targetLevel);
-    
+
     if (targetIndex <= currentIndex) {
       // Same level or downward - not a typical promotion
       setResults({
@@ -128,18 +129,18 @@ export default function PromotionSalaryCalculator() {
     for (let i = currentIndex; i < targetIndex; i++) {
       const levelData = promotionData[levels[i]];
       const nextLevelData = promotionData[levels[i + 1]];
-      
+
       // Base increase range
       const [minIncrease, maxIncrease] = levelData.increaseRange;
       const avgIncrease = (minIncrease + maxIncrease) / 2;
-      
+
       // Apply industry and company size multipliers
       const industryMultiplier = industryMultipliers[industry] || 1.0;
       const sizeMultiplier = companySizeMultipliers[companySize] || 1.0;
-      
+
       const adjustedIncrease = avgIncrease * industryMultiplier * sizeMultiplier;
       const stepIncrease = currentSal * (adjustedIncrease / 100);
-      
+
       steps.push({
         from: levelData.name,
         to: nextLevelData.name,
@@ -147,7 +148,7 @@ export default function PromotionSalaryCalculator() {
         percentage: adjustedIncrease,
         newSalary: currentSal + stepIncrease
       });
-      
+
       currentSal += stepIncrease;
       totalIncrease += stepIncrease;
     }
@@ -188,6 +189,12 @@ export default function PromotionSalaryCalculator() {
       />
 
       <div className="min-h-screen bg-gradient-to-br from-purple-50 via-white to-blue-50">
+        <BreadcrumbNavigation
+          items={[
+            { name: "Tools", url: "/tools" },
+            { name: "Promotion Calculator", url: "/tools/promotion-salary-calculator" }
+          ]}
+        />
         {/* Hero Section */}
         <section className="bg-white py-16">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -202,9 +209,23 @@ export default function PromotionSalaryCalculator() {
                 Promotion Salary Calculator
               </h1>
               <p className="mt-6 text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-                Calculate expected salary increases for promotions and career advancement. Plan your 
+                Calculate expected salary increases for promotions and career advancement. Plan your
                 next career move with industry-specific data and level-based projections.
               </p>
+
+              <div className="mt-10 relative">
+                <div className="absolute inset-0 bg-purple-200 blur-3xl opacity-20 transform -rotate-6 rounded-full"></div>
+                <img
+                  src="/images/calculators/promotion-salary-hero.png"
+                  alt="Career advancement ladder showing promotion steps and salary growth"
+                  className="relative rounded-xl shadow-2xl border-4 border-white mx-auto w-full max-w-2xl transform hover:scale-[1.02] transition-transform duration-500"
+                  loading="lazy"
+                  onError={(e) => {
+                    const target = e.target as HTMLImageElement;
+                    target.style.display = 'none';
+                  }}
+                />
+              </div>
             </div>
           </div>
         </section>
@@ -220,7 +241,7 @@ export default function PromotionSalaryCalculator() {
                 Follow these steps to accurately estimate your salary increase potential
               </p>
             </div>
-            
+
             <div className="grid md:grid-cols-4 gap-6 mb-8">
               <div className="bg-white rounded-lg p-6 shadow-lg">
                 <div className="bg-purple-600 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
@@ -228,40 +249,40 @@ export default function PromotionSalaryCalculator() {
                 </div>
                 <h3 className="font-semibold text-gray-900 mb-3">Current Details</h3>
                 <p className="text-gray-600 text-sm">
-                  Enter your current salary and select your current job level. Be accurate 
+                  Enter your current salary and select your current job level. Be accurate
                   with your base salary excluding bonuses.
                 </p>
               </div>
-              
+
               <div className="bg-white rounded-lg p-6 shadow-lg">
                 <div className="bg-blue-600 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
                   <span className="text-white font-bold text-xl">2</span>
                 </div>
                 <h3 className="font-semibold text-gray-900 mb-3">Target Level</h3>
                 <p className="text-gray-600 text-sm">
-                  Choose your target promotion level. Each level up typically 
+                  Choose your target promotion level. Each level up typically
                   represents specific salary increase ranges.
                 </p>
               </div>
-              
+
               <div className="bg-white rounded-lg p-6 shadow-lg">
                 <div className="bg-green-600 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
                   <span className="text-white font-bold text-xl">3</span>
                 </div>
                 <h3 className="font-semibold text-gray-900 mb-3">Industry & Size</h3>
                 <p className="text-gray-600 text-sm">
-                  Select your industry and company size. These factors significantly 
+                  Select your industry and company size. These factors significantly
                   impact promotion salary ranges.
                 </p>
               </div>
-              
+
               <div className="bg-white rounded-lg p-6 shadow-lg">
                 <div className="bg-orange-600 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
                   <span className="text-white font-bold text-xl">4</span>
                 </div>
                 <h3 className="font-semibold text-gray-900 mb-3">View Projections</h3>
                 <p className="text-gray-600 text-sm">
-                  Get detailed salary projections including minimum, expected, 
+                  Get detailed salary projections including minimum, expected,
                   and maximum ranges for your promotion.
                 </p>
               </div>
@@ -410,7 +431,7 @@ export default function PromotionSalaryCalculator() {
                             {PayRaiseCalculator.formatCurrency(results.finalSalary)}
                           </div>
                           <div className="text-sm opacity-90 mt-2">
-                            <span>{PayRaiseCalculator.formatCurrency(results.totalIncrease)}</span> increase 
+                            <span>{PayRaiseCalculator.formatCurrency(results.totalIncrease)}</span> increase
                             ({PayRaiseCalculator.formatPercentage(results.totalPercentage)})
                           </div>
                         </CardContent>
@@ -465,7 +486,7 @@ export default function PromotionSalaryCalculator() {
                             </div>
                           </CardContent>
                         </Card>
-                        
+
                         <Card className="bg-green-50">
                           <CardContent className="p-4 text-center">
                             <div className="text-sm text-green-600">Timeline</div>
@@ -510,7 +531,7 @@ export default function PromotionSalaryCalculator() {
             <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
               Understanding Promotion Salary Increases
             </h2>
-            
+
             <div className="grid md:grid-cols-2 gap-8">
               <Card>
                 <CardHeader>

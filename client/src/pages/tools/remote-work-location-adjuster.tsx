@@ -5,7 +5,8 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { SEOHead } from "@/components/seo/head";
-import { Calculator, MapPin, TrendingUp, DollarSign, Building2, Home } from "lucide-react";
+import { Calculator, MapPin, TrendingUp, DollarSign, Building2, Home, BookOpen } from "lucide-react";
+import { BreadcrumbNavigation } from "@/components/seo/breadcrumb-navigation";
 
 export default function RemoteWorkLocationAdjuster() {
   const [currentSalary, setCurrentSalary] = useState<string>("");
@@ -56,22 +57,22 @@ export default function RemoteWorkLocationAdjuster() {
 
   const calculateAdjustment = () => {
     if (!currentSalary || !currentLocation || !newLocation || !workArrangement) return;
-    
+
     const salary = parseFloat(currentSalary);
     const currentLoc = locations.find(l => l.value === currentLocation);
     const newLoc = locations.find(l => l.value === newLocation);
     const workAdj = workArrangements.find(w => w.value === workArrangement);
-    
+
     if (!currentLoc || !newLoc || !workAdj) return;
-    
+
     // Calculate location adjustment
     const locationRatio = newLoc.adjustment / currentLoc.adjustment;
     const workAdjustment = workAdj.adjustment;
-    
+
     const adjustedSalary = salary * locationRatio * workAdjustment;
     const salaryDifference = adjustedSalary - salary;
     const percentageChange = ((adjustedSalary - salary) / salary) * 100;
-    
+
     setResult({
       originalSalary: salary,
       adjustedSalary,
@@ -137,9 +138,61 @@ export default function RemoteWorkLocationAdjuster() {
               Remote Work Location Adjuster
             </h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Calculate salary adjustments for remote work arrangements and location changes. 
+              Calculate salary adjustments for remote work arrangements and location changes.
               Understand how cost of living and work flexibility affect compensation.
             </p>
+
+          </div>
+
+          <div className="mb-8">
+            <BreadcrumbNavigation
+              items={[
+                { name: "Tools", url: "/tools" },
+                { name: "Remote Work Adjuster", url: "/tools/remote-work-location-adjuster" }
+              ]}
+            />
+          </div>
+
+          {/* Guide Section */}
+          <div className="mb-12">
+            <h2 className="text-2xl font-bold text-gray-900 text-center mb-8">
+              How to Calculate Location Adjustments
+            </h2>
+            <div className="grid md:grid-cols-3 gap-6">
+              <Card className="text-center">
+                <CardHeader>
+                  <div className="mx-auto w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+                    <DollarSign className="h-6 w-6 text-blue-600" />
+                  </div>
+                  <CardTitle className="text-lg">Enter Details</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-gray-600">Input your current salary and select your working arrangement (Remote, Hybrid, or Office).</p>
+                </CardContent>
+              </Card>
+              <Card className="text-center">
+                <CardHeader>
+                  <div className="mx-auto w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
+                    <MapPin className="h-6 w-6 text-green-600" />
+                  </div>
+                  <CardTitle className="text-lg">Select Locations</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-gray-600">Choose your current location and the new location you are moving to or working from.</p>
+                </CardContent>
+              </Card>
+              <Card className="text-center">
+                <CardHeader>
+                  <div className="mx-auto w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
+                    <Calculator className="h-6 w-6 text-purple-600" />
+                  </div>
+                  <CardTitle className="text-lg">See Adjustment</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-gray-600">View the estimated salary adjustment based on cost of living differences.</p>
+                </CardContent>
+              </Card>
+            </div>
           </div>
 
           <div className="grid lg:grid-cols-3 gap-8">
@@ -164,7 +217,7 @@ export default function RemoteWorkLocationAdjuster() {
                         onChange={(e) => setCurrentSalary(e.target.value)}
                       />
                     </div>
-                    
+
                     <div>
                       <Label htmlFor="work-arrangement">Work Arrangement</Label>
                       <Select value={workArrangement} onValueChange={setWorkArrangement}>
@@ -198,7 +251,7 @@ export default function RemoteWorkLocationAdjuster() {
                         </SelectContent>
                       </Select>
                     </div>
-                    
+
                     <div>
                       <Label htmlFor="new-location">New Location</Label>
                       <Select value={newLocation} onValueChange={setNewLocation}>
@@ -216,8 +269,8 @@ export default function RemoteWorkLocationAdjuster() {
                     </div>
                   </div>
 
-                  <Button 
-                    onClick={calculateAdjustment} 
+                  <Button
+                    onClick={calculateAdjustment}
                     className="w-full"
                     disabled={!currentSalary || !currentLocation || !newLocation || !workArrangement}
                   >
@@ -327,7 +380,7 @@ export default function RemoteWorkLocationAdjuster() {
             </Card>
           </div>
         </div>
-      </div>
+      </div >
     </>
   );
 }

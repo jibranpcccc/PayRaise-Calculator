@@ -5,16 +5,19 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { SEOHead } from "@/components/seo/head";
-import { 
-  Users, 
-  Calculator, 
+import {
+  Users,
+  Calculator,
   BarChart3,
   Target,
   AlertTriangle,
   TrendingDown,
   DollarSign,
-  Scale
+  Scale,
+  BookOpen
 } from "lucide-react";
+import { BreadcrumbNavigation } from "@/components/seo/breadcrumb-navigation";
+import { GenderPayGapChart } from "@/components/infographics/gender-pay-gap-chart";
 
 export default function GenderPayGapCalculator() {
   const [maleSalary, setMaleSalary] = useState<string>("");
@@ -57,14 +60,14 @@ export default function GenderPayGapCalculator() {
   const calculateGap = () => {
     const male = parseFloat(maleSalary) || 0;
     const female = parseFloat(femaleSalary) || 0;
-    
+
     if (male === 0 || female === 0) return null;
-    
+
     const gap = ((male - female) / male) * 100;
     const annualDifference = male - female;
     const lifetimeImpact = annualDifference * 40; // 40-year career
     const industryGap = industry ? industryGaps[industry as keyof typeof industryGaps]?.gap : 12.3;
-    
+
     return {
       gap: Math.abs(gap),
       annualDifference: Math.abs(annualDifference),
@@ -121,6 +124,12 @@ export default function GenderPayGapCalculator() {
       />
 
       <div className="min-h-screen bg-gray-50">
+        <BreadcrumbNavigation
+          items={[
+            { name: "Tools", url: "/tools" },
+            { name: "Gender Pay Gap", url: "/tools/gender-pay-gap-calculator" }
+          ]}
+        />
         {/* Hero Section */}
         <section className="bg-white py-12">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -142,7 +151,7 @@ export default function GenderPayGapCalculator() {
                 <Badge variant="outline">2025 Data</Badge>
               </div>
               <p className="text-lg text-gray-600">
-                Calculate gender pay gaps, compare against industry standards, and understand 
+                Calculate gender pay gaps, compare against industry standards, and understand
                 the factors that contribute to compensation disparities.
               </p>
             </div>
@@ -162,6 +171,52 @@ export default function GenderPayGapCalculator() {
                   </CardContent>
                 </Card>
               ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Step-by-Step Guide */}
+        <section className="py-12 bg-gray-50">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 className="text-2xl font-bold text-gray-900 text-center mb-8">
+              How to Use the Pay Gap Calculator
+            </h2>
+            <div className="grid md:grid-cols-3 gap-6">
+              <Card className="text-center">
+                <CardHeader>
+                  <div className="mx-auto w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+                    <DollarSign className="h-6 w-6 text-blue-600" />
+                  </div>
+                  <CardTitle className="text-lg">Enter Salaries</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-gray-600">Input the two salaries you wish to compare. Typically, this involves a male colleague's salary and a female colleague's salary for the same role.</p>
+                </CardContent>
+              </Card>
+
+              <Card className="text-center">
+                <CardHeader>
+                  <div className="mx-auto w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
+                    <Users className="h-6 w-6 text-purple-600" />
+                  </div>
+                  <CardTitle className="text-lg">Add Context</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-gray-600">Select the industry and position level to get accurate benchmarks and see how the gap compares to national averages.</p>
+                </CardContent>
+              </Card>
+
+              <Card className="text-center">
+                <CardHeader>
+                  <div className="mx-auto w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mb-4">
+                    <BarChart3 className="h-6 w-6 text-red-600" />
+                  </div>
+                  <CardTitle className="text-lg">Analyze Results</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-gray-600">Review the percentage gap, lifetime earnings impact, and see if the disparity is above or below industry norms.</p>
+                </CardContent>
+              </Card>
             </div>
           </div>
         </section>
@@ -231,7 +286,7 @@ export default function GenderPayGapCalculator() {
                       </Select>
                     </div>
                   </div>
-                  
+
                   {results && (
                     <div className="bg-red-50 p-6 rounded-lg">
                       <h3 className="font-semibold text-gray-900 mb-4 flex items-center">
@@ -261,12 +316,12 @@ export default function GenderPayGapCalculator() {
                               <span className="text-sm text-gray-600">Comparison:</span>
                               <Badge className={
                                 results.comparison === "above" ? "bg-red-100 text-red-800" :
-                                results.comparison === "below" ? "bg-green-100 text-green-800" :
-                                "bg-yellow-100 text-yellow-800"
+                                  results.comparison === "below" ? "bg-green-100 text-green-800" :
+                                    "bg-yellow-100 text-yellow-800"
                               }>
                                 {results.comparison === "above" ? "Above Industry Average" :
-                                 results.comparison === "below" ? "Below Industry Average" :
-                                 "At Industry Average"}
+                                  results.comparison === "below" ? "Below Industry Average" :
+                                    "At Industry Average"}
                               </Badge>
                             </div>
                           </div>
@@ -286,7 +341,7 @@ export default function GenderPayGapCalculator() {
             <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
               Pay Gap by Industry
             </h2>
-            
+
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
               {Object.entries(industryGaps).map(([ind, data]) => (
                 <Card key={ind} className="calculator-shadow">
@@ -295,8 +350,8 @@ export default function GenderPayGapCalculator() {
                     <div className="text-2xl font-bold text-red-600 mb-2">{data.gap}%</div>
                     <Badge className={
                       data.trend === "improving" ? "bg-green-100 text-green-800" :
-                      data.trend === "declining" ? "bg-red-100 text-red-800" :
-                      "bg-yellow-100 text-yellow-800"
+                        data.trend === "declining" ? "bg-red-100 text-red-800" :
+                          "bg-yellow-100 text-yellow-800"
                     }>
                       {data.trend}
                     </Badge>
@@ -307,13 +362,22 @@ export default function GenderPayGapCalculator() {
           </div>
         </section>
 
+        <section className="py-12 bg-gray-50">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
+              Gender Pay Gap by Age Group
+            </h2>
+            <GenderPayGapChart />
+          </div>
+        </section>
+
         {/* Factors Influencing Pay Gaps */}
         <section className="py-12 bg-gray-50">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
               Factors Influencing Pay Gaps
             </h2>
-            
+
             <div className="grid md:grid-cols-2 gap-6">
               {factorsInfluencing.map((factor, index) => (
                 <Card key={index} className="calculator-shadow">
@@ -329,8 +393,8 @@ export default function GenderPayGapCalculator() {
                         <span className="text-sm text-gray-600">Impact Level:</span>
                         <Badge className={
                           factor.impact === "High" ? "bg-red-100 text-red-800" :
-                          factor.impact === "Medium" ? "bg-yellow-100 text-yellow-800" :
-                          "bg-green-100 text-green-800"
+                            factor.impact === "Medium" ? "bg-yellow-100 text-yellow-800" :
+                              "bg-green-100 text-green-800"
                         }>
                           {factor.impact}
                         </Badge>
@@ -358,7 +422,7 @@ export default function GenderPayGapCalculator() {
             <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
               Legal and Ethical Considerations
             </h2>
-            
+
             <div className="space-y-6">
               <Card className="calculator-shadow">
                 <CardHeader>
@@ -407,7 +471,7 @@ export default function GenderPayGapCalculator() {
                 <Target className="h-12 w-12 text-primary mx-auto mb-4" />
                 <h2 className="text-2xl font-bold text-gray-900 mb-4">Addressing Pay Gaps</h2>
                 <p className="text-gray-600 mb-6">
-                  Understanding pay gaps is the first step toward creating more equitable compensation. 
+                  Understanding pay gaps is the first step toward creating more equitable compensation.
                   Use this data to advocate for fair pay and workplace equity.
                 </p>
                 <div className="grid md:grid-cols-3 gap-6 text-sm">

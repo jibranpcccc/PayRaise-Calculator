@@ -5,35 +5,44 @@ import { Calculator, TrendingUp, DollarSign, AlertTriangle, ArrowRight, BarChart
 import { Card, CardContent } from "../../components/ui/card";
 import { Button } from "../../components/ui/button";
 import { Link } from "wouter";
+import { CompoundRaiseChart } from "../../components/infographics/compound-raise-chart";
 
 export default function IsThreePercentRaiseGood() {
     const publishDate = "2025-01-20";
     const modifiedDate = "2025-01-20";
+
+    const structuredData = SchemaGenerator.article({
+        headline: "Is a 3% Raise Good in 2025? (Inflation vs. Reality)",
+        description: "Analysis of 2025 salary trends: Is a 3% raise enough to beat inflation? See the data on average merit increases, cost of living, and what you should really ask for.",
+        url: "https://payraisepercentagecalculator.com/blog/is-a-3-percent-raise-good",
+        datePublished: publishDate,
+        dateModified: modifiedDate,
+        author: "Pay Raise Team",
+        image: "https://payraisepercentagecalculator.com/images/blog/is-a-3-percent-raise-good-hero.png",
+        keywords: [
+            "is a 3% raise good 2025",
+            "average salary increase 2025",
+            "inflation vs salary raise 2025",
+            "typical merit increase",
+            "cost of living adjustment 2025"
+        ]
+    });
 
     return (
         <div className="min-h-screen bg-gray-50">
             <SEOHead
                 title="Is a 3% Raise Good in 2025? (Inflation vs. Reality)"
                 description="Analysis of 2025 salary trends: Is a 3% raise enough to beat inflation? See the data on average merit increases, cost of living, and what you should really ask for."
-                canonicalUrl="https://payraisepercentagecalculator.com/blog/is-a-3-percent-raise-good"
-                type="article"
-                publishedTime={publishDate}
-                modifiedTime={modifiedDate}
-                keywords={[
-                    "is a 3% raise good 2025",
-                    "average salary increase 2025",
-                    "inflation vs salary raise 2025",
-                    "typical merit increase",
-                    "cost of living adjustment 2025"
-                ]}
+                canonical="/blog/is-a-3-percent-raise-good"
+                keywords="is a 3% raise good 2025, average salary increase 2025, inflation vs salary raise 2025, typical merit increase, cost of living adjustment 2025"
+                structuredData={structuredData}
             />
 
             <div className="container mx-auto px-4 py-8 max-w-4xl">
                 <BreadcrumbNavigation
                     items={[
-                        { name: "Home", item: "/" },
-                        { name: "Blog", item: "/blog" },
-                        { name: "Is a 3% Raise Good?", item: "/blog/is-a-3-percent-raise-good" },
+                        { name: "Blog", url: "/blog" },
+                        { name: "Is a 3% Raise Good?", url: "/blog/is-a-3-percent-raise-good" },
                     ]}
                 />
 
@@ -41,9 +50,15 @@ export default function IsThreePercentRaiseGood() {
                     {/* Hero Section */}
                     <div className="relative h-64 md:h-80 w-full">
                         <img
-                            src="/images/calculators/inflation-adjusted-raise-calculator.jpg"
+                            src="/images/blog/is-a-3-percent-raise-good.png"
                             alt="Inflation vs Salary Raise Balance Scale"
                             className="w-full h-full object-cover"
+                            loading="lazy"
+                            onError={(e) => {
+                                const target = e.target as HTMLImageElement;
+                                target.style.display = 'none';
+                                target.parentElement!.className += ' bg-gradient-to-r from-blue-100 to-indigo-100';
+                            }}
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent flex items-end">
                             <div className="p-8 text-white">
@@ -98,7 +113,7 @@ export default function IsThreePercentRaiseGood() {
                                         <div className="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-2">Avg. Corporate Raise Budget</div>
                                         <div className="text-4xl font-bold text-green-600 mb-2">3.9%</div>
                                         <p className="text-sm text-gray-500">
-                                            Sources: WorldatWork, The Conference Board. Companies are budgeting higher than pre-pandemic norms.
+                                            Sources: <a href="https://www.worldatwork.org/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">WorldatWork</a>, <a href="https://www.conference-board.org/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">The Conference Board</a>. Companies are budgeting higher than pre-pandemic norms.
                                         </p>
                                     </CardContent>
                                 </Card>
@@ -152,6 +167,20 @@ export default function IsThreePercentRaiseGood() {
                                         <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                                     </Button>
                                 </Link>
+                            </div>
+
+                            <h2 className="flex items-center text-gray-900 mt-10 mb-4">
+                                <BarChart className="mr-3 h-8 w-8 text-blue-600" />
+                                Long-Term Impact: 3% vs 5%
+                            </h2>
+                            <p>
+                                The difference between a 3% and 5% raise might seem small ($1,500 on a $75k salary), but over time, the compound effect is massive.
+                            </p>
+                            <div className="my-8 not-prose">
+                                <CompoundRaiseChart />
+                                <p className="text-sm text-center text-gray-500 mt-2">
+                                    <i>Chart: 5-Year Cumulative Salary Growth comparing 3% vs 5% annual raises.</i>
+                                </p>
                             </div>
 
                             <h2 className="text-gray-900 mt-10 mb-4">When is a 3% Raise Acceptable?</h2>
@@ -209,16 +238,13 @@ export default function IsThreePercentRaiseGood() {
                 </article>
             </div>
 
-            <SchemaGenerator
-                type="Article"
-                title="Is a 3% Raise Good in 2025?"
-                description="Analysis of 2025 salary trends: Is a 3% raise enough to beat inflation?"
-                url="https://payraisepercentagecalculator.com/blog/is-a-3-percent-raise-good"
-                image="https://payraisepercentagecalculator.com/images/calculators/inflation-adjusted-raise-calculator.jpg"
-                author="Pay Raise Team"
-                datePublished={publishDate}
-                dateModified={modifiedDate}
-            />
+            {/* Schema Generator usage removed or fixed if component is available. Assuming it was a valid component but used incorrectly or missing props. 
+                For now, commenting out if it causes major issues, or if I can inspect it.
+                Actually, looking at the error: 'SchemaGenerator' cannot be used as a JSX component. It might be a utility function, NOT a component.
+                I will remove it from JSX and use it as a function if possible, or just remove if I can't verify.
+                Wait, I can see the import: import { SchemaGenerator } from "../../components/seo/schema-generator";
+                I'll check the file content first to see how it's exported.
+            */}
         </div>
     );
 }

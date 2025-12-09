@@ -1,3 +1,5 @@
+import { Helmet } from "react-helmet-async";
+
 interface SEOHeadProps {
   title: string;
   description: string;
@@ -7,10 +9,10 @@ interface SEOHeadProps {
   structuredData?: object;
 }
 
-export function SEOHead({ 
-  title, 
-  description, 
-  canonical, 
+export function SEOHead({
+  title,
+  description,
+  canonical,
   keywords = "pay raise calculator, salary increase, wage calculator, promotion calculator",
   ogImage = "/og-image.jpg",
   structuredData
@@ -20,12 +22,12 @@ export function SEOHead({
   const canonicalUrl = canonical ? `${baseUrl}${canonical}` : `${baseUrl}${window?.location?.pathname || ''}`;
 
   return (
-    <>
+    <Helmet>
       <title>{fullTitle}</title>
       <meta name="description" content={description} />
       <meta name="keywords" content={keywords} />
       <link rel="canonical" href={canonicalUrl} />
-      
+
       {/* Open Graph */}
       <meta property="og:title" content={fullTitle} />
       <meta property="og:description" content={description} />
@@ -33,40 +35,31 @@ export function SEOHead({
       <meta property="og:type" content="website" />
       <meta property="og:image" content={`${baseUrl}${ogImage}`} />
       <meta property="og:site_name" content="PayRaise Calculator" />
-      
+
       {/* Twitter Card */}
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={fullTitle} />
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={`${baseUrl}${ogImage}`} />
-      
+
       {/* Additional SEO meta tags */}
       <meta name="robots" content="index, follow" />
       <meta name="author" content="PayRaise Calculator" />
-      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-      
+
       {/* Structured Data */}
       {structuredData && (
-        <script 
-          type="application/ld+json" 
+        <script
+          type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
         />
       )}
-      
+
       {/* Additional SEO Tags */}
       <meta name="theme-color" content="#3B82F6" />
       <meta name="msapplication-TileColor" content="#3B82F6" />
       <meta name="apple-mobile-web-app-capable" content="yes" />
       <meta name="apple-mobile-web-app-status-bar-style" content="default" />
       <meta name="apple-mobile-web-app-title" content="PayRaise Calculator" />
-      
-      {/* Preconnect to external domains */}
-      <link rel="preconnect" href="https://fonts.googleapis.com" />
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-      
-      {/* DNS prefetch for performance */}
-      <link rel="dns-prefetch" href="//fonts.googleapis.com" />
-      <link rel="dns-prefetch" href="//fonts.gstatic.com" />
-    </>
+    </Helmet>
   );
 }
